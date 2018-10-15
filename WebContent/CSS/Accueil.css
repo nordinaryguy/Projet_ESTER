@@ -3,6 +3,10 @@
   --input-padding-y: .75rem;
 }
 
+nav{
+	background-color: #e3f2fd;
+}
+
 html,
 body {
   height: 100%;
@@ -21,6 +25,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #f5f5f5;
+  
 }
 
 .form-signin {
