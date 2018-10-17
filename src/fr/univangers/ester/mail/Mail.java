@@ -79,13 +79,12 @@ public class Mail {
 	}
 	
 	public String mdpProvisoireBodyText(String name) {
-		String message="<h3>Bienvenue </h3>"+name+"<br/>";
-		message += "<p>Voici vos identifiants :</p>";
-		message += "<ul style=\"list-style-type:disc\"></br>" + 
-				"  <li>email : </li>" + this.aemailRecipient +"</br>"+
-				"  <li>mot de passe provisoire : </li>" + PwdGenerator.generatePassword()+"</br>"+
-				"</ul>  </br>" ;
-		message += "<p> Cordialement </p>";
+		String message="<p><b>Bienvenue "+name+",</b></p><br/>";
+		message += "<p>Vous avez fait une demande de création de profil sur <a href=>lien vers page d'acceuil</a> </p>";
+		message += "<p>Afin de vous connectez <a href=>Cliquez ici</a> </p> <br/>";
+		message += "<pstyle=\"text-align:Center;\"><b>mot de passe provisoire :" + PwdGenerator.generatePassword()+"</b> </p><br/>";
+		message += "<p>Bien Cordialement,</p>"+
+				   "<p>L'équipe de <a href=>lien vers page d'acceuil</a> </p>";
 		return message;
 	}
 	

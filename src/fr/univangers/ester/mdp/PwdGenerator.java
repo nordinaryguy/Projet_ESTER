@@ -11,11 +11,11 @@ public class PwdGenerator {
     protected static final String ALL_CHARS = "ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789^$*.[]{}()?-\\\"!@#%&/\\\\,><:;|_~";
     
     private static SecureRandom mRand;
-    private static int mPwdLength;
+    private static int mPwdLength=8;
+    private static int mCodeLength=5;
     
-    public PwdGenerator(int pPwdLength) {
+    public PwdGenerator() {
     	mRand=new SecureRandom();
-    	mPwdLength=pPwdLength;
     }
     
     
@@ -45,6 +45,28 @@ public class PwdGenerator {
     	return shuffle(password);
     }
     
+    public static String generateCode() {
+    	if(mCodeLength < 6) {
+    		System.out.println("Unsecure Length !!!");
+    	}
+    	char[] id=new char[mCodeLength];
+    	int randIndex;
+    	String idShuffled;
+    	//augmenter la longueur de l'id si limite des possibilités atteintes 
+    			/*****  TODO  ********/ 
+	    //id constitué de lettres en majuscule et chiffres sans doublons 
+	    StringBuilder upperNumeric=new StringBuilder(UPPERCASE.concat(NUMBERS));
+	    for(int i=0;i<mCodeLength;i++) {
+	    	randIndex=mRand.nextInt(upperNumeric.length());
+	    	id[i]=upperNumeric.charAt(randIndex);
+	    	upperNumeric.deleteCharAt(randIndex);
+	    }
+	    //permuter l'id 
+	    idShuffled =shuffle(id);
+	    //check if it already exists in DataBase
+	    	/*****  to do  ********/ 
+    	return idShuffled;
+    }
 
     private static String shuffle(char[] characters) {
         for (int i = 0; i < characters.length; i++) {
