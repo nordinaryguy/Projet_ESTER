@@ -13,70 +13,6 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
 public class Users {
-/*
-	private static final String SALARIES = "Salariés";
-	private static final String SEXE = "Sexe";
-	private static final String NUMERODEPARTEMENT = "Numéro de département";
-	private static final String NOMDEPARTEMENT = "Nom de département";
-	private static final String DATEDENAISSANCE = "Date de naissance";
-	private static final String ENTREPRISES = "Entreprises";
-	private static final String UTILISATEURS = "Utilisateurs";
-	private static final String DEPARTEMENTS = "Départements";
-	private static final String MOTDEPASSE = "Mot de passe";
-	private static final String LISTEDESALARIES = "Liste de salariés";
-	private static final String PREMIERECONNEXION = "Première connexion";
-	private static final String REGION = "Region";
-	
-	public ObjectId addSalarie(String motDePasse, String sexe, Date dateDeNaissance, int numero, boolean premiereConnexion) {
-		MongoCollection<Document> salaries = database.getCollection(SALARIES);
-		Document salarie = new Document(MOTDEPASSE, motDePasse)
-				.append(SEXE, sexe)
-				.append(DATEDENAISSANCE, dateDeNaissance)
-				.append(NUMERODEPARTEMENT, numero)
-				.append(PREMIERECONNEXION, premiereConnexion);
-		salaries.insertOne(salarie);
-		return salarie.getObjectId("_id");
-	}
-	
-	public void removeSalarie(ObjectId id) {
-		MongoCollection<Document> entreprises = database.getCollection(SALARIES);
-		entreprises.deleteOne(Filters.eq("_id", id));
-	}
-	
-	public ObjectId addEntreprise(String motDePasse,  List<String> listeSalaries, boolean premiereConnexion) {
-		MongoCollection<Document> entreprises = database.getCollection(ENTREPRISES);
-		Document entreprise = new Document(MOTDEPASSE, motDePasse)
-				.append(LISTEDESALARIES, listeSalaries)
-				.append(PREMIERECONNEXION, premiereConnexion);
-		entreprises.insertOne(entreprise);
-		return entreprise.getObjectId("_id");
-	}
-	
-	public ObjectId addUtilisateur(String motDePasse, List<String> listeSalaries, boolean premiereConnexion) {
-		MongoCollection<Document> utilisateurs = database.getCollection(UTILISATEURS);
-		Document utilisateur = new Document(MOTDEPASSE, motDePasse)
-				.append(LISTEDESALARIES, listeSalaries)
-				.append(PREMIERECONNEXION, premiereConnexion);
-		utilisateurs.insertOne(utilisateur);
-		return utilisateur.getObjectId("_id");
-	}
-	
-	public ObjectId addDepartement(int numero, String nom, String region) {
-		MongoCollection<Document> departements = database.getCollection(DEPARTEMENTS);
-		Document departement = new Document(NUMERODEPARTEMENT, numero)
-				.append(NOMDEPARTEMENT, nom)
-				.append(REGION, region);
-		departements.insertOne(departement);
-		return departement.getObjectId("_id");
-	}
-	
-	
-	
-	
-
-	
-	
-	*/
 	
 	private static final String C_SALARIE = "C_SALARIE";
 	private static final String C_ENTREPRISE = "C_ENTREPRISE";
@@ -91,6 +27,19 @@ public class Users {
 	private static final String SALARIES = "Salariés";
 	private static final String STATUS = "Statut";
 	
+	private static final String ANONYMITYNUMBER = "Numéro d’anonymat";
+	private static final String SEX = "Sexe";
+	private static final String BIRTHYEAR = "Année de naissance";
+	private static final String DEPARTMENT = "Département";
+	private static final String ACTIVITYAREA = "Secteur d’activité";
+	private static final String POSTNAME = "Nom du poste";
+	private static final String QUESTIONNAIRESANSWERED = "Questionnaires répondus";
+	private static final String QUESTIONNAIRESUNANSWERED = "Questionnaires non répondus";
+	private static final String ENTREPRISE = "Entreprise";
+	private static final String USERESTER = "Utilisateur ESTER ID";
+	private static final String NBCONNECTION = "Nombre de connexion";
+	private static final String TIMECONNECTION = "Durée de la connexion";
+	
 	private static final String HOSTNAME = "localhost";
 	private static final int PORT = 27017;
 	private static final String DBNAME = "BDD_ESTER_DEV";
@@ -103,6 +52,58 @@ public class Users {
 		database = client.getDatabase(DBNAME);
 	}
 	
+	public void addSalarie(String identifiant, int anonymityNumber, String password, String sex, int birthYear, 
+			String department, String activityArea, String postName, String entreprise, String userEster) {
+		MongoCollection<Document> salaries = database.getCollection(C_SALARIE);
+		Document salarie = new Document(IDENTIFIANT, identifiant)
+				.append(ANONYMITYNUMBER, anonymityNumber)
+				.append(FIRSTCONNECTION, true)
+				.append(PASSWORD, password)
+				.append(SEX, sex)
+				.append(BIRTHYEAR, birthYear)
+				.append(DEPARTMENT, department)
+				.append(ACTIVITYAREA, activityArea)
+				.append(POSTNAME, postName)
+				.append(QUESTIONNAIRESANSWERED, new ArrayList<Document>())
+				.append(QUESTIONNAIRESUNANSWERED, new ArrayList<Document>())
+				.append(ENTREPRISE, entreprise)
+				.append(USERESTER, userEster)
+				.append(NBCONNECTION, 0)
+				.append(TIMECONNECTION, 0);	
+		salaries.insertOne(salarie);
+		pushSalarieIntoEntreprise(entreprise, identifiant);
+	}
+	
+	public void deleteSalarie(String identifiant) {
+		MongoCollection<Document> salaries = database.getCollection(C_SALARIE);
+		salaries.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
+	}
+	
+	public void changePasswordSalarie(String identifant, String password) {
+		MongoCollection<Document> salaries = database.getCollection(C_SALARIE);
+		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
+				new Document("$set", new Document(PASSWORD, password)));
+	}
+	
+	public void changeFirstConnectionSalarie(String identifant, boolean firstConnection) {
+		MongoCollection<Document> salaries = database.getCollection(C_SALARIE);
+		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
+				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
+	}
+	
+	public boolean existSalarie(String identifiant) {
+		MongoCollection<Document> salaries = database.getCollection(C_SALARIE);
+	    FindIterable<Document> iterable = salaries.find(Filters.eq(IDENTIFIANT, identifiant));
+		return iterable.first() != null;
+	}
+	
+	public boolean connectSalarie(String identifiant, String password) {
+		MongoCollection<Document> salaries = database.getCollection(C_USER_ESTER);
+	    FindIterable<Document> iterable = salaries.find(Filters.and(Filters.eq(IDENTIFIANT, identifiant),
+	    		Filters.eq(PASSWORD, password)));
+		return iterable.first() != null;
+	}
+	
 	public void addUserEster(String identifiant, String name, String firstName, String mail, String password, String status) {
 		if(existUserEster(identifiant)) {
 			throw new IllegalArgumentException("Identifiant déja ajouter");
@@ -112,7 +113,7 @@ public class Users {
 				.append(NAME, name)
 				.append(FIRSTNAME, firstName)
 				.append(MAIL, mail)
-				.append(FIRSTCONNECTION, false)
+				.append(FIRSTCONNECTION, true)
 				.append(PASSWORD, password)
 				.append(STATUS, status);	
 		users.insertOne(user);
@@ -155,7 +156,7 @@ public class Users {
 		MongoCollection<Document> entreprises = database.getCollection(C_ENTREPRISE);
 		Document entreprise = new Document(IDENTIFIANT, identifiant)
 				.append(NAME, name)
-				.append(FIRSTCONNECTION, false)
+				.append(FIRSTCONNECTION, true)
 				.append(PASSWORD, password)
 				.append(SALARIES, new ArrayList<Document>());	
 		entreprises.insertOne(entreprise);

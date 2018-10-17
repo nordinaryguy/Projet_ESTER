@@ -6,8 +6,8 @@ public class Test {
 		Users users = new Users();
 		users.deleteEntreprise("id66");
 		users.deleteEntreprise("id55");
-		users.addEntreprise("id66", "AA", false, "mdp");
-		users.addEntreprise("id55", "TT", false, "mdp");
+		users.addEntreprise("id66", "AA", "mdp");
+		users.addEntreprise("id55", "TT", "mdp");
 		users.pushSalarieIntoEntreprise("id55", "id3");
 		users.pushSalarieIntoEntreprise("id55", "id4");
 		for(String salarie : users.getSalariesEntreprise("id55")) {
