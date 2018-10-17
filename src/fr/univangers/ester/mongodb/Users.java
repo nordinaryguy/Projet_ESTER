@@ -1,7 +1,6 @@
 package fr.univangers.ester.mongodb;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.bson.Document;
@@ -85,9 +84,12 @@ public class Users {
 	
 	private static final String IDENTIFIANT = "Identifiant";
 	private static final String NAME = "Nom";
+	private static final String FIRSTNAME = "Prénom";
 	private static final String FIRSTCONNECTION = "Première connexion";
 	private static final String PASSWORD = "Mot de passe";
+	private static final String MAIL = "Mail";
 	private static final String SALARIES = "Salariés";
+	private static final String STATUS = "Statut";
 	
 	private static final String HOSTNAME = "localhost";
 	private static final int PORT = 27017;
@@ -101,22 +103,67 @@ public class Users {
 		database = client.getDatabase(DBNAME);
 	}
 	
-	public void addEntreprise(String identifiant, String name, boolean firstConnection, String password) throws IllegalArgumentException {
+	public void addUserEster(String identifiant, String name, String firstName, String mail, String password, String status) {
+		if(existUserEster(identifiant)) {
+			throw new IllegalArgumentException("Identifiant déja ajouter");
+		}
+		MongoCollection<Document> users = database.getCollection(C_USER_ESTER);
+		Document user = new Document(IDENTIFIANT, identifiant)
+				.append(NAME, name)
+				.append(FIRSTNAME, firstName)
+				.append(MAIL, mail)
+				.append(FIRSTCONNECTION, false)
+				.append(PASSWORD, password)
+				.append(STATUS, status);	
+		users.insertOne(user);
+	}
+	
+	public void deleteUserEster(String identifiant) {
+		MongoCollection<Document> users = database.getCollection(C_USER_ESTER);
+		users.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
+	}
+	
+	public void changePasswordUserEster(String identifant, String password) {
+		MongoCollection<Document> users = database.getCollection(C_USER_ESTER);
+		users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
+				new Document("$set", new Document(PASSWORD, password)));
+	}
+	
+	public void changeFirstConnectionUserEster(String identifant, boolean firstConnection) {
+		MongoCollection<Document> users = database.getCollection(C_USER_ESTER);
+		users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
+				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
+	}
+	
+	public boolean existUserEster(String identifiant) {
+		MongoCollection<Document> users = database.getCollection(C_USER_ESTER);
+	    FindIterable<Document> iterable = users.find(Filters.eq(IDENTIFIANT, identifiant));
+		return iterable.first() != null;
+	}
+	
+	public boolean connectUserEster(String identifiant, String password) {
+		MongoCollection<Document> users = database.getCollection(C_USER_ESTER);
+	    FindIterable<Document> iterable = users.find(Filters.and(Filters.eq(IDENTIFIANT, identifiant),
+	    		Filters.eq(PASSWORD, password)));
+		return iterable.first() != null;
+	}
+	
+	public void addEntreprise(String identifiant, String name, String password) {
 		if(existEntreprise(identifiant)) {
 			throw new IllegalArgumentException("Identifiant déja ajouter");
 		}
 		MongoCollection<Document> entreprises = database.getCollection(C_ENTREPRISE);
 		Document entreprise = new Document(IDENTIFIANT, identifiant)
 				.append(NAME, name)
-				.append(FIRSTCONNECTION, firstConnection)
+				.append(FIRSTCONNECTION, false)
 				.append(PASSWORD, password)
 				.append(SALARIES, new ArrayList<Document>());	
 		entreprises.insertOne(entreprise);
 	}
 	
-	public void deleteEntreprise(String identifant) {
+	public void deleteEntreprise(String identifiant) {
 		MongoCollection<Document> entreprises = database.getCollection(C_ENTREPRISE);
-		entreprises.deleteOne(Filters.eq(IDENTIFIANT, identifant));
+		entreprises.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
 	public void changePasswordEntreprise(String identifant, String password) {
