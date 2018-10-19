@@ -9,31 +9,62 @@
         <script type='text/javascript' src='/Projet_ESTER/dwr/util.js'></script>
   		<script type='text/javascript' src='/Projet_ESTER/dwr/interface/Charts.js'></script>
   		<script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://code.highcharts.com/modules/export-data.js"></script>
+		<script src="${pageContext.request.contextPath}/js/lang/highcharts_french.js"></script>
     </head>
     <body>
 
   <span id="d2" class="reply"></span>
+  		<div id="id1" style="min-width: 310px; max-width: 1000px; height: 400px; margin: 0 auto"></div>
+  
 		<div id="container" style="min-width: 310px; max-width: 1000px; height: 400px; margin: 0 auto"></div>
     
     <script type='text/javascript' >
-    Highcharts.setOptions({
-        lang: {
-            months: [
-                'Janvier', 'Février', 'Mars', 'Avril',
-                'Mai', 'Juin', 'Juillet', 'Août',
-                'Septembre', 'Octobre', 'Novembre', 'Décembre'
-            ],
-            weekdays: [
-                'Dimanche', 'Lundi', 'Mardi', 'Mercredi',
-                'Jeudi', 'Vendredi', 'Samedi'
-            ],
-            downloadCSV: 'Tee CSV'
-        }
+    
+    Charts.getDataCSV(function(data) {
+    	Highcharts.chart('id1', {
+	      	  chart: {
+	      	    type: 'bar'
+	      	  },
+	      	  title: {
+	      	    text: 'Questionnaire B'
+	      	  },
+	      	  exporting: {},
+	      	  xAxis: {
+	      	    categories: []
+	      	  },
+	      	  yAxis: {
+	      	    min: 0,
+	      	    max: 100,
+	      	    title: {
+	      	      text: 'Pourcentage de la population de réference'
+	      	    },
+	      	    labels: {
+	      	      format: " {value} %"
+	      	    }
+	      	  },
+	      	  legend: {
+	      	    reversed: true
+	      	  },
+	      	  plotOptions: {
+	      	    series: {
+	      	      stacking: 'normal'
+	      	    }
+	      	  },
+	      	  data: {
+	      		  csv: data
+	      	  },
+              series: [],
+	      	  colors: [
+		      	'#ff3d00',
+	      	    '#ff9100',
+	      	    '#ffea00',
+	      	    '#00e676'
+	      	  ]
+    	});
     });
-    
-    
     
     Charts.getTotallyAgree(function(data) {
         if (data != null && typeof data == 'object') var totallyAgree = data;
@@ -60,7 +91,7 @@
 					      	    min: 0,
 					      	    max: 100,
 					      	    title: {
-					      	      text: 'Pourçantage de la population de réference'
+					      	      text: 'Pourcentage de la population de réference'
 					      	    },
 					      	    labels: {
 					      	      format: " {value} %"
