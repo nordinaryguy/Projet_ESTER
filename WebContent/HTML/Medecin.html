@@ -82,6 +82,11 @@
 			  	</nav>
 				 <div class="collapse" id="navbarToggleExternalContent">
 			  		<ul>
+			  		
+			  			<li class="nav-item">
+				       		<a class="nav-link" data-toggle="modal" data-target="#CreerCompte" href="#">Création des comptes</a>			       		
+				        </li>
+				        
 				  		<li class="nav-item dropdown">
 					        <a class="nav-link dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          Création de compte
@@ -139,6 +144,42 @@
 			</div> 
 		</div>
 	</div>
+	
+	<div class="modal" id="CreerCompte">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+						
+						      <!-- Modal Header -->
+				      <div class="modal-header">
+					        <h4 class="modal-title">Créer un nouveau compte</h4>
+					       	<button type="button" class="close" data-dismiss="modal">&times;</button>
+				      </div>
+						
+						      <!-- Modal body -->
+				      <div class="modal-body">
+					      	 <label for =typeCompte>Choisissez un type de compte :</label>		     
+						     <select name="typeCompte" size="1">
+								 <option>Assistant</option>
+							     <option>Infirmier</option>
+							     <option>Préventeur</option>
+						     </select>
+							     
+						     <div class="pt-2">
+							        <input type="email" id="adress_Email" class="form-control" placeholder="Adresse Email" required>
+							      </div>
+								    		        
+						      </div>
+						
+						      <!-- Modal footer -->
+						   	  <div class="modal-footer">
+						      	<button type="button" class="btn btn-outline-primary" data-dismiss="modal">Valider</button>
+						        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+						      </div>
+						
+					</div>
+		  </div>
+	</div>
+	
     
 </body>
 </html>
