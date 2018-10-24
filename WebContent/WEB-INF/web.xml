@@ -13,12 +13,4 @@
     <servlet-name>dwr-invoker</servlet-name>
     <url-pattern>/dwr/*</url-pattern>
   </servlet-mapping>
-  <servlet>
-    <servlet-name>Test</servlet-name>
-    <servlet-class>com.sdzee.servlets.Test</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Test</servlet-name>
-    <url-pattern>/toto</url-pattern>
-  </servlet-mapping>
 </web-app>
