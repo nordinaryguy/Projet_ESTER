@@ -2,207 +2,36 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>generateur de questionnaire</title>
-    <link href="js/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="js/bootstrap.min.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <title>Editeur d'Interface Graphique</title>
+    
+      <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+       
+    <!-- Custom styles for this template -->
+    <link href="../CSS/Accueil.css" rel="stylesheet">
+    
+    <!-- Script JavaScript -->
+    
+    <script src="../js/Administrateur.js"></script>
+    <script src="../js/test.js"></script>
+    
+    
   </head>
 
-  <body>
-  <!-- entete de page (logo) -->
+  <body onload="init()">
+  
  
-  <div class="shadowbottom">
-  <div class="repeating-linear">
-    <div class="row">
-          <div class="col-md-7" style="text-align: center;" >
-            <img src="irset.png" width= "150 px" ; margin-top= "80 px" >
-          </div>
-          <div class="col-md-3" style="text-align: center;" >
-            <img src="ua.png" width= "150 px" >
-          </div>
-  	 </div>
  
-   </div>
-   </div>
    <!-- questionnaire -->
-    <div class="container">
-      <div class="row clearfix">
-      
-        <div class="col-md-8">
-          <div class="clearfix">
-            <h2>Questionnaire :</h2>
-            <hr>
-            <div id="build">
-              <form id="target" class="form-horizontal" style="word-wrap: break-word;overflow: auto; background:white;">
-                <fieldset>
-                  <div id="legend" class="component" rel="popover" title="Form Title" trigger="manual"
-                    data-content="
-                    <form class='form'>
-                      <div class='form-group col-md-12'>
-                        <label class='control-label'>titre</label> <input class='form-control' type='text' name='title' id='text'>
-                        <hr/>
-                        <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
-                      </div>
-                    </form>" data-html="true"
-                    >
-                    <legend class="valtype" data-valtype="text">veuillez saisir le nom de votre questionnaire </legend>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-4">
-            <h2>faites glisser les élements de votre questionnaire . </h2>
-            <hr>
-          <div class="tabbable">
-            <ul class="nav nav-tabs" id="navtab" >
-              <li class="active" ><a href="#1" data-toggle="tab" style="background:#6bb8c8">Questions</a></li>
-              <li class><a id="sourcetab" href="#5" data-toggle="tab" style="background:#6bb8c8">Html source </a></li>
-            </ul>
-            <form class="form-horizontal" id="components"style="background:white">
-              <fieldset>
-                <div class="tab-content">
-                  <div class="tab-pane active" id="1">
-
-                    <div class="form-group component active" data-type="text" rel="popover" title="Text Input" trigger="manual"
-                      data-content="
-                      <form class='form'>
-                        <div class='form-group col-md-12'>
-                          <label class='control-label'>veuillez saisir votre texte</label> <input class='form-control' type='text' name='label' id='label'>
-                          <label class='control-label'>texte par defaut</label> <input type='text' name='placeholder' id='placeholder' class='form-control'>
-                          <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
-                        </div>
-                      </form>" data-html="true" 
-                      >
-
-                      <!-- Text input-->
-                      <label class="col-md-4 control-label valtype" for="input01" data-valtype='label'>question de type texte (court):</label>
-                      <div class="col-md-4">
-                        <input type="text" placeholder="placeholder" class="form-control input-md valtype" data-valtype="placeholder" >
-                      </div>
-                    </div>
-
-                     <div class="form-group component" rel="popover" title="Search Input" trigger="manual"
-                      data-content="
-                      <form class='form'>
-                        <div class='form-group col-md-12'>
-                          <label class='control-label'>Texte</label> <input class='form-control' type='text' name='label' id='label'>
-                          <label class='control-label'>Options: </label>
-                          <textarea class='form-control' style='min-height: 200px' id='option'></textarea>
-                          <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
-                        </div>
-                      </form>" data-html="true"
-                      >
-                      <!-- Select Multiple -->
-                      <label class="col-md-4 control-label valtype" data-valtype="label">Question choix unique (liste déroulante) :</label>
-                      <div class="col-md-4">
-                        <select class="form-control input-md valtype" multiple="multiple" data-valtype="option">
-                          <option>Enter</option>
-                          <option>Your</option>
-                          <option>Options</option>
-                          <option>Here!</option>
-                        </select>
-                      </div>
-                   </div>
-
-                    <div class="form-group component" rel="popover" title="Multiple Checkboxes" trigger="manual"
-                      data-content="
-                      <form class='form'>
-                        <div class='form-group col-md-12'>
-                          <label class='control-label'>texte</label> <input class='form-control' type='text' name='label' id='label'>
-                          <label class='control-label'>Options: </label>
-                          <textarea class='form-control' style='min-height: 200px' id='checkboxes'> </textarea>
-                          <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
-                        </div>
-                      </form>" data-html="true"
-                      >
-                      <!-- Multiple Checkboxes -->
-                      <label class="col-md-4 control-label valtype" data-valtype="label">Question à choix multiple</label>
-                      <div class="col-md-4 valtype" data-valtype="checkboxes">
-
-                        <label class="checkbox">
-                          <input type="checkbox" value="Option one">
-                          Option 1
-                        </label>
-                        <label class="checkbox">
-                          <input type="checkbox" value="Option two">
-                          Option 2
-                        </label>
-                      </div>
-                    </div>
-                    
-                  
-                    <div class="form-group component" rel="popover" title="Multiple Radios" trigger="manual"
-                      data-content="
-                      <form class='form'>
-                        <div class='form-group col-md-12'>
-                          <label class='control-label'>Label Text</label> <input class='form-control' type='text' name='label' id='label'>
-                          <label class='control-label'>Group Name Attribute</label> <input class='form-control' type='text' name='name' id='name'>
-                          <label class='control-label'>Options: </label>
-                          <textarea class='form-control' style='min-height: 200px' id='radios'></textarea>
-                          <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
-                        </div>
-                      </form>" data-html="true"
-                      >
-                       <!-- Multiple Radios -->
-                      <label class="col-md-4 control-label valtype" data-valtype="label">question a choix unique  </label>
-                      <div class="col-md-4 valtype" data-valtype="radios">
-                        <label class="radio">
-                          <input type="radio" value="Option one" name="group" checked="checked">
-                          Option one
-                        </label>
-                        <label class="radio">
-                          <input type="radio" value="Option two" name="group">
-                          Option two
-                        </label>
-                      </div>
-                    </div>
-
-                   
-                  <div class="form-group component" rel="popover" title="Search Input" trigger="manual"
-                      data-content="
-                      <form class='form'>
-                        <div class='form-group col-md-12'>
-                          <label class='control-label'>texte</label> <input class='form-control' type='text' name='label' id='label'>
-                          <label class='control-label'>Options: </label>
-                          <textarea class='form-control' style='min-height: 200px' id='option'> </textarea>
-                          <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
-                        </div>
-                      </form>" data-html="true"
-                      >
-                  
-                      <!-- Textarea -->
-                      <label class="col-md-4 control-label valtype" data-valtype="label">question de type texte(long)</label>
-                      <div class="col-md-4">
-                        <div class="textarea">
-                              <textarea class="form-control valtype" data-valtype="checkbox" /> </textarea>
-                        </div>
-                      </div>
-                    </div>
-
-                    </div>
-                  <div class="tab-pane" id="5">
-                    <textarea id="source" class="col-md-12"></textarea>
-                  </div>
-                </div>
-                </fieldset>
-              </form>
-            </div>
-          </div> <!-- row -->
-      <div class="row clearfix">
-        <div class="col-md-12"></div>
-      </div>
-    </div>
-    </div><!-- /container -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/fb.js"></script>
+    <div class="container" id="container">
+   
+     </div>
+     
+     
+          
 </body>
 </html>
