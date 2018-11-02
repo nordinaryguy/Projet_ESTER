@@ -52,7 +52,7 @@ public class Mail {
 		return session;
 	}
 
-	public void sendMail(String subject,String body,boolean bodyIsHTML) {
+	public boolean sendMail(String subject,String body,boolean bodyIsHTML) {
 		Session session=this.initializeSession();
 		// Create a message
 		try {
@@ -72,8 +72,10 @@ public class Mail {
 			//send email
 			Transport.send(message);
 			System.out.println("Mail successfully sent"); 
+			return true;
 		}catch(MessagingException mex) {
 			mex.printStackTrace();
+			return false;
 		}
 		
 	}
@@ -88,7 +90,14 @@ public class Mail {
 		return message;
 	}
 	
-	
+	public String mdpOublieBodyText(String name,String url) {
+		String message="<p><b>Bonjour "+name+",</b></p><br/>";
+		message += "<p>Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur ce lien pour recevoir un nouveau mot de passe :  </p>";
+		message += "<p><a href=\""+url+"\">cliquez ici</a> </p> <br/>";
+		message += "<p>Bien Cordialement,</p>"+
+				   "<p>L'équipe de <a href=>lien vers page d'acceuil</a> </p>";
+		return message;
+	}
 	
 	public String getemailSender() {
 		return aemailSender;
