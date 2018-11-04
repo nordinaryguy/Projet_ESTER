@@ -1,12 +1,13 @@
 
-
+	function select_value(){		
+		window.open("test.html?type="+document.getElementById("typePage").value,"Nouvelle fenêtre","menubar=no, scrollbars=no, top=100, left=100, width=1000, height=800");
+	}
 	
-	function select_value(){
-		 window.open("test.html",'nom_de_ma_popup','menubar=no, scrollbars=no, top=100, left=100, width=500, height=500');
-		 return document.getElementById("typePage").value;
-			 
-		}
-		
+	
+	
+	
+	
+
 		
 
 	

@@ -1,12 +1,21 @@
 
-
 function init (){
-	//alert("coucou");
-	//alert(select_value());
 	
-	$("#container").load("Administrateur.html");
-	//$("#container").append('hello');
+	function $_GET(param){
+		var vars = {};
+		window.location.href.replace(location.hash,'').replace(/[?&]+([^=&]+)=?([^&]*)?/gi, //regexp,
+				function(m,key,value){ //callback
+			vars[key] = value !== undefined ? value : '';
+			}
+		);
+		
+		if (param){
+			return vars[param] ? vars[param] : null;
+		}
+		return vars;
+	}
 	
-	//window.open("test.html",'nom_de_ma_popup','menubar=no, scrollbars=no, top=100, left=100, width=500, height=500');
+	var $_GET = $_GET();
+	$("#container_page").load($_GET['type']+" #container");
 
 }
