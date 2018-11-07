@@ -1,0 +1,28 @@
+/* Let's highlight canvas boundaries */
+#gjs {
+  border: 3px solid #007bff;
+  width: 100%;
+  height: 100%;
+}
+
+.gjs-one-bg {
+  background-color: #007bff;
+}
+
+.gjs-four-color,
+.gjs-four-color-h:hover  {
+  color: #fff;
+}
+
+/* Reset some default styling */
+.gjs-cv-canvas {
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.gjs-block {
+  width: auto;
+  height: auto;
+  min-height: auto;
+}
