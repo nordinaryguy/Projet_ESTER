@@ -75,6 +75,21 @@ function init(){
 	        }
 		});
 	});
-	
-
 }
+
+function Verifie_annulation(){
+	 var verif=confirm("Êtes-vous sûr de vouloir annuler les modifiations");
+	if(verif){
+		window.close();
+	}	 
+}
+
+function valider(){
+	
+}
+
+function reset(){
+	
+}
+
+
