@@ -43,6 +43,7 @@ public class ServletResetPassword extends HttpServlet {
 		String pwd=request.getParameter("password");
 		String identifiant=request.getParameter("email");
 		users.changePasswordUserEster(identifiant, pwd);
+		users.deleteUrlToken(identifiant);
 		request.setAttribute("message", "Mot de passe modifié");
 		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
 	}

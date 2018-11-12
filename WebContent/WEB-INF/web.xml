@@ -8,7 +8,6 @@
     <servlet-name>formulaire</servlet-name>
     <url-pattern>/FormPatient</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>oublimotdepasse</servlet-name>
     <servlet-class>fr.univangers.ester.servlets.ServletForgotPassword</servlet-class>
@@ -17,7 +16,6 @@
     <servlet-name>oublimotdepasse</servlet-name>
     <url-pattern>/motdepasseoublie</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>reinitialiserrmotdepasse</servlet-name>
     <servlet-class>fr.univangers.ester.servlets.ServletResetPassword</servlet-class>
@@ -26,5 +24,29 @@
     <servlet-name>reinitialiserrmotdepasse</servlet-name>
     <url-pattern>/resetpassword</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <servlet-name>cnxpatient</servlet-name>
+    <servlet-class>fr.univangers.ester.servlets.ServletCnxPatient</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>cnxpatient</servlet-name>
+    <url-pattern>/connexionPatient</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>medecinComptes</servlet-name>
+    <servlet-class>fr.univangers.ester.servlets.ServletMedecinCreerComptes</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>medecinComptes</servlet-name>
+    <url-pattern>/mdCreerCompteSalarie</url-pattern>
+  </servlet-mapping>
   
+  <servlet>
+    <servlet-name>medecin</servlet-name>
+    <servlet-class>fr.univangers.ester.servlets.ServletMedecin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>medecin</servlet-name>
+    <url-pattern>/medecin</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -25,13 +25,15 @@ public class ServletFormPatient extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	//NB: not all variables are defined and pcs isn't included in creation in database
+    	String code=request.getParameter("codePatient");
     	String sexe=request.getParameter("sexe");
     	int birthYear=Integer.parseInt(request.getParameter("years"));
     	String pcs=request.getParameter("pcs");
     	String departement=request.getParameter("nomDepartement");
     	String region=request.getParameter("region");
     	Users users = new Users();
-    	users.addSalarie("Null", 0,"Null", sexe, birthYear,departement, region, "Null","Null", "Null");
+    	users.addSalarie(code, 0,"Null", sexe, birthYear,departement, region, "Null","Null", "Null");
+    	users.deleteGeneratedCode(code);
 	}
 
 }
