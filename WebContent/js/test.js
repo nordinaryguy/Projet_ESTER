@@ -1,6 +1,6 @@
 
 function init(){
-	function $_GET(param){
+	function GET_param(param){
 		var vars = {};
 		window.location.href.replace(location.hash,'').replace(/[?&]+([^=&]+)=?([^&]*)?/gi, //regexp,
 				function(m,key,value){ //callback
@@ -14,9 +14,9 @@ function init(){
 		return vars;
 	}
 	
-	var $_GET = $_GET();
+	var $_GET = GET_param();
 	$("#gjs").load($_GET['type']+" #container", function() {
-		const editor = grapesjs.init({
+		grapesjs.init({
 	        showOffsets: 1,
 	        noticeOnUnload: 0,
 	        storageManager: { autoload: 0 },
