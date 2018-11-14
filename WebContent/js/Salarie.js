@@ -1,6 +1,6 @@
 
 function actualise_Questionnaires(){
-	function $_GET(param){
+	function GET_param(param){
 		var vars = {};
 		window.location.href.replace(location.hash,'').replace(/[?&]+([^=&]+)?=([^&]*)?/gi, //regexp,
 				function(m,key,value){ //callback	test.html?type=Accueil.html test.html?page=Accueil.html
@@ -14,7 +14,7 @@ function actualise_Questionnaires(){
 		return vars;
 	}
 	
-	var $_GET = $_GET();
+	var $_GET = GET_param();
 	$("#container_pourTout").load($_GET['page']+" #container_lien", function() {
 		
 		

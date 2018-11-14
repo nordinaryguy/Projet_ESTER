@@ -19,7 +19,11 @@ public class Resultat extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
+<<<<<<< HEAD
+			this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/resultat.jsp" ).forward( request, response );
+=======
 			this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/Resultat.jsp" ).forward( request, response );
+>>>>>>> 6dd11efae1e3473f43bcc21851fc7aff3a3d1abe
 		}
 		catch (ServletException e) {
 			try {
