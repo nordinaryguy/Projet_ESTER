@@ -6,8 +6,7 @@
 	
 	
 	
-	
-
+	// onclick='ouvreFenetre("Entreprise.html")'
 		
 
 	
