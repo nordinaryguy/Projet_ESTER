@@ -7,8 +7,8 @@
     <create creator="new" javascript="JDate">
       <param name="class" value="java.util.Date"/>
     </create>
-    <create creator="new" javascript="Charts">
-      <param name="class" value="fr.univangers.ester.beans.Charts"/>
+    <create creator="new" javascript="Resultat">
+      <param name="class" value="fr.univangers.ester.beans.Resultat"/>
     </create>
   </allow>
 </dwr>
