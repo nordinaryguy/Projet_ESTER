@@ -1,6 +1,7 @@
 package fr.univangers.ester.mongodb;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.bson.Document;
@@ -17,8 +18,10 @@ public class Users {
 	private static final String C_SALARIE = "C_SALARIE";
 	private static final String C_ENTREPRISE = "C_ENTREPRISE";
 	private static final String C_USER_ESTER = "C_USER_ESTER";
+	private static final String C_URL_TOKEN="C_URL_TOKEN";
 	
 	private static final String IDENTIFIANT = "Identifiant";
+	private static final String URLTOKEN="Url Token";
 	private static final String NAME = "Nom";
 	private static final String FIRSTNAME = "Prénom";
 	private static final String FIRSTCONNECTION = "Première connexion";
@@ -26,6 +29,7 @@ public class Users {
 	private static final String MAIL = "Mail";
 	private static final String SALARIES = "Salariés";
 	private static final String STATUS = "Statut";
+	private static final String EXPIREDATE="Date expiration";
 	
 	private static final String ANONYMITYNUMBER = "Numéro d’anonymat";
 	private static final String SEX = "Sexe";
@@ -39,6 +43,8 @@ public class Users {
 	private static final String USERESTER = "Utilisateur ESTER ID";
 	private static final String NBCONNECTION = "Nombre de connexion";
 	private static final String TIMECONNECTION = "Durée de la connexion";
+	
+	
 	
 	private static final String HOSTNAME = "localhost";
 	private static final int PORT = 27017;
@@ -222,5 +228,41 @@ public class Users {
 				new Document("$pull", new Document(SALARIES, identifiantSalarie)));
 	}
 	
+
+	public void addUrlToken(String identifiant,String token,Date expireDate) {
+		MongoCollection<Document> urlTokens = database.getCollection(C_URL_TOKEN);
+		if(existUrlToken(identifiant))
+			deleteUrlToken(identifiant);
+		Document urlToken = new Document(IDENTIFIANT, identifiant)
+				.append(URLTOKEN, token)
+				.append(EXPIREDATE, expireDate);
+		urlTokens.insertOne(urlToken);
+	}
+	
+	
+	public void deleteUrlToken(String identifiant) {
+		MongoCollection<Document> urlTokens = database.getCollection(C_URL_TOKEN);
+		urlTokens.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
+	}
+	
+	public boolean existUrlToken(String token) {
+		MongoCollection<Document> urlTokens = database.getCollection(C_URL_TOKEN);
+	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(URLTOKEN, token));
+		return iterable.first() != null;
+	}
+	
+	public String getIdentforToken(String token) {
+		MongoCollection<Document> urlTokens = database.getCollection(C_URL_TOKEN);
+	    Document urlToken = urlTokens.find(Filters.eq(URLTOKEN, token)).first();
+	    return (String) urlToken.get(IDENTIFIANT);
+	}
+	
+	public boolean valideUrlToken(String token) {
+		MongoCollection<Document> urlTokens = database.getCollection(C_URL_TOKEN);
+	    Document urlToken = urlTokens.find(Filters.eq(URLTOKEN, token)).first();
+	    Date expireDate=(Date) urlToken.get(EXPIREDATE);
+	    Date currentDate=new Date();
+	    return (expireDate.after(currentDate));
+	}
 	
 }

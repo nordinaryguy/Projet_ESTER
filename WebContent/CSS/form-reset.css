@@ -1,0 +1,115 @@
+.form-reset{
+	display:block;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 55px;
+    box-sizing: border-box;
+
+    background-color:  #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+
+    font: bold 14px sans-serif;
+    text-align: center;
+}
+
+.form-reset .form-row{
+    text-align: left;
+    margin-bottom: 22px;
+}
+
+.form-reset .form-title-row{
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+/* The form title */
+
+.form-reset h3{
+    display: inline-block;
+    box-sizing: border-box;
+    color:  #4c565e;
+    font-size: 24px;
+    padding: 0 10px 15px;
+    border-bottom: 2px solid #6caee0;
+    margin: 0;
+}
+
+.form-reset .form-row > label span{
+    display: inline-block;
+    box-sizing: border-box;
+    color: #5F5F5F;
+    width: 180px;
+    text-align: right;
+    vertical-align: top;
+    padding: 12px 25px;
+}
+
+.form-reset input{
+    color:  #5f5f5f;
+    margin-left:20px;
+    width: 240px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    border: 1px solid #dbdbdb;
+}
+
+.form-reset input[type=checkbox]{
+    box-shadow: none;
+    width: auto;
+}
+
+.form-reset input[type=checkbox]{
+    margin-top: 13px;
+    margin-right:10px;
+}
+
+.form-reset button{
+	display: block;
+    border-radius: 2px;
+    background-color:  #6caee0;
+    color: #ffffff;
+    font-weight: bold;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 14px 22px;
+    border: 0;
+    margin: 40px 183px 0;
+}
+
+.showPass{
+	float :right;
+}
+
+#divcomp{
+	float:center;
+}
+
+/*	Making the form responsive. Remove this media query
+    if you don't need the form to work on mobile devices. */
+
+@media (max-width: 600px) {
+
+    .form-reset{
+        padding: 30px;
+        max-width: 480px;
+    }
+
+    .form-reset .form-row{
+        max-width: 300px;
+        margin: 25px auto;
+        text-align: left;
+    }
+
+    .form-reset .form-title-row{
+        margin-bottom: 50px;
+    }
+
+    .form-reset .form-row > label span{
+        display: block;
+        text-align: left;
+        padding: 0 0 15px;
+    }
+
+    .form-reset button{
+        margin: 0;
+    }
+
+}
