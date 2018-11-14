@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>generateur de questionnaire</title>
+    <link href="js/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="js/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+  
+  <!-- entete de page (logo) -->
+ 
+  <div class="shadowbottom" >
+  <div class="repeating-linear">
+    <div class="row">
+          <div class="col-md-7" style="text-align: center;" >
+            <img src="irset.png" width= "150 px" ; margin-top= "80 px" >
+          </div>
+          <div class="col-md-3" style="text-align: center;" >
+            <img src="ua.png" width= "150 px" >
+          </div>
+  	 </div>
+ 
+   </div>
+   </div>
+   <!-- questionnaire -->
+    <div class="container" style="background-color: white; margin-top: 5%;">
+      <!--question 1-->
+      <div class="row">
+        <label >1) Comment évaluez-vous l'intensité des efforts physiques de votre travail au cours d'une journée de travail ?</label>
+        <div class="row" style="text-align: center;">
+            <select>
+              <option>6 Pas d'effort du tout</option>
+              <option>7 Extremement léger</option>
+              <option>9 trés léger</option>
+              <option>11 léger</option>
+              <option>13 un peu dur</option>
+              <option>15 Dur</option>
+              <option>17 très dur</option>
+              <option>19 Extremement dur Epuisant</option>
+              <option>20 Epuisant</option>
+            </select>
+        </div>
+      </div>
+      <!--question 2-->
+      <div class="row">
+        <label >2) Votre travail nécessite-t-il de répéter les mêmes actions plus de 2 à 4 fois environ par minute ?</label>
+      </div>
+      <div class="row">
+         <div class="col-md-5 valtype" data-valtype="checkboxes">
+            <label class="checkbox"><input type="checkbox" value="Option one"> Non ou presque jamais </label>
+            <label class="checkbox"><input type="checkbox" value="Option two"> Rarement (moins de 2h/jour)</label>
+          </div>
+           <div class="col-md-5 valtype" data-valtype="checkboxes">
+            <label class="checkbox"><input type="checkbox" value="Option one"> Souvent (de 2 à 4h/jour)</label>
+            <label class="checkbox"><input type="checkbox" value="Option two"> Toujours ou presque toujours(>4h/jours)</label>
+          </div>
+      </div>
+      <!--question 3-->
+      <div class="row">
+        <label> 3) Devez-vous vous pencher en avant / sur le côté régulièrement ou de manière prolongée?</label>
+      </div>
+      <div class="row">
+         <div class="col-md-5 valtype" data-valtype="checkboxes">
+            <label class="checkbox"><input type="checkbox" value="Jamais">Jamais </label>
+            <label class="checkbox"><input type="checkbox" value="Rarement (moins de 2h/jour)"> Rarement (moins de 2h/jour)</label>
+          </div>
+           <div class="col-md-5 valtype" data-valtype="checkboxes">
+            <label class="checkbox"><input type="checkbox" value="Souvent (de 2 à 4h/jour)"> Souvent (de 2 à 4h/jour)</label>
+            <label class="checkbox"><input type="checkbox" value=" Toujours(>4h/jours)"> Toujours(>4h/jours)</label>
+          </div>
+      </div>
+      <!--question 4-->
+      
+      <div class="row">
+        <div class="col-md-4" data-valtype="checkboxes">
+          <label> 4) Travaillez-vous avec un ou deux bras en l'air (au-dessus des épaules) régulièrement ou de manière prolongée?</label>
+        </div>
+        <div class="col-md-2 ">
+          <img src="">
+        </div>
+        <div class="col-md-1 " data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Jamais ou presque jamais">Jamais ou presque jamais </label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Rarement (moins de 2h/jour)"> Rarement (moins de 2h/jour)</label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Souvent (de 2 à 4h/jour)"> Souvent (de 2 à 4h/jour)</label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Toujours(>4h/jours)"> Toujours(>4h/jours)</label>
+        </div>
+      </div>
+      <!--question 5-->
+      <div class="row">
+        <div class="col-md-4" data-valtype="checkboxes">
+          <label> 5) Fléchir le(s) coude(s) régulièrement ou de manière prolongée ?</label>
+        </div>
+        <div class="col-md-2 ">
+          <img src="">
+        </div>
+        <div class="col-md-1 " data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Option one">Jamais ou presque jamais </label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Option two"> Rarement (moins de 2h/jour)</label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Option one"> Souvent (de 2 à 4h/jour)</label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Option two"> Toujours(>4h/jours)</label>
+        </div>
+      </div>
+      <!--question 6-->
+      <div class="row">
+        <div class="col-md-4" data-valtype="checkboxes">
+          <label> 6) Presser ou prendre fermement des objets ou des pièces entre le pouce et l'index?</label>
+        </div>
+      </div>
+      <div class="row" >
+         <div class="col-md-5 valtype" data-valtype="checkboxes">
+            <label class="checkbox"><input type="checkbox" value="Jamais" >Jamais </label>
+            <label class="checkbox"><input type="checkbox" value="Rarement (moins de 2h/jour)"> Rarement (moins de 2h/jour)</label>
+          </div>
+           <div class="col-md-5 valtype" data-valtype="checkboxes">
+            <label class="checkbox"><input type="checkbox" value="Souvent (de 2 à 4h/jour)"> Souvent (de 2 à 4h/jour)</label>
+            <label class="checkbox"><input type="checkbox" value=" Toujours(>4h/jours)"> Toujours(>4h/jours)</label>
+          </div>
+          <div class="col-md-2 ">
+            <img src="">
+          </div>
+      </div>
+      <!--question 7-->
+      <div class="row">
+        <div class="col-md-4" data-valtype="checkboxes">
+          <label> 7) Dans mon travail j’ai la possibilité d'influencer le déroulement de mon travail</label>
+        </div>
+        <div class="col-md-1 " data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Pas du tout d accord">Pas du tout d’accord </label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Pas d’accord"> Pas d’accord</label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="d’accord"> Pas d’accord </label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Tout à fait d’accord"> Tout à fait d’accord</label>
+        </div>
+      </div>
+      <!--question 8-->
+      <div class="row">
+        <div class="col-md-4" data-valtype="checkboxes">
+          <label> 8) Les collègues avec qui je travaille m'aident à mener les tâches à bien</label>
+        </div>
+        <div class="col-md-1 " data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Pas du tout d accord">Pas du tout d’accord </label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Pas d’accord"> Pas d’accord</label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="d’accord"> Pas d’accord </label>
+        </div>
+        <div class="col-md-1 valtype" data-valtype="checkboxes">
+          <label class="checkbox"><input type="checkbox" value="Tout à fait d’accord"> Tout à fait d’accord</label>
+        </div>
+      </div>
+      <!--submit btn-->
+      <div class="row" style="text-align: center;">
+        <button>envoyer</button> 
+      </div>
+   </div>
+  </body>
+</html>
+
