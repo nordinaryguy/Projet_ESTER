@@ -107,8 +107,8 @@
 		</div>
 	</div>
 	
-	<div class="container-fluid " >
-			<div class="row">
+	<div class="container-fluid "  >
+			<div class="row" style="position:absolute;">
 					<form class="form-patient" method="post">
 			            <div class="form-title-row">
 			                <h3>Veuillez saisir vos informations avant de débuter les questionnaires : </h3>
