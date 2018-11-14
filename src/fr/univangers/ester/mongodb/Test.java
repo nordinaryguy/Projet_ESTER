@@ -4,8 +4,6 @@ public class Test {
 
 	public static void main(String[] args) {
 		Users users = new Users();
-		users.deleteEntreprise("id66");
-		users.deleteEntreprise("id55");
 		users.addEntreprise("id66", "AA", "mdp");
 		users.addEntreprise("id55", "TT", "mdp");
 		users.pushSalarieIntoEntreprise("id55", "id3");
