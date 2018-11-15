@@ -34,9 +34,9 @@
         <h1 class="font-weight-normal">Connexion</h1>
     
         <div class="btn-group btn-group-toggle" role="group">
-          <button type="radio" id="btnEntreprise" class="btn btn-secondary" onclick="showDiv('divSalarie')">Salarié</button>
-          <button type="radio" id="btnEntreprise" class="btn btn-secondary" onclick="showDiv('divEntreprise')">Entreprise</button>
-          <button type="radio" id="btnUtilisateur" class="btn btn-secondary" onclick="showDiv('divUtilisateur')">Utilisateur</button>
+          <button id="btnEntreprise" class="btn btn-secondary" onclick="showDiv('divSalarie')">Salarié</button>
+          <button id="btnEntreprise" class="btn btn-secondary" onclick="showDiv('divEntreprise')">Entreprise</button>
+          <button id="btnUtilisateur" class="btn btn-secondary" onclick="showDiv('divUtilisateur')">Utilisateur</button>
         </div>
     
         <form id="divSalarie" style="display:none;" class="form-signin" method="post">
@@ -44,7 +44,7 @@
             <input type="text" id="inputIdentifiant" name="Identifiant" class="form-control" placeholder="Identifiant" required>
             <label for="inputIdentifiant">Identifiant</label>
           </div>
-          <div class="btn-group" role="group"">
+          <div class="btn-group" role="group">
             <button class="btn btn-primary" type="submit">Valider</button>
             <button class="btn btn-secondary" type="reset">Effacer</button>
           </div>
@@ -59,7 +59,7 @@
             <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
             <label for="inputPassword">Mot de Passe</label>
           </div>
-          <div class="btn-group" role="group"">
+          <div class="btn-group" role="group">
             <button class="btn btn-primary" type="submit">Valider</button>
             <button class="btn btn-secondary" type="reset">Effacer</button>
           </div>
