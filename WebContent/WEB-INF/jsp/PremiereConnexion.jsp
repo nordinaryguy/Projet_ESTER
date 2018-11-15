@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="fr-FR">
   <head>
@@ -16,14 +18,14 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     
     <!-- Custom styles for this template -->
-    <link href="../CSS/Accueil.css" rel="stylesheet">
+    <link href="/Projet_ESTER/css/Accueil.css" rel="stylesheet">
   </head>
 
   <body>
   
   <div class="container-fluid" id="container">
   
-  	<div class="row justify-content-md-center">
+  <div class="row">
   	
     <form class="form-signin">
       <div class="text-center mb-4">
@@ -42,26 +44,27 @@
         <input type="email" id="adress_Email" class="form-control" placeholder="Email" required>
         <label for="adress_Email">Adresse Email</label>
       </div>
-             
+      
       <div class="form-label-group">
         <input type="password" id="inputNewPassword" class="form-control" placeholder="Password" required>
         <label for="inputNewPassword">Mot de Passe</label>
       </div>
       
-      
-      
-      
       <div class="form-label-group">
         <input type="password" id="inputNew2Password" class="form-control" placeholder="Password" required>
         <label for="inputNew2Password"> Confirmer le Mot de Passe</label>
-      </div>   
+      </div>      
+
             
       <button class="btn btn-lg btn-primary btn-block" type="submit">VALIDER</button>
     
      <div class="row pt-2">
- 		<div class="col pr-6" ><a href="Accueil.html">Page d'Accueil</a></div>
+ 		<div class="col-md-6 pr-6" ><a href="Accueil.html">Page d'Accueil</a></div>
+ 		<div class="col-md-6  pl-6" ><a href="#">Mot de passe oublié</a></div>
 	 </div>
 	 
+	 
+	  
 	 
 	 <div class="row pt-5">
 	 </div>
@@ -72,8 +75,9 @@
  		<div class="col-md-4  pl-1" ><a href="#">Contacts</a></div>
  	</div>
 	 
+	 
 	 </div>
-	      	             
+     	             
     </form>
     </div>
     </div>
