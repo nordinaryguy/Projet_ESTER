@@ -10,17 +10,9 @@
     <title>ESTER</title>
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    
-    <!-- Custom styles for this template -->
-    <link href="../CSS/Accueil.css" rel="stylesheet">
-    
 </head>
 
-<body >  
+<body>  
 	<div class="container-fluid pr-0 pl-0 fixed-top">
   
 		<div class="row">
@@ -34,16 +26,15 @@
   	
   						<form class="form-inline pl-2 pr-2 row">
 							<div class="col-xs-8 pr-1 pl-2"> <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></div>
-	  						<div class="col-xs-4 pl-1 pr-2"> <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button></div>
   						</form>
 
   						<div class="row pl-2 pr-2">
 						  	<ul class="navbar-nav">
-						      <li class="nav-item dropdown">
-						        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mentions légales</a>
+						      <li>
+						        <a class="nav-link" href="#">Mentions légales</a>
 						      </li>
-						      <li class="nav-item dropdown">
-						        <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projet</a>
+						      <li>
+						        <a class="nav-link" href="#">Projet</a>
 						      </li>
 						      <li class="nav-item dropdown">
 						        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -82,6 +73,11 @@
 			  	</nav>
 				 <div class="collapse" id="navbarToggleExternalContent">
 			  		<ul>
+			  		
+			  			<li class="nav-item">
+				       		<a class="nav-link" data-toggle="modal" data-target="#CreerCompte" href="#">Création des comptes</a>			       		
+				        </li>
+			  		
 				  		<li class="nav-item dropdown">
 					        <a class="nav-link dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          Gestion des comptes
@@ -95,7 +91,7 @@
 						          <a class="dropdown-item" href="#">Entreprises</a>
 						          <a class="dropdown-item" href="#">Salariés</a>
 								</div>
-						</li>
+						</li>				        
 						
 						<li class="nav-item">
 				        	<a class="nav-link" href="#">Modifier les valeurs de référence</a>
@@ -116,7 +112,7 @@
 				        </li>
 				        
 				       	<li class="nav-item">
-				        	<a class="nav-link" href="#">Gestion Interface</a>
+				        	<a class="nav-link" data-toggle="modal" data-target="#ModifierInterface" href="#">Gestion Interface</a>
 				        </li>
 				        
 				        <li class="nav-item">
@@ -130,14 +126,89 @@
 				    </ul> 
 			    </div>
 			    
-				<div class="col-xs-10">
-					<div class="container-fluid" style="background:white">
+				<div class="col">
+					<div id="container" class="container-fluid" style="background:white">
 					    <h1>Administrateur</h1>
-						<p>Bienvenue sur la partie Adminsitrateur du Projet ESTER</p>    
+						<p>Bienvenue sur la partie Administrateur du Projet ESTER</p>    
 					</div>
 				</div>
 			</div> 
 		</div>
+	</div>
+	
+	
+	<div class="modal" id="CreerCompte">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+						
+						      <!-- Modal Header -->
+				      <div class="modal-header">
+					        <h4 class="modal-title">Créer un nouveau compte</h4>
+					       	<button type="button" class="close" data-dismiss="modal">&times;</button>
+				      </div>
+						
+						      <!-- Modal body -->
+				      <div class="modal-body">
+					      	 <label for="typeCompte">Choisissez un type de compte :</label>		     
+						     <select id="typeCompte" size="1">
+							     <option>Médecin</option>
+								 <option>Assistant</option>
+							     <option>Infirmier</option>
+							     <option>Préventeur</option>
+						     </select>
+							     
+						     <div class="pt-2">
+							        <input type="email" id="adress_Email" class="form-control" placeholder="Adresse Email" required>
+							      </div>
+								    		        
+						      </div>
+						
+						      <!-- Modal footer -->
+						   	  <div class="modal-footer">
+						      	<button type="button" class="btn btn-outline-primary" data-dismiss="modal">Valider</button>
+						        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+						      </div>
+						
+					</div>
+		  </div>
+	</div>
+	
+	<div class="modal" id="ModifierInterface">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+						
+						      <!-- Modal Header -->
+				      <div class="modal-header">
+					        <h4 class="modal-title">Modification d'Interface</h4>
+					       	<button type="button" class="close" data-dismiss="modal">&times;</button>
+				      </div>
+						
+						      <!-- Modal body -->
+				      <div class="modal-body">
+					      	 <label for="typePage">Choisissez la page à modifier :</label>		     
+						     <select id="typePage" size="1">
+						     	 <option value="Accueil.html">Accueil</option>
+						     	 <option value="PremiereConnexionParMedecin.html">Première Connexion pour les Soignants</option>
+								 <option value="PremiereConnexionPourSalaries.html">Première Connexion pour les Salariés</option>
+						     	 <option value="Administrateur.html">Adminsitrateur</option>
+							     <option value="Medecin.html">Médecin</option>
+								 <option value="Assistant.html">Assistant</option>
+							     <option value="Infirmier.html">Infirmier</option>
+							     <option value="Preventeur.html">Préventeur</option>
+							     <option value="Entreprise.html">Entreprise</option>
+							     <option value="Salarie.html">Salarié</option>
+						     </select>
+							     								    		        
+						      </div>
+						
+						      <!-- Modal footer -->
+						   	  <div class="modal-footer">
+						      	<button type="button" class="btn btn-outline-primary" data-dismiss="modal" onclick='select_value()'>Valider</button>
+						        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
+						      </div>
+						
+					</div>
+		  </div>
 	</div>
     
 </body>

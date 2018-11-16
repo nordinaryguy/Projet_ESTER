@@ -1,4 +1,4 @@
-package fr.univangers.ester.servlet;
+package fr.univangers.ester.servlets;
 
 import java.io.IOException;
 
@@ -8,27 +8,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class Charts
- */
-@WebServlet("/resultat")
-public class Charts extends HttpServlet {
+@WebServlet("/Resultat")
+public class Resultat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Charts() {
+	
+    public Resultat() {
         super();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/resultat.jsp" ).forward( request, response );
+			this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/Resultat.jsp" ).forward( request, response );
 		}
 		catch (ServletException e) {
 			try {
@@ -43,9 +34,6 @@ public class Charts extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
