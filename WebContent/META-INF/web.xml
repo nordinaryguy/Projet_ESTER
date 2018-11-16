@@ -13,4 +13,5 @@
     <servlet-name>dwr-invoker</servlet-name>
     <url-pattern>/dwr/*</url-pattern>
   </servlet-mapping>
+  
 </web-app>
