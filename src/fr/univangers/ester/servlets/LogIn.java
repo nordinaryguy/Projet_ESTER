@@ -1,6 +1,8 @@
 package fr.univangers.ester.servlets;
 
 import java.io.IOException;
+
+import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,11 +23,37 @@ public class LogIn extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		this.getServletContext().getRequestDispatcher(vue).forward(request, response);
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	String inputIdentifiant = request.getParameter("Identifiant");
-    	System.out.println("Reponse");
-    	System.out.println(inputIdentifiant);
+    	String type = request.getParameter("Type");
+    	Users users = new Users();
+    	boolean result = false;
+    	if(type.equals("Salarie")) {
+    		String identifiant = request.getParameter("Identifiant");
+        	result = users.connectSalarie(identifiant, null);
+        	if(!result) {
+    			request.setAttribute("Warning", "C'est incorrect, vérifiez l'identifiant saisis");
+        	}
+    	}
+    	else if(type.equals("Entreprise")) {
+    		String email = request.getParameter("Email");
+    		String password = request.getParameter("Password");
+        	result = users.connectEntreprise(email, password);
+        	if(!result) {
+    			request.setAttribute("Warning", "C'est incorrect, vérifiez l'adresse mail et le mot de passe saisis");
+        	}
+    	}
+    	else if(type.equals("Utilisateur")) {
+    		String email = request.getParameter("Email");
+    		String password = request.getParameter("Password");
+        	result = users.connectUserEster(email, password);
+        	if(!result) {
+    			request.setAttribute("Warning", "C'est incorrect, vérifiez l'adresse mail et le mot de passe saisis");
+        	}
+    	}
+    	if(type != null && result) {
+    			request.setAttribute("Success", "Vous êtes connecté");
+    	}
     	doGet(request, response);
 	}
 
