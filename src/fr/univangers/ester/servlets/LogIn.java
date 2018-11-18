@@ -14,14 +14,14 @@ import fr.univangers.ester.mongodb.Users;
 @WebServlet("/connexion")
 public class LogIn extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private static final String vue = "/WEB-INF/jsp/C/LogIn.jsp";
+	private static final String VUE = "/WEB-INF/jsp/C/LogIn.jsp";
     
     public LogIn() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher(vue).forward(request, response);
+		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,7 +32,7 @@ public class LogIn extends HttpServlet {
     		String identifiant = request.getParameter("Identifiant");
         	result = users.connectSalarie(identifiant, null);
         	if(!result) {
-    			request.setAttribute("Warning", "C'est incorrect, vérifiez l'identifiant saisis");
+    			request.setAttribute("Warning", "Votre identifiant est incorrect.");
         	}
     	}
     	else if(type.equals("Entreprise")) {
@@ -40,7 +40,7 @@ public class LogIn extends HttpServlet {
     		String password = request.getParameter("Password");
         	result = users.connectEntreprise(email, password);
         	if(!result) {
-    			request.setAttribute("Warning", "C'est incorrect, vérifiez l'adresse mail et le mot de passe saisis");
+    			request.setAttribute("Warning", "Votre identifiant ou votre mot de passe est incorrect.");
         	}
     	}
     	else if(type.equals("Utilisateur")) {
@@ -48,7 +48,7 @@ public class LogIn extends HttpServlet {
     		String password = request.getParameter("Password");
         	result = users.connectUserEster(email, password);
         	if(!result) {
-    			request.setAttribute("Warning", "C'est incorrect, vérifiez l'adresse mail et le mot de passe saisis");
+    			request.setAttribute("Warning", "Votre identifiant ou votre mot de passe est incorrect.");
         	}
     	}
     	if(type != null && result) {
