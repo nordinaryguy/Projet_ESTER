@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ester.tests.Users;
+
 /**
  * Servlet implementation class Test
  */
@@ -28,7 +30,26 @@ public class Test extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		/*Users users = new Users();
+		users.addEntreprise("id66", "AA", "mdp");
+		users.addEntreprise("id55", "TT", "mdp");
+		users.pushSalarieIntoEntreprise("id55", "id3");
+		users.pushSalarieIntoEntreprise("id55", "id4");
+		for(String salarie : users.getSalariesEntreprise("id55")) {
+			System.out.println(salarie);
+		}
+		users.pullSalarieIntoEntreprise("id55","id4");
+		users.changePasswordEntreprise("id55", "mpd2");
+		for(String salarie : users.getSalariesEntreprise("id55")) {
+			System.out.println(salarie);
+		}
+		System.out.println(users.connectEntreprise("id0", "mdp"));
+		System.out.println(users.connectEntreprise("id0", "mdpf"));
+		*/
+		
 		this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
+		
 	}
 
 	/**
