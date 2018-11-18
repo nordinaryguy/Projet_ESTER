@@ -1,5 +1,5 @@
 package com.ester.beans;
 
-public class BeanTest {
+public class Entreprise {
 
 }

@@ -31,7 +31,7 @@ public class Test extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		/*Users users = new Users();
+		Users users = new Users();
 		users.addEntreprise("id66", "AA", "mdp");
 		users.addEntreprise("id55", "TT", "mdp");
 		users.pushSalarieIntoEntreprise("id55", "id3");
@@ -46,7 +46,7 @@ public class Test extends HttpServlet {
 		}
 		System.out.println(users.connectEntreprise("id0", "mdp"));
 		System.out.println(users.connectEntreprise("id0", "mdpf"));
-		*/
+		
 		
 		this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
 		
