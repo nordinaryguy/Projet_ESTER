@@ -1,4 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html>
@@ -25,13 +27,7 @@
 		<script src="${pageContext.request.contextPath}/js/lang/highcharts_french.js"></script>
     </head>
     <body>
-    
-    <nav class="navbar navbar-light bg-light">
-	  <a class="navbar-brand" href="#">
-	  <img src="http://www.univ-angers.fr/_resources/com/logo/_GENERIQUE/VERTICAL/ECRAN/PNG/ua_v_couleur_ecran.png" width="30" height="30" class="d-inline-block align-top" alt="">
-	    Résultat
-	  </a>
-	</nav>
+  	<c:import url="/jsp/Menu.jsp"/>
     
     <div class="card-group">
     

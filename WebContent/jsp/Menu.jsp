@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse" id="navbarsExample07">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<c:url value="/"/>">Accueil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
@@ -25,9 +25,23 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline my-2 my-md-0">>
-        <a class="btn btn-primary" type="button" href="<c:url value="/premiere-connexion"/>">PREMIÈRE CONNEXION</a>
-        <a class="btn btn-outline-primary" type="button" href="<c:url value="/connexion"/>">SE CONNECTER</a>
+      <form class="form-inline my-2 my-md-0">
+      	<c:if test="${empty sessionScope.sessionUtilisateur}">
+	      <div class="btn-group" role="group">
+	        <a class="btn btn-primary" type="button" href="<c:url value="/premiere-connexion"/>">PREMIÈRE CONNEXION</a>
+	        <a class="btn btn-outline-primary" type="button" href="<c:url value="/connexion"/>">SE CONNECTER</a>
+	      </div>
+	   	</c:if>
+      	<c:if test="${!empty sessionScope.sessionUtilisateur}">
+	      <div class="btn-group" role="group">
+		    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		      UTILISATEUR
+		    </button>
+		    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+		      <a class="dropdown-item" href="<c:url value="/deconnexion"/>">Déconnexion</a>
+    		</div>
+	      </div>
+	    </c:if>
       </form>
     </div>
   </div>

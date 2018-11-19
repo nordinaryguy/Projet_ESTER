@@ -25,6 +25,7 @@
   </head>
 
   <body>
+  	<c:import url="/jsp/Menu.jsp"/>
   	<div class="row">
 			  <div class="text-center mb-4">
 			            

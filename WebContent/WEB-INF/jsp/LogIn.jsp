@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -26,7 +26,6 @@
     </script>
   </head>
   <body>
-  	<div class="container">
   	<c:import url="/jsp/Menu.jsp"/>
   
     <div class="container-fluid text-center mb-4" id="container">
@@ -70,7 +69,7 @@
 
         <form id="divEntreprise" style="display:none;" class="form-signin" method="post"> 
           <div class="form-label-group">
-            <input type="email" id="inputEmailEntreprise" name="Email" class="form-control" placeholder="Email" required>
+            <input type="text" id="inputEmailEntreprise" name="Email" class="form-control" placeholder="Email" required>
             <label for="inputEmailEntreprise">Adresse email ou identifiant</label>
           </div>
           <div class="form-label-group">
@@ -78,7 +77,7 @@
             <label for="inputPasswordEntreprise">Mot de passe</label>
           </div>
             <div class="row mb-4">
-            	<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié</a>
+            	<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié ?</a>
             </div>
           <input type="hidden" name="Type" value="Entreprise" />
           <div class="btn-group" role="group">
@@ -88,7 +87,7 @@
 
         <form id="divUtilisateur" style="display:none;" class="form-signin" method="post">
             <div class="form-label-group">
-              <input type="email" id="inputEmailUtilisateur" name="Email" class="form-control" placeholder="Email" required>
+              <input type="text" id="inputEmailUtilisateur" name="Email" class="form-control" placeholder="Email" required>
               <label for="inputEmailUtilisateur">Adresse email ou identifiant</label>
             </div>
             <div class="form-label-group">
@@ -96,7 +95,7 @@
               <label for="inputPasswordUtilisateur">Mot de passe</label>
             </div>
             <div class="row mb-4">
-            	<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié</a>
+            	<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié ?</a>
             </div>
             <input type="hidden" name="Type" value="Utilisateur" />
             <div class="btn-group" role="group"">
@@ -104,7 +103,6 @@
             </div>
         </form>
           
-      </div>
       </div>
     </div>
   </body>
