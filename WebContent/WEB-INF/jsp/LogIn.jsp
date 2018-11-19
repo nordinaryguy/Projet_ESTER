@@ -76,8 +76,10 @@
             <input type="password" id="inputPasswordEntreprise" name="Password" class="form-control" placeholder="Password" required>
             <label for="inputPasswordEntreprise">Mot de passe</label>
           </div>
-            <div class="row mb-4">
-            	<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié ?</a>
+             <div class="row mb-4">
+            	<div class="col">
+            		<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié ?</a>
+            	</div>
             </div>
           <input type="hidden" name="Type" value="Entreprise" />
           <div class="btn-group" role="group">
@@ -95,7 +97,9 @@
               <label for="inputPasswordUtilisateur">Mot de passe</label>
             </div>
             <div class="row mb-4">
-            	<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié ?</a>
+            	<div class="col">
+            		<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié ?</a>
+            	</div>
             </div>
             <input type="hidden" name="Type" value="Utilisateur" />
             <div class="btn-group" role="group"">
