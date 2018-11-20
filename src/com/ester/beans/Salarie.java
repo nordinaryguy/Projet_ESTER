@@ -2,11 +2,9 @@ package com.ester.beans;
 
 import java.util.ArrayList;
 
-import org.bson.types.ObjectId;
-
 public class Salarie {
 
-	private ObjectId m_id;
+	private String mongoDBId;
 	private String mSecureIdGenerated;
 	private String mAnonymityNumber;
 	private boolean mFirstConnection;
@@ -24,7 +22,7 @@ public class Salarie {
 	private String mLastConnectionDuration;
 
 	public Salarie() {
-		m_id = null;
+		mongoDBId = null;
 		mSecureIdGenerated= null;
 		mAnonymityNumber= null;
 		mFirstConnection = false;
@@ -49,7 +47,7 @@ public class Salarie {
 		mDepartment = pDepartment;
 		mPCS = pPCS;
 
-		m_id = null;
+		mongoDBId = null;
 		mFirstConnection = true;
 		mPassword= null;
 		mBusinessSector= null;
@@ -61,12 +59,34 @@ public class Salarie {
 		mLastConnectionDuration= null;
 	}
 
-	public ObjectId getM_id() {
-		return m_id;
+	public String toString() {
+		String str = "Infos sur le salarié : \n";
+		str += mSecureIdGenerated;
+		str += "\n";
+		str += mSexe;
+		str += "\n";
+		str += mYearOfBirth;
+		str += "\n";
+		str += mDepartment;
+		str += "\n";
+		str += mPCS;
+		str += "\n";
+		str += mAttachedCompany.getmName();
+		str += "\n";
+		str += mUnansweredQuestionnaires.get(0).getmName();
+		str += "\n";
+		str += mUnansweredQuestionnaires.get(1).getmName();
+		str += "\n";
+
+		return str;
 	}
 
-	public void setM_id(ObjectId m_id) {
-		this.m_id = m_id;
+	public String getMongoDBId() {
+		return mongoDBId;
+	}
+
+	public void setMongoDBId(String pMongoDBId) {
+		this.mongoDBId = pMongoDBId;
 	}
 
 	public String getmSecureIdGenerated() {

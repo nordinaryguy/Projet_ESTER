@@ -69,7 +69,12 @@ public class DAOFactory {
 	/*
 	 * Méthodes de récupération de l'implémentation des différents DAO 
 	 */
+	
 	public EsterUserDAO getUserEsterDao() {
 		return new EsterUserDAOImpl( this );
+	}
+	
+	public SalarieDAO getSalarieDao() {
+		return new SalarieDAOImpl(this);
 	}
 }

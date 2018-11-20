@@ -9,8 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ester.beans.Entreprise;
 import com.ester.beans.EsterUser;
+import com.ester.beans.Questionnaire;
+import com.ester.beans.Salarie;
 import com.ester.dao.EsterUserDAO;
+import com.ester.dao.SalarieDAO;
 import com.ester.tests.Users;
 
 /**
@@ -21,14 +25,16 @@ public class Test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String VUE = "/WEB-INF/Test.jsp";
 
-	//Objet SnakeDAO
+	//Objets DAO
 	private EsterUserDAO eudao;
+	private SalarieDAO sdao;
 
 	public void init() throws ServletException{
 		com.ester.dao.DAOFactory daoFactory = com.ester.dao.DAOFactory.getInstance();
 		this.eudao = daoFactory.getUserEsterDao();
+		this.sdao = daoFactory.getSalarieDao();
 	}
-	
+
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -56,13 +62,37 @@ public class Test extends HttpServlet {
 			System.out.println(salarie);
 		}
 		System.out.println(users.connectEntreprise("id0", "mdp"));
-		System.out.println(users.connectEntreprise("id0", "mdpf"));*/
+		System.out.println(users.connectEntreprise("id0", "mdpf"));
 		ArrayList<String> rights = new ArrayList<>();
 		rights.add("r");
 		rights.add("w");
 		EsterUser eu = new EsterUser("pLastName", "pFirstName", "pIdCountGeneration", "pMail", "pPassword", "pUserRole",  rights);
 		eudao.addUserEster(eu);
+		 */
 
+		//Test création d'un salarié en base :
+		Salarie s = new Salarie("pSecureIdGenerated", "pSexe", "pYearOfbirth", "pDepartment", "pPCS");
+		s.setmAttachedCompany(new Entreprise("E1"));
+		Questionnaire q1 = new Questionnaire("Q1");
+		Questionnaire q2 = new Questionnaire("Q2");
+
+		ArrayList<Questionnaire> listQ = new ArrayList<>();
+		listQ.add(q1);
+		listQ.add(q2);
+		s.setmUnansweredQuestionnaires(listQ);
+
+		sdao.addSalarie(s);
+
+		//Récupération d'un salarié depuis son id unique
+		Salarie s1 = new Salarie();
+		s1 = sdao.getSalarie("pSecureIdGenerated");
+		System.out.println(s1.toString());
+
+		//Modification d'un salarié
+		s1.setmSexe("Femme");
+		s1.setmPCS("NewPCS");
+		sdao.updateSalarie(s1, "pSecureIdGenerated");
+		System.out.println(s1.toString());
 
 		this.getServletContext().getRequestDispatcher(VUE).forward( request, response );
 
