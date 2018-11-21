@@ -9,11 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.univangers.ester.mongodb.Users;
 
-@WebServlet("/ServletsFormPatient")
-public class ServletFormPatient extends HttpServlet {
+@WebServlet("/FormPatient")
+public class FormPatient extends HttpServlet {
 	private static final long serialVersionUID = 1L;
   
-    public ServletFormPatient() {
+    public FormPatient() {
         super();
     }
 
@@ -27,6 +27,7 @@ public class ServletFormPatient extends HttpServlet {
     	//NB: not all variables are defined and pcs isn't included in creation in database
     	String sexe=request.getParameter("sexe");
     	int birthYear=Integer.parseInt(request.getParameter("years"));
+    	//TODO should be added to table
     	String pcs=request.getParameter("pcs");
     	String departement=request.getParameter("nomDepartement");
     	String region=request.getParameter("region");
