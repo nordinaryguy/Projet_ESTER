@@ -19,6 +19,7 @@ public class Users {
 	private static final String C_ENTREPRISE = "C_ENTREPRISE";
 	private static final String C_USER_ESTER = "C_USER_ESTER";
 	private static final String C_URL_TOKEN="C_URL_TOKEN";
+	private static final String C_CODE_GENERE="C_CODE_GENERE";
 	
 	private static final String IDENTIFIANT = "Identifiant";
 	private static final String URLTOKEN="Url Token";
@@ -30,6 +31,7 @@ public class Users {
 	private static final String SALARIES = "Salariés";
 	private static final String STATUS = "Statut";
 	private static final String EXPIREDATE="Date expiration";
+	private static final String CODE="Code ";
 	
 	private static final String ANONYMITYNUMBER = "Numéro d’anonymat";
 	private static final String SEX = "Sexe";
@@ -263,6 +265,26 @@ public class Users {
 	    Date expireDate=(Date) urlToken.get(EXPIREDATE);
 	    Date currentDate=new Date();
 	    return (expireDate.after(currentDate));
+	}
+	
+	
+
+	public void addCodeGenrated(String code) {
+		MongoCollection<Document> generatedCodes= database.getCollection(C_CODE_GENERE);
+		Document codeGenere = new Document(CODE,code);
+		generatedCodes.insertOne(codeGenere);
+	}
+	
+	
+	public void deleteGeneratedCode(String code) {
+		MongoCollection<Document> generatedCodes = database.getCollection(C_CODE_GENERE);
+		generatedCodes.deleteOne(Filters.eq(CODE, code));
+	}
+	
+	public boolean existCode(String code) {
+		MongoCollection<Document> generatedCodes = database.getCollection(C_CODE_GENERE);
+	    FindIterable<Document> iterable = generatedCodes.find(Filters.eq(CODE, code));
+		return iterable.first() != null;
 	}
 	
 }

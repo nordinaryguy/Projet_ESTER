@@ -16,14 +16,15 @@
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
     <!-- Custom styles for this template -->
-    <link href="${pageContext.request.contextPath}/css/Accueil.css" rel="stylesheet">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/form-patient.css">
+    <link href="/Projet_ESTER//CSS/Accueil.css" rel="stylesheet">
     
 </head>
 
-<body>  
+<body >  
 	<div class="container-fluid pr-0 pl-0 fixed-top">
+  
 		<div class="row">
 			<div class="col-md-12">
   				<nav class=" navbar navbar-expand-xs navbar-expand-lg mt-0">
@@ -73,7 +74,7 @@
 			</div>
 		</div>
 
-		<div class="container-fluid">
+		<div class="pre-scrollable container-fluid">
   			<div class="row">
   
 				<nav class="col-xs-2 navbar navbar-collapse bg-nav">
@@ -107,87 +108,6 @@
 		</div>
 	</div>
 	
-	<div class="container-fluid "  >
-			<div class="row" style="position:absolute;">
-					<form class="form-patient" method="post">
-			            <div class="form-title-row">
-			                <h3>Veuillez saisir vos informations avant de débuter les questionnaires : </h3>
-			            </div>
-			
-			            <div class="form-row">
-			                <label>  
-			                		<span>Sexe : </span> 		
-			                </label> 
-			                <div class="form-radio-buttons">
-			                	<input type="radio" name="sexe" value="homme"> Homme<br>
-								 <input type="radio" name="sexe" value="femme"> Femme<br>
-								<input type="radio" name="sexe" value="autre"> Autre
-			                
-			                </div>  
-			            </div>
-			
-			            <div class="form-row">
-			                <label>
-			                    <span>Année de naissance</span>
-			                    <script language="JavaScript">
-									  // On récupère l'année courante
- 									   var date = new Date();
- 									   var year = date.getFullYear();
- 									  document.write("<select name='years'>");
-									  // On ajoute l'année courante et les 100 années à venir
-									  // dans l'élément <select> pour l'année
-									  for(var i = 0; i <= 100; i++) {
-										  document.write("<option value=\""+year+"\">" + year + "</option>");
-										  year--;
-									  }
- 									  document.write("</select>");
-								</script>
-			                </label>
-			            </div>
-			
-			            <div class="form-row">
-			                <label>
-			                    <span>PCS</span>
-			                    <select name="pcs">
-			                        <option value="Option1">Option One</option>
-			                        <option value="Option2">Option Two</option>
-			                        <option value="Option3">Option Three</option>
-			                        <option value="Option4">Option Four</option>
-			                    </select>
-			                </label>
-			            </div>
-						<div class="form-row">
-			                <label>
-			                    <span>N° Département</span>
-			                    <select name="departement">
-			                        <option value="Option1">Option One</option>
-			                        <option value="Option2">Option Two</option>
-			                        <option value="Option3">Option Three</option>
-			                        <option value="Option4">Option Four</option>
-			                    </select>
-			                </label>
-			            </div>
-			            
-			            <div class="form-row">
-			                <label>
-			                    <span>Nom département</span>
-			                    <input type="text" name="nomDepartemt" placeholder="nom du département">
-			                </label>
-			            </div>
-			            
-			            <div class="form-row">
-			            	 <label>
-			                	<span>Région</span>
-			                	<input type="text" name="region" placeholder="nom de la région">
-			                </label>
-			            </div>
-			
-			            <div class="form-row">
-			                <button type="submit">Submit Form</button>
-			            </div>
-			        </form>
-			</div>
-	</div>
     
 </body>
 </html>
