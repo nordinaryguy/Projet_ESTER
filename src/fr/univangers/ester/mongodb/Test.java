@@ -6,18 +6,7 @@ public class Test {
 		Users users = new Users();
 		users.addEntreprise("id66", "AA", "mdp");
 		users.addEntreprise("id55", "TT", "mdp");
-		users.pushSalarieIntoEntreprise("id55", "id3");
-		users.pushSalarieIntoEntreprise("id55", "id4");
-		for(String salarie : users.getSalariesEntreprise("id55")) {
-			System.out.println(salarie);
-		}
-		users.pullSalarieIntoEntreprise("id55","id4");
-		users.changePasswordEntreprise("id55", "mpd2");
-		for(String salarie : users.getSalariesEntreprise("id55")) {
-			System.out.println(salarie);
-		}
-		System.out.println(users.connectEntreprise("id0", "mdp"));
-		System.out.println(users.connectEntreprise("id0", "mdpf"));
+		users.addSalarie("id00", 00, "00", "male", 1999, "vendée", "medical", "aide-soignant", "chu angers", "userEster");
 	}
 
 }
