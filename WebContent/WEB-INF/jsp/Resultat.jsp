@@ -12,19 +12,19 @@
         <script type='text/javascript' src='/Projet_ESTER/dwr/engine.js'></script>
         <script type='text/javascript' src='/Projet_ESTER/dwr/util.js'></script>
   		<script type='text/javascript' src='/Projet_ESTER/dwr/interface/Resultat.js'></script>
-  		
-  		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-  		<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-		<script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
-		<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
+	    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
+	    <script src="<c:url value="/js/jquery.min.js"/>"></script>
+	    <script src="<c:url value="/js/popper.min.js"/>"></script>
+	    <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
   		
   		<script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/data.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://code.highcharts.com/modules/export-data.js"></script>
 		
-		<script src="${pageContext.request.contextPath}/js/resultat.js"></script>
-		<script src="${pageContext.request.contextPath}/js/lang/highcharts_french.js"></script>
+		<script src="<c:url value="/js/resultat.js"/>"></script>
+		<script src="<c:url value="/js/lang/highcharts_french.js"/>"></script>
     </head>
     <body>
   	<c:import url="/jsp/Menu.jsp"/>

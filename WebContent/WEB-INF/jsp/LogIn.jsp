@@ -69,7 +69,7 @@
 
         <form id="divEntreprise" style="display:none;" class="form-signin" method="post"> 
           <div class="form-label-group">
-            <input type="text" id="inputEmailEntreprise" name="Email" class="form-control" placeholder="Email" required>
+            <input type="text" id="inputEmailEntreprise" name="Identifiant" class="form-control" placeholder="Identifiant" required>
             <label for="inputEmailEntreprise">Adresse email ou identifiant</label>
           </div>
           <div class="form-label-group">
@@ -87,7 +87,7 @@
 
         <form id="divUtilisateur" style="display:none;" class="form-signin" method="post">
             <div class="form-label-group">
-              <input type="text" id="inputEmailUtilisateur" name="Email" class="form-control" placeholder="Email" required>
+              <input type="text" id="inputEmailUtilisateur" name="Identifiant" class="form-control" placeholder="Identifiant" required>
               <label for="inputEmailUtilisateur">Adresse email ou identifiant</label>
             </div>
             <div class="form-label-group">

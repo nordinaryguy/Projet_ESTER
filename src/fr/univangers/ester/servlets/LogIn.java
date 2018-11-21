@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import fr.univangers.ester.beans.Entreprise;
+import fr.univangers.ester.beans.Salarie;
+import fr.univangers.ester.beans.User;
+import fr.univangers.ester.beans.Utilisateur;
 import fr.univangers.ester.mongodb.Users;
 
 @WebServlet("/connexion")
@@ -29,39 +33,42 @@ public class LogIn extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String type = request.getParameter("Type");
-    	Users users = new Users();
     	HttpSession session = request.getSession();
+    	User user = null;
     	
     	boolean result = false;
     	if(type.equals("Salarie")) {
-    		String identifiant = request.getParameter("Identifiant");
-        	result = users.connectSalarie(identifiant, null);
+    		user = new Salarie();
+    		user.setIdentifiant(request.getParameter("Identifiant"));
+        	result = user.validate();
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant est incorrect.");
         	}
     	}
     	else if(type.equals("Entreprise")) {
-    		String email = request.getParameter("Email");
-    		String password = request.getParameter("Password");
-        	result = users.connectEntreprise(email, password);
+    		user = new Entreprise();
+    		user.setIdentifiant(request.getParameter("Identifiant"));
+    		((Entreprise)user).setPassword(request.getParameter("Password"));
+        	result = user.validate();
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant ou votre mot de passe est incorrect.");
         	}
     	}
     	else if(type.equals("Utilisateur")) {
-    		String email = request.getParameter("Email");
-    		String password = request.getParameter("Password");
-        	result = users.connectUserEster(email, password);
+    		user = new Utilisateur();
+    		user.setIdentifiant(request.getParameter("Identifiant"));
+    		((Utilisateur)user).setPassword(request.getParameter("Password"));
+        	result = user.validate();
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant ou votre mot de passe est incorrect.");
         	}
     	}
     	if(type != null && result) {
     		request.setAttribute( ATT_MSG_SUCCESS, "Vous êtes connecté");
-    		session.setAttribute( ATT_SESSION_USER, null);
+    		session.setAttribute( ATT_SESSION_USER, user);
     	}
     	else {
-    		session.setAttribute( ATT_SESSION_USER, true);
+    		session.setAttribute( ATT_SESSION_USER, null);
     	}
     	doGet(request, response);
 	}

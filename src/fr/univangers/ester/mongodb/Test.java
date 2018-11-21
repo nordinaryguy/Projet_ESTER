@@ -4,20 +4,16 @@ public class Test {
 
 	public static void main(String[] args) {
 		Users users = new Users();
-		users.addEntreprise("id66", "AA", "mdp");
-		users.addEntreprise("id55", "TT", "mdp");
-		users.pushSalarieIntoEntreprise("id55", "id3");
-		users.pushSalarieIntoEntreprise("id55", "id4");
-		for(String salarie : users.getSalariesEntreprise("id55")) {
-			System.out.println(salarie);
-		}
-		users.pullSalarieIntoEntreprise("id55","id4");
-		users.changePasswordEntreprise("id55", "mpd2");
-		for(String salarie : users.getSalariesEntreprise("id55")) {
-			System.out.println(salarie);
-		}
-		System.out.println(users.connectEntreprise("id0", "mdp"));
-		System.out.println(users.connectEntreprise("id0", "mdpf"));
+		/*
+		users.addSalarie("s1", 1, null, "homme", 1992, "49", null, null, null, null);
+		users.addSalarie("s2", 2, null, "homme", 1985, "49", null, null, null, null);
+		*/
+		System.out.println(users.existSalarie("s1"));
+		System.out.println(users.connectSalarie("s1", null));
+		System.out.println(users.existEntreprise("id66"));
+		System.out.println(users.connectEntreprise("id66", "mdp"));
+		
+		users.addEntreprise("e1", "Marc", "pass");
 	}
 
 }

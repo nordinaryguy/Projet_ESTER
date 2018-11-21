@@ -12,15 +12,14 @@
 
     <title>ESTER</title>
 
-    <!-- Bootstrap core CSS -->
- 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
- 	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
-	<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/Accueil.css"/>">
+    <script src="<c:url value="/js/jquery.min.js"/>"></script>
+    <script src="<c:url value="/js/popper.min.js"/>"></script>
+    <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
 	
 	<script src="/Projet_ESTER/js/checkPass.js"></script>
     <!-- Custom styles for this template -->
-    <link href="/Projet_ESTER/css/Accueil.css" rel="stylesheet">
      <link rel="stylesheet" href="/Projet_ESTER/CSS/form-reset.css">
   </head>
 
