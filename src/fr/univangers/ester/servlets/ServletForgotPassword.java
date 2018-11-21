@@ -22,10 +22,12 @@ public class ServletForgotPassword extends HttpServlet {
 	
     public ServletForgotPassword() {
         super();
-        delai=new TimeLimit(0,0,1,0);
+        delai=new TimeLimit(0,0,3,0);
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Users user=new Users();
+		user.addUserEster("mail", "nom", "prenom", "mail", "", null);
 		String message="";
 		request.setAttribute("message", message);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ForgotPassword.jsp").forward(request, response);
@@ -36,7 +38,7 @@ public class ServletForgotPassword extends HttpServlet {
 		String message="l'adresse email saisi n'est pas valide";
 		Users users=new Users();
 		if(users.existUserEster(email)) {
-			Mail mail = new Mail("sender","mdp",email,"host","port");
+			Mail mail = new Mail("sender","mdp",email,"smtp.gmail.com","587");
 			//create urlToken and expireDate
 			String token = UUID.randomUUID().toString();
 			Date expireDate= delai.addTimeLimitToDate(new Date());
