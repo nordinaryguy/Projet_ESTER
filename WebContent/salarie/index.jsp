@@ -16,6 +16,6 @@
 <body>
   	<c:import url="/jsp/Menu.jsp"/>
 
-Hello
+
 </body>
 </html>

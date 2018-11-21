@@ -28,8 +28,8 @@
   	<div class="container">
   	
   	<div class="row justify-content-center pb-2">
-        <div class="col-7 center-block"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
-        <div class="col-3 center-block"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
+        <div class="col-md-6" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
+        <div class="col-md-6" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
     </div>
   	 	
   		<div class="card">
