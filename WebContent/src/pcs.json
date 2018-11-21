@@ -1,0 +1,1650 @@
+[
+        {
+            "code": "100x",
+            "name": "Agriculteurs et éleveurs, salariés de leur exploitation"
+        },
+        {
+            "code": "210x",
+            "name": "Artisans salariés de leur entreprise"
+        },
+        {
+            "code": "220x",
+            "name": "Commerçants et assimilés, salariés de leur entreprise"
+        },
+        {
+            "code": "231a",
+            "name": "Chefs de grande entreprise de 500 salariés et plus"
+        },
+        {
+            "code": "232a",
+            "name": "Chefs de moyenne entreprise, de 50 à 499 salariés"
+        },
+        {
+            "code": "233a",
+            "name": "Chefs d'entreprise du bâtiment et des travaux publics, de 10 à 49 salariés"
+        },
+        {
+            "code": "233b",
+            "name": "Chefs d'entreprise de l'industrie ou des transports, de 10 à 49 salariés"
+        },
+        {
+            "code": "233c",
+            "name": "Chefs d'entreprise commerciale, de 10 à 49 salariés"
+        },
+        {
+            "code": "233d",
+            "name": "Chefs d'entreprise de services, de 10 à 49 salariés"
+        },
+        {
+            "code": "311c",
+            "name": "Chirurgiens dentistes"
+        },
+        {
+            "code": "311d",
+            "name": "Psychologues, psychanalystes, psychothérapeutes (non médecins)"
+        },
+        {
+            "code": "311e",
+            "name": "Vétérinaires"
+        },
+        {
+            "code": "312a",
+            "name": "Avocats"
+        },
+        {
+            "code": "331a",
+            "name": "Personnels de direction de la fonction publique (Etat, collectivités locales, hôpitaux)"
+        },
+        {
+            "code": "332a",
+            "name": "Ingénieurs de l'Etat et assimilés"
+        },
+        {
+            "code": "332b",
+            "name": "Ingénieurs des collectivités locales et des hôpitaux"
+        },
+        {
+            "code": "333c",
+            "name": "Cadres de la Poste"
+        },
+        {
+            "code": "333d",
+            "name": "Cadres administratifs de France Télécom (statut public)"
+        },
+        {
+            "code": "333e",
+            "name": "Autres personnels administratifs de catégorie A de l'Etat et assimilés (hors Enseignement, Patrimoine)"
+        },
+        {
+            "code": "333f",
+            "name": "Personnel administratif de catégorie A des collectivités locales et hôpitaux publics (hors Enseignement, Patrimoine)"
+        },
+        {
+            "code": "341a",
+            "name": "Professeurs agrégés et certifiés de l'enseignement secondaire"
+        },
+        {
+            "code": "341b",
+            "name": "Chefs d'établissement de l'enseignement secondaire et inspecteurs"
+        },
+        {
+            "code": "342b",
+            "name": "Professeurs et maîtres de conférences"
+        },
+        {
+            "code": "342c",
+            "name": "Professeurs agrégés et certifiés en fonction dans l'enseignement supérieur"
+        },
+        {
+            "code": "342d",
+            "name": "Personnel enseignant temporaire de l'enseignement supérieur"
+        },
+        {
+            "code": "342f",
+            "name": "Directeurs et chargés de recherche de la recherche publique"
+        },
+        {
+            "code": "342g",
+            "name": "Ingénieurs d'étude et de recherche de la recherche publique"
+        },
+        {
+            "code": "342h",
+            "name": "Allocataires de la recherche publique"
+        },
+        {
+            "code": "343a",
+            "name": "Psychologues spécialistes de l'orientation scolaire et professionnelle"
+        },
+        {
+            "code": "344a",
+            "name": "Médecins hospitaliers sans activité libérale"
+        },
+        {
+            "code": "344b",
+            "name": "Médecins salariés non hospitaliers"
+        },
+        {
+            "code": "344c",
+            "name": "Internes en médecine, odontologie et pharmacie"
+        },
+        {
+            "code": "344d",
+            "name": "Pharmaciens salariés"
+        },
+        {
+            "code": "351a",
+            "name": "Bibliothécaires, archivistes, conservateurs et autres cadres du patrimoine"
+        },
+        {
+            "code": "352a",
+            "name": "Journalistes (y c. rédacteurs en chef)"
+        },
+        {
+            "code": "352b",
+            "name": "Auteurs littéraires, scénaristes, dialoguistes"
+        },
+        {
+            "code": "353a",
+            "name": "Directeurs de journaux, administrateurs de presse, directeurs d'éditions (littéraire, musicale, audiovisuelle et multimédia)"
+        },
+        {
+            "code": "353b",
+            "name": "Directeurs, responsables de programmation et de production de l'audiovisuel et des spectacles"
+        },
+        {
+            "code": "353c",
+            "name": "Cadres artistiques et technico-artistiques de la réalisation de l'audiovisuel et des spectacles"
+        },
+        {
+            "code": "354a",
+            "name": "Artistes plasticiens"
+        },
+        {
+            "code": "354b",
+            "name": "Artistes de la musique et du chant"
+        },
+        {
+            "code": "354c",
+            "name": "Artistes dramatiques"
+        },
+        {
+            "code": "354e",
+            "name": "Artistes de la danse"
+        },
+        {
+            "code": "354f",
+            "name": "Artistes du cirque et des spectacles divers"
+        },
+        {
+            "code": "354g",
+            "name": "Professeurs d'art (hors établissements scolaires)"
+        },
+        {
+            "code": "371a",
+            "name": "Cadres d'état-major administratifs, financiers, commerciaux des grandes entreprises"
+        },
+        {
+            "code": "372a",
+            "name": "Cadres chargés d'études économiques, financières, commerciales"
+        },
+        {
+            "code": "372b",
+            "name": "Cadres de l'organisation ou du contrôle des services administratifs et financiers"
+        },
+        {
+            "code": "372c",
+            "name": "Cadres spécialistes des ressources humaines et du recrutement"
+        },
+        {
+            "code": "372d",
+            "name": "Cadres spécialistes de la formation"
+        },
+        {
+            "code": "372e",
+            "name": "Juristes"
+        },
+        {
+            "code": "372f",
+            "name": "Cadres de la documentation, de l'archivage (hors fonction publique)"
+        },
+        {
+            "code": "373a",
+            "name": "Cadres des services financiers ou comptables des grandes entreprises"
+        },
+        {
+            "code": "373b",
+            "name": "Cadres des autres services administratifs des grandes entreprises"
+        },
+        {
+            "code": "373c",
+            "name": "Cadres des services financiers ou comptables des petites et moyennes entreprises"
+        },
+        {
+            "code": "373d",
+            "name": "Cadres des autres services administratifs des petites et moyennes entreprises"
+        },
+        {
+            "code": "374a",
+            "name": "Cadres de l'exploitation des magasins de vente du commerce de détail"
+        },
+        {
+            "code": "374b",
+            "name": "Chefs de produits, acheteurs du commerce et autres cadres de la mercatique"
+        },
+        {
+            "code": "374c",
+            "name": "Cadres commerciaux des grandes entreprises (hors commerce de détail)"
+        },
+        {
+            "code": "374d",
+            "name": "Cadres commerciaux des petites et moyennes entreprises (hors commerce de détail)"
+        },
+        {
+            "code": "375a",
+            "name": "Cadres de la publicité"
+        },
+        {
+            "code": "375b",
+            "name": "Cadres des relations publiques et de la communication"
+        },
+        {
+            "code": "376a",
+            "name": "Cadres des marchés financiers"
+        },
+        {
+            "code": "376b",
+            "name": "Cadres des opérations bancaires"
+        },
+        {
+            "code": "376c",
+            "name": "Cadres commerciaux de la banque"
+        },
+        {
+            "code": "376d",
+            "name": "Chefs d'établissements et responsables de l'exploitation bancaire"
+        },
+        {
+            "code": "376e",
+            "name": "Cadres des services techniques des assurances"
+        },
+        {
+            "code": "376f",
+            "name": "Cadres des services techniques des organismes de sécurité sociale et assimilés"
+        },
+        {
+            "code": "376g",
+            "name": "Cadres de l'immobilier"
+        },
+        {
+            "code": "377a",
+            "name": "Cadres de l'hôtellerie et de la restauration"
+        },
+        {
+            "code": "380a",
+            "name": "Directeurs techniques des grandes entreprises"
+        },
+        {
+            "code": "381b",
+            "name": "Ingénieurs et cadres d'étude et développement de l'agriculture, la pêche, les eaux et forêts"
+        },
+        {
+            "code": "381c",
+            "name": "Ingénieurs et cadres de production et d'exploitation de l'agriculture, la pêche, les eaux et forêts"
+        },
+        {
+            "code": "382a",
+            "name": "Ingénieurs et cadres d'étude du bâtiment et des travaux publics"
+        },
+        {
+            "code": "382b",
+            "name": "Architectes salariés"
+        },
+        {
+            "code": "382c",
+            "name": "Ingénieurs, cadres de chantier et conducteurs de travaux (cadres) du bâtiment et des travaux publics"
+        },
+        {
+            "code": "382d",
+            "name": "Ingénieurs et cadres technico-commerciaux en bâtiment, travaux publics"
+        },
+        {
+            "code": "383a",
+            "name": "Ingénieurs et cadres d'étude, recherche et développement en électricité, électronique"
+        },
+        {
+            "code": "383b",
+            "name": "Ingénieurs et cadres de fabrication en matériel électrique, électronique"
+        },
+        {
+            "code": "383c",
+            "name": "Ingénieurs et cadres technico-commerciaux en matériel électrique ou électronique professionnel"
+        },
+        {
+            "code": "384a",
+            "name": "Ingénieurs et cadres d'étude, recherche et développement en mécanique et travail des métaux"
+        },
+        {
+            "code": "384b",
+            "name": "Ingénieurs et cadres de fabrication en mécanique et travail des métaux"
+        },
+        {
+            "code": "384c",
+            "name": "Ingénieurs et cadres technico-commerciaux en matériel mécanique professionnel"
+        },
+        {
+            "code": "385a",
+            "name": "Ingénieurs et cadres d'étude, recherche et développement des industries de transformation (agroalimentaire, chimie, métallurgie, matériaux lourds)"
+        },
+        {
+            "code": "385b",
+            "name": "Ingénieurs et cadres de fabrication des industries de transformation (agroalimentaire, chimie, métallurgie, matériaux lourds)"
+        },
+        {
+            "code": "385c",
+            "name": "Ingénieurs et cadres technico-commerciaux des industries de transformations (biens intermédiaires)"
+        },
+        {
+            "code": "386b",
+            "name": "Ingénieurs et cadres d'étude, recherche et développement de la distribution d'énergie, eau"
+        },
+        {
+            "code": "386c",
+            "name": "Ingénieurs et cadres d'étude, recherche et développement des autres industries (imprimerie, matériaux souples, ameublement et bois)"
+        },
+        {
+            "code": "386d",
+            "name": "Ingénieurs et cadres de la production et de la distribution d'énergie, eau"
+        },
+        {
+            "code": "386e",
+            "name": "Ingénieurs et cadres de fabrication des autres industries (imprimerie, matériaux souples, ameublement et bois)"
+        },
+        {
+            "code": "387a",
+            "name": "Ingénieurs et cadres des achats et approvisionnements industriels"
+        },
+        {
+            "code": "387b",
+            "name": "Ingénieurs et cadres de la logistique, du planning et de l'ordonnancement"
+        },
+        {
+            "code": "387c",
+            "name": "Ingénieurs et cadres des méthodes de production"
+        },
+        {
+            "code": "387d",
+            "name": "Ingénieurs et cadres du contrôle-qualité"
+        },
+        {
+            "code": "387e",
+            "name": "Ingénieurs et cadres de la maintenance, de l'entretien et des travaux neufs"
+        },
+        {
+            "code": "387f",
+            "name": "Ingénieurs et cadres techniques de l'environnement"
+        },
+        {
+            "code": "388a",
+            "name": "Ingénieurs et cadres d'étude, recherche et développement en informatique"
+        },
+        {
+            "code": "388b",
+            "name": "Ingénieurs et cadres d'administration, maintenance, support et services aux utilisateurs en informatique"
+        },
+        {
+            "code": "388c",
+            "name": "Chefs de projets informatiques, responsables informatiques"
+        },
+        {
+            "code": "388d",
+            "name": "Ingénieurs et cadres technico-commerciaux en informatique et télécommunications"
+        },
+        {
+            "code": "388e",
+            "name": "Ingénieurs et cadres spécialistes des télécommunications"
+        },
+        {
+            "code": "389a",
+            "name": "Ingénieurs et cadres techniques de l'exploitation des transports"
+        },
+        {
+            "code": "389b",
+            "name": "Officiers et cadres navigants techniques et commerciaux de l'aviation civile"
+        },
+        {
+            "code": "389c",
+            "name": "Officiers et cadres navigants techniques de la marine marchande"
+        },
+        {
+            "code": "421a",
+            "name": "Instituteurs"
+        },
+        {
+            "code": "421b",
+            "name": "Professeurs des écoles"
+        },
+        {
+            "code": "422a",
+            "name": "Professeurs d'enseignement général des collèges"
+        },
+        {
+            "code": "422b",
+            "name": "Professeurs de lycée professionnel"
+        },
+        {
+            "code": "422c",
+            "name": "Maîtres auxiliaires et professeurs contractuels de l'enseignement secondaire"
+        },
+        {
+            "code": "422d",
+            "name": "Conseillers principaux d'éducation"
+        },
+        {
+            "code": "422e",
+            "name": "Surveillants et aides-éducateurs des établissements d'enseignement"
+        },
+        {
+            "code": "423a",
+            "name": "Moniteurs d'école de conduite"
+        },
+        {
+            "code": "423b",
+            "name": "Formateurs et animateurs de formation continue"
+        },
+        {
+            "code": "424a",
+            "name": "Moniteurs et éducateurs sportifs, sportifs professionnels"
+        },
+        {
+            "code": "425a",
+            "name": "Sous-bibliothécaires, cadres intermédiaires du patrimoine"
+        },
+        {
+            "code": "431a",
+            "name": "Cadres infirmiers et assimilés"
+        },
+        {
+            "code": "431b",
+            "name": "Infirmiers psychiatriques"
+        },
+        {
+            "code": "431c",
+            "name": "Puéricultrices"
+        },
+        {
+            "code": "431d",
+            "name": "Infirmiers spécialisés (autres qu'infirmiers psychiatriques et puéricultrices)"
+        },
+        {
+            "code": "431e",
+            "name": "Sages-femmes"
+        },
+        {
+            "code": "431f",
+            "name": "Infirmiers en soins généraux"
+        },
+        {
+            "code": "432b",
+            "name": "Masseurs-kinésithérapeutes rééducateurs"
+        },
+        {
+            "code": "432d",
+            "name": "Autres spécialistes de la rééducation"
+        },
+        {
+            "code": "433a",
+            "name": "Techniciens médicaux"
+        },
+        {
+            "code": "433b",
+            "name": "Opticiens lunetiers et audioprothésistes"
+        },
+        {
+            "code": "433c",
+            "name": "Autres spécialistes de l'appareillage médical"
+        },
+        {
+            "code": "433d",
+            "name": "Préparateurs en pharmacie"
+        },
+        {
+            "code": "434a",
+            "name": "Cadres de l'intervention socio-éducative"
+        },
+        {
+            "code": "434b",
+            "name": "Assistants de service social"
+        },
+        {
+            "code": "434c",
+            "name": "Conseillers en économie sociale familiale"
+        },
+        {
+            "code": "434d",
+            "name": "Educateurs spécialisés"
+        },
+        {
+            "code": "434e",
+            "name": "Moniteurs éducateurs"
+        },
+        {
+            "code": "434f",
+            "name": "Educateurs techniques spécialisés, moniteurs d'atelier"
+        },
+        {
+            "code": "434g",
+            "name": "Educateurs de jeunes enfants"
+        },
+        {
+            "code": "435a",
+            "name": "Directeurs de centres socioculturels et de loisirs"
+        },
+        {
+            "code": "435b",
+            "name": "Animateurs socioculturels et de loisirs"
+        },
+        {
+            "code": "441a",
+            "name": "Clergé séculier"
+        },
+        {
+            "code": "441b",
+            "name": "Clergé régulier"
+        },
+        {
+            "code": "451a",
+            "name": "Professions intermédiaires de la Poste"
+        },
+        {
+            "code": "451b",
+            "name": "Professions intermédiaires administratives de France Télécom (statut public)"
+        },
+        {
+            "code": "451e",
+            "name": "Autres personnels administratifs de catégorie B de l'Etat et assimilés (hors Enseignement, Patrimoine)"
+        },
+        {
+            "code": "451g",
+            "name": "Professions intermédiaires administratives des collectivités locales"
+        },
+        {
+            "code": "451h",
+            "name": "Professions intermédiaires administratives des hôpitaux"
+        },
+        {
+            "code": "461b",
+            "name": "Secrétaires de direction, assistants de direction (non cadres)"
+        },
+        {
+            "code": "461c",
+            "name": "Secrétaires de niveau supérieur (non cadres, hors secrétaires de direction)"
+        },
+        {
+            "code": "461d",
+            "name": "Maîtrise et techniciens des services financiers ou comptables"
+        },
+        {
+            "code": "461e",
+            "name": "Maîtrise et techniciens administratifs des services juridiques ou du personnel"
+        },
+        {
+            "code": "461f",
+            "name": "Maîtrise et techniciens administratifs des autres services administratifs"
+        },
+        {
+            "code": "462a",
+            "name": "Chefs de petites surfaces de vente"
+        },
+        {
+            "code": "462b",
+            "name": "Maîtrise de l'exploitation des magasins de vente"
+        },
+        {
+            "code": "462c",
+            "name": "Acheteurs non classés cadres, aides-acheteurs"
+        },
+        {
+            "code": "462d",
+            "name": "Animateurs commerciaux des magasins de vente, marchandiseurs (non cadres)"
+        },
+        {
+            "code": "462e",
+            "name": "Autres professions intermédiaires commerciales (sauf techniciens des forces de vente)"
+        },
+        {
+            "code": "463a",
+            "name": "Techniciens commerciaux et technico-commerciaux, représentants en informatique"
+        },
+        {
+            "code": "463b",
+            "name": "Techniciens commerciaux et technico-commerciaux, représentants en biens d'équipement, en biens intermédiaires, commerce interindustriel (hors informatique)"
+        },
+        {
+            "code": "463c",
+            "name": "Techniciens commerciaux et technico-commerciaux, représentants en biens de consommation auprès d'entreprises"
+        },
+        {
+            "code": "463d",
+            "name": "Techniciens commerciaux et technico-commerciaux, représentants en services auprès d'entreprises ou de professionnels (hors banque, assurance, informatique)"
+        },
+        {
+            "code": "463e",
+            "name": "Techniciens commerciaux et technico-commerciaux, représentants auprès de particuliers (hors banque, assurance, informatique)"
+        },
+        {
+            "code": "464a",
+            "name": "Assistants de la publicité, des relations publiques"
+        },
+        {
+            "code": "464b",
+            "name": "Interprètes, traducteurs"
+        },
+        {
+            "code": "465a",
+            "name": "Concepteurs et assistants techniques des arts graphiques, de la mode et de la décoration"
+        },
+        {
+            "code": "465b",
+            "name": "Assistants techniques de la réalisation des spectacles vivants et audiovisuels"
+        },
+        {
+            "code": "465c",
+            "name": "Photographes"
+        },
+        {
+            "code": "466a",
+            "name": "Responsables commerciaux et administratifs des transports de voyageurs et du tourisme (non cadres)"
+        },
+        {
+            "code": "466b",
+            "name": "Responsables commerciaux et administratifs des transports de marchandises (non cadres)"
+        },
+        {
+            "code": "466c",
+            "name": "Responsables d'exploitation des transports de voyageurs et de marchandises (non cadres)"
+        },
+        {
+            "code": "467a",
+            "name": "Chargés de clientèle bancaire"
+        },
+        {
+            "code": "467b",
+            "name": "Techniciens des opérations bancaires"
+        },
+        {
+            "code": "467c",
+            "name": "Professions intermédiaires techniques et commerciales des assurances"
+        },
+        {
+            "code": "467d",
+            "name": "Professions intermédiaires techniques des organismes de sécurité sociale"
+        },
+        {
+            "code": "468a",
+            "name": "Maîtrise de restauration : salle et service"
+        },
+        {
+            "code": "468b",
+            "name": "Maîtrise de l'hébergement : hall et étages"
+        },
+        {
+            "code": "471a",
+            "name": "Techniciens d'étude et de conseil en agriculture, eaux et forêts"
+        },
+        {
+            "code": "471b",
+            "name": "Techniciens d'exploitation et de contrôle de la production en agriculture, eaux et forêts"
+        },
+        {
+            "code": "472a",
+            "name": "Dessinateurs en bâtiment, travaux publics"
+        },
+        {
+            "code": "472b",
+            "name": "Géomètres, topographes"
+        },
+        {
+            "code": "472c",
+            "name": "Métreurs et techniciens divers du bâtiment et des travaux publics"
+        },
+        {
+            "code": "472d",
+            "name": "Techniciens des travaux publics de l'Etat et des collectivités locales"
+        },
+        {
+            "code": "473a",
+            "name": "Dessinateurs en électricité, électromécanique et électronique"
+        },
+        {
+            "code": "473b",
+            "name": "Techniciens de recherche-développement et des méthodes de fabrication en électricité, électromécanique et électronique"
+        },
+        {
+            "code": "473c",
+            "name": "Techniciens de fabrication et de contrôle-qualité en électricité, électromécanique et électronique"
+        },
+        {
+            "code": "474a",
+            "name": "Dessinateurs en construction mécanique et travail des métaux"
+        },
+        {
+            "code": "474b",
+            "name": "Techniciens de recherche-développement et des méthodes de fabrication en construction mécanique et travail des métaux"
+        },
+        {
+            "code": "474c",
+            "name": "Techniciens de fabrication et de contrôle-qualité en construction mécanique et travail des métaux"
+        },
+        {
+            "code": "475a",
+            "name": "Techniciens de recherche-développement et des méthodes de production des industries de transformation"
+        },
+        {
+            "code": "475b",
+            "name": "Techniciens de production et de contrôle-qualité des industries de transformation"
+        },
+        {
+            "code": "476a",
+            "name": "Assistants techniques, techniciens de l'imprimerie et de l'édition"
+        },
+        {
+            "code": "476b",
+            "name": "Techniciens de l'industrie des matériaux souples, de l'ameublement et du bois"
+        },
+        {
+            "code": "477a",
+            "name": "Techniciens de la logistique, du planning et de l'ordonnancement"
+        },
+        {
+            "code": "477b",
+            "name": "Techniciens d'installation et de maintenance des équipements industriels (électriques, électromécaniques, mécaniques, hors informatique)"
+        },
+        {
+            "code": "477c",
+            "name": "Techniciens d'installation et de maintenance des équipements non industriels (hors informatique et télécommunications)"
+        },
+        {
+            "code": "477d",
+            "name": "Techniciens de l'environnement et du traitement des pollutions"
+        },
+        {
+            "code": "478a",
+            "name": "Techniciens d'étude et de développement en informatique"
+        },
+        {
+            "code": "478b",
+            "name": "Techniciens de production, d'exploitation en informatique"
+        },
+        {
+            "code": "478c",
+            "name": "Techniciens d'installation, de maintenance, support et services aux utilisateurs en informatique"
+        },
+        {
+            "code": "478d",
+            "name": "Techniciens des télécommunications et de l'informatique des réseaux"
+        },
+        {
+            "code": "479a",
+            "name": "Techniciens des laboratoires de recherche publique ou de l'enseignement"
+        },
+        {
+            "code": "479b",
+            "name": "Experts de niveau technicien, techniciens divers"
+        },
+        {
+            "code": "480a",
+            "name": "Contremaîtres et agents d'encadrement (non cadres) en agriculture, sylviculture"
+        },
+        {
+            "code": "480b",
+            "name": "Maîtres d'équipage de la marine marchande et de la pêche"
+        },
+        {
+            "code": "481a",
+            "name": "Conducteurs de travaux (non cadres)"
+        },
+        {
+            "code": "481b",
+            "name": "Chefs de chantier (non cadres)"
+        },
+        {
+            "code": "482a",
+            "name": "Agents de maîtrise en fabrication de matériel électrique, électronique"
+        },
+        {
+            "code": "483a",
+            "name": "Agents de maîtrise en construction mécanique, travail des métaux"
+        },
+        {
+            "code": "484a",
+            "name": "Agents de maîtrise en fabrication : agroalimentaire, chimie, plasturgie, pharmacie."
+        },
+        {
+            "code": "484b",
+            "name": "Agents de maîtrise en fabrication : métallurgie, matériaux lourds et autres industries de transformation"
+        },
+        {
+            "code": "485a",
+            "name": "Agents de maîtrise et techniciens en production et distribution d'énergie, eau, chauffage"
+        },
+        {
+            "code": "485b",
+            "name": "Agents de maîtrise en fabrication des autres industries (imprimerie, matériaux souples, ameublement et bois)"
+        },
+        {
+            "code": "486b",
+            "name": "Agents de maîtrise en maintenance, installation en électricité et électronique"
+        },
+        {
+            "code": "486c",
+            "name": "Agents de maîtrise en maintenance, installation en électromécanique"
+        },
+        {
+            "code": "486d",
+            "name": "Agents de maîtrise en maintenance, installation en mécanique"
+        },
+        {
+            "code": "486e",
+            "name": "Agents de maîtrise en entretien général, installation, travaux neufs (hors mécanique, électromécanique, électronique)"
+        },
+        {
+            "code": "487a",
+            "name": "Responsables d'entrepôt, de magasinage"
+        },
+        {
+            "code": "487b",
+            "name": "Responsables du tri, de l'emballage, de l'expédition et autres responsables de la manutention"
+        },
+        {
+            "code": "488a",
+            "name": "Maîtrise de restauration  : cuisine/production"
+        },
+        {
+            "code": "488b",
+            "name": "Maîtrise de restauration  : gestion d'établissement"
+        },
+        {
+            "code": "521a",
+            "name": "Employés de la Poste"
+        },
+        {
+            "code": "521b",
+            "name": "Employés de France Télécom (statut public)"
+        },
+        {
+            "code": "523b",
+            "name": "Adjoints administratifs de l'Etat et assimilés (sauf Poste, France Télécom)"
+        },
+        {
+            "code": "523c",
+            "name": "Adjoints administratifs des collectivités locales"
+        },
+        {
+            "code": "523d",
+            "name": "Adjoints administratifs des hôpitaux publics"
+        },
+        {
+            "code": "524b",
+            "name": "Agents administratifs de l'Etat et assimilés (sauf Poste, France Télécom)"
+        },
+        {
+            "code": "524c",
+            "name": "Agents administratifs des collectivités locales"
+        },
+        {
+            "code": "524d",
+            "name": "Agents administratifs des hôpitaux publics"
+        },
+        {
+            "code": "525a",
+            "name": "Agents de service des établissements primaires"
+        },
+        {
+            "code": "525b",
+            "name": "Agents de service des autres établissements d'enseignement"
+        },
+        {
+            "code": "525c",
+            "name": "Agents de service de la fonction publique (sauf écoles, hôpitaux)"
+        },
+        {
+            "code": "525d",
+            "name": "Agents de service hospitaliers"
+        },
+        {
+            "code": "526a",
+            "name": "Aides-soignants"
+        },
+        {
+            "code": "526b",
+            "name": "Assistants dentaires, médicaux et vétérinaires, aides de techniciens médicaux"
+        },
+        {
+            "code": "526c",
+            "name": "Auxiliaires de puériculture"
+        },
+        {
+            "code": "526d",
+            "name": "Aides médico-psychologiques"
+        },
+        {
+            "code": "526e",
+            "name": "Ambulanciers"
+        },
+        {
+            "code": "533a",
+            "name": "Pompiers"
+        },
+        {
+            "code": "533b",
+            "name": "Agents techniques forestiers, gardes des espaces naturels"
+        },
+        {
+            "code": "533c",
+            "name": "Agents de surveillance du patrimoine et des administrations"
+        },
+        {
+            "code": "534a",
+            "name": "Agents civils de sécurité et de surveillance"
+        },
+        {
+            "code": "534b",
+            "name": "Convoyeurs de fonds, gardes du corps, enquêteurs privés et métiers assimilés"
+        },
+        {
+            "code": "541b",
+            "name": "Agents d'accueil qualifiés, hôtesses d'accueil et d'information"
+        },
+        {
+            "code": "541c",
+            "name": "Agents d'accueil non qualifiés"
+        },
+        {
+            "code": "541d",
+            "name": "Standardistes, téléphonistes"
+        },
+        {
+            "code": "542a",
+            "name": "Secrétaires"
+        },
+        {
+            "code": "542b",
+            "name": "Dactylos, sténodactylos (sans secrétariat), opérateurs de traitement de texte"
+        },
+        {
+            "code": "543b",
+            "name": "Employés qualifiés des services comptables ou financiers"
+        },
+        {
+            "code": "543c",
+            "name": "Employés non qualifiés des services comptables ou financiers"
+        },
+        {
+            "code": "543e",
+            "name": "Employés qualifiés des services du personnel et des services juridiques"
+        },
+        {
+            "code": "543f",
+            "name": "Employés qualifiés des services commerciaux des entreprises (hors vente)"
+        },
+        {
+            "code": "543g",
+            "name": "Employés administratifs qualifiés des autres services des entreprises"
+        },
+        {
+            "code": "543h",
+            "name": "Employés administratifs non qualifiés"
+        },
+        {
+            "code": "544a",
+            "name": "Employés et opérateurs d'exploitation en informatique"
+        },
+        {
+            "code": "545a",
+            "name": "Employés administratifs des services techniques de la banque"
+        },
+        {
+            "code": "545b",
+            "name": "Employés des services commerciaux de la banque"
+        },
+        {
+            "code": "545c",
+            "name": "Employés des services techniques des assurances"
+        },
+        {
+            "code": "545d",
+            "name": "Employés des services techniques des organismes de sécurité sociale et assimilés"
+        },
+        {
+            "code": "546a",
+            "name": "Contrôleurs des transports (personnels roulants)"
+        },
+        {
+            "code": "546b",
+            "name": "Agents des services commerciaux des transports de voyageurs et du tourisme"
+        },
+        {
+            "code": "546c",
+            "name": "Employés administratifs d'exploitation des transports de marchandises"
+        },
+        {
+            "code": "546d",
+            "name": "Hôtesses de l'air et stewards"
+        },
+        {
+            "code": "546e",
+            "name": "Autres agents et hôtesses d'accompagnement (transports, tourisme)"
+        },
+        {
+            "code": "551a",
+            "name": "Employés de libre service du commerce et magasiniers"
+        },
+        {
+            "code": "552a",
+            "name": "Caissiers de magasin"
+        },
+        {
+            "code": "553b",
+            "name": "Vendeurs polyvalents des grands magasins"
+        },
+        {
+            "code": "553c",
+            "name": " Autres vendeurs non spécialisés"
+        },
+        {
+            "code": "554a",
+            "name": "Vendeurs en alimentation"
+        },
+        {
+            "code": "554b",
+            "name": "Vendeurs en ameublement, décor, équipement du foyer"
+        },
+        {
+            "code": "554c",
+            "name": "Vendeurs en droguerie, bazar, quincaillerie, bricolage"
+        },
+        {
+            "code": "554d",
+            "name": "Vendeurs du commerce de fleurs"
+        },
+        {
+            "code": "554e",
+            "name": "Vendeurs en habillement et articles de sport"
+        },
+        {
+            "code": "554f",
+            "name": "Vendeurs en produits de beauté, de luxe (hors biens culturels) et optique"
+        },
+        {
+            "code": "554g",
+            "name": "Vendeurs de biens culturels (livres, disques, multimédia, objets d'art)"
+        },
+        {
+            "code": "554h",
+            "name": "Vendeurs de tabac, presse et articles divers"
+        },
+        {
+            "code": "554j",
+            "name": "Pompistes et gérants de station-service (salariés ou mandataires)"
+        },
+        {
+            "code": "555a",
+            "name": "Vendeurs par correspondance, télévendeurs"
+        },
+        {
+            "code": "556a",
+            "name": "Vendeurs en gros de biens d'équipement, biens intermédiaires"
+        },
+        {
+            "code": "561b",
+            "name": "Serveurs, commis de restaurant, garçons qualifiés"
+        },
+        {
+            "code": "561c",
+            "name": "Serveurs, commis de restaurant, garçons non qualifiés"
+        },
+        {
+            "code": "561d",
+            "name": "Aides de cuisine, apprentis de cuisine et employés polyvalents de la restauration"
+        },
+        {
+            "code": "561e",
+            "name": "Employés de l'hôtellerie : réception et hall"
+        },
+        {
+            "code": "561f",
+            "name": "Employés d'étage et employés polyvalents de l'hôtellerie"
+        },
+        {
+            "code": "562a",
+            "name": "Manucures, esthéticiens"
+        },
+        {
+            "code": "562b",
+            "name": "Coiffeurs"
+        },
+        {
+            "code": "563a",
+            "name": "Assistantes maternelles, gardiennes d'enfants, familles d'accueil"
+        },
+        {
+            "code": "563b",
+            "name": "Aides à domicile, aides ménagères, travailleuses familiales"
+        },
+        {
+            "code": "563c",
+            "name": "Employés de maison et personnels de ménage chez des particuliers"
+        },
+        {
+            "code": "564a",
+            "name": "Concierges, gardiens d'immeubles"
+        },
+        {
+            "code": "564b",
+            "name": "Employés des services divers"
+        },
+        {
+            "code": "621a",
+            "name": "Chefs d'équipe du gros oeuvre et des travaux publics"
+        },
+        {
+            "code": "621b",
+            "name": "Ouvriers qualifiés du travail du béton"
+        },
+        {
+            "code": "621c",
+            "name": "Conducteurs qualifiés d'engins de chantiers du bâtiment et des travaux publics"
+        },
+        {
+            "code": "621d",
+            "name": "Ouvriers des travaux publics en installations électriques et de télécommunications"
+        },
+        {
+            "code": "621e",
+            "name": "Autres ouvriers qualifiés des travaux publics"
+        },
+        {
+            "code": "621f",
+            "name": "Ouvriers qualifiés des travaux publics (salariés de l'Etat et des collectivités locales)"
+        },
+        {
+            "code": "621g",
+            "name": "Mineurs de fond qualifiés et autres ouvriers qualifiés des industries d'extraction (carrières, pétrole, gaz...)"
+        },
+        {
+            "code": "622a",
+            "name": "Opérateurs qualifiés sur machines automatiques en production électrique ou électronique"
+        },
+        {
+            "code": "622c",
+            "name": "Monteurs câbleurs qualifiés en électricité"
+        },
+        {
+            "code": "622d",
+            "name": "Câbleurs qualifiés en électronique (prototype, unité, petite série)"
+        },
+        {
+            "code": "622e",
+            "name": "Autres monteurs câbleurs en électronique"
+        },
+        {
+            "code": "622f",
+            "name": "Bobiniers qualifiés"
+        },
+        {
+            "code": "622g",
+            "name": "Plate-formistes, contrôleurs qualifiés de matériel électrique ou électronique"
+        },
+        {
+            "code": "623a",
+            "name": "Chaudronniers-tôliers industriels, opérateurs qualifiés du travail en forge, conducteurs qualifiés d'équipement de formage, traceurs qualifiés"
+        },
+        {
+            "code": "623b",
+            "name": "Tuyauteurs industriels qualifiés"
+        },
+        {
+            "code": "623d",
+            "name": "Opérateurs qualifiés sur machine de soudage"
+        },
+        {
+            "code": "623e",
+            "name": "Soudeurs manuels"
+        },
+        {
+            "code": "623f",
+            "name": "Opérateurs qualifiés d'usinage des métaux travaillant à l'unité ou en petite série, moulistes qualifiés"
+        },
+        {
+            "code": "623g",
+            "name": "Opérateurs qualifiés d'usinage des métaux sur autres machines (sauf moulistes)"
+        },
+        {
+            "code": "624b",
+            "name": "Monteurs, metteurs au point très qualifiés d'ensembles mécaniques travaillant à l'unité ou en petite série"
+        },
+        {
+            "code": "624c",
+            "name": "Monteurs qualifiés d'ensembles mécaniques travaillant en moyenne ou en grande série"
+        },
+        {
+            "code": "624d",
+            "name": "Monteurs qualifiés en structures métalliques"
+        },
+        {
+            "code": "624e",
+            "name": "Ouvriers qualifiés de contrôle et d'essais en mécanique"
+        },
+        {
+            "code": "624f",
+            "name": "Ouvriers qualifiés des traitements thermiques et de surface sur métaux"
+        },
+        {
+            "code": "624g",
+            "name": "Autres mécaniciens ou ajusteurs qualifiés (ou spécialité non reconnue)"
+        },
+        {
+            "code": "625a",
+            "name": "Pilotes d'installation lourde des industries de transformation : agroalimentaire, chimie, plasturgie, énergie"
+        },
+        {
+            "code": "625b",
+            "name": "Ouvriers qualifiés et agents qualifiés de laboratoire : agroalimentaire, chimie, biologie, pharmacie"
+        },
+        {
+            "code": "625c",
+            "name": "Autres opérateurs et ouvriers qualifiés de la chimie (y.c. pharmacie) et de la plasturgie"
+        },
+        {
+            "code": "625d",
+            "name": "Opérateurs de la transformation des viandes"
+        },
+        {
+            "code": "625f",
+            "name": "Autres opérateurs travaillant sur installations ou machines : industrie agroalimentaire (hors transformation des viandes)"
+        },
+        {
+            "code": "625g",
+            "name": "Autres ouvriers de production qualifiés ne travaillant pas sur machine : industrie agroalimentaire (hors transformation des viandes)"
+        },
+        {
+            "code": "625h",
+            "name": "Ouvriers qualifiés des autres industries (eau, gaz, énergie, chauffage)"
+        },
+        {
+            "code": "626a",
+            "name": "Pilotes d'installation lourde des industries de transformation : métallurgie, production verrière, matériaux de construction"
+        },
+        {
+            "code": "626b",
+            "name": "Autres opérateurs et ouvriers qualifiés : métallurgie, production verrière, matériaux de construction"
+        },
+        {
+            "code": "626c",
+            "name": "Opérateurs et ouvriers qualifiés des industries lourdes du bois et de la fabrication du papier-carton"
+        },
+        {
+            "code": "627a",
+            "name": "Opérateurs qualifiés du textile et de la mégisserie"
+        },
+        {
+            "code": "627b",
+            "name": "Ouvriers qualifiés de la coupe des vêtements et de l'habillement, autres opérateurs de confection qualifiés"
+        },
+        {
+            "code": "627c",
+            "name": "Ouvriers qualifiés du travail industriel du cuir"
+        },
+        {
+            "code": "627d",
+            "name": "Ouvriers qualifiés de scierie, de la menuiserie industrielle et de l'ameublement"
+        },
+        {
+            "code": "627e",
+            "name": "Ouvriers de la photogravure et des laboratoires photographiques et cinématographiques"
+        },
+        {
+            "code": "627f",
+            "name": "Ouvriers de la composition et de l'impression, ouvriers qualifiés de la brochure, de la reliure et du façonnage du papier-carton"
+        },
+        {
+            "code": "628a",
+            "name": "Mécaniciens qualifiés de maintenance, entretien : équipements industriels"
+        },
+        {
+            "code": "628b",
+            "name": "Electromécaniciens, électriciens qualifiés d'entretien : équipements industriels"
+        },
+        {
+            "code": "628c",
+            "name": "Régleurs qualifiés d'équipement de fabrication (travail des métaux, mécanique)"
+        },
+        {
+            "code": "628d",
+            "name": "Régleurs qualifiés d'équipement de fabrication (hors travail des métaux et mécanique)"
+        },
+        {
+            "code": "628e",
+            "name": "Ouvriers qualifiés de l'assainissement et du traitement des déchets"
+        },
+        {
+            "code": "628f",
+            "name": "Agents qualifiés de laboratoire (sauf chimie, santé)"
+        },
+        {
+            "code": "628g",
+            "name": "Ouvriers qualifiés divers de type industriel"
+        },
+        {
+            "code": "631a",
+            "name": "Jardiniers"
+        },
+        {
+            "code": "632a",
+            "name": "Maçons qualifiés"
+        },
+        {
+            "code": "632b",
+            "name": "Ouvriers qualifiés du travail de la pierre"
+        },
+        {
+            "code": "632c",
+            "name": "Charpentiers en bois qualifiés"
+        },
+        {
+            "code": "632d",
+            "name": "Menuisiers qualifiés du bâtiment"
+        },
+        {
+            "code": "632e",
+            "name": "Couvreurs qualifiés"
+        },
+        {
+            "code": "632f",
+            "name": "Plombiers et chauffagistes qualifiés"
+        },
+        {
+            "code": "632g",
+            "name": "Peintres et ouvriers qualifiés de pose de revêtements sur supports verticaux"
+        },
+        {
+            "code": "632h",
+            "name": "Soliers moquetteurs et ouvriers qualifiés de pose de revêtements souples sur supports horizontaux"
+        },
+        {
+            "code": "632j",
+            "name": "Monteurs qualifiés en agencement, isolation"
+        },
+        {
+            "code": "632k",
+            "name": "Ouvriers qualifiés d'entretien général des bâtiments"
+        },
+        {
+            "code": "633a",
+            "name": "Electriciens qualifiés de type artisanal (y c. bâtiment)"
+        },
+        {
+            "code": "633b",
+            "name": "Dépanneurs qualifiés en radiotélévision, électroménager, matériel électronique"
+        },
+        {
+            "code": "633c",
+            "name": "Electriciens, électroniciens qualifiés en maintenance entretien, réparation : automobile"
+        },
+        {
+            "code": "633d",
+            "name": "Electriciens, électroniciens qualifiés en maintenance, entretien : équipements non industriels"
+        },
+        {
+            "code": "634a",
+            "name": "Carrossiers d'automobiles qualifiés"
+        },
+        {
+            "code": "634b",
+            "name": "Métalliers, serruriers qualifiés"
+        },
+        {
+            "code": "634c",
+            "name": "Mécaniciens qualifiés en maintenance, entretien, réparation : automobile"
+        },
+        {
+            "code": "634d",
+            "name": "Mécaniciens qualifiés de maintenance, entretien : équipements non industriels"
+        },
+        {
+            "code": "635a",
+            "name": "Tailleurs et couturières qualifiés, ouvriers qualifiés du travail des étoffes (sauf fabrication de vêtements), ouvriers qualifiés de type artisanal du travail du cuir"
+        },
+        {
+            "code": "636a",
+            "name": "Bouchers (sauf industrie de la viande)"
+        },
+        {
+            "code": "636b",
+            "name": "Charcutiers (sauf industrie de la viande)"
+        },
+        {
+            "code": "636c",
+            "name": "Boulangers, pâtissiers (sauf activité industrielle)"
+        },
+        {
+            "code": "636d",
+            "name": "Cuisiniers et commis de cuisine"
+        },
+        {
+            "code": "637a",
+            "name": "Modeleurs (sauf modeleurs de métal), mouleurs-noyauteurs à la main, ouvriers qualifiés du travail du verre ou de la céramique à la main"
+        },
+        {
+            "code": "637b",
+            "name": "Ouvriers d'art"
+        },
+        {
+            "code": "637c",
+            "name": "Ouvriers et techniciens des spectacles vivants et audiovisuels"
+        },
+        {
+            "code": "637d",
+            "name": "Ouvriers qualifiés divers de type artisanal"
+        },
+        {
+            "code": "641a",
+            "name": "Conducteurs routiers et grands routiers"
+        },
+        {
+            "code": "641b",
+            "name": "Conducteurs de véhicule routier de transport en commun"
+        },
+        {
+            "code": "642a",
+            "name": "Conducteurs de taxi"
+        },
+        {
+            "code": "642b",
+            "name": "Conducteurs de voiture particulière"
+        },
+        {
+            "code": "643a",
+            "name": "Conducteurs livreurs, coursiers"
+        },
+        {
+            "code": "644a",
+            "name": "Conducteurs de véhicule de ramassage des ordures ménagères"
+        },
+        {
+            "code": "651a",
+            "name": "Conducteurs d'engin lourd de levage"
+        },
+        {
+            "code": "651b",
+            "name": "Conducteurs d'engin lourd de manoeuvre"
+        },
+        {
+            "code": "652a",
+            "name": "Ouvriers qualifiés de la manutention, conducteurs de chariots élévateurs, caristes"
+        },
+        {
+            "code": "652b",
+            "name": "Dockers"
+        },
+        {
+            "code": "653a",
+            "name": "Magasiniers qualifiés"
+        },
+        {
+            "code": "654b",
+            "name": "Conducteurs qualifiés d'engins de transport guidés (sauf remontées mécaniques)"
+        },
+        {
+            "code": "654c",
+            "name": "Conducteurs qualifiés de systèmes de remontées mécaniques"
+        },
+        {
+            "code": "655a",
+            "name": "Autres agents et ouvriers qualifiés (sédentaires) des services d'exploitation des transports"
+        },
+        {
+            "code": "656b",
+            "name": "Matelots de la marine marchande"
+        },
+        {
+            "code": "656c",
+            "name": "Capitaines et matelots timoniers de la navigation fluviale"
+        },
+        {
+            "code": "671a",
+            "name": "Ouvriers non qualifiés des travaux publics de l'Etat et des collectivités locales"
+        },
+        {
+            "code": "671c",
+            "name": "Ouvriers non qualifiés des travaux publics et du travail du béton"
+        },
+        {
+            "code": "671d",
+            "name": "Aides-mineurs, ouvriers non qualifiés de l'extraction"
+        },
+        {
+            "code": "672a",
+            "name": "Ouvriers non qualifiés de l'électricité et de l'électronique"
+        },
+        {
+            "code": "673a",
+            "name": "Ouvriers de production non qualifiés travaillant par enlèvement de métal"
+        },
+        {
+            "code": "673b",
+            "name": "Ouvriers de production non qualifiés travaillant par formage de métal"
+        },
+        {
+            "code": "673c",
+            "name": "Ouvriers non qualifiés de montage, contrôle en mécanique et travail des métaux"
+        },
+        {
+            "code": "674a",
+            "name": "Ouvriers de production non qualifiés : chimie, pharmacie, plasturgie"
+        },
+        {
+            "code": "674b",
+            "name": "Ouvriers de production non qualifiés de la transformation des viandes"
+        },
+        {
+            "code": "674c",
+            "name": "Autres ouvriers de production non qualifiés : industrie agroalimentaire"
+        },
+        {
+            "code": "674d",
+            "name": "Ouvriers de production non qualifiés : métallurgie, production verrière, céramique, matériaux de construction"
+        },
+        {
+            "code": "674e",
+            "name": "Ouvriers de production non qualifiés : industrie lourde du bois, fabrication des papiers et cartons"
+        },
+        {
+            "code": "675a",
+            "name": "Ouvriers de production non qualifiés du textile et de la confection, de la tannerie-mégisserie et du travail du cuir"
+        },
+        {
+            "code": "675b",
+            "name": "Ouvriers de production non qualifiés du travail du bois et de l'ameublement"
+        },
+        {
+            "code": "675c",
+            "name": "Ouvriers de production non qualifiés de l'imprimerie, presse, édition"
+        },
+        {
+            "code": "676a",
+            "name": "Manutentionnaires non qualifiés"
+        },
+        {
+            "code": "676b",
+            "name": "Déménageurs (hors chauffeurs-déménageurs), non qualifiés"
+        },
+        {
+            "code": "676c",
+            "name": "Ouvriers du tri, de l'emballage, de l'expédition, non qualifiés"
+        },
+        {
+            "code": "676d",
+            "name": "Agents non qualifiés des services d'exploitation des transports"
+        },
+        {
+            "code": "676e",
+            "name": "Ouvriers non qualifiés divers de type industriel"
+        },
+        {
+            "code": "681a",
+            "name": "Ouvriers non qualifiés du gros oeuvre du bâtiment"
+        },
+        {
+            "code": "681b",
+            "name": "Ouvriers non qualifiés du second oeuvre du bâtiment"
+        },
+        {
+            "code": "682a",
+            "name": "Métalliers, serruriers, réparateurs en mécanique non qualifiés"
+        },
+        {
+            "code": "683a",
+            "name": "Apprentis boulangers, bouchers, charcutiers"
+        },
+        {
+            "code": "684a",
+            "name": "Nettoyeurs"
+        },
+        {
+            "code": "684b",
+            "name": "Ouvriers non qualifiés de l'assainissement et du traitement des déchets"
+        },
+        {
+            "code": "685a",
+            "name": "Ouvriers non qualifiés divers de type artisanal"
+        },
+        {
+            "code": "691a",
+            "name": "Conducteurs d'engin agricole ou forestier"
+        },
+        {
+            "code": "691b",
+            "name": "Ouvriers de l'élevage"
+        },
+        {
+            "code": "691c",
+            "name": "Ouvriers du maraîchage ou de l'horticulture"
+        },
+        {
+            "code": "691d",
+            "name": "Ouvriers de la viticulture ou de l'arboriculture fruitière"
+        },
+        {
+            "code": "691e",
+            "name": "Ouvriers agricoles sans spécialisation particulière"
+        },
+        {
+            "code": "691f",
+            "name": "Ouvriers de l'exploitation forestière ou de la sylviculture"
+        },
+        {
+            "code": "692a",
+            "name": "Marins-pêcheurs et ouvriers de l'aquaculture"
+        }
+]
