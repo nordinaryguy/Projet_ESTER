@@ -26,8 +26,6 @@ public class ServletForgotPassword extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Users user=new Users();
-		user.addUserEster("mail", "nom", "prenom", "mail", "", null);
 		String message="";
 		request.setAttribute("message", message);
 		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ForgotPassword.jsp").forward(request, response);

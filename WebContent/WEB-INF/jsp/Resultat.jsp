@@ -1,4 +1,6 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 <html>
@@ -10,28 +12,23 @@
         <script type='text/javascript' src='/Projet_ESTER/dwr/engine.js'></script>
         <script type='text/javascript' src='/Projet_ESTER/dwr/util.js'></script>
   		<script type='text/javascript' src='/Projet_ESTER/dwr/interface/Resultat.js'></script>
-  		
-  		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-  		<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
-		<script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
-		<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+
+	    <link rel="stylesheet" href="<c:url value="/css/default.css"/>">
+	    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
+	    <script src="<c:url value="/js/jquery.min.js"/>"></script>
+	    <script src="<c:url value="/js/popper.min.js"/>"></script>
+	    <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
   		
   		<script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/data.js"></script>
 		<script src="https://code.highcharts.com/modules/exporting.js"></script>
 		<script src="https://code.highcharts.com/modules/export-data.js"></script>
 		
-		<script src="${pageContext.request.contextPath}/js/resultat.js"></script>
-		<script src="${pageContext.request.contextPath}/js/lang/highcharts_french.js"></script>
+		<script src="<c:url value="/js/resultat.js"/>"></script>
+		<script src="<c:url value="/js/lang/highcharts_french.js"/>"></script>
     </head>
     <body>
-    
-    <nav class="navbar navbar-light bg-light">
-	  <a class="navbar-brand" href="#">
-	  <img src="http://www.univ-angers.fr/_resources/com/logo/_GENERIQUE/VERTICAL/ECRAN/PNG/ua_v_couleur_ecran.png" width="30" height="30" class="d-inline-block align-top" alt="">
-	    Résultat
-	  </a>
-	</nav>
+  	<c:import url="/jsp/Menu.jsp"/>
     
     <div class="card-group">
     

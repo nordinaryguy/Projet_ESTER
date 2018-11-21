@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -26,10 +26,14 @@
     </script>
   </head>
   <body>
-  	<div class="container">
   	<c:import url="/jsp/Menu.jsp"/>
   
     <div class="container-fluid text-center mb-4" id="container">
+    
+     <div class="row justify-content-center pb-2">
+        <div class="col-2 center-block"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
+        <div class="col-2 center-block"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
+     </div>
 
 	    <c:if test="${not empty Success}">
 	      <div class="alert alert-success alert-dismissible" role="alert">
@@ -52,9 +56,9 @@
         <h1 class="font-weight-normal">Connexion</h1>
     
         <div class="btn-group" role="group">
-          <button id="btnEntreprise" class="btn btn-secondary" type="button" onclick="showDiv('divSalarie')">Salarié</button>
-          <button id="btnEntreprise" class="btn btn-secondary" type="button" onclick="showDiv('divEntreprise')">Entreprise</button>
-          <button id="btnUtilisateur" class="btn btn-secondary" type="button" onclick="showDiv('divUtilisateur')">Utilisateur</button>
+          <button id="btnEntreprise" class="btn btn-primary" type="button" onclick="showDiv('divSalarie')">Salarié</button>
+          <button id="btnEntreprise" class="btn btn-primary" type="button" onclick="showDiv('divEntreprise')">Entreprise</button>
+          <button id="btnUtilisateur" class="btn btn-primary" type="button" onclick="showDiv('divUtilisateur')">Utilisateur</button>
         </div>
     
         <form id="divSalarie" style="display:none;" class="form-signin" method="post">
@@ -70,7 +74,7 @@
 
         <form id="divEntreprise" style="display:none;" class="form-signin" method="post"> 
           <div class="form-label-group">
-            <input type="email" id="inputEmailEntreprise" name="Email" class="form-control" placeholder="Email" required>
+            <input type="text" id="inputEmailEntreprise" name="Identifiant" class="form-control" placeholder="Identifiant" required>
             <label for="inputEmailEntreprise">Adresse email ou identifiant</label>
           </div>
           <div class="form-label-group">
@@ -78,7 +82,7 @@
             <label for="inputPasswordEntreprise">Mot de passe</label>
           </div>
             <div class="row mb-4">
-            	<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié</a>
+            	<a href="<c:url value="/ForgotPassword"/>">Mot de passe oublié ?</a>
             </div>
           <input type="hidden" name="Type" value="Entreprise" />
           <div class="btn-group" role="group">
@@ -88,7 +92,7 @@
 
         <form id="divUtilisateur" style="display:none;" class="form-signin" method="post">
             <div class="form-label-group">
-              <input type="email" id="inputEmailUtilisateur" name="Email" class="form-control" placeholder="Email" required>
+              <input type="text" id="inputEmailUtilisateur" name="Identifiant" class="form-control" placeholder="Identifiant" required>
               <label for="inputEmailUtilisateur">Adresse email ou identifiant</label>
             </div>
             <div class="form-label-group">
@@ -96,16 +100,15 @@
               <label for="inputPasswordUtilisateur">Mot de passe</label>
             </div>
             <div class="row mb-4">
-            	<a href="<c:url value="/ForgotPassword"/>")>Mot de passe oublié</a>
+            	<a href="<c:url value="/ForgotPassword"/>">Mot de passe oublié ?</a>
             </div>
             <input type="hidden" name="Type" value="Utilisateur" />
-            <div class="btn-group" role="group"">
+            <div class="btn-group" role="group">
               <button class="btn btn-primary" type="submit">SE CONNECTER</button>
             </div>
         </form>
           
       </div>
-      </div>
-    </div>
+  	<c:import url="/jsp/Footer.jsp"/>
   </body>
 </html>
