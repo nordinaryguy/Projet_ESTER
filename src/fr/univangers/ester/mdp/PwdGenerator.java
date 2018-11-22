@@ -10,12 +10,11 @@ public class PwdGenerator {
     protected static final String NUMBERS ="23456789"; //hormis 0 et  1 (8)
     protected static final String ALL_CHARS = "ABCDEFGHIJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789^$*.[]{}()?-\\\"!@#%&/\\\\,><:;|_~";
     
-    private static SecureRandom mRand;
+    private static SecureRandom mRand=new SecureRandom();
     private static int mPwdLength=8;
     private static int mCodeLength=5;
     
     public PwdGenerator() {
-    	mRand=new SecureRandom();
     }
     
     
@@ -46,7 +45,7 @@ public class PwdGenerator {
     }
     
     public static String generateCode() {
-    	if(mCodeLength < 6) {
+    	if(mCodeLength < 5) {
     		System.out.println("Unsecure Length !!!");
     	}
     	char[] id=new char[mCodeLength];

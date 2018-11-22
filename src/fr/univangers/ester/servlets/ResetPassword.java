@@ -10,33 +10,45 @@ import javax.servlet.http.HttpServletResponse;
 import fr.univangers.ester.mongodb.Users;
 
 
-@WebServlet("/ServletResetPassword")
-public class ServletResetPassword extends HttpServlet {
+@WebServlet("/ResetPassword")
+public class ResetPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
    
-    public ServletResetPassword() {
+    public ResetPassword() {
         super();
     }
 
-	
+    @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//get token 
 		String token=request.getParameter("token");
 		//check if valid
 		Users users=new Users();
-		if(users.existUrlToken(token) && users.valideUrlToken(token)) {
+		boolean valid=users.existUrlToken(token) && users.valideUrlToken(token);
+		if(valid) {
 			//get email and set attribute
 			String email=users.getIdentforToken(token);
 			request.setAttribute("email", email);
+		}
+		request.setAttribute("valid", valid);
+		try {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
-		}else {
-			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ErrorUnvalid.jsp").forward(request, response);
+		}catch(ServletException e) {
+			try {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+			catch (IOException ioe) {
+				// IOException
+			}
+		}
+		catch (IOException e) {
+				// IOException
 		}
 			
 	}
 
-	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//change mot de passe
 		Users users=new Users();
@@ -45,7 +57,19 @@ public class ServletResetPassword extends HttpServlet {
 		users.changePasswordUserEster(identifiant, pwd);
 		users.deleteUrlToken(identifiant);
 		request.setAttribute("message", "Mot de passe modifié");
-		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
+		try {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
+		}catch(ServletException e) {
+			try {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+			catch (IOException ioe) {
+				// IOException
+			}
+		}
+		catch (IOException e) {
+				// IOException
+		}
 	}
 
 }

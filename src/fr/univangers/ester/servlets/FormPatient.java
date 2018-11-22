@@ -19,7 +19,19 @@ public class FormPatient extends HttpServlet {
 
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/FormPatient.jsp").forward(request, response);
+    	try {
+        	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/FormPatient.jsp").forward(request, response);
+		}catch(ServletException e) {
+			try {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+			catch (IOException ioe) {
+				// IOException
+			}
+		}
+		catch (IOException e) {
+				// IOException
+		}
 	}
 
     @Override
@@ -33,6 +45,19 @@ public class FormPatient extends HttpServlet {
     	String region=request.getParameter("region");
     	Users users = new Users();
     	users.addSalarie("Null", 0,"Null", sexe, birthYear,departement, region, "Null","Null", "Null");
+    	try {
+        	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/FormPatient.jsp").forward(request, response);
+		}catch(ServletException e) {
+			try {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+			catch (IOException ioe) {
+				// IOException
+			}
+		}
+		catch (IOException e) {
+				// IOException
+		}
 	}
 
 }
