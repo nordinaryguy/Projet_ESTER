@@ -22,6 +22,8 @@ function checkPass(){
 }
 
 function passwordChanged() {
+	document.getElementById('submit').disabled = true;
+	divcomp.innerHTML = " ";
 	var strength = document.getElementById("strength");
 	/*[10 or plus characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character]*/
 	var strongRegex = new RegExp("^(?=.{10,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");

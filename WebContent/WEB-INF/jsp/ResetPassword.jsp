@@ -18,9 +18,9 @@
     <script src="<c:url value="/js/popper.min.js"/>"></script>
     <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
 	
-	<script src="/Projet_ESTER/js/checkPass.js"></script>
+	<script src="<c:url value="/js/checkPass.js"/>"></script>
     <!-- Custom styles for this template -->
-     <link rel="stylesheet" href="/Projet_ESTER/CSS/form-reset.css">
+     <link rel="stylesheet" href="<c:url value="/css/form-reset.css"/>">
   </head>
 
   <body>
@@ -33,7 +33,7 @@
 			       		 <div class="col-md-6 pr-2"><img class="mb-4" src="http://www.univ-angers.fr/_contents-images/ametys-internal%253Asites/univangers/ametys-internal%253Acontents/logo-article-8/_metadata/content/_data/ua_h_couleur_ecran.png_57x189" alt="" width="189" height="57"></div>
 			       </div>    
 		      
-		           
+		      <c:if test="${param.valid}">  
 			       <div class="row">
 						<form class="form-reset" method="post">
 				            <div class="form-title-row">
@@ -55,7 +55,7 @@
 				          		<label for=#password>
 									Nouveau mot de passe : 
 								</label>		
-				                 <input type='password' name='password' id='pass_1' onkeyup="return passwordChanged();" required>
+				                 <input type='password' name='password' id='pass_1' onkeyup="return passwordChanged();"  onBlur="checkPass()" required>
 				            	 <span id="strength" class="col col-xs-2"></span>
 				            </div> 
 				            <div class="row" >
@@ -80,7 +80,22 @@
 				          </div>
 				       </form>
 				</div>
-			</div>	             
+			</c:if>
+			
+			<c:if test="${not param.valid}">
+				<div class="container form-reset">
+		      	  	    <div class="form-title-row">
+				                <h3>Réinitialisation mot de passe </h3>
+				        </div>
+		      	  		<div class="row">
+		      	  			<div class="col-md-12 pr-1"><img  class="rounded" src="/Projet_ESTER/img/error.svg.png" alt="" width="90" height="90"></div>
+		      	  		</div>
+		      	  		<div class="alert alert-danger" role="alert">
+							<h5>Le lien pour réinitialiser le mot de passe a expiré ou n'a jamais existé</h5>
+				   		</div>
+		      	  </div>
+			</c:if>
+			</div>	           
 		   <div class="row mb-2 text-muted text-center fixed-bottom right">
 		 		<div class="col-md-4 pr-1" ><a href="#">Inscription</a></div>
 		 		 <div class="col-md-4" ><a href="#">Projet</a></div>
