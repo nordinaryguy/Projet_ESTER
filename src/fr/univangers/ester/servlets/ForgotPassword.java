@@ -60,7 +60,6 @@ public class ForgotPassword extends HttpServlet {
 		}else {
 			request.setAttribute(ATT_MSG_WARNING,"Email n'existe pas");
 		}
-		request.setAttribute("email", email);
         this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ForgotPassword.jsp").forward(request, response);
 	}
 	

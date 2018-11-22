@@ -33,7 +33,7 @@
 			       		 <div class="col-md-6 pr-2"><img class="mb-4" src="http://www.univ-angers.fr/_contents-images/ametys-internal%253Asites/univangers/ametys-internal%253Acontents/logo-article-8/_metadata/content/_data/ua_h_couleur_ecran.png_57x189" alt="" width="189" height="57"></div>
 			       </div>    
 		      
-		      <c:if test="${param.valid}">  
+		      <c:if test="${valid}">  
 			       <div class="row">
 						<form class="form-reset" method="post">
 				            <div class="form-title-row">
@@ -82,7 +82,7 @@
 				</div>
 			</c:if>
 			
-			<c:if test="${not param.valid}">
+			<c:if test="${not valid}">
 				<div class="container form-reset">
 		      	  	    <div class="form-title-row">
 				                <h3>Réinitialisation mot de passe </h3>

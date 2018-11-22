@@ -25,39 +25,25 @@ public class ResetPassword extends HttpServlet {
 		String token=request.getParameter("token");
 		//check if valid
 		Users users=new Users();
-		if(users.existUrlToken(token) && users.valideUrlToken(token)) {
+		boolean valid=users.existUrlToken(token) && users.valideUrlToken(token);
+		if(valid) {
 			//get email and set attribute
 			String email=users.getIdentforToken(token);
 			request.setAttribute("email", email);
+		}
+		request.setAttribute("valid", valid);
+		try {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
+		}catch(ServletException e) {
 			try {
-				request.setAttribute("valid", true);
-				this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
-			}catch(ServletException e) {
-				try {
-					response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-				}
-				catch (IOException ioe) {
-					// IOException
-				}
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
 			}
-			catch (IOException e) {
-					// IOException
+			catch (IOException ioe) {
+				// IOException
 			}
-		}else {
-			try {
-				request.setAttribute("valid",false);
-				this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
-			}catch(ServletException e) {
-				try {
-					response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-				}
-				catch (IOException ioe) {
-					// IOException
-				}
-			}
-			catch (IOException e) {
-					// IOException
-			}
+		}
+		catch (IOException e) {
+				// IOException
 		}
 			
 	}
