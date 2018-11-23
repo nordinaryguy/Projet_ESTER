@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+
+
+<link rel="stylesheet" href="<c:url value="/css/style.css"/>">
+
+
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
   <div class="container">
     <a class="navbar-brand" href="#">ESTER</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,13 +22,13 @@
       <form class="form-inline my-2 my-md-0">
       	<c:if test="${empty sessionScope.sessionUtilisateur}">
 	      <div class="btn-group" role="group">
-	        <a class="btn btn-primary" type="button" href="<c:url value="/premiere-connexion"/>">PREMIÈRE CONNEXION</a>
-	        <a class="btn btn-outline-primary" type="button" href="<c:url value="/connexion"/>">SE CONNECTER</a>
+	        <a class="btn btn-success" type="button" href="<c:url value="/premiere-connexion"/>">PREMIÈRE CONNEXION</a>
+	        <a class="btn btn-info" type="button" href="<c:url value="/connexion"/>">SE CONNECTER</a>
 	      </div>
 	   	</c:if>
       	<c:if test="${!empty sessionScope.sessionUtilisateur}">
 	      <div class="btn-group" role="group">
-		    <button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <button id="btnGroupDrop1" type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		      <c:out value="${sessionScope.sessionUtilisateur.getIdentifiant()}"/>
 		    </button>
 		    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">

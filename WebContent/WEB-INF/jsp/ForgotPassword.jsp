@@ -21,16 +21,17 @@
 
   <body>
   	<c:import url="/jsp/Menu.jsp"/>
-  	<div class="row">
+  	<div class="container">
+  		<div class="row justify-content-center pb-2">
+	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
+	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
+	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="205" height="90"></div>
+	        
+	    </div>	
+	  	<div class="row">
+	
 		    <form class="form-signin" method="post">
 			  <div class="text-center mb-4">
-			            
-			        <div class="row">
-			       		 <div class="col-md-6 pl-2"><img class="mb-4" src="http://ester.univ-angers.fr/_resources-images/logo/logo-labo_max0x0.png" alt="" width="205" height="90"></div>
-			       		 <div class="col-md-6 pr-2"><img class="mb-4" src="http://www.univ-angers.fr/_contents-images/ametys-internal%253Asites/univangers/ametys-internal%253Acontents/logo-article-8/_metadata/content/_data/ua_h_couleur_ecran.png_57x189" alt="" width="189" height="57"></div>
-			       </div>    
-		      
-		           
 			       <div class="row">        
 			      		 <div class="col-md-12 col-centered "><h5 class="h5 mb-3 font-weight-normal">Veuillez saisir votre email</h5></div>
 			       </div>
@@ -40,6 +41,10 @@
 				        <label for="Email">email</label>
 				    </div>
 				    <!-- afficher email envoyer ou email non existant -->
+				     <div class="row">  
+			      		 <div class="col-md-12 col-centered "><strong style="color:red"> ${message } </strong></div>
+			        </div>
+			        
 				    <c:if test="${not empty Success}">
 				      <div class="alert alert-success alert-dismissible" role="alert">
 			          	<strong>Succès</strong> <c:out value = "${Success}"/> <c:remove var="Success" scope="session" />
@@ -58,17 +63,12 @@
 				      </div>
 				    </c:if>
 				   <button class="btn btn-lg btn-primary btn-block" type="submit">VALIDER</button>
-		    
-			     <div class="row pt-2">
-			 		<div class="col-md-6 pr-6" ><a href="Accueil.html">Page d'Accueil</a></div>
-				 </div>
+		    		    
 			 </div>	             
 		   </form>
-		   <div class="row mb-2 text-muted text-center fixed-bottom right">
-		 		<div class="col-md-4 pr-1" ><a href="#">Inscription</a></div>
-		 		 <div class="col-md-4" ><a href="#">Projet</a></div>
-		 		<div class="col-md-4  pl-1" ><a href="#">Contacts</a></div>
-		  </div>
     </div>
+    </div>
+      	  	<c:import url="/jsp/Footer.jsp"/>
+    
   </body>
 </html>

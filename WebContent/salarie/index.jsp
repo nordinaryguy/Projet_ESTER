@@ -5,7 +5,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Salarie</title>
+	<title>ESTER</title>
 
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/Accueil.css"/>">
@@ -14,8 +14,45 @@
     <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
 </head>
 <body>
-  	<c:import url="/jsp/Menu.jsp"/>
+  	<c:import url="/jsp/Menu.jsp"/>  	
+  	
+  	<div class="pre-scrollable container-fluid">
+  			<div class="row">
+  
+				<nav class="col-xs-2 navbar navbar-collapse bg-nav">
+			    	<button class="navbar-toggler btn btn-outline-primary my-2 my-sm-0 " type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Menu
+			      	<span class="navbar-toggler-icon"></span>
+			    	</button>
+			  	</nav>
+				 <div class="collapse" id="navbarToggleExternalContent">
+			  		<ul>
+				  		<li class="nav-item">
+				        	<a class="nav-link" href="#">Modifier mon profil</a>
+				        </li>
+				        
+				        <li class="nav-item">
+				        	<a class="nav-link" href="?page=TousQuestionnaires.html">Voir les questionnaires</a>
+				        </li>
+				        
+				        <li class="nav-item">
+				        	<a class="nav-link" href="#">Voir les statistiques</a>
+				        </li>	        				  
+				    </ul> 
+			    </div>
+			    
+				<div class="col">
+					<div class="container-fluid" id="container" style="background:white">	
+						<h1>Salarié</h1>
+						<p>Bienvenue sur la partie Salarié du Projet ESTER</p>
+						<div class="container-fluid" id="container_pourTout">	
+						</div>
+					</div>
+				</div>
+			</div> 
+		</div>
 
-Hello
+  	<c:import url="/jsp/Footer.jsp"/>
+
+
 </body>
 </html>

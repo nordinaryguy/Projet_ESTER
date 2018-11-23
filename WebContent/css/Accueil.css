@@ -1,11 +1,3 @@
-:root {
-  --input-padding-x: .75rem;
-  --input-padding-y: .75rem;
-}
-
-nav{
-	background-color: #e3f2fd;
-}
 
 html,
 body {
@@ -16,18 +8,16 @@ body {
   display: -ms-flexbox;
   display: -webkit-box;
   display: flex;
-  -ms-flex-align: center;
-  -ms-flex-pack: center;
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-box-pack: center;
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #f5f5f5;
-  
+  background: repeating-linear-gradient(-45deg, white, white 4px, #e9e8e7 4px, white 6px);
 }
 
+nav{
+	background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);
+}
 .form-signin {
   width: 100%;
   max-width: 420px;
@@ -91,7 +81,3 @@ body {
   color: #777;
 }
 
-.correction{
-	text-align:center;
-	
-}

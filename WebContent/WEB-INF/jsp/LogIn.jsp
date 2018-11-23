@@ -29,6 +29,13 @@
   	<c:import url="/jsp/Menu.jsp"/>
   
     <div class="container-fluid text-center mb-4" id="container">
+    
+    <div class="row justify-content-center pb-2">
+        <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
+        <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
+        <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="205" height="90"></div>
+        
+    </div>
 
 	    <c:if test="${not empty Success}">
 	      <div class="alert alert-success alert-dismissible" role="alert">
@@ -104,5 +111,6 @@
         </form>
           
       </div>
+  	<c:import url="/jsp/Footer.jsp"/>
   </body>
 </html>

@@ -13,6 +13,7 @@
         <script type='text/javascript' src='/Projet_ESTER/dwr/util.js'></script>
   		<script type='text/javascript' src='/Projet_ESTER/dwr/interface/Resultat.js'></script>
 
+	    <link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
 	    <script src="<c:url value="/js/jquery.min.js"/>"></script>
 	    <script src="<c:url value="/js/popper.min.js"/>"></script>
