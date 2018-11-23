@@ -102,6 +102,6 @@
 				</c:if>
 			</div>
 		</div>
-    
+     <c:import url="/jsp/Footer.jsp"/>
 </body>
 </html>

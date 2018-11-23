@@ -2,6 +2,9 @@
         padding-bottom: 10px;
         background: repeating-linear-gradient(-45deg, white, white 4px, #e9e8e7 4px, white 6px);
       }
+      .menunav{
+		background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);
+	  }
       h2{
       background:#3d596a;
       color:white;
