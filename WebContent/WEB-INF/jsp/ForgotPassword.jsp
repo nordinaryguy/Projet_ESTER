@@ -21,16 +21,17 @@
 
   <body>
   	<c:import url="/jsp/Menu.jsp"/>
-  	<div class="row">
+  	<div class="container">
+  		<div class="row justify-content-center pb-2">
+	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
+	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
+	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="205" height="90"></div>
+	        
+	    </div>	
+	  	<div class="row">
+	
 		    <form class="form-signin" method="post">
 			  <div class="text-center mb-4">
-			            
-			        <div class="row">
-			       		 <div class="col-md-6 pl-2"><img class="mb-4" src="http://ester.univ-angers.fr/_resources-images/logo/logo-labo_max0x0.png" alt="" width="205" height="90"></div>
-			       		 <div class="col-md-6 pr-2"><img class="mb-4" src="http://www.univ-angers.fr/_contents-images/ametys-internal%253Asites/univangers/ametys-internal%253Acontents/logo-article-8/_metadata/content/_data/ua_h_couleur_ecran.png_57x189" alt="" width="189" height="57"></div>
-			       </div>    
-		      
-		           
 			       <div class="row">        
 			      		 <div class="col-md-12 col-centered "><h5 class="h5 mb-3 font-weight-normal">Veuillez saisir votre email</h5></div>
 			       </div>
@@ -65,6 +66,7 @@
 		    		    
 			 </div>	             
 		   </form>
+    </div>
     </div>
       	  	<c:import url="/jsp/Footer.jsp"/>
     
