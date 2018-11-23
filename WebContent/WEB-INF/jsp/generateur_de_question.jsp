@@ -1,40 +1,43 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title> Générateur de questionnaire</title>
 
-    <link href="/Projet_ESTER/css/old/bootstrap-responsive.min.css" rel="stylesheet">
-    <link href="/Projet_ESTER/css/old/bootstrap.min.css" rel="stylesheet">
-    <link href="/Projet_ESTER/css/style.css" rel="stylesheet">
-    <script src="/Projet_ESTER/js/old/jquery.min.js"></script>
-    <script src="/Projet_ESTER/js/popper.min.js"></script>
-    <script src="/Projet_ESTER/js/old/bootstrap.min.js"></script>
-    <script src="/Projet_ESTER/js/fb.js"></script>
-    <script src="/Projet_ESTER/js/slideBare.js"></script>
-      
+	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap-responsive.min.css"/>">
+	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap.min.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
+    
+    <script src="<c:url value="/js/old/jquery.min.js"/>"></script>
+    <script src="<c:url value="/js/popper.min.js"/>"></script>
+    <script src="<c:url value="/js/old/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/js/fb.min.js"/>"></script>
+    <script src="<c:url value="/js/slideBare.min.js"/>"></script>
+    
+    
     
   </head>
 
   <body>
   <!-- entete de page (logo) -->
  
- 
   <div class="shadowbottom" >
     <div class="repeating-linear">
-      <div class="row">
-            <div class="col-md-7" style="text-align: center;" >
-              <img src="/Projet_ESTER/img/irset.png" width="150px";margin-top="80px" >
-            </div>
-            <div class="col-md-3" style="text-align: center;" >
-              <img src="/Projet_ESTER/img/ua_h.png" width="150px" >
-            </div>
+      <div class="row mt-2">
+            <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
+	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
+	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="140"></div>
+	        
     	 </div>
    
      </div>
    </div>
+   
+   
  
    <!-- questionnaire -->
     <div class="container">
@@ -253,7 +256,8 @@
     </div>
     </div><!-- /container -->
     
-      	<c:import url="/jsp/Footer.jsp"/>
+             		<c:import url="/jsp/Footer.jsp"/>
+    
     
   </body>
 </html>

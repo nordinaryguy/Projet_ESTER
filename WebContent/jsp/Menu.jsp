@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
 
 
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
   <div class="container">
     <a class="navbar-brand" href="#">ESTER</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
