@@ -38,25 +38,29 @@ public class ForgotPassword extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email=request.getParameter("Email");
 		Users users=new Users();
+		Mail mailSender=new Mail();
 		if(users.existUserEster(email)) {
-			Mail mail = new Mail("sender","mdp",email,"smtp.gmail.com","587");
-			//create urlToken and expireDate
-			String token = UUID.randomUUID().toString();
-			Date expireDate= delai.addTimeLimitToDate(new Date());
-			//add urlToken to database
-			users.addUrlToken(email, token, expireDate);
-			//create url to be sent in email (protocol://host:port/path?query#ref)
-			URL urlToken=new URL("http://localhost:8080/Projet_ESTER/resetpassword?"+"token="+token);
-			//send email
-			boolean mailSend=mail.sendMail("Demande de réinitialisation de mot de passe", mail.mdpOublieBodyText("", urlToken.toString()), true);
-			if(mailSend) {
-				request.setAttribute(ATT_MSG_SUCCESS,"mail envoyé");
-			}else {
-				request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
-				//if message not sent delete token in database
-				users.deleteUrlToken(email);
+			if(users.hasUrlToken(email))
+				request.setAttribute(ATT_MSG_WARNING,"un mail valide vous a été déjà envoyé");
+			else {
+				//create urlToken and expireDate
+				String token = UUID.randomUUID().toString();
+				Date expireDate= delai.addTimeLimitToDate(new Date());
+				//add urlToken to database
+				users.addUrlToken(email, token, expireDate);
+				//create url to be sent in email (protocol://host:port/path?query#ref)
+				//TODO must be automaticaly changed
+				URL urlToken=new URL("http://localhost:8080/Projet_ESTER/ResetPassword?"+"token="+token);
+				//send email
+				boolean mailSend=mailSender.sendMail(email,"Demande de réinitialisation de mot de passe", mailSender.mdpOublieBodyText("", urlToken.toString()), true);
+				if(mailSend) {
+					request.setAttribute(ATT_MSG_SUCCESS,"mail envoyé");
+				}else {
+					request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
+					//if message not sent delete token in database
+					users.deleteUrlToken(email);
+				}
 			}
-			
 		}else {
 			request.setAttribute(ATT_MSG_WARNING,"Email n'existe pas");
 		}

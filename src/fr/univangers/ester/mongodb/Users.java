@@ -20,6 +20,7 @@ public class Users {
 	private static final String C_USER_ESTER = "C_USER_ESTER";
 	private static final String C_URL_TOKEN="C_URL_TOKEN";
 	private static final String C_CODE_GENERE="C_CODE_GENERE";
+	private static final String C_SERVER_MAIL="C_SERVER_MAIL";
 	
 	private static final String IDENTIFIANT = "Identifiant";
 	private static final String URLTOKEN="Url Token";
@@ -32,6 +33,8 @@ public class Users {
 	private static final String STATUS = "Statut";
 	private static final String EXPIREDATE="Date expiration";
 	private static final String CODE="Code ";
+	private static final String HOST="Host";
+	private static final String PORTSERVERMAIL="PortServerMail";
 	
 	private static final String ANONYMITYNUMBER = "Numéro d’anonymat";
 	private static final String SEX = "Sexe";
@@ -247,6 +250,11 @@ public class Users {
 		urlTokens.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
+	public boolean hasUrlToken(String email) {
+		MongoCollection<Document> urlTokens = database.getCollection(C_URL_TOKEN);
+	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(IDENTIFIANT,email));
+		return iterable.first() != null && valideUrlToken((String) iterable.first().get(URLTOKEN));
+	}
 	public boolean existUrlToken(String token) {
 		MongoCollection<Document> urlTokens = database.getCollection(C_URL_TOKEN);
 	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(URLTOKEN, token));
@@ -286,5 +294,43 @@ public class Users {
 	    FindIterable<Document> iterable = generatedCodes.find(Filters.eq(CODE, code));
 		return iterable.first() != null;
 	}
+	
+	public void addServerMail(String mail,String password,String host,String port) {
+		MongoCollection<Document> mailInfo= database.getCollection(C_SERVER_MAIL);
+		mailInfo.deleteMany(getMailServerDocument());
+		Document mailServer = new Document(MAIL,mail)
+				.append(PASSWORD,password)
+				.append(HOST,host)
+				.append(PORTSERVERMAIL,port);
+		mailInfo.insertOne(mailServer);
+	}
+	
+	public void deleteServerMail(String mail) {
+		MongoCollection<Document> mailInfo= database.getCollection(C_SERVER_MAIL);
+		mailInfo.deleteOne(Filters.eq(MAIL, mail));
+	}
+	
+	public Document getMailServerDocument() {
+		MongoCollection<Document> mailServer = database.getCollection(C_SERVER_MAIL);
+	    return mailServer.find().first();
+	}
+	
+	public String getServerMail() {
+		return (String) getMailServerDocument().get(MAIL);
+	}
+	
+	public String getServerMailPass() {
+		return (String) getMailServerDocument().get(PASSWORD);
+	}
+	
+	public String getServerHost() {
+		return (String) getMailServerDocument().get(HOST);
+	}
+	
+	public String getServerPort() {
+		return (String) getMailServerDocument().get(PORTSERVERMAIL);
+	}
+	
+	
 	
 }

@@ -98,7 +98,7 @@
 					 <p class="row"> 
 				     		${ empty message ? '' : message }
 				     </p>	  	        
-			 </div>
+			 		</div>
 				</c:if>
 			</div>
 		</div>

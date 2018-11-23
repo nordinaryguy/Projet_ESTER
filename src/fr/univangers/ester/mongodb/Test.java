@@ -13,6 +13,7 @@ public class Test {
 		System.out.println(users.existEntreprise("id66"));
 		System.out.println(users.connectEntreprise("id66", "mdp"));
 		
+		
 		users.addEntreprise("e1", "Marc", "pass");
 	}
 

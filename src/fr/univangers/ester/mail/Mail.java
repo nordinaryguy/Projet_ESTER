@@ -13,22 +13,35 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import fr.univangers.ester.mdp.PwdGenerator;
+import fr.univangers.ester.mongodb.Users;
+
+/*******USE******************************************
+To use it you must add to the database the email sender
+,password , the host and port
+
+to test I created a email
+email : projet.ester@gmail.com
+password : masterInformatique
+host : smtp.gmail.com
+port : 587
+
+*****************************************************/
+
 
 public class Mail {
 	protected String aemailSender;
 	protected String aemailMdp;
-	protected String aemailRecipient;
-	protected PwdGenerator pwdGenerator;
 	protected String ahost;
 	protected String aport;
 	
-	public Mail(String emailSender,String emailMdp,String emailRecipient,String host,String port){
-		this.aemailSender=emailSender;
-		this.aemailMdp=emailMdp;
-		this.aemailRecipient=emailRecipient;
-		this.ahost=host;
-		this.aport=port;
+	public Mail() {
+		Users user=new Users();
+		this.aemailSender=user.getServerMail();
+		this.aemailMdp=user.getServerMailPass();
+		this.ahost=user.getServerHost();
+		this.aport=user.getServerPort();
 	}
+	
 
 	private Session initializeSession() {
 		//get a mail session
@@ -52,8 +65,8 @@ public class Mail {
 		return session;
 	}
 
-	public boolean sendMail(String subject,String body,boolean bodyIsHTML) {
-		Session session=this.initializeSession();
+	public boolean sendMail(String emailRecipient,String subject,String body,boolean bodyIsHTML) {
+		Session session=initializeSession();
 		// Create a message
 		try {
 			Message message = new MimeMessage(session);
@@ -64,8 +77,8 @@ public class Mail {
 			else
 				message.setText(body);
 			// Here we set the addresses
-			Address fromAddress= new InternetAddress(this.aemailSender);
-			Address toAddress= new InternetAddress(this.aemailRecipient);
+			Address fromAddress= new InternetAddress(aemailSender);
+			Address toAddress= new InternetAddress(emailRecipient);
 			message.setRecipient(Message.RecipientType.TO,toAddress);
 			message.setFrom(fromAddress);
 			
@@ -117,14 +130,5 @@ public class Mail {
 		this.aemailMdp = aemailMdp;
 	}
 
-
-	public String getemailRecipient() {
-		return aemailRecipient;
-	}
-
-
-	public void setemailRecipient(String aemailRecipient) {
-		this.aemailRecipient = aemailRecipient;
-	}
 	
 }

@@ -19,7 +19,7 @@ public class Salarie implements User {
 	@Override
 	public boolean validate() {
 		Users users = new Users();
-		return users.existSalarie(identifiant);
+		return users.existSalarie(identifiant) || users.existCode(identifiant);
 	}
 
 	@Override

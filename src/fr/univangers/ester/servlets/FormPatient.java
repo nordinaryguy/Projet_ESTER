@@ -37,6 +37,7 @@ public class FormPatient extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	//NB: not all variables are defined and pcs isn't included in creation in database
+
     	String sexe=request.getParameter("sexe");
     	int birthYear=Integer.parseInt(request.getParameter("years"));
     	//TODO should be added to table
