@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/Resultat")
+@WebServlet("/resultat")
 public class Resultat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
@@ -18,38 +18,11 @@ public class Resultat extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/Resultat.jsp" ).forward( request, response );
-		}
-		catch (ServletException e) {
-			try {
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-			}
-			catch (IOException ioe) {
-				// IOException
-			}
-		}
-		catch (IOException e) {
-			// IOException
-		}
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/Resultat.jsp" ).forward( request, response );
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			doGet(request, response);
-		}
-		catch (ServletException e) {
-			try {
-				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
-			}
-			catch (IOException ioe) {
-				// IOException
-			}
-		}
-		catch (IOException e) {
-			// IOException
-		}
+		doGet(request, response);
 	}
-
 }

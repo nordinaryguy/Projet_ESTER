@@ -140,7 +140,7 @@ public class Resultat {
 				,"15","55","15","15");
 		addAnswer(1,"D'accord");
 		
-		addRPE("Pas d\'éfort du tout 6", 8.1, GREEN);
+		addRPE("Pas d\'effort du tout 6", 8.1, GREEN);
     	addRPE("Extrêmement léger 7", 5.1, GREEN);
     	addRPE("8", 0, GREEN);
     	addRPE("Très leger 9", 6.8, GREEN);

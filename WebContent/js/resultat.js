@@ -91,7 +91,27 @@ function addHisto(divName) {
 	              	    title: {
 	                	      text: 'Score',
 	                	      align: 'high'
-	                	}
+	                	},
+	                	  plotBands: [{
+	                    		borderColor: 'black',
+	                    		borderWidth: 1,
+	                    		from: -1.5,
+	                    		to: 0.5,
+	                    		label: {
+	                    			text: data[0]  + " %",
+	                    			y: -1
+	                    		}
+	                    	  },
+                    	  {
+	                    		borderColor: 'black',
+	                    		borderWidth: 1,
+	                    		from: 1.5,
+	                    		to: data.length,
+	                    		label: {
+	                    			text: (data.reduce((a, b) => a + b, 0) - data[0] - data[1]) + " %",
+	                    			y: -1
+	                    		}
+	                    	  }]
 				    },
 				    plotOptions: {
 				    	column: {
@@ -131,7 +151,32 @@ function addRPE(divName) {
               	    categories: categories,
               	    title: {
               	      text: null
-              	    }
+              	    },
+              	  plotBands: [{
+              		borderColor: 'black',
+              		borderWidth: 1,
+              		from: -1.5,
+              		to: 0.5,
+              		label: {
+              			text: data[0]  + " %",
+              			align: "right",
+              			x: 1,
+              			y: 15,
+              			rotation: 90
+              		}
+              	  },
+          	  {
+              		borderColor: 'black',
+              		borderWidth: 1,
+              		from: 1.5,
+              		to: data.length,
+              		label: {
+              			text: (data.reduce((a, b) => a + b, 0) - data[0] - data[1]) + " %",
+              			align: "right",
+              			x: 1,
+              			rotation: 90
+              		}
+              	  }]
               	  },
               	  yAxis: {
               	    min: 0,
