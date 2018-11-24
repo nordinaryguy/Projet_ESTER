@@ -9,9 +9,9 @@
         <title>Résultat</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <script type='text/javascript' src='/Projet_ESTER/dwr/engine.js'></script>
-        <script type='text/javascript' src='/Projet_ESTER/dwr/util.js'></script>
-  		<script type='text/javascript' src='/Projet_ESTER/dwr/interface/Resultat.js'></script>
+        <script type='text/javascript' src="<c:url value="/dwr/engine.js"/>"></script>
+        <script type='text/javascript' src="<c:url value="/dwr/util.js"/>"></script>
+  		<script type='text/javascript' src="<c:url value="/dwr/interface/Resultat.js"/>"></script>
 
 	    <link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">

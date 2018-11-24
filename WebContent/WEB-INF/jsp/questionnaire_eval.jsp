@@ -8,13 +8,13 @@
 <meta charset="UTF-8">
 <title>Questionnaire</title>
 
-<link rel="stylesheet" href="<c:url value="/css/old/bootstrap-responsive.min.css"/>">
+	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap-responsive.min.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/menu.css"/>">
     
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/js/popper.min.js"/>"></script>
-    <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/js/old/bootstrap.min.js"/>"></script>
     
 </head>
 <body>

@@ -14,9 +14,9 @@
     
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/js/popper.min.js"/>"></script>
-    <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
-    <script src="<c:url value="/js/fb.min.js"/>"></script>
-    <script src="<c:url value="/js/slideBare.min.js"/>"></script>
+    <script src="<c:url value="/js/old/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/js/fb.js"/>"></script>
+    <script src="<c:url value="/js/slideBare.js"/>"></script>
         
   </head>
 
