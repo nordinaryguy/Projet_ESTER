@@ -30,6 +30,7 @@ public class Medecin extends HttpServlet {
 		if(request.getParameter("page").equals("createSalarie")) {
 			String  code=PwdGenerator.generateCode();
 			request.setAttribute("message",code );
+			
 			//ajout à la base
 			Users user=new Users();
 			user.addCodeGenrated(code);

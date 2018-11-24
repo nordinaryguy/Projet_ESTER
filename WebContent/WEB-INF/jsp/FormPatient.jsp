@@ -13,7 +13,7 @@
     <title>ESTER</title>
 
 
-	<link rel="stylesheet" href="<c:url value="/css/Acceuil.css"/>">
+	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
@@ -24,7 +24,7 @@
 </head>
 
 <body>  
-	<c:import url="/jsp/Menu.jsp"/>
+	<c:import url="/jsp/MenuPage.jsp"/>
 	<div class="container-fluid" id="container"  style="ms-height:75rem;padding-top:4.5rem;">
 			<div class="row">
 					<form class="form-patient" method="post">
@@ -38,9 +38,7 @@
 			                </label> 
 			                <div class="form-radio-buttons">
 			                	<input type="radio" name="sexe" value="homme"> Homme<br>
-								 <input type="radio" name="sexe" value="femme"> Femme<br>
-								<input type="radio" name="sexe" value="autre"> Autre
-			                
+								 <input type="radio" name="sexe" value="femme"> Femme<br>                
 			                </div>  
 			            </div>
 			
@@ -54,9 +52,9 @@
  									  document.write("<select name='years'>");
 									  // On ajoute l'année courante et les 100 années à venir
 									  // dans l'élément <select> pour l'année
-									  for(var i = 0; i <= 100; i++) {
-										  document.write("<option value=\""+year+"\">" + year + "</option>");
-										  year--;
+									  for(var i = 0; i <= 101; i+=5) {
+										  document.write("<option value=\""+(year-4) +"-"+year+"\">" + (year-4) +"-"+year+ "</option>");
+										  year-=5;
 									  }
  									  document.write("</select>");
 								</script>
@@ -88,11 +86,15 @@
 			            </div>
 			            
 			            <div class="form-row">
-			                <button type="submit">Submit Form</button>
+			                <button type="submit" class="btn-primary">Soumettre</button>
 			            </div>
 			        </form>
 			</div>
 	</div>
+	
+			            <c:import url="/jsp/Footer.jsp"/>
+	
+	
 <script type='text/javascript'>
 	populateSelect("<c:url value="/src/pcs.json"/>","pcs");
 	populateSelect("<c:url value="/src/naf.json"/>","naf");
