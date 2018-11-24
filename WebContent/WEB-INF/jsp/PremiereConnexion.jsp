@@ -61,10 +61,7 @@
             
       <button class="btn btn-lg btn-primary btn-block" type="submit">VALIDER</button>
     
-     <div class="row pt-3">
- 		<div class="col-md-6" ><a href="#">Mot de passe oublié</a></div>
-	 </div>
-	 
+      
 	 
 	 </div>
      	             
