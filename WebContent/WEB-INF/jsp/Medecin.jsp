@@ -13,6 +13,8 @@
     <title>ESTER</title>
 
 	<link rel="stylesheet" href="<c:url value="/css/Acceuil.css"/>">
+		<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
+	
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
@@ -23,19 +25,14 @@
 </head>
 
 <body >  
-	    <c:import url="/jsp/Menu.jsp"/>
-		<div class="container-fluid" id="container"  style="ms-height:75rem;padding-top:4.5rem;">
-  			<div class="row">
-  
-				<nav class="col-xs-2 navbar navbar-collapse bg-nav">
-			    	<button class="navbar-toggler btn btn-outline-primary my-2 my-sm-0 " type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Menu
-			      	<span class="navbar-toggler-icon"></span>
-			    	</button>
-			  	</nav>
-				 <div class="collapse" id="navbarToggleExternalContent">
-			  		<ul>
-				  		<li class="nav-item dropdown">
-					        <a class="nav-link dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+	    <c:import url="/jsp/MenuPage.jsp"/>
+  			<div class="row"> 			
+  			
+  				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
+			  		<ul class="mt-2" style="color:white;">
+				  		<li>
+					        <a class="dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
 					          Création de compte
 					        </a>		 
 								 <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
@@ -47,8 +44,8 @@
 								</div>
 						</li>
 						
-						<li class="nav-item dropdown">
-					        <a class="nav-link dropdown-toggle" href="#" id="gestionSalariesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						<li class="dropdown">
+					        <a class="dropdown-toggle" href="#" id="gestionSalariesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
 					          Gestion des salariés
 					        </a>	 
 								 <div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
@@ -57,8 +54,8 @@
 						       	 </div>
 						</li>		
 				        
-						<li class="nav-item dropdown">
-				       		<a class="nav-link dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des questionnaires</a>
+						<li class="dropdown">
+				       		<a class="dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">Gestion des questionnaires</a>
 						 
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					         	<a class="dropdown-item" href="#">Créer un questionnaire</a>
@@ -67,22 +64,22 @@
 					         </div>
 					   	</li>	        
 				              
-				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Modifier les valeurs de référence</a>
+				        <li>
+				        	<a href="#" style="color:white;">Modifier les valeurs de référence</a>
 				        </li>
 				        
-				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Afficher les statistiques</a>
+				        <li>
+				        	<a href="#" style="color:white;">Afficher les statistiques</a>
 				        </li>
 				        
-				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Exporter les données</a>
+				        <li>
+				        	<a href="#" style="color:white;">Exporter les données</a>
 				        </li>
 				        				  
 				    </ul> 
 			    </div>
 			    
-				<div class="col-xs-10">
+				<div class="col-md-10">
 					<div class="container-fluid" style="background:white">
 					    <h1>Médecin</h1>
 						<p>Bienvenue sur la partie Médecin du Projet ESTER</p>
@@ -101,7 +98,10 @@
 			 </div>
 				</c:if>
 			</div>
-		</div>
+			
+			
+		            <c:import url="/jsp/Footer.jsp"/>
+		
     
 </body>
 </html>

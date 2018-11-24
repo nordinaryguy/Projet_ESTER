@@ -96,11 +96,10 @@
 		      	  </div>
 			</c:if>
 			</div>	           
-		   <div class="row mb-2 text-muted text-center fixed-bottom right">
-		 		<div class="col-md-4 pr-1" ><a href="#">Inscription</a></div>
-		 		 <div class="col-md-4" ><a href="#">Projet</a></div>
-		 		<div class="col-md-4  pl-1" ><a href="#">Contacts</a></div>
-		  </div>
+		   
     </div>
+    
+                <c:import url="/jsp/Footer.jsp"/>
+    
   </body>
 </html>

@@ -10,34 +10,27 @@
 
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap-responsive.min.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/style.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/menu.css"/>">
     
-    <script src="<c:url value="/js/old/jquery.min.js"/>"></script>
+    <script src="<c:url value="/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/js/popper.min.js"/>"></script>
-    <script src="<c:url value="/js/old/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
     <script src="<c:url value="/js/fb.min.js"/>"></script>
     <script src="<c:url value="/js/slideBare.min.js"/>"></script>
-    
-    
-    
+        
   </head>
 
   <body>
   <!-- entete de page (logo) -->
  
-  <div class="shadowbottom" >
-    <div class="repeating-linear">
-      <div class="row mt-2">
-            <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
-	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
-	        <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="140"></div>
-	        
-    	 </div>
-   
-     </div>
-   </div>
-   
-   
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
+	 <div class="row">
+	 	 <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
+		 <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
+		 <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="130"></div>
+	</div>   
+</nav> 
+  
  
    <!-- questionnaire -->
     <div class="container">
@@ -51,17 +44,17 @@
 	            <div id="build" >
 	              <form id="target" class="form-horizontal"  method="post" style="word-wrap: break-word;overflow: auto; background:white;min-height: 400px ;">
 	                <fieldset>
+	                <legend class="valtype" data-valtype="text">Veuillez saisir le nom de votre questionnaire ... </legend>           
 	                  <div id="legend" class="component" rel="popover" title="Form Title" trigger="manual"
 	                    data-content="
 	                    <form class='form'>
 	                      <div class='form-group col-md-12'>
 	                        <label class='control-label'>titre</label> <input class='form-control' type='text' name='title' id='text'>
 	                        <hr/>
-	                        <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+	                        <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
 	                      </div>
-	                    </form>" data-html="true"
-	                    >
-	                    <legend class="valtype" data-valtype="text">Veuillez saisir le nom de votre questionnaire ... </legend>
+	                    </form>" 
+	                    data-html="true">
 	                  </div>
 	                </fieldset>
 	              </form>
@@ -77,10 +70,10 @@
           <div class="tabbable">
             <ul class="nav nav-tabs" id="navtab" >
               <li class="active" ><a href="#1" data-toggle="tab" style="background:#6bb8c8">Questions</a></li>
-              <li class><a id="sourcetab" href="#5" data-toggle="tab" style="background:#6bb8c8">Html source </a></li>
+              <li><a id="sourcetab" href="#5" data-toggle="tab" style="background:#6bb8c8">Html source </a></li>
             </ul>
            <div class="shadowbottom">
-            <form class="form-horizontal" id="components"style="background:white" method="post">
+            <form class="form-horizontal" id="components" style="background:white" method="post">
               <fieldset>
                 <div class="tab-content">
                   <div class="tab-pane active" id="1">
@@ -91,7 +84,7 @@
                           <label class='control-label'>veuillez saisir votre texte</label> <input class='form-control' type='text' name='label' id='label'>
                           <label class='control-label'>texte par defaut</label> <input type='text' name='placeholder' id='placeholder' class='form-control'>
                           <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+                          <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
                       </form>" data-html="true" 
                       >
@@ -110,7 +103,7 @@
                           <label class='control-label'>Options: </label>
                           <textarea class='form-control' style='min-height: 200px' id='option'></textarea>
                           <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+                          <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
                       </form>" data-html="true"
                       >
@@ -134,7 +127,7 @@
                           <label class='control-label'>Options: </label>
                           <textarea class='form-control' style='min-height: 200px' id='checkboxes'> </textarea>
                           <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+                          <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
                       </form>" data-html="true"
                       >
@@ -163,7 +156,7 @@
                           <label class='control-label'>Options: </label>
                           <textarea class='form-control' style='min-height: 200px' id='radios'></textarea>
                           <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+                          <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
                       </form>" data-html="true"
                       >
@@ -189,7 +182,7 @@
                             <label class='control-label'>texte par defaut </label>
                             <textarea class='form-control' style='min-height: 200px' id='option'> </textarea>
                             <hr/>
-                            <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+                            <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                           </div>
                         </form>" data-html="true"
                         >
@@ -208,7 +201,7 @@
                         <div class='form-group col-md-12'>
                           <label class='control-label'>Label Text</label> <input class='form-control' type='text' name='label' id='label'>
                           <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+                          <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
                       </form>" data-html="true"
                      >
@@ -225,24 +218,27 @@
                     </div>
 
                     <div class="form-group component" rel="popover" title="slideBare" trigger="manual"
-                      data-content= "<form class='form'>
-                        <div class='form-group col-md-12'>
-                          <label class='control-label'>Label Text</label> <input class='form-control' type='text' name='label' id='label'>
+                      data-content= '<form class="form">
+                        <div class="form-group col-md-12">
+                          <label class="control-label">Label Text</label> <input class="form-control" type="text" name="label" id="label">
                           <hr/>
-                          <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+                          <button class="btn btn-info">Enregistrer</button><button class="btn btn-danger">Fermer</button>
                         </div>
-                      </form>"data-html="true">
+                      </form>' data-html="true"
+                      >
                        <!-- slide  -->
                       <label class="col-md-4 control-label valtype" data-valtype="label"> Question  : </label>
-                      <form  style="position: relative; width: 1200px;">
+                      <div>
                         <input type="range" name="foo" min="0" max="100">
                         <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
-                      </form>
+                      </div>
                      </div>
                   </div>
                   <div class="tab-pane" id="5">
                     <textarea name="source" id="source" class="col-md-12"></textarea>
-                    <input type="submit"  value="enregistrer" > 
+                    <input type="submit" value="Enregistrer" >
+                    <input type="reset" value="Réinitialiser" > 
+                    
                   </div>
                 </div>
                 </fieldset>
@@ -256,7 +252,7 @@
     </div>
     </div><!-- /container -->
     
-             		<c:import url="/jsp/Footer.jsp"/>
+            <c:import url="/jsp/Footer.jsp"/>
     
     
   </body>
