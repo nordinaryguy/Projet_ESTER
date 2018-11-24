@@ -37,7 +37,7 @@
 			       </div>
 		
 				 	<div class="form-label-group">
-				        <input type="email" name="Email" value="${empty email ? '' : email}" class="form-control"  required>
+				        <input type="email" name="Email" id="Email" value="${empty email ? '' : email}" class="form-control"  required>
 				        <label for="Email">email</label>
 				    </div>
 				    <!-- afficher email envoyer ou email non existant -->

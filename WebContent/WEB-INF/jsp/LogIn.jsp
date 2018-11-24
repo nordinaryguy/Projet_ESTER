@@ -58,7 +58,7 @@
         <h1 class="font-weight-normal">Connexion</h1>
     
         <div class="btn-group" role="group">
-          <button id="btnEntreprise" class="btn btn-primary" type="button" onclick="showDiv('divSalarie')">Salarié</button>
+          <button id="btnSalarie" class="btn btn-primary" type="button" onclick="showDiv('divSalarie')">Salarié</button>
           <button id="btnEntreprise" class="btn btn-primary" type="button" onclick="showDiv('divEntreprise')">Entreprise</button>
           <button id="btnUtilisateur" class="btn btn-primary" type="button" onclick="showDiv('divUtilisateur')">Utilisateur</button>
         </div>

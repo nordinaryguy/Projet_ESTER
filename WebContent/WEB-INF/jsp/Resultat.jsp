@@ -28,7 +28,7 @@
 		<script src="<c:url value="/js/lang/highcharts_french.js"/>"></script>
     </head>
     <body>
-  	<c:import url="/jsp/Menu.jsp"/>
+  	<c:import url="/jsp/MenuPage.jsp"/>
     
     <div class="card-group">
     
@@ -58,8 +58,12 @@
 	  		<div id="id_rpe" style="min-width: 310px; max-width: 1000px; margin: 0 auto"></div>
    		</div>
    	</div>
+   	
+   	 	
 	
     </div>
+    
+        
     
     <script type='text/javascript' >
 

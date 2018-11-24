@@ -42,6 +42,5 @@
 		</div>	
   	</div>
   	  	<c:import url="/jsp/Footer.jsp"/>
-  	
 </body>
 </html>
