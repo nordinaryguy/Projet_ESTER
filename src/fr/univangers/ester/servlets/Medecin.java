@@ -27,13 +27,14 @@ public class Medecin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("page").equals("createSalarie")) {
+			
 			String  code=PwdGenerator.generateCode();
 			request.setAttribute("message",code );
+			
 			//ajout à la base
-			Users user=new Users();
-			user.addCodeGenrated(code);
-		}
+			/*Users user=new Users();
+			user.addCodeGenrated(code);*/
+		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/Medecin.jsp").forward(request, response);
 	}
 

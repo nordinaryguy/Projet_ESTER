@@ -27,10 +27,12 @@
 <body >  
 
 	    <c:import url="/jsp/MenuPage.jsp"/>
-  			<div class="row"> 			
+  			<div class="row">
+  				
+  			
   			
   				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
-			  		<ul class="mt-2" style="color:white;">
+			  		<ul style="color:white;">
 				  		<li>
 					        <a class="dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
 					          Création de compte
@@ -83,25 +85,20 @@
 					<div class="container-fluid" style="background:white">
 					    <h1>Médecin</h1>
 						<p>Bienvenue sur la partie Médecin du Projet ESTER</p>
+						<c:if test="${param.page == 'createSalarie'}">
+							<div class="row pt-2">
+						     <form class="col" id="saisi" method="post">
+								<input type="submit" value="Génerer code patient ">        
+							 </form>  	
+							 <p class="col"> 
+						     		${ empty message ? '' : message }
+						     </p>	  	        
+					 </div>
+						</c:if>
 					</div>
 				</div>
 			</div> 
-			<div class="row container">
-				<c:if test="${param.page == 'createSalarie'}">
-					<div class="container">
-				     <form class="pt-2 row" id="saisi" method="post">
-						<input type="submit" value="Génerer code patient ">        
-					 </form>  	
-					 <p class="row"> 
-				     		${ empty message ? '' : message }
-				     </p>	  	        
-			 </div>
-				</c:if>
-			</div>
-			
-			
+						
 		            <c:import url="/jsp/Footer.jsp"/>
-		
-    
 </body>
 </html>
