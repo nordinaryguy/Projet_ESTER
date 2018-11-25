@@ -1,6 +1,7 @@
 package fr.univangers.ester.beans;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -12,6 +13,9 @@ public class Resultat {
 	private static final String GREEN = "#00e676";
 	private static final String BLUE = "#2962ff";
 
+	private static final String SALTSA = "Seuil du facteur de risque (SALTSA)";
+	private static final String VS = "D'accord ou tout à fait d'accord vs pas d'accord ou pas du tout d'accord";
+	
 	private List<Double> categoriesHisto = new ArrayList<>();
 	private List<Double> dataHisto = new ArrayList<>();
 	private List<String> colorsHisto = new ArrayList<>();
@@ -92,12 +96,26 @@ public class Resultat {
 			dataCSV.get(index).set(0, String.join(",", titles));
 	}
 	
-	public void addDataCSV(int index, String... datas) {
+	public void addDataCSV(int index, int plot, String... datas) {
 		if(index > dataCSV.size())
 			return;
 		if(index == dataCSV.size())
 			dataCSV.add(new ArrayList<>());
-		dataCSV.get(index).add(String.join(",", datas));
+		List<String> datasPlot = new ArrayList<>(Arrays.asList(datas));
+		if(plot == 1) {
+			datasPlot.add(2, "0");
+			datasPlot.add(4, "0");
+			datasPlot.add(6, "1");
+		} else if(plot == 2) {
+			datasPlot.add(2, "0");
+			datasPlot.add(4, "1");
+			datasPlot.add(6, "0");
+		} else {
+			datasPlot.add(2, "1");
+			datasPlot.add(4, "0");
+			datasPlot.add(6, "0");
+		}
+		dataCSV.get(index).add(String.join(",", datasPlot));
 	}
 	
 	public Resultat() {
@@ -119,24 +137,25 @@ public class Resultat {
 		addHisto(14, 0.5, BLUE);
 		addHisto(15, 0.5, BLUE);
 			
-		setTitleDataCSV(0,"Categorie","Toujours","Souvent","Rarement","Jamais");
-		addDataCSV(0,"Votre travail nécessite-t-il de répêter les mêmes actions plus de 2 à 4 fois environ par minnute ?"
+		setTitleDataCSV(0,"Categorie","Toujours",SALTSA,"Souvent",SALTSA,"Rarement",SALTSA,"Jamais");
+		addDataCSV(0,3,"Votre travail nécessite-t-il de répêter les mêmes actions plus de 2 à 4 fois environ par minute ?"
 				,"25","25","25","25");
 		addAnswer(0,"Souvent");
-		addDataCSV(0,"Travailler avec un ou deux bras en l'air (au-dessus des épaules) régulièrement ou de manière prolongée"
+		addDataCSV(0,2,"Travailler avec un ou deux bras en l'air (au-dessus des épaules) régulièrement ou de manière prolongée"
 				,"25","25","25","25");
 		addAnswer(0,"Rarement");
-		addDataCSV(0,"Fléchir le(s) coude(s) régulièrement ou de manière prolongée"
+		addDataCSV(0,2,"Fléchir le(s) coude(s) régulièrement ou de manière prolongée"
 				,"15","35","25","25");
 		addAnswer(0,"Rarement");
-		addDataCSV(0,"Presser ou prendre ferment des objets ou des pièces entre le pouce et l'index"
+		addDataCSV(0,3,"Presser ou prendre ferment des objets ou des pièces entre le pouce et l'index"
 				,"25","25","35","15");
 		addAnswer(0,"Jamais");
-		setTitleDataCSV(1,"Categorie","Pas du tout d'accord","Pas d'accord","D'accord","Tout à fait d'accord");
-		addDataCSV(1,"J'ai la possibilité d'influencer le déroulement de mon travail"
+		
+		setTitleDataCSV(1,"Categorie","Pas du tout d'accord",VS,"Pas d'accord",VS,"D'accord",VS,"Tout à fait d'accord");
+		addDataCSV(1,2,"J'ai la possibilité d'influencer le déroulement de mon travail"
 				,"15","25","45","15");
 		addAnswer(1,"Pas du tout d'accord");
-		addDataCSV(1,"Les collègues avec qui je travaille m'aident à mener les tàches à bien"
+		addDataCSV(1,2,"Les collègues avec qui je travaille m'aident à mener les tàches à bien"
 				,"15","55","15","15");
 		addAnswer(1,"D'accord");
 		

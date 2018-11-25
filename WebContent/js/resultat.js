@@ -34,7 +34,7 @@ function addChart(divName,i) {
 							style: {fontWeight: 'bolder'},
 							formatter: function() {
 								if(answers[this.x] == this.series.name)
-								return "✓";
+									return "✓";
 							},
 							inside: true
 						}
@@ -43,11 +43,28 @@ function addChart(divName,i) {
 				data: {
 					csv: data
 				},
-				series: [],
+				series: [{
+				     showInLegend: true
+				},{
+				     showInLegend: false
+				},{
+				     showInLegend: true
+				},{
+				     showInLegend: true
+				},{
+				     showInLegend: true
+				},{
+				     showInLegend: false
+				},{
+				     showInLegend: true
+				}],
 				colors: [
 					'#ff3d00',
+					'#000',
 					'#ff9100',
+					'#000',
 					'#ffea00',
+					'#000',
 					'#00e676'
 				],
 				credits: {
