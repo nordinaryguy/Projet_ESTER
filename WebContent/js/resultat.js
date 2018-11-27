@@ -139,7 +139,7 @@ function addHisto(divName) {
 						}
 					},
 					series: [{
-						name: 'Score',
+						name: 'Pourcentage',
 						data: data
 					}],
 					legend: {
