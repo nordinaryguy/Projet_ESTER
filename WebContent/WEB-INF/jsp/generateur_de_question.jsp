@@ -54,7 +54,13 @@
           <div class="clearfix">
            <div class="shadowbottom">
             <h2  style="border-radius: 10px; text-align:center">Questionnaire </h2>
+            <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom du questionnaire" required>
+			<input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant du questionnaire" required>
+			
            </div>
+			<h3 style="text-decoration: underline;">Faites glisser les champs juste en-dessous...</h3>
+			<p>(Pour retirer des champs, glissez les ordres du cadre ; Pour changer les valeurs, cliquez sur le champ ajouté dans le cadre.)</p>
+           
             <div class="shadowbottom" >
 	            <div id="build" >
 	              <form id="target" class="form-horizontal"  method="post" style="word-wrap: break-word;overflow: auto; background:white;min-height: 400px ;">
@@ -68,33 +74,33 @@
 
         <div class="col-md-4">
          <div class="shadowbottom">
-            <h2 style="border-radius: 10px; text-align:center"> Faites glisser les élements de votre questionnaire</h2>
+            <h2 style="border-radius: 10px; text-align:center"> Champs pour le questionnaire</h2>
          </div>
           <div class="tabbable">
             <ul class="nav nav-tabs" id="navtab" >
-              <li class="active" ><a href="#1" data-toggle="tab" style="background:#6bb8c8">Questions</a></li>
-              <li><a id="sourcetab" href="#5" data-toggle="tab" style="background:#6bb8c8">Html source </a></li>
+              <li class="active" ><a href="#1" data-toggle="tab" style="background:#6bb8c8; color:white;">Questions</a></li>
+              <li><a id="sourcetab" href="#5" data-toggle="tab" style="background:#6bb8c8; color:white;">Html source </a></li>
             </ul>
            <div class="shadowbottom">
             <form class="form-horizontal" id="components" style="background:white" method="post">
               <fieldset>
                 <div class="tab-content">
                   <div class="tab-pane active" id="1">
-                    <div class="form-group component active" data-type="text" rel="popover" title="Text Input" trigger="manual"
+                    <div  style='width:500px' class="form-group component active" data-type="text" title="Text Input"
                       data-content="
                       <form class='form'>
                         <div class='form-group col-md-12'>
-                          <label class='control-label'>veuillez saisir votre texte</label> <input class='form-control' type='text' name='label' id='label'>
-                          <label class='control-label'>texte par defaut</label> <input type='text' name='placeholder' id='placeholder' class='form-control'>
+                          <label class='control-label'>Veuillez saisir votre texte</label> <input class='form-control' type='text' id='label' name='label' placeholder='Question'>
+                          <label class='control-label'>Texte par defaut</label> <input type='text' id='placeholder' name='placeholder' placeholder='Texte par défaut' class='form-control'>
                           <hr/>
                           <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
-                      </form>" data-html="true" 
+                      </form>" data-html="true"
                       >
                       <!-- Text input-->
-                      <label class="col-md-4 control-label valtype" name="label01" for="input01" data-valtype='label'>Question de type texte (court):</label>
+                      <label class="col-md-4 control-label valtype" for="input01" data-valtype='label'>Question de type texte (courte):</label>
                       <div class="col-md-4">
-                        <input type="text" placeholder="texte par defaut" name="input01" class="form-control input-md valtype" data-valtype="placeholder" >
+                        <input type="text" placeholder="Texte par defaut" name="input01" class="form-control input-md valtype" data-valtype="placeholder" >
                       </div>
                     </div>
 
@@ -244,8 +250,7 @@
                   </div>
                 </div>
                 
-			        <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom" required>
-			        <input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant" required>
+			        
                     <input type="submit" class="btn btn-primary" style="margin: 6px" value="Enregistrer" >
                 
                 </fieldset>

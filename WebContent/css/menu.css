@@ -6,11 +6,13 @@
       background:#3d596a;
       color:white;
       }
-  /*    #components{
+      #components{
         min-height: 600px;
         margin-top: 5px;
+        
       }
-   
+      
+       
       
       .repeating-linear {
   		background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);
@@ -24,6 +26,7 @@
       }
       #target .component{
         border: 1px solid #fff;
+
       }
       #temp{
         width: 500px;
@@ -31,19 +34,21 @@
         border: 1px dotted #ccc;
         border-radius: 10px;
       }
-
+      
+    
       .popover-content form {
-        margin: 0 auto;
-        width: 213px;
+        width: 250px;
       }
       .popover-content form .btn{
-        margin-right: 10px
+        margin-right: 10px;
+        margin-bottom:2px;
       }
       
       #source{
         min-height: 500px;
+        
       }
-      */
+      
       
 	
 	 .shadowbottom {

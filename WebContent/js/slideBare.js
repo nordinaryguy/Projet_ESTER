@@ -1,13 +1,14 @@
   function modifyOffset() {
 
-    var newPoint, newPlace, offset, siblings, k, sibling;
-    var width    = this.offsetWidth;
+    var newPoint, newPlace, offset, siblings, k;
+    var width = this.offsetWidth;
     newPoint = (this.value - this.getAttribute("min")) / (this.getAttribute("max") - this.getAttribute("min"));
     offset   = -1;
     if (newPoint < 0) { newPlace = 0;  }
     else if (newPoint > 1) { newPlace = width; }
     else { newPlace = width * newPoint + offset; offset -= newPoint;}
     siblings = this.parentNode.childNodes;
+    var sibling;
     for (var i = 0; i < siblings.length; i++) {
         sibling = siblings[i];
         if (sibling.id == this.id) { k = true; }
