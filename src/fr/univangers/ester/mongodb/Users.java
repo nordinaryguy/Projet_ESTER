@@ -7,13 +7,10 @@ import java.util.List;
 import org.bson.Document;
 
 import com.mongodb.client.FindIterable;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 
-public class Users {
+public class Users extends Database {
 	
 	private static final String C_SALARIE = "C_SALARIE";
 	private static final String C_ENTREPRISE = "C_ENTREPRISE";
@@ -49,18 +46,8 @@ public class Users {
 	private static final String NBCONNECTION = "Nombre de connexion";
 	private static final String TIMECONNECTION = "Durée de la connexion";
 	
-	
-	
-	private static final String HOSTNAME = "localhost";
-	private static final int PORT = 27017;
-	private static final String DBNAME = "BDD_ESTER_DEV";
-	
-	private MongoClient client;
-	private MongoDatabase database;
-	
 	public Users() {
-		client =  MongoClients.create("mongodb://" + HOSTNAME + ":" + PORT);
-		database = client.getDatabase(DBNAME);
+		super();
 	}
 	
 	public void addSalarie(String identifiant, int anonymityNumber, String password, String sex, int birthYear, 

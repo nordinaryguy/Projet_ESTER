@@ -43,18 +43,6 @@
 	            <div id="build" >
 	              <form id="target" class="form-horizontal"  method="post" style="word-wrap: break-word;overflow: auto; background:white;min-height: 400px ;">
 	                <fieldset>
-	                <legend class="valtype" data-valtype="text">Veuillez saisir le nom de votre questionnaire ... </legend>           
-	                  <div id="legend" class="component" rel="popover" title="Form Title" trigger="manual"
-	                    data-content="
-	                    <form class='form'>
-	                      <div class='form-group col-md-12'>
-	                        <label class='control-label'>titre</label> <input class='form-control' type='text' name='title' id='text'>
-	                        <hr/>
-	                        <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
-	                      </div>
-	                    </form>" 
-	                    data-html="true">
-	                  </div>
 	                </fieldset>
 	              </form>
 	            </div>
@@ -233,12 +221,17 @@
                       </div>
                      </div>
                   </div>
+                  
+                  <!-- Code modifier -->
                   <div class="tab-pane" id="5">
                     <textarea name="source" id="source" class="col-md-12" rows="25"></textarea>
-                    <input type="submit" value="Enregistrer" >
-                    
                   </div>
                 </div>
+                
+			        <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom" required>
+			        <input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant" required>
+                    <input type="submit" class="btn btn-primary" style="margin: 6px" value="Enregistrer" >
+                
                 </fieldset>
               </form>
              </div> 
