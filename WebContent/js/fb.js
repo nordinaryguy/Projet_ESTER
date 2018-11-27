@@ -7,7 +7,6 @@ $(document).ready(function(){
     var mouseX = md.pageX;
     var mouseY = md.pageY;
     var $temp;
-    var timeout;
     var $this = $(this);
     var delays = {
       main: 0,
@@ -183,7 +182,6 @@ $(document).ready(function(){
           $(".popover "+valID).text(val);
         $(".popover #name").val($(e).find("input").attr("name"));
       } else if(valID==="#button") {
-        val = $(e).text();
         var type = $(e).find("button").attr("class").split(" ").filter(function(e){return e.match(/btn-.*/)});
         $(".popover #color option").attr("selected", null);
         if(type.length === 0){
@@ -252,21 +250,21 @@ $(document).ready(function(){
         $(value).append("\n  ")
           $($(value).find("input")[0]).attr("checked", true)
       } else if (vartype==="inline-checkboxes"){
-        var checkboxes = $(e).val().split("\n");
+        var checkBoxes = $(e).val().split("\n");
         $(value).html("\n      <!-- Inline Checkboxes -->");
-        $.each(checkboxes, function(i,e){
+        $.each(checkBoxes, function(i,e){
           if(e.length > 0){
             $(value).append('\n      <label class="checkbox inline">\n        <input type="checkbox" value="'+e+'">\n        '+e+'\n      </label>');
           }
         });
         $(value).append("\n  ")
       } else if (vartype==="inline-radios"){
-        var radios = $(e).val().split("\n");
-        var group_name = $(".popover #name").val();
+        var inlineRadios = $(e).val().split("\n");
+        var groupName = $(".popover #name").val();
         $(value).html("\n      <!-- Inline Radios -->");
-        $.each(radios, function(i,e){
+        $.each(inlineRadios, function(i,e){
           if(e.length > 0){
-            $(value).append('\n      <label class="radio inline">\n        <input type="radio" value="'+e+'" name="'+group_name+'">\n        '+e+'\n      </label>');
+            $(value).append('\n      <label class="radio inline">\n        <input type="radio" value="'+e+'" name="'+groupName+'">\n        '+e+'\n      </label>');
           }
         });
         $(value).append("\n  ")

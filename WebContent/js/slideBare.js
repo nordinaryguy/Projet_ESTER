@@ -1,5 +1,5 @@
   function modifyOffset() {
-    var el, newPoint, newPlace, offset, siblings, k;
+    var newPoint, newPlace, offset, siblings, k, outputTage;
     width    = this.offsetWidth;
     newPoint = (this.value - this.getAttribute("min")) / (this.getAttribute("max") - this.getAttribute("min"));
     offset   = -1;
@@ -11,7 +11,7 @@
         sibling = siblings[i];
         if (sibling.id == this.id) { k = true; }
         if ((k == true) && (sibling.nodeName == "OUTPUT")) {
-            outputTag = sibling;
+            var outputTag = sibling;
         }
     }
     outputTag.style.left       = newPlace + "px";

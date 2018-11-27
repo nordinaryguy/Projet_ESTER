@@ -18,7 +18,7 @@
 	
 </head>
 <body>
-  	<c:import url="/jsp/Menu.jsp"/>
+  	<c:import url="/jsp/MenuPage.jsp"/>
 	
     <div class="card text-center m-3" id="questionnaire">
 		<form method="post">
