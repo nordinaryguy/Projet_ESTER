@@ -47,7 +47,7 @@
 	
 	    <c:if test="${not empty Warning}">
 	      <div class="alert alert-warning alert-dismissible" role="alert">
-          <strong>Attention</strong> <c:out value = "${Warning}"/>
+          <strong>Attention</strong> <c:out value = "${Warning}"/> <c:remove var="Warning" scope="session" />
 	        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
