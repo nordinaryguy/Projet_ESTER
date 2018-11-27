@@ -173,8 +173,16 @@
    </div>
    
   
-   		<c:import url="/jsp/Footer.jsp"/>
-  
+	 <div class="row" style="padding-bottom:20px">
+        <div class="col-md-12"> </div>
+        
+    </div>
+	<div class="row" style="text-align:center">
+		<div class="col-md-3"></div>
+		<div class="col-md-2" style="text-align:center;"><a href="#">Mentions Légales</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="#">Projet</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="#">Contacts</a></div>
+	</div>  
   </body>
 </html>
 

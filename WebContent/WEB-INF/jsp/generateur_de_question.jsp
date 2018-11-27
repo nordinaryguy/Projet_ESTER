@@ -235,9 +235,8 @@
                      </div>
                   </div>
                   <div class="tab-pane" id="5">
-                    <textarea name="source" id="source" class="col-md-12"></textarea>
+                    <textarea name="source" id="source" class="col-md-12" rows="25"></textarea>
                     <input type="submit" value="Enregistrer" >
-                    <input type="reset" value="Réinitialiser" > 
                     
                   </div>
                 </div>
@@ -252,8 +251,16 @@
     </div>
     </div><!-- /container -->
     
-            <c:import url="/jsp/Footer.jsp"/>
-    
+     <div class="row" style="padding-bottom:20px">
+        <div class="col-md-12"> </div>
+        
+    </div>
+	<div class="row" style="text-align:center">
+		<div class="col-md-3"></div>
+		<div class="col-md-2" style="text-align:center;"><a href="#">Mentions Légales</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="#">Projet</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="#">Contacts</a></div>
+	</div>      
     
   </body>
 </html>
