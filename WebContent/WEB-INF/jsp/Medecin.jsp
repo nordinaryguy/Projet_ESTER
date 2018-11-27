@@ -12,7 +12,6 @@
 
     <title>ESTER</title>
 
-	<link rel="stylesheet" href="<c:url value="/css/Acceuil.css"/>">
 		<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
@@ -28,9 +27,7 @@
 
 	    <c:import url="/jsp/MenuPage.jsp"/>
   			<div class="row">
-  				
-  			
-  			
+  			  			
   				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
 			  		<ul style="color:white;">
 				  		<li>

@@ -13,7 +13,7 @@
     <title>ESTER</title>
 
 
-	<link rel="stylesheet" href="<c:url value="/css/Acceuil.css"/>">
+	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
@@ -23,24 +23,22 @@
 </head>
 
 <body>  
-		<c:import url="/jsp/Menu.jsp"/>
-		<div class="container-fluid" id="container"  style="ms-height:75rem;padding-top:4.5rem;">
-  			<div class="row">
-  
-				<nav class="col-xs-2 navbar navbar-collapse bg-nav">
-			    	<button class="navbar-toggler btn btn-outline-primary my-2 my-sm-0 " type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Menu
-			      	<span class="navbar-toggler-icon"></span>
-			    	</button>
-			  	</nav>
-				 <div class="collapse" id="navbarToggleExternalContent">
-			  		<ul>
+		<c:import url="/jsp/MenuPage.jsp"/>
+	
+			    
+			    
+			    <div class="row">
+  			  			
+  				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
+			  	
+			    <ul style="color:white;">
 			  		
-			  			<li class="nav-item">
-				       		<a class="nav-link" data-toggle="modal" data-target="#CreerCompte" href="#">Création des comptes</a>			       		
+			  			<li>
+				       		<a data-toggle="modal" data-target="#CreerCompte" href="#" style="color:white;">Création des comptes</a>			       		
 				        </li>
 			  		
-				  		<li class="nav-item dropdown">
-					        <a class="nav-link dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				  		<li>
+					        <a style="color:white;" class="dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					          Gestion des comptes
 					        </a>		 
 								 <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
@@ -54,12 +52,12 @@
 								</div>
 						</li>				        
 						
-						<li class="nav-item">
-				        	<a class="nav-link" href="#">Modifier les valeurs de référence</a>
+						<li>
+				        	<a href="#" style="color:white;">Modifier les valeurs de référence</a>
 				        </li>		
 				        
-						<li class="nav-item dropdown">
-				       		<a class="nav-link dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des questionnaires</a>
+						<li class="dropdown">
+				       		<a style="color:white;" class="dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des questionnaires</a>
 						 
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					          <a class="dropdown-item" href="#">Créer un questionnaire</a>
@@ -68,36 +66,92 @@
 					        </div>
 					   	</li>	        
 				              
-				        <li class="nav-item">
-				       		<a class="nav-link" href="#">Gestion Base de Données</a>
+				        <li>
+				       		<a href="#" style="color:white;">Gestion Base de Données</a>
 				        </li>
 				        
-				       	<li class="nav-item">
-				        	<a class="nav-link" data-toggle="modal" data-target="#ModifierInterface" href="#">Gestion Interface</a>
+				       	<li>
+				        	<a style="color:white;" data-toggle="modal" data-target="#ModifierInterface" href="#">Gestion Interface</a>
 				        </li>
 				        
-				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Statistiques</a>
+				        <li>
+				        	<a style="color:white;" href="#">Statistiques</a>
 				        </li>
 				        
-				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Exporter les données</a>
+				        <li>
+				        	<a style="color:white;" href="#">Exporter les données</a>
 				        </li>
 				        
-				        <li class="nav-item">
-				        	<a class="nav-link" href="<%= request.getContextPath()%>/Administrateur?page=configurationServeurMail">Configuration Serveur Mail</a>
+				        <li>
+				        	<a style="color:white;" href="<%= request.getContextPath()%>/Administrateur?page=configurationServeurMail">Configuration Serveur Mail</a>
 				        </li>				  
-				    </ul> 
-			    </div>
-			    
-				<div class="col">
+				    </ul>
+				    
+				    </div>
+		    
+				<div class="col-md-10">
 					<div id="container" class="container-fluid" style="background:white">
 					    <h1>Administrateur</h1>
 						<p>Bienvenue sur la partie Administrateur du Projet ESTER</p>    
+						<c:if test="${param.page == 'configurationServeurMail'}">
+					<div class="container-fluid row">
+				    	<form class="form-signin" method="post">
+				            <div class="form-label-group">
+				                <h3>Configuration serveur mail : </h3>
+				            </div>
+				
+				            <div class="form-row">
+				               <div class="form-label-group">
+				               		<label for="emailSender">Serveur email</label>
+							        <input type="email" id="emailSender" name="emailSender" placeholder="${empty email ? '' : email}" class="form-control"  required>
+							    </div>
+				            </div>
+							
+							 <div class="form-row">
+				               <div class="form-label-group">
+				               		<label for="password">mot de passe</label>
+							        <input type="password" id="password" name="password" placeholder="password" class="form-control"  required>
+							        
+							    </div>
+				            </div>
+				            
+							<div class="form-row">
+				               <div class="form-label-group">
+				               		<label for="host">Host</label>
+							        <input type="text" id="host" name="host" placeholder="${empty host ? '' : host}" class="form-control"  required>
+							        
+							    </div>
+				            </div>
+				            
+				            <div class="form-row">
+				               <div class="form-label-group">
+				               		 <label for="port">Port</label>
+							        <input type="number" id="port" name="port" placeholder="${empty port ? '' : port}" class="form-control"  required>
+							       
+							    </div>
+				            </div>
+				            <!-- afficher serveur modifier-->
+				            <br/>
+						    <c:if test="${not empty Success}">
+						      <div class="alert alert-success alert-dismissible" role="alert">
+					          	<strong>Succès</strong> <c:out value = "${Success}"/> <c:remove var="Success" scope="session" />
+						        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						          <span aria-hidden="true">&times;</span>
+						        </button>
+						      </div>
+						   </c:if>
+				            
+				            <div class="form-row">
+				            	<div class="col-md-8">
+				                	<button class="btn btn-primary pull" type="submit">Valider</button>
+				                </div>
+				            </div>
+			        </form>	        
+			 	</div>
+			</c:if>
 					</div>
 				</div>
 			</div> 
-		</div>
 	
 	
 		<div class="modal" id="CreerCompte">
@@ -174,64 +228,6 @@
 			  </div>
 		</div>
 	    
-	    <div class="container text-center mb-4">
-				<c:if test="${param.page == 'configurationServeurMail'}">
-					<div class="container-fluid row">
-				    	<form class="form-signin" method="post">
-				            <div class="form-label-group">
-				                <h3>Configuration serveur mail : </h3>
-				            </div>
-				
-				            <div class="form-row">
-				               <div class="form-label-group">
-				               		<label for="emailSender">Serveur email</label>
-							        <input type="email" id="emailSender" name="emailSender" placeholder="${empty email ? '' : email}" class="form-control"  required>
-							    </div>
-				            </div>
-							
-							 <div class="form-row">
-				               <div class="form-label-group">
-				               		<label for="password">mot de passe</label>
-							        <input type="password" id="password" name="password" placeholder="password" class="form-control"  required>
-							        
-							    </div>
-				            </div>
-				            
-							<div class="form-row">
-				               <div class="form-label-group">
-				               		<label for="host">Host</label>
-							        <input type="text" id="host" name="host" placeholder="${empty host ? '' : host}" class="form-control"  required>
-							        
-							    </div>
-				            </div>
-				            
-				            <div class="form-row">
-				               <div class="form-label-group">
-				               		 <label for="port">Port</label>
-							        <input type="number" id="port" name="port" placeholder="${empty port ? '' : port}" class="form-control"  required>
-							       
-							    </div>
-				            </div>
-				            <!-- afficher serveur modifier-->
-				            <br/>
-						    <c:if test="${not empty Success}">
-						      <div class="alert alert-success alert-dismissible" role="alert">
-					          	<strong>Succès</strong> <c:out value = "${Success}"/> <c:remove var="Success" scope="session" />
-						        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						          <span aria-hidden="true">&times;</span>
-						        </button>
-						      </div>
-						   </c:if>
-				            
-				            <div class="form-row">
-				            	<div class="col-md-8">
-				                	<button class="btn btn-primary pull" type="submit">Valider</button>
-				                </div>
-				            </div>
-			        </form>	        
-			 	</div>
-			</c:if>
-		</div>
   <c:import url="/jsp/Footer.jsp"/>
 </body>
 </html>
