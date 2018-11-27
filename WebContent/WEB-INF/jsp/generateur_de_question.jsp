@@ -6,9 +6,8 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title> Générateur de questionnaire</title>
+    <title>Générateur de questionnaire</title>
 
-	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap-responsive.min.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/menu.css"/>">
     
@@ -29,7 +28,24 @@
 		 <div class="col-md-6" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
 	</div>   
 </nav> 
-  
+
+  	    <c:if test="${not empty Success}">
+	      <div class="alert alert-success alert-dismissible" role="alert">
+          <strong>Succès</strong> <c:out value = "${Success}"/> <c:remove var="Success" scope="session" />
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	    </c:if>
+	
+	    <c:if test="${not empty Warning}">
+	      <div class="alert alert-warning alert-dismissible" role="alert">
+          <strong>Attention</strong> <c:out value = "${Warning}"/> <c:remove var="Warning" scope="session" />
+	        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	    </c:if>
  
    <!-- questionnaire -->
     <div class="container">
