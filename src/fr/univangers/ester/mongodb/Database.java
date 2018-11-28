@@ -11,11 +11,11 @@ public abstract class Database {
 	private static final String DBNAME = "BDD_ESTER_DEV";
 	
 	protected MongoClient client;
-	protected MongoDatabase database;
+	protected MongoDatabase db;
 	
 	public Database() {
 		client =  MongoClients.create("mongodb://" + HOSTNAME + ":" + PORT);
-		database = client.getDatabase(DBNAME);
+		db = client.getDatabase(DBNAME);
 	}
 
 }
