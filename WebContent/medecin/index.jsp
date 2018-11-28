@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
 <!DOCTYPE html>
-<html>
+<html lang="fr-FR">
 <head>
-<meta charset="UTF-8">
-<title>ESTER</title>
-<link rel="stylesheet" href="<c:url value="/css/Acceuil.css"/>">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="UA.png">
+
+    <title>ESTER</title>
+
+	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
+	
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
@@ -18,86 +25,86 @@
 </head>
 
 <body >  
+
 	    <c:import url="/jsp/Menu.jsp"/>
-		<div class="container-fluid" id="container"  style="ms-height:75rem;padding-top:4.5rem;">
   			<div class="row">
-  
-				<nav class="col-xs-2 navbar navbar-collapse bg-nav">
-			    	<button class="navbar-toggler btn btn-outline-primary my-2 my-sm-0 " type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Menu
-			      	<span class="navbar-toggler-icon"></span>
-			    	</button>
-			  	</nav>
-				 <div class="collapse" id="navbarToggleExternalContent">
-			  		<ul>
-				  		<li class="nav-item dropdown">
-					        <a class="nav-link dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  			  			
+  				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
+			  		<ul style="color:white;">
+				  	<li>
+					      <a class="dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
 					          Création de compte
-					        </a>		 
-								 <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
-						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Préventeurs</a>
-						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Infirmiers</a>
-						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Assistants</a>
-						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Entreprises</a>
+					      </a>		 
+						  <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
+						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Infirmiers/Préventeurs/Assistants</a>
+						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Entreprises</a>
 						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createSalarie">Salariés</a>
-								</div>
-						</li>
+						 </div>
+					</li>
 						
-						<li class="nav-item dropdown">
-					        <a class="nav-link dropdown-toggle" href="#" id="gestionSalariesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					<li class="dropdown">
+					     <a class="dropdown-toggle" href="#" id="gestionSalariesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
 					          Gestion des salariés
-					        </a>	 
-								 <div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
-						         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Liste des salariés</a>
-						         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Profil du salarié</a>		
-						       	 </div>
-						</li>		
+					      </a>	 
+						 <div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Liste des salariés</a>
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Profil du salarié</a>		
+					   	 </div>
+					 </li>		
 				        
-						<li class="nav-item dropdown">
-				       		<a class="nav-link dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des questionnaires</a>
+					 <li class="dropdown">
+				          <a class="dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">Gestion des questionnaires</a>
 						 
-							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
+						  <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					         	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
-					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
-		          			 	<a class="dropdown-item" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
-					         </div>
-					   	</li>	        
+					         	<a class="dropdown-item" href="#">Modifier un questionnaire</a>
+		          			 	<a class="dropdown-item" href="#">Administrer les questionnaires</a>	
+					       </div>
+					  </li>	        
 				              
-				        <li class="nav-item">
-				        	<a class="nav-link" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier les valeurs de référence</a>
-				        </li>
+				       <li>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Modifier les valeurs de référence</a>
+				       </li>
 				        
-				        <li class="nav-item">
-				        	<a class="nav-link" href="<c:url value="/resultat"/>">Afficher les statistiques</a>
-				        </li>
+				       <li>
+				        	<a href="<%= request.getContextPath()%>/resultat" style="color:white;">Afficher les statistiques</a>
+				       </li>
 				        
-				        <li class="nav-item">
-				        	<a class="nav-link" href="<c:url value="/jsp/EnDev.jsp"/>">Exporter les données</a>
-				        </li>
+				       <li>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Exporter les données</a>
+				       </li>
 				        				  
-				    </ul> 
-			    </div>
-			    
-				<div class="col-xs-10">
-					<div class="container-fluid" style="background:white">
-					    <h1>Médecin</h1>
-						<p>Bienvenue sur la partie Médecin du Projet ESTER</p>
-					</div>
-				</div>
-			</div> 
-			<div class="row container">
-				<c:if test="${param.page == 'createSalarie'}">
-					<div class="container">
-				     <form class="pt-2 row" id="saisi" method="post">
-						<input type="submit" value="Génerer code patient ">        
-					 </form>  	
-					 <p class="row"> 
-				     		${ empty message ? '' : message }
-				     </p>	  	        
+				  </ul> 
 			 </div>
-				</c:if>
+			    
+			<div class="col-md-10">
+				<div class="container-fluid" style="background:white">
+				    <h1>Médecin</h1>
+					<p>Bienvenue sur la partie Médecin du Projet ESTER</p>
+					<c:if test="${param.page == 'createSalarie'}">
+						<div class="row pt-2">
+						     <form class="col" id="saisi" method="post">
+								<input class="btn btn-info" type="submit" value="Génerer code patient ">        
+							 </form>  	
+							 <p class="col">
+							 	<strong>
+						     		${ empty message ? '' : message }
+						     	</strong> 
+						     </p>	  	        
+					 	</div>
+					</c:if>
+					<c:if test="${param.page == 'createUser'}">
+						<div class="row pt-2">
+					     	 <c:import url="/jsp/createAccount.jsp"/>
+						</div>
+						<div class="row pt-2">
+					     	 <c:import url="/jsp/Alert.jsp"/>
+					 	</div>
+					</c:if>
+				</div>
 			</div>
-		</div>
-				  	<c:import url="/jsp/Footer.jsp"/>
-		
+	  </div> 
+						
+	  <c:import url="/jsp/Footer.jsp"/>
 </body>
 </html>

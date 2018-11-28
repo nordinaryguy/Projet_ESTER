@@ -16,37 +16,32 @@
 <body>
   	<c:import url="/jsp/Menu.jsp"/>
 
-<div class="pre-scrollable container-fluid">
   			<div class="row">
   
-				<nav class="col-xs-2 navbar navbar-collapse bg-nav">
-			    	<button class="navbar-toggler btn btn-outline-primary my-2 my-sm-0 " type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Menu
-			      	<span class="navbar-toggler-icon"></span>
-			    	</button>
-			  	</nav>
-				 <div class="collapse" id="navbarToggleExternalContent">
-			  		<ul>
-					  	<li class="nav-item">
-				       		<a class="nav-link" href="<c:url value="/resultat"/>">Résultats globaux</a>
+				
+			  		
+			    <div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">				       
+				        <ul style="color:white;">
+					  	<li>
+				       		<a style="color:white;" href="<c:url value="/resultat"/>">Résultats globaux</a>
 				        </li>
 				        
-				        <li class="nav-item">
-				       		<a class="nav-link" href="<c:url value="jsp/EnDev.jsp"/>">Résultats par poste</a>
+				        <li>
+				       		<a style="color:white;" href="<c:url value="jsp/EnDev.jsp"/>">Résultats par poste</a>
 				        </li>
 				        				  
-				    </ul> 
-			    </div>
+				    </ul> 	        				  
+			 </div>
 			    
-				<div class="col">
+				<div class="col-md-10">
 					<div class="container-fluid" id="container" style="background:white">
 					    <h1>Entreprise</h1>
 						<p>Bienvenue sur la partie Entreprise du Projet ESTER</p>    
 					</div>
 				</div>
 			</div> 
-		</div>
 		
-		  	<c:import url="/jsp/Footer.jsp"/>
+	<c:import url="/jsp/Footer.jsp"/>
 		
 </body>
 </html>
