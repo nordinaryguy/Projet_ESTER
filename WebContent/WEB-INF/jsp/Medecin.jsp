@@ -95,7 +95,7 @@
 					</c:if>
 					<c:if test="${param.page == 'createUser'}">
 						<div class="row pt-2">
-					     	 <c:import url="/jsp/createAccountByMedecin.jsp"/>
+					     	 <c:import url="/jsp/createAccount.jsp"/>
 						</div>
 						<div class="row pt-2">
 					     	 <c:import url="/jsp/Alert.jsp"/>

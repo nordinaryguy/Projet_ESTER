@@ -7,8 +7,10 @@
     <h4>Créer un nouveau compte</h4>
     <label for="typeCompte">Choisissez un type de compte :</label>		     
 	<select name="typeCompte" id="typeCompte" size="1">
-		<option value="Assistant">Administrateur</option>
-		<option value="Assistant">Médecin</option>
+		<c:if test="${sessionScope.sessionUtilisateur.isAdministrateur()}">	     
+			<option value="Assistant">Administrateur</option>
+			<option value="Assistant">Médecin</option>
+		 </c:if>
 		<option value="Assistant">Assistant</option>
 	    <option value="Infirmier">Infirmier</option>
 	    <option value="Preventeur">Préventeur</option>
