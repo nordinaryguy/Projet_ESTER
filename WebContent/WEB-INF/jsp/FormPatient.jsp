@@ -24,7 +24,7 @@
 </head>
 
 <body>  
-	<c:import url="/jsp/MenuPage.jsp"/>
+	<c:import url="/jsp/Menu.jsp"/>
 	<div class="container-fluid" id="container"  style="ms-height:75rem;padding-top:4.5rem;">
 			<div class="row">
 					<form class="form-patient" method="post">

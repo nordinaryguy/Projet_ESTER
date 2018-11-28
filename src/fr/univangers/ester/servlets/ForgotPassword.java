@@ -52,7 +52,7 @@ public class ForgotPassword extends HttpServlet {
 				//TODO must be automaticaly changed
 				URL urlToken=new URL("http://localhost:8080/Projet_ESTER/ResetPassword?"+"token="+token);
 				//send email
-				boolean mailSend=mailSender.sendMail(email,"Demande de réinitialisation de mot de passe", mailSender.mdpOublieBodyText("", urlToken.toString()), true);
+				boolean mailSend=mailSender.sendMail(email,"Demande de réinitialisation de mot de passe", mailSender.mdpOublieBodyText(urlToken.toString()), true);
 				if(mailSend) {
 					request.setAttribute(ATT_MSG_SUCCESS,"mail envoyé");
 				}else {

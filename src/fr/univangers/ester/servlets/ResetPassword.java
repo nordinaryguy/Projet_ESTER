@@ -31,6 +31,8 @@ public class ResetPassword extends HttpServlet {
 			String email=users.getIdentforToken(token);
 			request.setAttribute("email", email);
 		}
+		String email=users.getIdentforToken(token);
+		users.deleteUrlToken(email);
 		request.setAttribute("valid", valid);
 		try {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
@@ -55,7 +57,6 @@ public class ResetPassword extends HttpServlet {
 		String pwd=request.getParameter("password");
 		String identifiant=request.getParameter("email");
 		users.changePasswordUserEster(identifiant, pwd);
-		users.deleteUrlToken(identifiant);
 		request.setAttribute("message", "Mot de passe modifié");
 		try {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);

@@ -26,7 +26,7 @@
 
 <body >  
 
-	    <c:import url="/jsp/MenuPage.jsp"/>
+	    <c:import url="/jsp/Menu.jsp"/>
   			<div class="row">
   				
   			
@@ -38,10 +38,10 @@
 					          Création de compte
 					        </a>		 
 								 <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
-						          <a class="dropdown-item" href="#">Préventeurs</a>
-						          <a class="dropdown-item" href="#">Infirmiers</a>
-						          <a class="dropdown-item" href="#">Assistants</a>
-						          <a class="dropdown-item" href="#">Entreprises</a>
+						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Préventeurs</a>
+						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Infirmiers</a>
+						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Assistants</a>
+						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Entreprises</a>
 						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createSalarie">Salariés</a>
 								</div>
 						</li>
@@ -88,17 +88,27 @@
 						<c:if test="${param.page == 'createSalarie'}">
 							<div class="row pt-2">
 						     <form class="col" id="saisi" method="post">
-								<input type="submit" value="Génerer code patient ">        
+								<input class="btn btn-info" type="submit" value="Génerer code patient ">        
 							 </form>  	
-							 <p class="col"> 
+							 <p class="col">
+							 	<strong>
 						     		${ empty message ? '' : message }
+						     	</strong> 
 						     </p>	  	        
-					 </div>
+					 		</div>
+						</c:if>
+							<c:if test="${param.page == 'createUser'}">
+							<div class="row pt-2">
+						     	 <c:import url="/jsp/createAccount.jsp"/>
+					 		</div>
+					 		<div class="row pt-2">
+						     	 <c:import url="/jsp/Alert.jsp"/>
+					 		</div>
 						</c:if>
 					</div>
 				</div>
 			</div> 
 						
-		            <c:import url="/jsp/Footer.jsp"/>
+		    <c:import url="/jsp/Footer.jsp"/>
 </body>
 </html>
