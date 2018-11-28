@@ -2,30 +2,35 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
 <link rel="stylesheet" href="<c:url value="/css/menu.css"/>">
 
+	<!-- Menu en header de la page -->						
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
-  <div class="container">
-   
-    <a class="navbar-brand" href="#" style="color:white">ESTER</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+	<div class="container">
+	
+	<!-- Ester -->
+	    <a class="navbar-brand" href="#" style="color:white">ESTER</a>
+	    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
+	    	<span class="navbar-toggler-icon"></span>
+	    </button>
       
-
+	<!-- Lien Accueil -->
+	
     <div class="collapse navbar-collapse" id="navbarsExample07">
       <ul class="navbar-nav mr-auto">
         
         <li class="nav-item active">
-          <a class="nav-link" style="color:white" href="<c:url value="/"/>">Accueil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" style="color:white" href="<c:url value="/"/>">Accueil
+          	<span class="sr-only">(current)</span>
+          </a>
         </li>
       </ul>
      
-         <img class="pr-4" src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155">
      
-   
+     <img class="pr-4" src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155">
+ 
+    	<!-- Bouton pour la Connexion/Première Connexion/Déconnexion -->
     
       <form class="form-inline my-2 my-md-0">
       	<c:if test="${empty sessionScope.sessionUtilisateur}">
@@ -54,6 +59,7 @@
 	      </div>
 	    </c:if>
       </form>
+      
       <img class="pl-3" src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170">
       
     </div>     

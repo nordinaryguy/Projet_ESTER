@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
@@ -18,7 +19,10 @@
 	
 </head>
 <body>
-  	<c:import url="/jsp/MenuPage.jsp"/>
+
+  	<c:import url="/jsp/Menu.jsp"/>
+	
+	<!-- Liste des questionnaires -->
 	
     <div class="card text-center m-3" id="questionnaire">
 		<form method="post">
@@ -36,6 +40,7 @@
 				        <button class="btn btn-primary m-3" type="submit">AFFICHER</button>
 				    </div>
 	    	</c:if>
+	    	
 	    	<c:if test="${not empty Questionnaire}">
 				<div class="card-header">
 	    			<h3 class="card-title"><c:out value="${Nom}"></c:out></h3>
@@ -51,5 +56,6 @@
     </div>
 
   	<c:import url="/jsp/Footer.jsp"/>
+  	
 </body>
 </html>

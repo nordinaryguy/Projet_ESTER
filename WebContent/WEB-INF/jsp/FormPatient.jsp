@@ -25,7 +25,7 @@
 
 <body>  
 	<c:import url="/jsp/Menu.jsp"/>
-	<div class="container-fluid" id="container"  style="ms-height:75rem;padding-top:4.5rem;">
+	<div class="container-fluid" id="container"  style="height:75rem;padding-top:4.5rem;">
 			<div class="row">
 					<form class="form-patient" method="post">
 			            <div class="form-title-row">
@@ -93,7 +93,7 @@
 			            <c:import url="/jsp/Footer.jsp"/>
 	
 	
-<script type='text/javascript'>
+<script>
 	populateSelect("<c:url value="/src/pcs.json"/>","pcs");
 	populateSelect("<c:url value="/src/naf.json"/>","naf");
 	populateSelect("<c:url value="/src/departments.json"/>","departement");

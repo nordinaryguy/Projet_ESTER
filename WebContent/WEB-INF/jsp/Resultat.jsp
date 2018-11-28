@@ -4,14 +4,14 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
+<head>
         <meta charset="utf-8" />
         <title>Résultat</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        <script type='text/javascript' src="<c:url value="/dwr/engine.js"/>"></script>
-        <script type='text/javascript' src="<c:url value="/dwr/util.js"/>"></script>
-  		<script type='text/javascript' src="<c:url value="/dwr/interface/Resultat.js"/>"></script>
+        <script src="<c:url value="/dwr/engine.js"/>"></script>
+        <script src="<c:url value="/dwr/util.js"/>"></script>
+  		<script src="<c:url value="/dwr/interface/Resultat.js"/>"></script>
 
 	    <link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	    <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
@@ -26,52 +26,56 @@
 		
 		<script src="<c:url value="/js/resultat.js"/>"></script>
 		<script src="<c:url value="/js/lang/highcharts_french.js"/>"></script>
-    </head>
-    <body>
-  	<c:import url="/jsp/MenuPage.jsp"/>
+</head>
+    
+<body>
+    
+  	<c:import url="/jsp/Menu.jsp"/>
     
     <div class="card-group">
     
-	<div class="card">
-	  	<div class="card-header">
-	  		<h5 class="card-title">Situation du score de l'histogramme de la population de référence</h5>
-	  	</div>
-	  	<div id="histo-div" class="card-body">
-	  		<div id="id_histo" style="min-width: 310px; max-width: 1000px; margin: 0 auto"></div>
-   		</div>
-   	</div>
+    <!-- Histogramme -->
     
-	<div class="card">
-	  	<div class="card-header">
-	  		<h5 class="card-title">Comparaison des réponses à la population de référence* (Hommes de 50 ans ou plus, B=396)</h5>
-	  		<h6 class="card-subtitle mb-2 text-muted">*Population de référence : échantillion du réseaux de surveillance des TMS en entreprise dans les Pays de la Loire (2002-2005)</h6>
-	  	</div>
-	  	<div id="chart-div" class="card-body">
-	  	</div>
-	</div>
-	
-	<div class="card">
-	  	<div class="card-header">
-	  		<h5 class="card-title">Intensité des efforts physiques (échelle Rating Scale of Perceived Extertion (RPE) de Borg)</h5>
-	  	</div>
-	  	<div id="strong-div" class="card-body">
-	  		<div id="id_rpe" style="min-width: 310px; max-width: 1000px; margin: 0 auto"></div>
-   		</div>
-   	</div>
-   	
-   	 	
-	
+		<div class="card">
+		  	<div class="card-header">
+		  		<h5 class="card-title">Situation du score de l'histogramme de la population de référence</h5>
+		  	</div>
+		  	<div id="histo-div" class="card-body">
+		  		<div id="id_histo" style="min-width: 310px; max-width: 1000px; margin: 0 auto"></div>
+	   		</div>
+	   	</div>
+    
+        <!-- Comparaison -->
+    
+		<div class="card">
+		  	<div class="card-header">
+		  		<h5 class="card-title">Comparaison des réponses à la population de référence* (Hommes de 50 ans ou plus, B=396)</h5>
+		  		<h6 class="card-subtitle mb-2 text-muted">*Population de référence : échantillion du réseaux de surveillance des TMS en entreprise dans les Pays de la Loire (2002-2005)</h6>
+		  	</div>
+		  	<div id="chart-div" class="card-body">
+		  	</div>
+		</div>
+		
+		<!-- RPE -->
+		
+		<div class="card">
+		  	<div class="card-header">
+		  		<h5 class="card-title">Intensité des efforts physiques (échelle Rating Scale of Perceived Extertion (RPE) de Borg)</h5>
+		  	</div>
+		  	<div id="strong-div" class="card-body">
+		  		<div id="id_rpe" style="min-width: 310px; max-width: 1000px; margin: 0 auto"></div>
+	   		</div>
+	   	</div>
+	   	
     </div>
     
         
     
-    <script type='text/javascript' >
-
+    <script>
     addHisto("id_histo")
     addAllChart("chart-div");
-    addRPE("id_rpe");
-    
+    addRPE("id_rpe"); 
     </script>
-    </body>
+</body>
 </html>
 

@@ -25,7 +25,7 @@
 
 <body >  
 	
-			<c:import url="/jsp/MenuPage.jsp"/>
+			<c:import url="/jsp/Menu.jsp"/>
 	
 
 
