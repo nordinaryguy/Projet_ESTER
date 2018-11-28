@@ -23,7 +23,7 @@
 </head>
 
 <body>  
-		<c:import url="/jsp/MenuPage.jsp"/>
+		<c:import url="/jsp/Menu.jsp"/>
 	
 			    
 			    
@@ -60,7 +60,7 @@
 				       		<a style="color:white;" class="dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gestion des questionnaires</a>
 						 
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
-					          <a class="dropdown-item" href="#">Créer un questionnaire</a>
+					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
 					          <a class="dropdown-item" href="#">Modifier un questionnaire</a>
 					          <a class="dropdown-item" href="#">Modifier la gestion des questionnaires</a>	
 					        </div>
@@ -75,7 +75,7 @@
 				        </li>
 				        
 				        <li>
-				        	<a style="color:white;" href="#">Statistiques</a>
+				        	<a style="color:white;" href="<%= request.getContextPath()%>/resultat">Statistiques</a>
 				        </li>
 				        
 				        <li>

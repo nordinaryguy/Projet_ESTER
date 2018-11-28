@@ -25,7 +25,7 @@
 
 <body>  
 	<c:import url="/jsp/Menu.jsp"/>
-	<div class="container-fluid" id="container"  style="ms-height:75rem;padding-top:4.5rem;">
+	<div class="container-fluid" id="container"  style="height:75rem;padding-top:4.5rem;">
 			<div class="row">
 					<form class="form-patient" method="post">
 			            <div class="form-title-row">
@@ -44,17 +44,15 @@
 			
 			            <div class="form-row">
 			                <label>
-			                    <span>Année de naissance</span>
+			                    <span>Âge</span>
 			                    <script>
 									  // On récupère l'année courante
  									   var date = new Date();
- 									   var year = date.getFullYear();
  									  document.write("<select name='years'>");
 									  // On ajoute l'année courante et les 100 années à venir
 									  // dans l'élément <select> pour l'année
-									  for(var i = 0; i <= 101; i+=5) {
-										  document.write("<option value=\""+(year-4) +"-"+year+"\">" + (year-4) +"-"+year+ "</option>");
-										  year-=5;
+									  for(var i = 15; i <= 79; i+=5) {
+										  document.write("<option value=\""+i +"-"+(i+4)+"\">" + i +"-"+(i+4)+ "</option>");
 									  }
  									  document.write("</select>");
 								</script>
@@ -95,7 +93,7 @@
 			            <c:import url="/jsp/Footer.jsp"/>
 	
 	
-<script type='text/javascript'>
+<script>
 	populateSelect("<c:url value="/src/pcs.json"/>","pcs");
 	populateSelect("<c:url value="/src/naf.json"/>","naf");
 	populateSelect("<c:url value="/src/departments.json"/>","departement");
