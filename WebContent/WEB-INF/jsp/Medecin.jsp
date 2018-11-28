@@ -13,7 +13,7 @@
 
     <title>ESTER</title>
 
-		<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
+	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
