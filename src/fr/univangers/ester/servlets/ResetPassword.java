@@ -25,6 +25,7 @@ public class ResetPassword extends HttpServlet {
 		String token=request.getParameter("token");
 		//check if valid
 		Users users=new Users();
+		users.addDefautServer();
 		boolean valid=users.existUrlToken(token) && users.valideUrlToken(token);
 		if(valid) {
 			//get email and set attribute

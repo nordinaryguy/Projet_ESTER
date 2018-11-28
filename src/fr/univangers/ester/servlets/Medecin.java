@@ -31,22 +31,23 @@ public class Medecin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Users user=new Users();
+		user.addDefautServer();
 		if(request.getParameter("page").equals("createSalarie")) {
 			String  code=PwdGenerator.generateCode();
 			request.setAttribute("message",code );
-			
 			//ajout à la base
-			Users user=new Users();
 			user.addCodeGenrated(code);
 		}
 		if(request.getParameter("page").equals("createUser")) {
 			String email=request.getParameter("email");
 			String type=request.getParameter("typeCompte");
 			String pass=PwdGenerator.generatePassword();
-			Users user=new Users();
+			String path = request.getRequestURL().toString();
+			path=path.substring(0, path.length()-"Medecin".length());
 			user.addUserEster(email,"", "", email, pass,Status.toStatus(type));
 			Mail mailSender=new Mail();
-			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,"http://localhost:8080/Projet_ESTER/connexion"), true);
+			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,path+"connexion"), true);
 			if(mailSend) {
 				request.setAttribute(ATT_MSG_SUCCESS,"mail envoyé");
 			}else {

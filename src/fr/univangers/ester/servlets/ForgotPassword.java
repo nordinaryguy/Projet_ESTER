@@ -38,7 +38,11 @@ public class ForgotPassword extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email=request.getParameter("Email");
 		Users users=new Users();
+		users.addDefautServer();
 		Mail mailSender=new Mail();
+		String path = request.getRequestURL().toString();
+		path=path.substring(0, path.length()-"ForgotPassword".length());
+
 		if(users.existUserEster(email)) {
 			if(users.hasUrlToken(email))
 				request.setAttribute(ATT_MSG_WARNING,"un mail valide vous a été déjà envoyé");
@@ -50,7 +54,7 @@ public class ForgotPassword extends HttpServlet {
 				users.addUrlToken(email, token, expireDate);
 				//create url to be sent in email (protocol://host:port/path?query#ref)
 				//TODO must be automaticaly changed
-				URL urlToken=new URL("http://localhost:8080/Projet_ESTER/ResetPassword?"+"token="+token);
+				URL urlToken=new URL(path+"ResetPassword?"+"token="+token);
 				//send email
 				boolean mailSend=mailSender.sendMail(email,"Demande de réinitialisation de mot de passe", mailSender.mdpOublieBodyText(urlToken.toString()), true);
 				if(mailSend) {
