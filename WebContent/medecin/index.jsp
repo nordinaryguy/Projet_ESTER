@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="UA.png">
+    <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
     <title>ESTER</title>
 
@@ -57,8 +57,8 @@
 						 
 						  <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					         	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
-					         	<a class="dropdown-item" href="#">Modifier un questionnaire</a>
-		          			 	<a class="dropdown-item" href="#">Administrer les questionnaires</a>	
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
+		          			 	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/questionnaire">Administrer les questionnaires</a>	
 					       </div>
 					  </li>	        
 				              

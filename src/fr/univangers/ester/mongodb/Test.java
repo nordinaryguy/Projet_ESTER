@@ -4,7 +4,9 @@ public class Test {
 
 	public static void main(String[] args) {
 		Users users = new Users();
-		users.addUserEster("id1", "LeBlanc", "Eric", "eric.lablanc@ester.fr", "1234", null);
+		//users.addUserEster("id1", "LeBlanc", "Eric", "eric.lablanc@ester.fr", "1234", null);
+		users.addEntreprise("entreprise", "Univ-Angers", "12345");
+
 		/*
 		users.addSalarie("s1", 1, null, "homme", 1992, "49", null, null, null, null);
 		users.addSalarie("s2", 2, null, "homme", 1985, "49", null, null, null, null);

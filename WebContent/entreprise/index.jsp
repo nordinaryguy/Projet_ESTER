@@ -4,22 +4,25 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
 	<meta charset="UTF-8">
+	<link rel="icon" href="<c:url value="/img/ua.png"/>">
+	
 	<title>ESTER</title>
 
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
-    <link rel="stylesheet" href="<c:url value="/css/Accueil.css"/>">
+    <link rel="stylesheet" href="<c:url value="/css/default.css"/>">
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/js/popper.min.js"/>"></script>
     <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
+
 </head>
 <body>
+
   	<c:import url="/jsp/Menu.jsp"/>
 
   			<div class="row">
-  
-				
-			  		
+  			  		
 			    <div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">				       
 				        <ul style="color:white;">
 					  	<li>
@@ -27,7 +30,7 @@
 				        </li>
 				        
 				        <li>
-				       		<a style="color:white;" href="<c:url value="jsp/EnDev.jsp"/>">Résultats par poste</a>
+				       		<a style="color:white;" href="<c:url value="/jsp/EnDev.jsp"/>">Résultats par poste</a>
 				        </li>
 				        				  
 				    </ul> 	        				  
