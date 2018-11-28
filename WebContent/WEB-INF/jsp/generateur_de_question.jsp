@@ -56,19 +56,22 @@
             <h2  style="border-radius: 10px; text-align:center">Questionnaire </h2>
             <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom du questionnaire" required>
 			<input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant du questionnaire" required>
-			
-           </div>
-			<h3 style="text-decoration: underline;">Faites glisser les champs juste en-dessous...</h3>
-			<p>(Pour retirer des champs, glissez les ordres du cadre ; Pour changer les valeurs, cliquez sur le champ ajouté dans le cadre.)</p>
-           
-            <div class="shadowbottom" >
-	            <div id="build" >
-	              <form id="target" class="form-horizontal"  method="post" style="word-wrap: break-word;overflow: auto; background:white;min-height: 400px ;">
-	                <fieldset>
-	                </fieldset>
-	              </form>
-	            </div>
+			<div id="build">
+              <form id="target" class="form-horizontal" style="word-wrap: break-word;overflow: auto; background:white;">
+                <fieldset>
+                  <div id="legend" class="component" rel="popover" title="Form Title" trigger="manual"
+                    data-content="<form class='form'>
+                      <div class='form-group col-md-12'>
+                        <label class='control-label'>titre</label> <input class='form-control' type='text' name='title' id='text'>
+                        <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+                      </div>
+                    </form>" data-html="true">
+                    <legend class="valtype" data-valtype="text">veuillez saisir le nom de votre questionnaire </legend>
+                  </div>
+                </fieldset>
+              </form>
             </div>
+           </div>
           </div>
         </div>
 
@@ -246,7 +249,7 @@
                   
                   <!-- Code modifier -->
                   <div class="tab-pane" id="5">
-                    <textarea name="source" id="source" class="col-md-12" rows="25"></textarea>
+                    <textarea name="source" id="source" class="col-md-12" rows="25" required></textarea>
                   </div>
                 </div>
                 

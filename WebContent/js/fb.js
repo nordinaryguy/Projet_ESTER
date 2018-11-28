@@ -124,7 +124,6 @@ $(document).ready(function(){
 
   var genSource = function(){
     var $temptxt = $("<div>").html($("#build").html());
-    //scrubbbbbbb
     $($temptxt).find(".component").attr({"title": null,
       "data-original-title":null,
       "data-type": null,
@@ -138,7 +137,7 @@ $(document).ready(function(){
     $($temptxt).find("form").attr({"id":  null, "style": null});
     $("#source").val($temptxt.html().replace(/\n\ \ \ \ \ \ \ \ \ \ \ \ /g,"\n"));
   }
-
+ var cpt=0;
   //activate legend popover
   $("#target .component").popover({trigger: "manual"});
   //popover on click event
@@ -176,11 +175,6 @@ $(document).ready(function(){
         val = val.join("\n");
         $(".popover "+valID).text(val);
         $(".popover #name").val($(e).find("input").attr("name"));
-      } else if(valID==="#inline-radios"){
-        val = $.map($(e).find("label"), function(e,i){return $(e).text().trim()});
-        val = val.join("\n")
-          $(".popover "+valID).text(val);
-        $(".popover #name").val($(e).find("input").attr("name"));
       } else if(valID==="#button") {
         var type = $(e).find("button").attr("class").split(" ").filter(function(e){return e.match(/btn-.*/)});
         $(".popover #color option").attr("selected", null);
@@ -196,12 +190,11 @@ $(document).ready(function(){
         $(".popover " + valID).val(val);
       }
     });
-
+    
     $(".popover").delegate(".btn-danger", "click", function(e){
       e.preventDefault();
       $active_component.popover("hide");
     });
-
     $(".popover").delegate(".btn-info", "click", function(e){
       e.preventDefault();
       var inputs = $(".popover input");
@@ -210,12 +203,14 @@ $(document).ready(function(){
       var vartype = $(e).attr("id");
       var value = $active_component.find('[data-valtype="'+vartype+'"]')
       if(vartype==="placeholder"){
+    	  cpt++;
         $(value).attr("placeholder", $(e).val());
-      }else if (vartype==="href"){
-        $($active_component.find('a')).attr("href", $(e).val());
+        $(value).attr("name","input"+cpt);
+        $(value).attr("id","input"+cpt);
       }else if (vartype==="src"){
         $(value).attr("src", $(e).val());
       } else if (vartype==="checkbox"){
+    	  $(value).attr("name","checkbox"+cpt);
         if($(e).is(":checked")){
           $(value).attr("checked", true);
         }
@@ -223,18 +218,21 @@ $(document).ready(function(){
           $(value).attr("checked", false);
         }
       } else if (vartype==="option"){
+    	  cpt++;
         var options = $(e).val().split("\n");
         $(value).html("");
         $.each(options, function(i,e){
           $(value).append("\n      ");
           $(value).append($("<option>").text(e));
+          $(value).attr("name","option"+cpt);
+          $(value).attr("id","option"+cpt);
         });
       } else if (vartype==="checkboxes"){
         var checkboxes = $(e).val().split("\n");
         $(value).html("\n      <!-- Multiple Checkboxes -->");
         $.each(checkboxes, function(i,e){
           if(e.length > 0){
-            $(value).append('\n      <label class="checkbox">\n        <input type="checkbox" value="'+e+'">\n        '+e+'\n      </label>');
+            $(value).append('\n      <label class="checkbox">\n        <input type="checkbox" value="'+e+'" name="'+e+'">\n        '+e+'\n      </label>');
           }
         });
         $(value).append("\n  ")
@@ -249,32 +247,10 @@ $(document).ready(function(){
         });
         $(value).append("\n  ")
           $($(value).find("input")[0]).attr("checked", true)
-      } else if (vartype==="inline-checkboxes"){
-        var checkBoxes = $(e).val().split("\n");
-        $(value).html("\n      <!-- Inline Checkboxes -->");
-        $.each(checkBoxes, function(i,e){
-          if(e.length > 0){
-            $(value).append('\n      <label class="checkbox inline">\n        <input type="checkbox" value="'+e+'">\n        '+e+'\n      </label>');
-          }
-        });
-        $(value).append("\n  ")
-      } else if (vartype==="inline-radios"){
-        var inlineRadios = $(e).val().split("\n");
-        var groupName = $(".popover #name").val();
-        $(value).html("\n      <!-- Inline Radios -->");
-        $.each(inlineRadios, function(i,e){
-          if(e.length > 0){
-            $(value).append('\n      <label class="radio inline">\n        <input type="radio" value="'+e+'" name="'+groupName+'">\n        '+e+'\n      </label>');
-          }
-        });
-        $(value).append("\n  ")
-          $($(value).find("input")[0]).attr("checked", true)
-      } else if (vartype === "button"){
-        var type =  $(".popover #color option:selected").attr("id");
-        $(value).find("button").text($(e).val()).attr("class", "btn "+type);
       } else {
         $(value).text($(e).val());
       }
+     
     $active_component.popover("hide");
     genSource();
     });
@@ -282,5 +258,6 @@ $(document).ready(function(){
   });
   $("#navtab").delegate("#sourcetab", "click", function(e){
     genSource();
+    
   });
 });
