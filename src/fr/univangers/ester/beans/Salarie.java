@@ -37,4 +37,24 @@ public class Salarie implements User {
 		return false;
 	}
 
+	@Override
+	public boolean isAdministrateur() {
+		return false;
+	}
+
+	@Override
+	public boolean isMedecin() {
+		return false;
+	}
+
+	@Override
+	public boolean isPreventeur() {
+		return false;
+	}
+
+	@Override
+	public boolean isAssistant() {
+		return false;
+	}
+
 }

@@ -10,6 +10,8 @@ import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
 
+import fr.univangers.ester.beans.Utilisateur.Status;
+
 public class Users extends Database {
 	
 	private static final String C_SALARIE = "C_SALARIE";
@@ -102,7 +104,7 @@ public class Users extends Database {
 		return iterable.first() != null;
 	}
 	
-	public void addUserEster(String identifiant, String name, String firstName, String mail, String password, String status) {
+	public void addUserEster(String identifiant, String name, String firstName, String mail, String password, Status status) {
 		if(existUserEster(identifiant)) {
 			throw new IllegalArgumentException("Identifiant déja ajouter");
 		}
@@ -113,8 +115,17 @@ public class Users extends Database {
 				.append(MAIL, mail)
 				.append(FIRSTCONNECTION, true)
 				.append(PASSWORD, password)
-				.append(STATUS, status);	
+				.append(STATUS, status.toString());	
 		users.insertOne(user);
+	}
+	
+	public Status getStatusUserEster(String identifiant) {
+		if(!existUserEster(identifiant)) {
+			throw new IllegalArgumentException("Utilisateur n'existe pas.");	
+		}
+		MongoCollection<Document> users = db.getCollection(C_USER_ESTER);
+		Document user = users.find(Filters.eq(IDENTIFIANT, identifiant)).first();
+		return Status.toStatus(user.getString(STATUS));
 	}
 	
 	public void deleteUserEster(String identifiant) {
@@ -317,7 +328,5 @@ public class Users extends Database {
 	public String getServerPort() {
 		return (String) getMailServerDocument().get(PORTSERVERMAIL);
 	}
-	
-	
 	
 }

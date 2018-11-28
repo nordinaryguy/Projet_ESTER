@@ -8,5 +8,8 @@ public interface User {
 	public boolean isEntreprise();
 	public boolean isSalarie();
 	public boolean isUtilisateur();
-	
+	public boolean isAdministrateur();
+	public boolean isMedecin();
+	public boolean isPreventeur();
+	public boolean isAssistant();
 }

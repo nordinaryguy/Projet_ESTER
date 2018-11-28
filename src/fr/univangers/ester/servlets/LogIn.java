@@ -35,11 +35,11 @@ public class LogIn extends HttpServlet {
     	String type = request.getParameter("Type");
     	HttpSession session = request.getSession();
     	User user = null;
+		Users userDB = new Users();
     	
     	boolean result = false;
     	String code=request.getParameter("Identifiant");
     	if(type.equals("Salarie")) {
-    		Users userDB=new Users();
     		user = new Salarie();
     		user.setIdentifiant(request.getParameter("Identifiant"));
         	result = user.validate();
@@ -63,11 +63,14 @@ public class LogIn extends HttpServlet {
     	}
     	else if(type.equals("Utilisateur")) {
     		user = new Utilisateur();
-    		user.setIdentifiant(request.getParameter("Identifiant"));
+    		String identifiant = request.getParameter("Identifiant");
+    		user.setIdentifiant(identifiant);
     		((Utilisateur)user).setPassword(request.getParameter("Password"));
         	result = user.validate();
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant ou votre mot de passe est incorrect.");
+        	} else {
+        		((Utilisateur)user).setStatus(userDB.getStatusUserEster(identifiant));
         	}
     	}
     	if(type != null && result) {

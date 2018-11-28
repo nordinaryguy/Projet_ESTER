@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.univangers.ester.beans.Utilisateur.Status;
 import fr.univangers.ester.mail.Mail;
 import fr.univangers.ester.mdp.PwdGenerator;
 import fr.univangers.ester.mongodb.Users;
@@ -43,7 +44,7 @@ public class Medecin extends HttpServlet {
 			String type=request.getParameter("typeCompte");
 			String pass=PwdGenerator.generatePassword();
 			Users user=new Users();
-			user.addUserEster(email,"", "", email, pass,type);
+			user.addUserEster(email,"", "", email, pass,Status.toStatus(type));
 			Mail mailSender=new Mail();
 			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,"http://localhost:8080/Projet_ESTER/connexion"), true);
 			if(mailSend) {
