@@ -6,10 +6,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ESTER</title>
+	<meta charset="UTF-8">
+	<link rel="icon" href="<c:url value="/img/ua.png"/>">
 
-<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
+	<title>ESTER</title>
+
+	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <script src="<c:url value="/js/jquery.min.js"/>"></script>

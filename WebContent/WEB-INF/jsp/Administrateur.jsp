@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="UA.png">
+    <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
     <title>ESTER</title>
 
@@ -31,10 +31,10 @@
 			    <ul style="color:white;">
 			  		
 			  			<li>
-				       		 <a class="dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+				       		 <a class="dropdown-toggle" href="#" id="creationComptes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
 					          Création de compte
 						      </a>		 
-							  <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
+							  <div class="dropdown-menu" aria-labelledby="creationComptes">
 							          <a class="dropdown-item" href="<%= request.getContextPath()%>/Administrateur?page=createUser">Administrateur/Médecin/Infirmiers/Préventeurs/Assistants</a>
 							 </div>			       		
 				        </li>
@@ -73,7 +73,7 @@
 				        </li>
 				        
 				       	<li>
-				        	<a style="color:white;" data-toggle="modal" data-target="#ModifierInterface" href="<c:url value="/jsp/EnDev.jsp"/>">Gestion Interface</a>
+				        	<a style="color:white;" href='<c:url value="/jsp/EnDev.jsp"/>'>Gestion Interface</a>
 				        </li>
 				        
 				        <li>
@@ -170,4 +170,4 @@
 	    
   <c:import url="/jsp/Footer.jsp"/>
 </body>
-</html>-
+</html>

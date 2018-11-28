@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="UA.png">
+    <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
     <title>ESTER</title>
 
@@ -83,7 +83,7 @@
 						<c:if test="${param.page == 'createSalarie'}">
 							<div class="row pt-2">
 						     <form class="col" id="saisi" method="post">
-								<input type="submit" value="Génerer code patient ">        
+								<input class="btn btn-info" type="submit" value="Génerer code patient ">        
 							 </form>  	
 							 <p class="col"> 
 						     		${ empty message ? '' : message }

@@ -25,9 +25,10 @@
 
 	<nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
 		 <div class="row">
-		 	 <div class="col-md-4" style="text-align:center;"><img s-rc="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
-			 <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
-			 <div class="col-md-4" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="130"></div>
+		 	 <div class="col-md-1" style="text-align:center;"><a style="color:white; font-size:120%" href="<c:url value="/utilisateur"/>">Retour</a></div>
+		 	 <div class="col-md-3" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
+			 <div class="col-md-3" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
+			 <div class="col-md-3" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="130"></div>
 		</div>   
 	</nav>   
 

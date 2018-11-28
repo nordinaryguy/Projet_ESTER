@@ -8,6 +8,7 @@
 <head>
 
 	<meta charset="UTF-8">
+	<link rel="icon" href="<c:url value="/img/ua.png"/>">
 	<title>ESTER</title>
 
 	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
@@ -30,7 +31,6 @@
 						          Gestion des salariés
 						        </a>	 
 								<div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
-									 	<a class="dropdown-item" href="<%= request.getContextPath()%>/assistant?page=createSalarie">Créer un compte salarié</a>
 							          	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Liste des salariés</a>
 							          	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Profil du salarié</a>		
 							    </div>
@@ -50,16 +50,7 @@
 					<div class="container-fluid" id="container" style="background:white">
 					    <h1>Assistant</h1>
 						<p>Bienvenue sur la partie Assistant du Projet ESTER</p>
-						<c:if test="${param.page == 'createSalarie'}">
-							<div class="row pt-2">
-							     <form class="col" id="saisi" method="post">
-									<input class="btn btn-info" type="submit" value="Génerer code patient ">        
-								 </form>  	
-								 <p class="col"> 
-							     		${ empty message ? '' : message }
-							     </p>	  	        
-					 		</div>
-						</c:if>
+						
 					</div>
 				</div>
 			</div>
