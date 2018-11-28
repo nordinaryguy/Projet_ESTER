@@ -207,9 +207,20 @@ $(document).ready(function(){
         $(value).attr("placeholder", $(e).val());
         $(value).attr("name","input"+cpt);
         $(value).attr("id","input"+cpt);
+      }else if (vartype==="textarea"){
+    	  cpt++;
+        $(value).attr("texterea", $(e).val());
+        $(value).attr("name","texterea"+cpt);
+        $(value).attr("id","texterea"+cpt);
       }else if (vartype==="src"){
+    	  cpt++;
         $(value).attr("src", $(e).val());
+        $(value).attr("name","src"+cpt);
+      }else if (vartype==="file"){
+      	  cpt++;
+          $(value).attr("name","file"+cpt);
       } else if (vartype==="checkbox"){
+    	  cpt++;
     	  $(value).attr("name","checkbox"+cpt);
         if($(e).is(":checked")){
           $(value).attr("checked", true);
