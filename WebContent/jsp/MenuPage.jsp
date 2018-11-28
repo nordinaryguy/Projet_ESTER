@@ -8,8 +8,7 @@
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
   <div class="container">
-  
- 
+   
     <a class="navbar-brand" href="#" style="color:white">ESTER</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,12 +23,9 @@
         </li>
       </ul>
      
-     <div class="row pr-5">
-	 	 <div class="col" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
-		 <div class="col" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
-		 <div class="col" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="130"></div>
-	</div>        
-    
+         <img class="pr-4" src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155">
+     
+   
     
       <form class="form-inline my-2 my-md-0">
       	<c:if test="${empty sessionScope.sessionUtilisateur}">
@@ -58,6 +54,8 @@
 	      </div>
 	    </c:if>
       </form>
-    </div>
+      <img class="pl-3" src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170">
+      
+    </div>     
   </div>
 </nav>

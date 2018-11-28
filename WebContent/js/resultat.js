@@ -97,12 +97,15 @@ function addHisto(divName) {
 					chart: {
 						type: 'column'
 					},
-					
+					tooltip: {
+					    formatter: function() {
+					        return 'Score : <b>' + this.x + '</b> <br> Pourcentage : <b>' + this.y + ' % </b>';
+					    }
+					},
 					yAxis: {
 						title: { text: 'Pourcentage' },
 						labels: { format: "{value} %"}
 					},
-					
 					xAxis: {
 						categories: categories,
 						title: {
@@ -136,7 +139,7 @@ function addHisto(divName) {
 						}
 					},
 					series: [{
-						name: 'Score',
+						name: 'Pourcentage',
 						data: data
 					}],
 					legend: {
@@ -163,6 +166,11 @@ function addRPE(divName) {
 					},
 					title: {
 						text: null
+					},
+					tooltip: {
+					    formatter: function() {
+					        return 'RPE : <b>' + this.x + '</b> <br> Pourcentage : <b>' + this.y + ' % </b>';
+					    }
 					},
 					xAxis: {
 						categories: categories,
@@ -205,9 +213,6 @@ function addRPE(divName) {
 							overflow: 'justify',
 							format: "{value} %"
 						}
-					},
-					tooltip: {
-						valueSuffix: ' %'
 					},
 					plotOptions: {
 						bar: {

@@ -9,19 +9,28 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import fr.univangers.ester.beans.User;
+import fr.univangers.ester.mongodb.Questionnaires;
 
 /**
  * Servlet implementation class questionnaire
  */
-@WebServlet("/questionnaire")
-public class questionnaire extends HttpServlet {
+@WebServlet("/utilisateur/generateur_questionnaire")
+public class GeneratorQuestionnaire extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     public static final String Code_source  = "source";
+    public static final String ATT_IDENTIFIANT = "Identifiant";
+    public static final String ATT_SESSION_USER = "sessionUtilisateur";
+    public static final String ATT_NOM = "Nom";
+    public static final String ATT_MSG_WARNING = "Warning";
+    public static final String ATT_MSG_SUCCESS = "Success";
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public questionnaire() {
+    public GeneratorQuestionnaire() {
         super();
     }
 
@@ -37,8 +46,22 @@ public class questionnaire extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      
-       String source = request.getParameter( Code_source );
+		String source = request.getParameter( Code_source );
+   		HttpSession session = request.getSession();
+       
+   		if(source != null) {
+   			String identifiant = request.getParameter(ATT_IDENTIFIANT);
+   			String nom = request.getParameter(ATT_NOM);
+   			String identifiantEster = ((User)session.getAttribute(ATT_SESSION_USER)).getIdentifiant();
+   			Questionnaires questionnaires = new Questionnaires();
+   			if(questionnaires.existQuestionnaire(identifiant)) {
+			   session.setAttribute(ATT_MSG_WARNING, "Identifiant deja utilisé");
+   			} else {
+			   session.setAttribute(ATT_MSG_SUCCESS, "Questionnaire sauvegarder");
+			   questionnaires.addQuestionnaire(nom, identifiant, source, identifiantEster);
+   			}
+       }
+       
        createFile(source);	
        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/generateur_de_question.jsp").forward(request, response); 
 	}

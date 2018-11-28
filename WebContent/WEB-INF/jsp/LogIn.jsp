@@ -33,7 +33,6 @@
     <div class="row justify-content-center pb-2">
         <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
         <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
-        <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/Sante_publique.jpg"/>" alt="Logo-Santé_publique_France" width="205" height="90"></div>
         
     </div>
 
@@ -48,7 +47,7 @@
 	
 	    <c:if test="${not empty Warning}">
 	      <div class="alert alert-warning alert-dismissible" role="alert">
-          <strong>Attention</strong> <c:out value = "${Warning}"/>
+          <strong>Attention</strong> <c:out value = "${Warning}"/> <c:remove var="Warning" scope="session" />
 	        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>

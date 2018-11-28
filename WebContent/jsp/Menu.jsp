@@ -40,7 +40,9 @@
 		      </c:if>
 		      <c:if test="${sessionScope.sessionUtilisateur.isUtilisateur()}">
 		      	<a class="dropdown-item" href="<c:url value="/utilisateur"/>">Utilisateur</a>
+		      <a class="dropdown-item" href="<c:url value="/utilisateur/generateur_questionnaire"/>">Génerateur Questionnaire</a>
 		      </c:if>
+		      <a class="dropdown-item" href="<c:url value="/questionnaire"/>">Questionnaire</a>
 		      <a class="dropdown-item" href="<c:url value="/deconnexion"/>">Déconnexion</a>
     		</div>
 	      </div>
