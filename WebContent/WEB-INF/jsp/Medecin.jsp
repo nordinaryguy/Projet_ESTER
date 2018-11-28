@@ -57,7 +57,7 @@
 				       		<a class="dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">Gestion des questionnaires</a>
 						 
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
-					         	<a class="dropdown-item" href="#">Créer un questionnaire</a>
+					         	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
 					         	<a class="dropdown-item" href="#">Modifier un questionnaire</a>
 		          			 	<a class="dropdown-item" href="#">Administrer les questionnaires</a>	
 					         </div>
@@ -68,7 +68,7 @@
 				        </li>
 				        
 				        <li>
-				        	<a href="#" style="color:white;">Afficher les statistiques</a>
+				        	<a href="<%= request.getContextPath()%>/resultat" style="color:white;">Afficher les statistiques</a>
 				        </li>
 				        
 				        <li>
