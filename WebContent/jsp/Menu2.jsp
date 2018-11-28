@@ -3,30 +3,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<link rel="stylesheet" href="<c:url value="/css/menu.css"/>">
+<link rel="stylesheet" href="<c:url value="/css/style.css"/>">
 
 
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom menunav">
   <div class="container">
-   
-    <a class="navbar-brand" href="#" style="color:white">ESTER</a>
+    <a class="navbar-brand" href="#">ESTER</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample07" aria-controls="navbarsExample07" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-      
 
     <div class="collapse navbar-collapse" id="navbarsExample07">
       <ul class="navbar-nav mr-auto">
-        
         <li class="nav-item active">
-          <a class="nav-link" style="color:white" href="<c:url value="/"/>">Accueil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="<c:url value="/"/>">Accueil<span class="sr-only">(current)</span></a>
         </li>
       </ul>
-     
-         <img class="pr-4" src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155">
-     
-   
-    
       <form class="form-inline my-2 my-md-0">
       	<c:if test="${empty sessionScope.sessionUtilisateur}">
 	      <div class="btn-group" role="group">
@@ -48,14 +40,14 @@
 		      </c:if>
 		      <c:if test="${sessionScope.sessionUtilisateur.isUtilisateur()}">
 		      	<a class="dropdown-item" href="<c:url value="/utilisateur"/>">Utilisateur</a>
+		      <a class="dropdown-item" href="<c:url value="/utilisateur/generateur_questionnaire"/>">Génerateur Questionnaire</a>
 		      </c:if>
+		      <a class="dropdown-item" href="<c:url value="/questionnaire"/>">Questionnaire</a>
 		      <a class="dropdown-item" href="<c:url value="/deconnexion"/>">Déconnexion</a>
     		</div>
 	      </div>
 	    </c:if>
       </form>
-      <img class="pl-3" src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170">
-      
-    </div>     
+    </div>
   </div>
 </nav>
