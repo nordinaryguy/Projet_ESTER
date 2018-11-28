@@ -18,7 +18,12 @@
    		 </div> 
    		 
    		 <div class="pt-2">
-	  		  <input type="submit" class="btn btn-info" value="Valider" style="float:right">
+   		 	<div class="row">
+   		 		
+	  		  <div class="col-xs-1 pr-1"><input type="submit" class="btn btn-info" value="Valider"></div>
+	  		  <div class="col-xs-1"><input type="reset" class="btn btn-danger" value="Annuler"></div>
+	  		  </div>
+	  		  
    		 </div> 
    		
 	</form>  						     

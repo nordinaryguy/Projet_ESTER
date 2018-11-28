@@ -35,9 +35,7 @@
 					          Création de compte
 					        </a>		 
 								 <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
-						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Préventeurs</a>
-						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Infirmiers</a>
-						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Assistants</a>
+						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Infirmiers/Préventeurs/Assistants</a>
 						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Entreprises</a>
 						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createSalarie">Salariés</a>
 								</div>
