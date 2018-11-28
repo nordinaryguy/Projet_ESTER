@@ -25,6 +25,7 @@ public class Administrateur extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(request.getParameter("page") != null && request.getParameter("page").equals("configurationServeurMail")) {
 			Users user=new Users();
+			user.addDefautServer();
 			request.setAttribute("email",user.getServerMail() );
 			request.setAttribute("pass",user.getServerMailPass());
 			request.setAttribute("host", user.getServerHost());

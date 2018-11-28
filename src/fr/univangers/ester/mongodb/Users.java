@@ -282,9 +282,25 @@ public class Users extends Database {
 		return iterable.first() != null;
 	}
 	
+	public boolean serverMailEmpty() {
+		MongoCollection<Document> mailInfo = db.getCollection(C_SERVER_MAIL);
+		return mailInfo.find().first() == null;
+	}
+	
+	public void addDefautServer() {
+		if(serverMailEmpty()) {
+			MongoCollection<Document> mailInfo= db.getCollection(C_SERVER_MAIL);
+			Document mailServer = new Document(MAIL,"projet.ester@gmail.com")
+					.append(PASSWORD,"masterInformatique")
+					.append(HOST,"smtp.gmail.com")
+					.append(PORTSERVERMAIL,"587");
+			mailInfo.insertOne(mailServer);
+		}
+	}
+	
 	public void addServerMail(String mail,String password,String host,String port) {
+		deleteServerMail();
 		MongoCollection<Document> mailInfo= db.getCollection(C_SERVER_MAIL);
-		mailInfo.deleteMany(getMailServerDocument());
 		Document mailServer = new Document(MAIL,mail)
 				.append(PASSWORD,password)
 				.append(HOST,host)
@@ -292,9 +308,11 @@ public class Users extends Database {
 		mailInfo.insertOne(mailServer);
 	}
 	
-	public void deleteServerMail(String mail) {
-		MongoCollection<Document> mailInfo= db.getCollection(C_SERVER_MAIL);
-		mailInfo.deleteOne(Filters.eq(MAIL, mail));
+	public void deleteServerMail() {
+		if(!serverMailEmpty()) {
+			MongoCollection<Document> mailInfo = db.getCollection(C_SERVER_MAIL);
+			mailInfo.drop();
+		}
 	}
 	
 	public Document getMailServerDocument() {

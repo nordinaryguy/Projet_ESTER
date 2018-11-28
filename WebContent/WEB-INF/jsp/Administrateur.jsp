@@ -141,10 +141,9 @@
 						      </div>
 						   </c:if>
 				            
-				            <div class="form-row">
-				            	<div class="col-md-8">
-				                	<button class="btn btn-primary pull" type="submit">Valider</button>
-				                </div>
+				            <div class="form-row" style="padding-right:50px;">
+							  		  <div class="col"><input type="submit" class="btn btn-info" value="Valider" style="float:right;"></div>
+							  		  <div class="col"><input type="reset" class="btn btn-danger" value="Annuler"></div>  		  
 				            </div>
 			        </form>	        
 			 	</div>
