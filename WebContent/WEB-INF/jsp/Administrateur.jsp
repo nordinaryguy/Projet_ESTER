@@ -34,7 +34,12 @@
 			    <ul style="color:white;">
 			  		
 			  			<li>
-				       		<a data-toggle="modal" data-target="#CreerCompte" href="#" style="color:white;">Création des comptes</a>			       		
+				       		 <a class="dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+					          Création de compte
+						      </a>		 
+							  <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
+							          <a class="dropdown-item" href="<%= request.getContextPath()%>/Administrateur?page=createUser">Administrateur/Médecin/Infirmiers/Préventeurs/Assistants</a>
+							 </div>			       		
 				        </li>
 			  		
 				  		<li>
@@ -92,7 +97,17 @@
 				<div class="col-md-10">
 					<div id="container" class="container-fluid" style="background:white">
 					    <h1>Administrateur</h1>
-						<p>Bienvenue sur la partie Administrateur du Projet ESTER</p>    
+						<p>Bienvenue sur la partie Administrateur du Projet ESTER</p>  
+						
+						<c:if test="${param.page == 'createUser'}">
+						<div class="row pt-2">
+				     	 <c:import url="/jsp/createAccountByAdmin.jsp"/>
+						</div>
+						<div class="row pt-2">
+					     	 <c:import url="/jsp/Alert.jsp"/>
+					 	</div>
+					</c:if>
+					  
 						<c:if test="${param.page == 'configurationServeurMail'}">
 					<div class="container-fluid row">
 				    	<form class="form-signin" method="post">
@@ -153,80 +168,9 @@
 				</div>
 			</div> 
 	
-	
-		<div class="modal" id="CreerCompte">
-				<div class="modal-dialog">
-				    <div class="modal-content">
-							
-							      <!-- Modal Header -->
-					      <div class="modal-header">
-						        <h4 class="modal-title">Créer un nouveau compte</h4>
-						       	<button type="button" class="close" data-dismiss="modal">&times;</button>
-					      </div>
-							
-							      <!-- Modal body -->
-					      <div class="modal-body">
-						      	 <label for="typeCompte">Choisissez un type de compte :</label>		     
-							     <select id="typeCompte" size="1">
-								     <option>Médecin</option>
-									 <option>Assistant</option>
-								     <option>Infirmier</option>
-								     <option>Préventeur</option>
-							     </select>
-								     
-							     <div class="pt-2">
-								        <input type="email" id="adress_Email" class="form-control" placeholder="Adresse Email" required>
-								      </div>
-									    		        
-							      </div>
-							
-							      <!-- Modal footer -->
-							   	  <div class="modal-footer">
-							      	<button type="button" class="btn btn-outline-primary" data-dismiss="modal">Valider</button>
-							        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
-							      </div>
-							
-						</div>
-			  </div>
-		</div>
+
 		
-		<div class="modal" id="ModifierInterface">
-				<div class="modal-dialog">
-				    <div class="modal-content">
-							
-							      <!-- Modal Header -->
-					      <div class="modal-header">
-						        <h4 class="modal-title">Modification d'Interface</h4>
-						       	<button type="button" class="close" data-dismiss="modal">&times;</button>
-					      </div>
-							
-							      <!-- Modal body -->
-					      <div class="modal-body">
-						      	 <label for="typePage">Choisissez la page à modifier :</label>		     
-							     <select id="typePage" size="1">
-							     	 <option value="Accueil.html">Accueil</option>
-							     	 <option value="PremiereConnexionParMedecin.html">Première Connexion pour les Soignants</option>
-									 <option value="PremiereConnexionPourSalaries.html">Première Connexion pour les Salariés</option>
-							     	 <option value="Administrateur.html">Adminsitrateur</option>
-								     <option value="Medecin.html">Médecin</option>
-									 <option value="Assistant.html">Assistant</option>
-								     <option value="Infirmier.html">Infirmier</option>
-								     <option value="Preventeur.html">Préventeur</option>
-								     <option value="Entreprise.html">Entreprise</option>
-								     <option value="Salarie.html">Salarié</option>
-							     </select>
-								     								    		        
-							      </div>
-							
-							      <!-- Modal footer -->
-							   	  <div class="modal-footer">
-							      	<button type="button" class="btn btn-outline-primary" data-dismiss="modal" onclick='select_value()'>Valider</button>
-							        <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Annuler</button>
-							      </div>
-							
-						</div>
-			  </div>
-		</div>
+		
 	    
   <c:import url="/jsp/Footer.jsp"/>
 </body>
