@@ -35,11 +35,9 @@
 					          Création de compte
 					        </a>		 
 								 <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
-						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Préventeurs</a>
-						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Infirmiers</a>
-						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Assistants</a>
-						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Entreprises</a>
-						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createSalarie">Salariés</a>
+						         	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=createUser">Infirmiers/Préventeurs/Assistants</a>
+						          	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Entreprises</a>
+						          	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=createSalarie">Salariés</a>
 								</div>
 						</li>
 						
@@ -92,6 +90,15 @@
 						     </p>	  	        
 					 </div>
 						</c:if>
+						
+						<c:if test="${param.page == 'createUser'}">
+						<div class="row pt-2">
+					     	 <c:import url="/jsp/createAccount.jsp"/>
+						</div>
+						<div class="row pt-2">
+					     	 <c:import url="/jsp/Alert.jsp"/>
+					 	</div>
+					</c:if>
 					</div>
 				</div>
 			</div> 
