@@ -3,7 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="fr-FR">
-  <head>
+<head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
@@ -24,17 +25,19 @@
         document.getElementById(name).style.display = "block";
       }
     </script>
-  </head>
-  <body>
+    
+</head>
+<body>
+
   	<c:import url="/jsp/Menu.jsp"/>
   
     <div class="container-fluid text-center mb-4" id="container">
     
-    <div class="row justify-content-center pb-2">
-        <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
-        <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
-        
-    </div>
+	    <div class="row justify-content-center pb-2">
+	        <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
+	        <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>
+	        
+	    </div>
 
 	    <c:if test="${not empty Success}">
 	      <div class="alert alert-success alert-dismissible" role="alert">
@@ -107,9 +110,10 @@
             <div class="btn-group" role="group">
               <button class="btn btn-primary" type="submit">SE CONNECTER</button>
             </div>
-        </form>
-          
+        </form>         
       </div>
+
   	<c:import url="/jsp/Footer.jsp"/>
-  </body>
+
+</body>
 </html>
