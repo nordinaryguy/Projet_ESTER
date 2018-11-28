@@ -4,7 +4,7 @@
 
 
 <div class="rpw pt-2">
-    <h4 class="modal-title">Créer un nouveau compte</h4>
+    <h4>Créer un nouveau compte</h4>
     <label for="typeCompte">Choisissez un type de compte :</label>		     
 	<select name="typeCompte" id="typeCompte" size="1">
 		<option value="Assistant">Assistant</option>
@@ -17,12 +17,9 @@
 	  		 <input type="email" id="adress_Email" name="email" class="form-control" placeholder="Adresse Email" required>
    		 </div> 
    		 
-   		 <div class="pt-2">
-   		 	<div class="row">
-   		 		
-	  		  <div class="col-xs-1 pr-1"><input type="submit" class="btn btn-info" value="Valider"></div>
-	  		  <div class="col-xs-1"><input type="reset" class="btn btn-danger" value="Annuler"></div>
-	  		  </div>
+   		 <div class="row pt-2">
+	  		  <div class="col"><input type="submit" class="btn btn-info" value="Valider" style="float:right;"></div>
+	  		  <div class="col"><input type="reset" class="btn btn-danger" value="Annuler"></div>  		  
 	  		  
    		 </div> 
    		
