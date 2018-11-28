@@ -93,22 +93,22 @@ public class Mail {
 		
 	}
 	
-	public String mdpProvisoireBodyText(String name) {
-		String message="<p><b>Bienvenue "+name+",</b></p><br/>";
-		message += "<p>Vous avez fait une demande de création de profil sur <a href=>lien vers page d'acceuil</a> </p>";
-		message += "<p>Afin de vous connectez <a href=>Cliquez ici</a> </p> <br/>";
-		message += "<pstyle=\"text-align:Center;\"><b>mot de passe provisoire :" + PwdGenerator.generatePassword()+"</b> </p><br/>";
+	public String mdpProvisoireBodyText(String mdp,String urlLogin) {
+		String message="<p><b>Bienvenue ,</b></p><br/>";
+		message += "<p>Pour vote première connexion, </p>";
+		message += "<pstyle=\"text-align:Center;\"><b>le mot de passe provisoire :" + mdp+"</b> </p><br/>";
+		message += "<p>Afin de vous connectez <a href=\""+urlLogin+"\">Cliquez ici</a> </p> <br/>";
 		message += "<p>Bien Cordialement,</p>"+
-				   "<p>L'équipe de <a href=>lien vers page d'acceuil</a> </p>";
+				   "<p>L'équipe ester </p>";
 		return message;
 	}
 	
-	public String mdpOublieBodyText(String name,String url) {
-		String message="<p><b>Bonjour "+name+",</b></p><br/>";
+	public String mdpOublieBodyText(String url) {
+		String message="<p><b>Bonjour ,</b></p><br/>";
 		message += "<p>Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur ce lien pour recevoir un nouveau mot de passe :  </p>";
 		message += "<p><a href=\""+url+"\">cliquez ici</a> </p> <br/>";
 		message += "<p>Bien Cordialement,</p>"+
-				   "<p>L'équipe de <a href=>lien vers page d'acceuil</a> </p>";
+				   "<p>L'équipe de ester </p>";
 		return message;
 	}
 	
