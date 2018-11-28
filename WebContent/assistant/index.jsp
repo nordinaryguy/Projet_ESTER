@@ -6,10 +6,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>ESTER</title>
 
-<link rel="stylesheet" href="<c:url value="/css/Acceuil.css"/>">
+	<meta charset="UTF-8">
+	<title>ESTER</title>
+
+	<link rel="stylesheet" href="<c:url value="/css/Acceuil.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
@@ -19,9 +20,9 @@
 </head>
 <body>
 
-	    <c:import url="/jsp/Menu.jsp"/>
+	 <c:import url="/jsp/Menu.jsp"/>
 
-<div class="pre-scrollable container-fluid">
+	<div class="pre-scrollable container-fluid">
   			<div class="row">
   
 				<nav class="col-xs-2 navbar navbar-collapse bg-nav">
@@ -36,18 +37,18 @@
 					          Gestion des salariés
 					        </a>	 
 								<div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
-								 	<a class="dropdown-item" href="#">Créer un compte salarié</a>
-						          	<a class="dropdown-item" href="#">Liste des salariés</a>
-						          	<a class="dropdown-item" href="#">Profil du salarié</a>		
+								 	<a class="dropdown-item" href="<%= request.getContextPath()%>/Assistant?page=createSalarie">Créer un compte salarié</a>
+						          	<a class="dropdown-item" href="<c:url value="jsp/EnDev.jsp"/>">Liste des salariés</a>
+						          	<a class="dropdown-item" href="<c:url value="jsp/EnDev.jsp"/>">Profil du salarié</a>		
 						       	</div>
 					    </li>
 
 				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Administration des questionnaires</a>
+		          			 	<a class="dropdown-item" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
 				        </li>
 				        
 				        <li class="nav-item">
-				      		<a class="nav-link" href="#">Afficher les statistiques</a>
+				      		<a class="nav-link" href="<c:url value="/resultat"/>">Afficher les statistiques</a>
 				        </li>
 				        				  
 				    </ul> 
@@ -57,6 +58,16 @@
 					<div class="container-fluid" id="container" style="background:white">
 					    <h1>Assistant</h1>
 						<p>Bienvenue sur la partie Assistant du Projet ESTER</p>
+						<c:if test="${param.page == 'createSalarie'}">
+							<div class="row pt-2">
+							     <form class="col" id="saisi" method="post">
+									<input type="submit" value="Génerer code patient ">        
+								 </form>  	
+								 <p class="col"> 
+							     		${ empty message ? '' : message }
+							     </p>	  	        
+					 		</div>
+						</c:if>
 					</div>
 				</div>
 			</div> 

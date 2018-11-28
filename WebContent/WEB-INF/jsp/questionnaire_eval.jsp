@@ -189,9 +189,9 @@
     
 	<div class="row" style="text-align:center">
 		<div class="col-md-3"></div>
-		<div class="col-md-2" style="text-align:center;"><a href="#">Mentions Légales</a></div>
-		<div class="col-md-2" style="text-align:center;"><a href="#">Projet</a></div>
-		<div class="col-md-2" style="text-align:center;"><a href="#">Contacts</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Mentions Légales</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Projet</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Contacts</a></div>
 	</div>  
 
 </body>

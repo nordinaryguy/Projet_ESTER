@@ -27,11 +27,11 @@
 				 <div class="collapse" id="navbarToggleExternalContent">
 			  		<ul>
 					  	<li class="nav-item">
-				       		<a class="nav-link" href="#">Résultats globaux</a>
+				       		<a class="nav-link" href="<c:url value="/resultat"/>">Résultats globaux</a>
 				        </li>
 				        
 				        <li class="nav-item">
-				       		<a class="nav-link" href="#">Résultats par poste</a>
+				       		<a class="nav-link" href="<c:url value="jsp/EnDev.jsp"/>">Résultats par poste</a>
 				        </li>
 				        				  
 				    </ul> 

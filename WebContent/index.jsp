@@ -21,10 +21,7 @@
 </head>
 <body>
   	<c:import url="/jsp/Menu.jsp"/>
-  	
-  	
-  	
-     
+  	  
   	<div class="container">
   	
   	<div class="row justify-content-center pb-2">
