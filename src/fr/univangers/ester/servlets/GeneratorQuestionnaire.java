@@ -91,7 +91,7 @@ public class GeneratorQuestionnaire extends HttpServlet {
 	protected void createFile(String text) {
 		try
 		{
-			File file = new File("./Projet_ESTER/HTML/file.html");
+			File file = new File("C:/Users/IMANE/eclipse-workspace/Projet_Ester/file.html");
 			file.getParentFile().mkdirs();
 			PrintWriter printWriter = new PrintWriter(file);
 			printWriter.println(createFormHeader());
