@@ -25,7 +25,7 @@
 
 <body >  
 
-	    <c:import url="/jsp/MenuPage.jsp"/>
+	    <c:import url="/jsp/Menu.jsp"/>
   			<div class="row">
   			  			
   				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
@@ -35,10 +35,10 @@
 					          Création de compte
 					        </a>		 
 								 <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
-						          <a class="dropdown-item" href="#">Préventeurs</a>
-						          <a class="dropdown-item" href="#">Infirmiers</a>
-						          <a class="dropdown-item" href="#">Assistants</a>
-						          <a class="dropdown-item" href="#">Entreprises</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Préventeurs</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Infirmiers</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Assistants</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Entreprises</a>
 						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createSalarie">Salariés</a>
 								</div>
 						</li>
@@ -48,8 +48,8 @@
 					          Gestion des salariés
 					        </a>	 
 								 <div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
-						         	<a class="dropdown-item" href="#">Liste des salariés</a>
-						         	<a class="dropdown-item" href="#">Profil du salarié</a>		
+						         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Liste des salariés</a>
+						         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Profil du salarié</a>		
 						       	 </div>
 						</li>		
 				        
@@ -57,22 +57,22 @@
 				       		<a class="dropdown-toggle" href="#" id="gestionQuestionnaireMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">Gestion des questionnaires</a>
 						 
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
-					         	<a class="dropdown-item" href="#">Créer un questionnaire</a>
-					         	<a class="dropdown-item" href="#">Modifier un questionnaire</a>
-		          			 	<a class="dropdown-item" href="#">Administrer les questionnaires</a>	
+					         	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
+		          			 	<a class="dropdown-item" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
 					         </div>
 					   	</li>	        
 				              
 				        <li>
-				        	<a href="#" style="color:white;">Modifier les valeurs de référence</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Modifier les valeurs de référence</a>
 				        </li>
 				        
 				        <li>
-				        	<a href="#" style="color:white;">Afficher les statistiques</a>
+				        	<a href="<c:url value="/resultat"/>" style="color:white;">Afficher les statistiques</a>
 				        </li>
 				        
 				        <li>
-				        	<a href="#" style="color:white;">Exporter les données</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Exporter les données</a>
 				        </li>
 				        				  
 				    </ul> 

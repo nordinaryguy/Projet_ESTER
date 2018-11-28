@@ -35,17 +35,17 @@
 					          Gestion des salariés
 					        </a>	 
 								<div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
-						         	<a class="dropdown-item" href="#">Liste des salariés</a>
-						        	<a class="dropdown-item" href="#">Profil du salarié</a>		
+						         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Liste des salariés</a>
+						        	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Profil du salarié</a>		
 						        </div>
 					    </li>
 			
 				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Administration des questionnaires</a>
+		          			 	<a class="dropdown-item" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
 				        </li>
 				        
 				        <li class="nav-item">
-				        	<a class="nav-link" href="#">Afficher les statistiques</a>
+				        	<a class="nav-link" href="<c:url value="/resultat"/>">Afficher les statistiques</a>
 				        </li>
 				        				  
 				    </ul> 

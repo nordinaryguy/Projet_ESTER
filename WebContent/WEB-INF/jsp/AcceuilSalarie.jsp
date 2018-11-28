@@ -33,15 +33,15 @@
  				 <div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
 			  		<ul style="color:white;">
 				  		<li>
-				        	<a href="#" style="color:white;">Modifier mon profil</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Modifier mon profil</a>
 				        </li>
 				        
 				        <li>
-				        	<a href="#" style="color:white;">Voir les questionnaires</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Voir les questionnaires</a>
 				        </li>
 				        
 				        <li>
-				        	<a href="#" style="color:white;">Voir les statistiques</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Voir les statistiques</a>
 				        </li>	        				  
 				    </ul> 
 			    

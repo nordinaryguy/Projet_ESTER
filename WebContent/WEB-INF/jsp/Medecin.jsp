@@ -47,8 +47,8 @@
 					          Gestion des salariés
 					      </a>	 
 						 <div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
-					         	<a class="dropdown-item" href="#">Liste des salariés</a>
-					         	<a class="dropdown-item" href="#">Profil du salarié</a>		
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Liste des salariés</a>
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Profil du salarié</a>		
 					   	 </div>
 					 </li>		
 				        
@@ -63,7 +63,7 @@
 					  </li>	        
 				              
 				       <li>
-				        	<a href="#" style="color:white;">Modifier les valeurs de référence</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Modifier les valeurs de référence</a>
 				       </li>
 				        
 				       <li>
@@ -71,7 +71,7 @@
 				       </li>
 				        
 				       <li>
-				        	<a href="#" style="color:white;">Exporter les données</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Exporter les données</a>
 				       </li>
 				        				  
 				  </ul> 
