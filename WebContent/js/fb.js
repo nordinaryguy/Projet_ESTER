@@ -248,12 +248,14 @@ $(document).ready(function(){
         });
         $(value).append("\n  ")
       } else if (vartype==="radios"){
+    	  
         var group_name = $(".popover #name").val();
         var radios = $(e).val().split("\n");
         $(value).html("\n      <!-- Multiple Radios -->");
         $.each(radios, function(i,e){
+        	++cpt;
           if(e.length > 0){
-            $(value).append('\n      <label class="radio">\n        <input type="radio" value="'+e+'" name="'+group_name+'">\n        '+e+'\n      </label>');
+            $(value).append('\n      <label class="radio">\n     <input type="radio" value="'+e+'" name="'+group_name+'" id="'+cpt+'">\n        '+e+'\n      </label>');
           }
         });
         $(value).append("\n  ")

@@ -234,17 +234,17 @@
                       data-content= '<form class="form">
                         <div class="form-group col-md-12">
                           <label class="control-label">Label Text</label> <input class="form-control" type="text" name="label" id="label">
-                          <label id="slider"></label>
                           <hr/>
                           <button class="btn btn-info">Enregistrer</button><button class="btn btn-danger">Fermer</button>
                         </div>
                       </form>' data-html="true"
                       >
                        <!-- slide  -->
-                      <label class="col-md-4 control-label valtype" data-valtype="label"> Question  : </label>
-                      <input type="range" name="weight" id="range_weight"  value="5" min="1" max="100" oninput="range_weight_disp.value = range_weight.value">
-  					  <output id="range_weight_disp"></output>
+                      	<label class="col-md-4 control-label valtype" data-valtype="label"> Question  : </label>
+	                    <input type="range" name="weight" id="range_weight"  value="5" min="1" max="100" oninput="range_weight_disp.value = range_weight.value">
+	  					<output id="range_weight_disp"></output>
                      </div>
+                    
                   </div>
                   
                   <!-- Code modifier -->
