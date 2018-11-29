@@ -16,6 +16,7 @@
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/js/popper.min.js"/>"></script>
     <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
+    
 
     <script>
       function showDiv(name) {
@@ -24,11 +25,52 @@
         document.getElementById('divUtilisateur').style.display = "none";
         document.getElementById(name).style.display = "block";
       }
+      
+    <%String clock = request.getParameter( "clock" ); if( clock == null ) clock = "4";%>
+  	var timeout = <%=clock%>;
+  	
+   	function timer_utilisateur()
+  	{
+  		if( --timeout > 0 ){
+  			window.setTimeout( "timer_utilisateur()", 1000 );
+  		}
+  		else
+  		{
+  			document.location.href="<%= request.getContextPath()%>/utilisateur";
+  			
+  		}
+  	}
+  	
+  	function timer_entreprise()
+  	{
+  		if( --timeout > 0 ){
+  			window.setTimeout( "timer_entreprise()", 1000 );
+  		}
+  		else
+  		{
+  			document.location.href="<%= request.getContextPath()%>/entreprise";
+  			
+  		}
+  	}
+  	
+  	function timer_salarie()
+  	{
+  		if( --timeout > 0 ){
+  			window.setTimeout( "timer_salarie()", 1000 );
+  		}
+  		else
+  		{
+  			document.location.href="<%= request.getContextPath()%>/salarie";
+  			
+  		}
+  	}
+      
     </script>
     
 </head>
 <body>
-
+	
+	
   	<c:import url="/jsp/Menu.jsp"/>
   
     <div class="container-fluid text-center mb-4" id="container">
@@ -40,6 +82,15 @@
 	    </div>
 
 	    <c:if test="${not empty Success}">
+	    	<c:if test="${sessionScope.sessionUtilisateur.isUtilisateur()}">
+	    		<script>timer_utilisateur();</script>
+	    	</c:if> 
+	    	<c:if test="${sessionScope.sessionUtilisateur.isEntreprise()}">
+	    		<script>timer_entreprise();</script>
+	    	</c:if>
+	    	<c:if test="${sessionScope.sessionUtilisateur.isSalarie()}">
+	    		<script>timer_salarie();</script>
+	    	</c:if>  	
 	      <div class="alert alert-success alert-dismissible" role="alert">
           <strong>Succès</strong> <c:out value = "${Success}"/> <c:remove var="Success" scope="session" />
 	        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -60,7 +111,7 @@
         <h1 class="font-weight-normal">Connexion</h1>
     
         <div class="btn-group" role="group">
-          <button id="btnSalarie" class="btn btn-primary" type="button" onclick="showDiv('divSalarie')">Salarié</button>
+          <button id="btnSalarie" class="btn btn-primary" type="button" onclick="showDiv('divSalarie');">Salarié</button>
           <button id="btnEntreprise" class="btn btn-primary" type="button" onclick="showDiv('divEntreprise')">Entreprise</button>
           <button id="btnUtilisateur" class="btn btn-primary" type="button" onclick="showDiv('divUtilisateur')">Utilisateur</button>
         </div>

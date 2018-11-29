@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.mongodb.client.model.Filters;
+
 import fr.univangers.ester.beans.User;
 import fr.univangers.ester.beans.Utilisateur.Status;
 import fr.univangers.ester.mail.Mail;
@@ -54,7 +56,21 @@ public class Utilisateur extends HttpServlet {
    	 	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isUtilisateur()) {
         	Users user=new Users();
-    		user.addDefautServer();        
+    		user.addDefautServer();       
+    		
+    		if(request.getParameter("page").equals("ModifierMotDePasse")) {
+    			/* si OldPassword == password actuel
+    			 * 		si inputNewPassword == inputNewPassword2
+    			 * 			user.changePasswordUserEster(sessionUser.getIdentifiant(), inputNewPassword);
+    			 *			request.setAttribute("Success", "Mot de passe modifié");
+    			 * 		sinon
+    			 * 			request.setAttribute("Fail", "Mot de passe de confirmation différent");
+    			 * sinon
+    			 *			request.setAttribute("Fail", "Ancien Mot de passe incorrecte");
+    			 */
+    			
+    		}
+
         	if (sessionUser.isAdministrateur()) {
 
 				if(request.getParameter("page").equals("configurationServeurMail")) {
