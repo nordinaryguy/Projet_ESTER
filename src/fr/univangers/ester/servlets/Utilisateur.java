@@ -32,8 +32,8 @@ public class Utilisateur extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
-    	 User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
-         if (sessionUser != null && sessionUser.isUtilisateur()) {
+    	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
+        if (sessionUser != null && sessionUser.isUtilisateur()) {
         	 if (sessionUser.isAdministrateur()) {
 					if(request.getParameter("page") != null && request.getParameter("page").equals("configurationServeurMail")) {
 						Users user=new Users();
@@ -44,7 +44,8 @@ public class Utilisateur extends HttpServlet {
 						request.setAttribute("port", user.getServerPort());
 					}
         	 }			
-         }    	
+         } 
+		this.getServletContext().getRequestDispatcher("/utilisateur/index.jsp").forward(request, response);
 	}
 
 
@@ -99,6 +100,7 @@ public class Utilisateur extends HttpServlet {
         		}
         	}
         }
+		this.getServletContext().getRequestDispatcher("/utilisateur/index.jsp").forward(request, response);
 	}
 }
 
