@@ -54,6 +54,8 @@ public class Questionnaire extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else {
+			System.out.println(request.getAttributeNames());
 		}
 		doGet(request, response);
 	}
