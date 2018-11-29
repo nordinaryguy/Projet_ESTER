@@ -57,4 +57,9 @@ public class Salarie implements User {
 		return false;
 	}
 
+	@Override
+	public boolean isInfirmier() {
+		return false;
+	}
+
 }
