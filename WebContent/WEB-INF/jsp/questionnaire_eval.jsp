@@ -7,6 +7,8 @@
 <head>
 
 	<meta charset="UTF-8">
+	<link rel="icon" href="<c:url value="/img/ua.png"/>">
+	
 	<title>Questionnaire</title>
 
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap-responsive.min.css"/>">
@@ -63,13 +65,13 @@
 		        <label >2) Votre travail nécessite-t-il de répéter les mêmes actions plus de 2 à 4 fois environ par minute ?</label>
 		      </div>
 		      <div class="row" style="padding-left:80px;padding-bottom:10px;">
-		         <div class="col-md-5 valtype" data-valtype="checkboxes">
-		            <label class="checkbox"><input type="checkbox" value="Non ou presque jamais" name="checkbox1"> Non ou presque jamais </label>
-		            <label class="checkbox"><input type="checkbox" value=" Rarement (moins de 2h/jour)" name="checkbox2"> Rarement (moins de 2h/jour)</label>
+		         <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Jamais" name="question2" >Jamais </label>
+		            <label class="radio"><input type="radio" value="Rarement (moins de 2h/jour)" name="question2"> Rarement (moins de 2h/jour)</label>
 		          </div>
-		           <div class="col-md-5 valtype" data-valtype="checkboxes">
-		            <label class="checkbox"><input type="checkbox" value="Souvent (de 2 à 4h/jour)" name="checkbox3"> Souvent (de 2 à  4h/jour)</label>
-		            <label class="checkbox"><input type="checkbox" value="Toujours ou presque toujours(>4h/jours)" name="checkbox4" > Toujours ou presque toujours(>4h/jours)</label>
+		           <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Souvent (de 2 à 4h/jour)" name="question2"> Souvent (de 2 à 4h/jour)</label>
+		            <label class="radio"><input type="radio" value=" Toujours(>4h/jours)" name="question2"> Toujours(>4h/jours)</label>
 		          </div>
 		      </div>
 		      
@@ -78,31 +80,29 @@
 		        	<label> 3) Devez-vous vous pencher en avant / sur le côté régulièrement ou de manière prolongée?</label>
 		      </div>
 		      <div class="row" style="padding-left:80px;padding-bottom:10px;">
-		         <div class="col-md-5 valtype" data-valtype="checkboxes">
-		            <label class="checkbox"><input type="checkbox" value="Jamais" name="checkbox1">Jamais </label>
-		            <label class="checkbox"><input type="checkbox" value="Rarement (moins de 2h/jour)" name="checkbox2"> Rarement (moins de 2h/jour)</label>
+		         <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Jamais" name="question3" >Jamais </label>
+		            <label class="radio"><input type="radio" value="Rarement (moins de 2h/jour)" name="question3"> Rarement (moins de 2h/jour)</label>
 		          </div>
-		           <div class="col-md-5 valtype" data-valtype="checkboxes">
-		            <label class="checkbox"><input type="checkbox" value="Souvent (de 2 à 4h/jour)" name="checkbox3"> Souvent (de 2 à 4h/jour)</label>
-		            <label class="checkbox"><input type="checkbox" value=" Toujours(>4h/jours)" name="checkbox4"> Toujours(>4h/jours)</label>
+		          <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Souvent (de 2 à 4h/jour)" name="question3"> Souvent (de 2 à 4h/jour)</label>
+		            <label class="radio"><input type="radio" value=" Toujours(>4h/jours)" name="question3"> Toujours(>4h/jours)</label>
 		          </div>
 		      </div>
 		      
 	      <!--question 4-->
 		      <div class="row">
-			        <div class="col-md-4" data-valtype="checkboxes">
 			          <label> 4) Travaillez-vous avec un ou deux bras en l'air (au-dessus des épaules) régulièrement ou de manière prolongée?</label>
-			        </div>
 		      </div>
 		      <div class="row" style="padding-left:80px;padding-bottom:10px;">
-			         <div class="col-md-5 valtype" data-valtype="checkboxes">
-				            <label class="checkbox"><input type="checkbox" value="Jamais" name="checkbox1">Jamais </label>
-				            <label class="checkbox"><input type="checkbox" value="Rarement (moins de 2h/jour)" name="checkbox2"> Rarement (moins de 2h/jour)</label>
-			         </div>
-			         <div class="col-md-5 valtype" data-valtype="checkboxes">
-				            <label class="checkbox"><input type="checkbox" value="Souvent (de 2 à 4h/jour)" name="checkbox3"> Souvent (de 2 à 4h/jour)</label>
-				            <label class="checkbox"><input type="checkbox" value=" Toujours(>4h/jours)" name="checkbox4"> Toujours(>4h/jours)</label>
-			         </div>
+			      <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Jamais" name="question4" >Jamais </label>
+		            <label class="radio"><input type="radio" value="Rarement (moins de 2h/jour)" name="question4"> Rarement (moins de 2h/jour)</label>
+		          </div>
+		           <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Souvent (de 2 à 4h/jour)" name="question4"> Souvent (de 2 à 4h/jour)</label>
+		            <label class="radio"><input type="radio" value=" Toujours(>4h/jours)" name="question4"> Toujours(>4h/jours)</label>
+		          </div>
 		      </div>
 		      
 	      <!--question 5-->
@@ -110,65 +110,59 @@
 		          <label> 5) Fléchir le(s) coude(s) régulièrement ou de manière prolongée ?</label>
 		      </div>
 		      <div class="row" style="padding-left:80px;padding-bottom:10px;">
-		         <div class="col-md-5 valtype" data-valtype="checkboxes">
-		            <label class="checkbox"><input type="checkbox" value="Jamais" name="checkbox1">Jamais </label>
-		            <label class="checkbox"><input type="checkbox" value="Rarement (moins de 2h/jour)" name="checkbox2"> Rarement (moins de 2h/jour)</label>
-		         </div>
-		         <div class="col-md-5 valtype" data-valtype="checkboxes">
-		            <label class="checkbox"><input type="checkbox" value="Souvent (de 2 à 4h/jour)" name="checkbox3"> Souvent (de 2 à 4h/jour)</label>
-		            <label class="checkbox"><input type="checkbox" value=" Toujours(>4h/jours)" name="checkbox4"> Toujours(>4h/jours)</label>
+		         <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Jamais" name="question5" >Jamais </label>
+		            <label class="radio"><input type="radio" value="Rarement (moins de 2h/jour)" name="question5"> Rarement (moins de 2h/jour)</label>
+		          </div>
+		           <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Souvent (de 2 à 4h/jour)" name="question5"> Souvent (de 2 à 4h/jour)</label>
+		            <label class="radio"><input type="radio" value=" Toujours(>4h/jours)" name="question5"> Toujours(>4h/jours)</label>
 		          </div>
 		      </div>
 		      
 	      <!--question 6-->
 		      <div class="row">
-		        <div class="col-md-4" data-valtype="checkboxes">
 		          <label> 6) Presser ou prendre fermement des objets ou des pièces entre le pouce et l'index?</label>
-		        </div>
 		      </div>
 		      <div class="row" style="padding-left:80px;padding-bottom:10px;">
-		         <div class="col-md-5 valtype" data-valtype="checkboxes">
-		            <label class="checkbox"><input type="checkbox" value="Jamais" name="checkbox1" >Jamais </label>
-		            <label class="checkbox"><input type="checkbox" value="Rarement (moins de 2h/jour)" name="checkbox2"> Rarement (moins de 2h/jour)</label>
+		         <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Jamais" name="question6" >Jamais </label>
+		            <label class="radio"><input type="radio" value="Rarement (moins de 2h/jour)" name="question6"> Rarement (moins de 2h/jour)</label>
 		          </div>
-		           <div class="col-md-5 valtype" data-valtype="checkboxes">
-		            <label class="checkbox"><input type="checkbox" value="Souvent (de 2 à 4h/jour)" name="checkbox3"> Souvent (de 2 à 4h/jour)</label>
-		            <label class="checkbox"><input type="checkbox" value=" Toujours(>4h/jours)" name="checkbox4"> Toujours(>4h/jours)</label>
+		           <div class="col-md-5 valtype" data-valtype="radios">
+		            <label class="radio"><input type="radio" value="Souvent (de 2 à 4h/jour)" name="question6"> Souvent (de 2 à 4h/jour)</label>
+		            <label class="radio"><input type="radio" value=" Toujours(>4h/jours)" name="question6"> Toujours(>4h/jours)</label>
 		          </div>
 		          
 		      </div>
 		      
 	      <!--question 7-->
 		      <div class="row">
-		        <div class="col-md-4" data-valtype="checkboxes">
 		          <label> 7) Dans mon travail, j'ai la possibilité d'influencer le déroulement de mon travail</label>
-		        </div>
 		      </div>
 		      <div class="row" style="padding-left:80px;padding-bottom:10px;">
-		         <div class="col-md-5 valtype" data-valtype="checkboxes">
-		          <label class="checkbox"><input type="checkbox" value="Pas du tout d'accord" name="checkbox1">Pas du tout d'accord </label>
-		          <label class="checkbox"><input type="checkbox" value="Pas d'accord" name="checkbox2"> Pas d'accord</label>
+		         <div class="col-md-5 valtype" data-valtype="radios">
+		          <label class="radio"><input type="radio" value="Pas du tout d'accord" name="question7">Pas du tout d'accord </label>
+		          <label class="radio"><input type="radio" value="Pas d'accord" name="question7"> Pas d'accord</label>
 		          </div>
-		           <div class="col-md-5 valtype" data-valtype="checkboxes">
-		          <label class="checkbox"><input type="checkbox" value="Plutôt d'accord" name="checkbox3"> Plutôt d'accord </label>
-		          <label class="checkbox"><input type="checkbox" value="Tout à fait d'accord" name="checkbox4"> Tout à fait d'accord</label>
+		           <div class="col-md-5 valtype" data-valtype="radios">
+		          <label class="radio"><input type="radio" value="Plutôt d'accord" name="question7"> Plutôt d'accord </label>
+		          <label class="radio"><input type="radio" value="Tout à fait d'accord" name="question7"> Tout à fait d'accord</label>
 		          </div>
 		      </div>
 	      
 	      <!--question 8-->
 		      <div class="row">
-		        <div class="col-md-4" data-valtype="checkboxes">
 		          <label> 8) Les collègues avec qui je travaille m'aident à mener les tâches à bien</label>
-		        </div>
 		      </div>
 		      <div class="row" style="padding-left:80px;padding-bottom:10px;">
-		         <div class="col-md-5 valtype" data-valtype="checkboxes">
-		          <label class="checkbox"><input type="checkbox" value="Pas du tout d'accord" name="checkbox1">Pas du tout d'accord </label>
-		          <label class="checkbox"><input type="checkbox" value="Pas d'accord" name="checkbox2"> Pas d'accord</label>
+		         <div class="col-md-5 valtype" data-valtype="radios">
+		          <label class="radio"><input type="radio" value="Pas du tout d'accord" name="question8">Pas du tout d'accord </label>
+		          <label class="radio"><input type="radio" value="Pas d'accord" name="question8"> Pas d'accord</label>
 		          </div>
-		           <div class="col-md-5 valtype" data-valtype="checkboxes">
-		          <label class="checkbox"><input type="checkbox" value="Plutôt d'accord" name="checkbox3"> Plutôt d'accord </label>
-		          <label class="checkbox"><input type="checkbox" value="Tout à fait d'accord" name="checkbox4"> Tout à fait d'accord</label>
+		           <div class="col-md-5 valtype" data-valtype="radios">
+		          <label class="radio"><input type="radio" value="Plutôt d'accord" name="question8"> Plutôt d'accord </label>
+		          <label class="radio"><input type="radio" value="Tout à fait d'accord" name="question8"> Tout à fait d'accord</label>
 		          </div>
 		      </div>
 		      
