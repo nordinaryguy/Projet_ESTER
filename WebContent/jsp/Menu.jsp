@@ -35,7 +35,6 @@
       <form class="form-inline my-2 my-md-0">
       	<c:if test="${empty sessionScope.sessionUtilisateur}">
 	      <div class="btn-group" role="group">
-	        <a class="btn btn-success" href="<c:url value="/premiere-connexion"/>">PREMIÈRE CONNEXION</a>
 	        <a class="btn btn-info" href="<c:url value="/connexion"/>">SE CONNECTER</a>
 	      </div>
 	   	</c:if>
@@ -46,7 +45,7 @@
 		    </button>
 		    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
 		      <c:if test="${sessionScope.sessionUtilisateur.isEntreprise()}">
-		      	<a class="dropdown-item" href="<c:url value="/entreprise"/>">Entreprise</a>
+		      	<a class="dropdown-item" href="<c:url value="/entreprise"/>">Entreprise</a>		      	
 		      </c:if>
 		      
 		      <c:if test="${sessionScope.sessionUtilisateur.isSalarie()}">
@@ -59,6 +58,7 @@
 		      	<a class="dropdown-item" href="<c:url value="/utilisateur/generateur_questionnaire"/>">Générateur de Questionnaires</a>
 		      
 		      	<a class="dropdown-item" href="<c:url value="/questionnaire"/>">Liste de Questionnaires</a>
+		      	<a class="dropdown-item" href="<c:url value="/utilisateur?=ModifierMotDePasse"/>">Modifier Mot de Passe</a>
 		      </c:if>
 		      
 		      <a class="dropdown-item" href="<c:url value="/deconnexion"/>">Déconnexion</a>

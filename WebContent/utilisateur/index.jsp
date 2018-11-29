@@ -30,8 +30,10 @@
   				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
 			  		<ul style="color:white;">
 			  		
-		<!-- Connection en tant que Préventeur -->
 			  		<c:if test="${sessionScope.sessionUtilisateur.isPreventeur()}">	
+			  		
+			  		<!-- Connection en tant que Préventeur -->
+			  
 			  			<li class="dropdown">
 						        <a style="color:white;" class="dropdown-toggle" href="#" id="gestionSalariesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						          Gestion des salariés
@@ -51,10 +53,11 @@
 					      		<a style="color:white;" href="<c:url value="/resultat"/>">Afficher les statistiques</a>
 					        </li>	
 			  		</c:if>
-			  		
-		<!-- Connection en tant que Infirmier/Assistant -->
-			  					  		
+			  					  					  		
 			  		<c:if test="${sessionScope.sessionUtilisateur.isInfirmier()||sessionScope.sessionUtilisateur.isAssistant()}">
+			  		
+			  		<!-- Connection en tant que Infirmier/Assistant -->
+			  
 			  			<li class="dropdown">
 						        <a  style="color:white;" class="dropdown-toggle" href="#" id="gestionSalariesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						        	Gestion des salariés
@@ -74,9 +77,11 @@
 					        </li>
 			  		</c:if>
 			  		
-			 <!-- Connection en tant que Administrateur -->
 			  		
 			  		<c:if test="${sessionScope.sessionUtilisateur.isAdministrateur()}">	
+			  		
+			  			 <!-- Connection en tant que Administrateur -->
+			  
 			  			<li>
 				       		 <a class="dropdown-toggle" href="#" id="creationComptes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
 					          Création de compte
@@ -138,9 +143,10 @@
 				        </li>		  		
 			  		</c:if>
 			  		
-		<!-- Connection en tant que Médecin -->
 			  		
-			  		<c:if test="${sessionScope.sessionUtilisateur.isMedecin()}">	
+			  		<c:if test="${sessionScope.sessionUtilisateur.isMedecin()}">
+			  			
+			  			<!-- Connection en tant que Médecin -->
 			  		
 				  		<li>
 					        <a class="dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
@@ -193,44 +199,51 @@
 				<div class="col-md-10">
 					<div class="container-fluid" style="background:white">
 					
-		<!-- Connection en tant que Médecin -->
-			
 						<c:if test="${sessionScope.sessionUtilisateur.isMedecin()}">	
+					
+				<!-- Connection en tant que Médecin -->
+					
 					
 						    <h1>Médecin</h1>
 							<p>Bienvenue sur la partie Médecin du Projet ESTER</p>			
 						</c:if>
 			
-		<!-- Connection en tant que Administrateur -->
 						
 						<c:if test="${sessionScope.sessionUtilisateur.isAdministrateur()}">	
+				<!-- Connection en tant que Administrateur -->
+						
 							<h1>Administrateur</h1>
 							<p>Bienvenue sur la partie Administrateur du Projet ESTER</p>  		
 						</c:if>
 
-		<!-- Connection en tant que Préventeur -->
 					
 						<c:if test="${sessionScope.sessionUtilisateur.isPreventeur()}">	
+				<!-- Connection en tant que Préventeur -->
+						
 							<h1>Préventeur</h1>
 							<p>Bienvenue sur la partie Préventeur du Projet ESTER</p>
 						</c:if>
 												
-		<!-- Connection en tant que Assistant -->
 							
 						<c:if test="${sessionScope.sessionUtilisateur.isAssistant()}">
+						
+				<!-- Connection en tant que Assistant -->
+		
 							<h1>Assistant</h1>
 							<p>Bienvenue sur la partie Assistant du Projet ESTER</p>
 						</c:if>
-		<!-- Connection en tant que Infirmier -->
 						
 						<c:if test="${sessionScope.sessionUtilisateur.isInfirmier()}">	
+				<!-- Connection en tant que Infirmier -->
+			
 							<h1>Infirmier</h1>
 							<p>Bienvenue sur la partie Infirmier du Projet ESTER</p>
 						</c:if>
 
-		<!-- Création d'un compte Utilisateur -->
 					
 						<c:if test="${param.page == 'createUser'}">
+				<!-- Création d'un compte Utilisateur -->
+				
 								<div class="row pt-2">
 							     	 <c:import url="/jsp/createAccount.jsp"/>
 								</div>
@@ -239,9 +252,11 @@
 							 	</div>
 						</c:if>
 						
-		<!-- Création d'un compte Salarié -->
 						
 						<c:if test="${param.page == 'createSalarie'}">
+						
+					<!-- Création d'un compte Salarié -->
+			
 								<div class="row pt-2">
 								     <form class="col" id="saisi" method="post">
 										<input class="btn btn-info" type="submit" value="Génerer code patient ">        
@@ -254,9 +269,11 @@
 						 		</div>
 						</c:if>
 		
-		<!-- Configuration du serveur Mail -->
 						
 						<c:if test="${param.page == 'configurationServeurMail'}">
+						
+						<!-- Configuration du serveur Mail -->
+						
 								<div class="container-fluid row">
 							    	<form class="form-signin" method="post">
 							            <div class="form-label-group">
@@ -277,7 +294,7 @@
 										        
 										    </div>
 							            </div>
-							            
+							            -
 										<div class="form-row">
 							               <div class="form-label-group">
 							               		<label for="host">Host</label>
@@ -310,7 +327,38 @@
 							            </div>
 							        </form>	        
 							 	</div>
-							</c:if>				
+							</c:if>	
+						
+						
+							
+							<c:if test='${param.page == "ModifierMotDePasse"}'>
+							
+											<!-- Changement de Mot de Passe -->
+								<div class="row pt-2">
+								
+									<form  id="saisi" method="post">
+									     <div class="pt-2">
+												<input type="password" id="inputOldPassword" class="form-control" placeholder="Ancien Mot de Passe" required>
+								   		 </div> 
+								   		 
+								   		 <div class="pt-2">
+												<input type="password" id="inputNewPassword" class="form-control" placeholder="Nouveau Mot de Passe" required>
+								   		 </div> 
+								   		 
+								   		 <div class="pt-2">
+								   		 		<input type="password" id="inputNew2Password" class="form-control" placeholder="Confirmez" required>
+								   		 </div> 
+								   		 
+								   		 <div class="row pt-2">
+									  		  <div class="col"><input type="submit" class="btn btn-info" value="Valider" style="float:right;"></div>
+									  		  <div class="col"><input type="reset" class="btn btn-danger" value="Annuler"></div>  		  
+									  		  
+								   		 </div> 
+								   		
+									</form>
+								</div>	
+    						</c:if>	
+										
 					</div>
 				</div>
 			</div> 

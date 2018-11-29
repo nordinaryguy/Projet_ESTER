@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<div class="rpw pt-2">
+<div class="row pt-2">
     <h4>Créer un nouveau compte</h4>
     <label for="typeCompte">Choisissez un type de compte :</label>		     
 	<select name="typeCompte" id="typeCompte" size="1">
