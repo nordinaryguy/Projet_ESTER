@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="UA.png">
+    <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
     <title>Accueil</title>
 
@@ -21,10 +21,7 @@
 </head>
 <body>
   	<c:import url="/jsp/Menu.jsp"/>
-  	
-  	
-  	
-     
+  	  
   	<div class="container">
   	
   	<div class="row justify-content-center pb-2">

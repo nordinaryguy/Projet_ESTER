@@ -8,6 +8,8 @@
         <meta charset="utf-8" />
         <title>Résultat</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" href="<c:url value="/img/ua.png"/>">
+        
         
         <script src="<c:url value="/dwr/engine.js"/>"></script>
         <script src="<c:url value="/dwr/util.js"/>"></script>

@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="UA.png">
+    <link rel="icon" href="<c:url value="/img/ua.png"/>">
+    
 	<title>En cours de Développement...</title>
 	
 	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
@@ -28,10 +29,19 @@
 
 	<div class="card">
 		  	<div class="card-header">
-		  		<h5 class="card-title">En Développement...</h5>
+		  		<h5 class="card-title" style='font-weight:bold'>En Développement...</h5>
 		  	</div>
 		  	<div id="histo-div" class="card-body">
-		  		<div id="id_histo" style="min-width: 310px; max-width: 1000px; margin: 0 auto">Désolé, cette page n'est pas encore implémentée...</div>
+		  		<div class="row justify-content-center">
+		  			<div class="col-md-4 justify-content-center">
+		  				<p style="font-size: 150%;">Désolé, cette page n'est pas encore accessible...</p>
+		  			</div>
+		  		</div>
+		  		<div class="row justify-content-center">
+		  			<div class="col-md-2 justify-content-center">
+		  				<img src="<c:url value="/img/worker.png"/>" alt="Women Worker" width="250">
+		  			</div>
+		  		</div>
 	   		</div>
 	</div>
 

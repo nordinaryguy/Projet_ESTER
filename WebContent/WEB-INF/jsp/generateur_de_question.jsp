@@ -6,6 +6,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="icon" href="<c:url value="/img/ua.png"/>">
+    
     <title>Générateur de questionnaire</title>
 
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap.min.css"/>">
@@ -14,9 +16,7 @@
     <script src="<c:url value="/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/js/popper.min.js"/>"></script>
     <script src="<c:url value="/js/old/bootstrap.min.js"/>"></script>
-    <script src="<c:url value="/js/fb.js"/>"></script>
-    <script src="<c:url value="/js/slideBare.js"/>"></script>
-        
+    <script src="<c:url value="/js/fb.js"/>"></script>        
   </head>
 
   <body>
@@ -24,8 +24,9 @@
  
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
 	 <div class="row">
-	 	 <div class="col-md-6" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
-		 <div class="col-md-6" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
+	 	 <div class="col-md-1" style="text-align:center;"><a style="color:white; font-size:140%" href="<c:url value="/utilisateur"/>">Retour</a></div>
+	 	 <div class="col-md-5" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
+		 <div class="col-md-5" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
 	</div>   
 </nav> 
 
@@ -54,27 +55,26 @@
           <div class="clearfix">
            <div class="shadowbottom">
             <h2  style="border-radius: 10px; text-align:center">Questionnaire </h2>
-            <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom du questionnaire" required>
-			<input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant du questionnaire" required>
-			<div id="build">
-              <form id="target" class="form-horizontal" style="word-wrap: break-word;overflow: auto; background:white;">
-                <fieldset>
-                  <div id="legend" class="component" rel="popover" title="Form Title" trigger="manual"
-                    data-content="<form class='form'>
-                      <div class='form-group col-md-12'>
-                        <label class='control-label'>titre</label> <input class='form-control' type='text' name='title' id='text'>
-                        <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
-                      </div>
-                    </form>" data-html="true">
-                    <legend class="valtype" data-valtype="text">veuillez saisir le nom de votre questionnaire </legend>
-                  </div>
-                </fieldset>
-              </form>
-            </div>
+            	              <form id="target" class="form-horizontal" style="word-wrap: break-word;overflow: auto; background:white; min-height:400px;">
+            
+	          <div id="build">
+	                <fieldset>
+	                  <div id="legend" class="component" rel="popover" title="Form Title" trigger="manual"
+	                    data-content="<form class='form'>
+	                      <div class='form-group col-md-12'>
+	                        <label class='control-label'>titre</label> <input class='form-control' type='text' name='title' id='text'>
+	                        <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
+	                      </div>
+	                    </form>" data-html="true">
+	                    <legend class="valtype" data-valtype="text">veuillez saisir le nom de votre questionnaire </legend>
+	                  </div>
+	                </fieldset>
+	            </div>
+	              </form>
            </div>
           </div>
         </div>
-
+        
         <div class="col-md-4">
          <div class="shadowbottom">
             <h2 style="border-radius: 10px; text-align:center"> Champs pour le questionnaire</h2>
@@ -82,6 +82,7 @@
           <div class="tabbable">
             <ul class="nav nav-tabs" id="navtab" >
               <li class="active" ><a href="#1" data-toggle="tab" style="background:#6bb8c8; color:white;">Questions</a></li>
+              <li><a href="#2" data-toggle="tab" style="background:#6bb8c8; color:white;">Questionnaire</a></li>
               <li><a id="sourcetab" href="#5" data-toggle="tab" style="background:#6bb8c8; color:white;">Html source </a></li>
             </ul>
            <div class="shadowbottom">
@@ -109,7 +110,6 @@
 
                     <div class="form-group component" rel="popover"  trigger="manual"
                       data-content="
-                      <form class='form'>
                         <div class='form-group col-md-12'>
                           <label class='control-label'>Texte</label> <input class='form-control' type='text' name='label' id='label'>
                           <label class='control-label'>Options: </label>
@@ -117,7 +117,7 @@
                           <hr/>
                           <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
-                      </form>" data-html="true"
+                      " data-html="true"
                       >
                       <!-- Select Multiple -->
                       <label class="col-md-4 control-label valtype" data-valtype="label">Question choix unique (liste déroulante) :</label>
@@ -163,8 +163,8 @@
                       data-content="
                       <form class='form'>
                         <div class='form-group col-md-12'>
-                          <label class='control-label'>Label Text</label> <input class='form-control' type='text' name='label' id='label'>
-                          <label class='control-label'>Group Name Attribute</label> <input class='form-control' type='text' name='name' id='name'>
+                          <label class='control-label'>Texte</label> <input class='form-control' type='text' name='label' id='label'>
+                          <label class='control-label'>Attributs</label> <input class='form-control' type='text' name='name' id='name'>
                           <label class='control-label'>Options: </label>
                           <textarea class='form-control' style='min-height: 200px' id='radios'></textarea>
                           <hr/>
@@ -192,7 +192,7 @@
                           <div class='form-group col-md-12'>
                             <label class='control-label'>texte</label> <input class='form-control' type='text' name='label' id='label'>
                             <label class='control-label'>texte par defaut </label>
-                            <textarea class='form-control' style='min-height: 200px' id='option'> </textarea>
+                            <textarea class='form-control' style='min-height: 200px' id='textarea'> </textarea>
                             <hr/>
                             <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                           </div>
@@ -202,8 +202,8 @@
                         <!-- Textarea -->
                         <label class="col-md-4 control-label valtype" data-valtype="label">Question de type texte(long) :</label>
                         <div class="col-md-4">
-                          <div class="textarea">
-                                <textarea class="form-control valtype" data-valtype="checkbox" /> </textarea>
+                          <div class="textarea" data-valtype="textarea">
+                                <textarea class="form-control input-md valtype" data-valtype="textarea" > </textarea>
                           </div>
                         </div>
                     </div>
@@ -211,11 +211,12 @@
                       data-content="
                       <form class='form'>
                         <div class='form-group col-md-12'>
-                          <label class='control-label'>Label Text</label> <input class='form-control' type='text' name='label' id='label'>
+                          <label class='control-label'>texte</label> <input class='form-control' type='text' name='label' id='label'>
+                          <label id='file'></label>
                           <hr/>
                           <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
-                      </form>" data-html="true"
+                      </form>" data-html="true" 
                      >
                      <div class="row">
                      
@@ -223,8 +224,8 @@
                       </div>
                       <!-- File Upload -->
                       <div class="row">
-	                      <div class="col-md-4 " style="margin-left: 50px; margin-top:7px">
-	                       <input class="input-file" id="fileInput" type="file">
+	                      <div class="col-md-4 " style="margin-left: 50px; margin-top:7px" data-valtype="file">
+	                       <input class="valtype" id="fileInput" name="file1" type="file" data-valtype="file">
 	                      </div>
 	                  </div>    
                     </div>
@@ -239,23 +240,23 @@
                       </form>' data-html="true"
                       >
                        <!-- slide  -->
-                      <label class="col-md-4 control-label valtype" data-valtype="label"> Question  : </label>
-                      <div>
-                        <input type="range" name="foo" min="0" max="100">
-                        <output for="foo" onforminput="value = foo.valueAsNumber;"></output>
-                      </div>
+                      	<label class="col-md-4 control-label valtype" data-valtype="label"> Question  : </label>
+	                    <input type="range" name="weight" id="range_weight"  value="5" min="1" max="100" oninput="range_weight_disp.value = range_weight.value">
+	  					<output id="range_weight_disp"></output>
                      </div>
+                    
                   </div>
                   
                   <!-- Code modifier -->
                   <div class="tab-pane" id="5">
                     <textarea name="source" id="source" class="col-md-12" rows="25" required></textarea>
                   </div>
-                </div>
-                
-			        
-                    <input type="submit" class="btn btn-primary" style="margin: 6px" value="Enregistrer" >
-                
+                <div class="tab-pane" id="2">
+	                <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom du questionnaire" required>
+					<input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant du questionnaire" required>
+	                <input type="submit" class="btn btn-primary" style="margin: 6px" value="Enregistrer" >
+	            </div>  
+	            </div>  
                 </fieldset>
               </form>
              </div> 
@@ -273,9 +274,9 @@
     </div>
 	<div class="row" style="text-align:center">
 		<div class="col-md-3"></div>
-		<div class="col-md-2" style="text-align:center;"><a href="#">Mentions Légales</a></div>
-		<div class="col-md-2" style="text-align:center;"><a href="#">Projet</a></div>
-		<div class="col-md-2" style="text-align:center;"><a href="#">Contacts</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Mentions Légales</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Projet</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Contacts</a></div>
 	</div>      
     
   </body>

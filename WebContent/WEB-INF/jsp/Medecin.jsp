@@ -37,7 +37,7 @@
 					      </a>		 
 						  <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
 						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Infirmiers/Préventeurs/Assistants</a>
-						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createUser">Entreprises</a>
+						          	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Entreprises</a>
 						          <a class="dropdown-item" href="<%= request.getContextPath()%>/Medecin?page=createSalarie">Salariés</a>
 						 </div>
 					</li>
@@ -47,8 +47,8 @@
 					          Gestion des salariés
 					      </a>	 
 						 <div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
-					         	<a class="dropdown-item" href="#">Liste des salariés</a>
-					         	<a class="dropdown-item" href="#">Profil du salarié</a>		
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Liste des salariés</a>
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Profil du salarié</a>		
 					   	 </div>
 					 </li>		
 				        
@@ -57,13 +57,13 @@
 						 
 						  <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					         	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
-					         	<a class="dropdown-item" href="#">Modifier un questionnaire</a>
-		          			 	<a class="dropdown-item" href="#">Administrer les questionnaires</a>	
+					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
+		          			 	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/questionnaire">Administrer les questionnaires</a>	
 					       </div>
 					  </li>	        
 				              
 				       <li>
-				        	<a href="#" style="color:white;">Modifier les valeurs de référence</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Modifier les valeurs de référence</a>
 				       </li>
 				        
 				       <li>
@@ -71,7 +71,7 @@
 				       </li>
 				        
 				       <li>
-				        	<a href="#" style="color:white;">Exporter les données</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Exporter les données</a>
 				       </li>
 				        				  
 				  </ul> 

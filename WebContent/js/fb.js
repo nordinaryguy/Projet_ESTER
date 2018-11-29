@@ -207,9 +207,20 @@ $(document).ready(function(){
         $(value).attr("placeholder", $(e).val());
         $(value).attr("name","input"+cpt);
         $(value).attr("id","input"+cpt);
+      }else if (vartype==="textarea"){
+    	  cpt++;
+        $(value).attr("texterea", $(e).val());
+        $(value).attr("name","texterea"+cpt);
+        $(value).attr("id","texterea"+cpt);
       }else if (vartype==="src"){
+    	  cpt++;
         $(value).attr("src", $(e).val());
+        $(value).attr("name","src"+cpt);
+      }else if (vartype==="file"){
+      	  cpt++;
+          $(value).attr("name","file"+cpt);
       } else if (vartype==="checkbox"){
+    	  cpt++;
     	  $(value).attr("name","checkbox"+cpt);
         if($(e).is(":checked")){
           $(value).attr("checked", true);
@@ -237,12 +248,14 @@ $(document).ready(function(){
         });
         $(value).append("\n  ")
       } else if (vartype==="radios"){
+    	  
         var group_name = $(".popover #name").val();
         var radios = $(e).val().split("\n");
         $(value).html("\n      <!-- Multiple Radios -->");
         $.each(radios, function(i,e){
+        	++cpt;
           if(e.length > 0){
-            $(value).append('\n      <label class="radio">\n        <input type="radio" value="'+e+'" name="'+group_name+'">\n        '+e+'\n      </label>');
+            $(value).append('\n      <label class="radio">\n     <input type="radio" value="'+e+'" name="'+group_name+'" id="'+cpt+'">\n        '+e+'\n      </label>');
           }
         });
         $(value).append("\n  ")

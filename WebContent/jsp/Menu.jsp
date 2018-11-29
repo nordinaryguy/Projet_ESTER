@@ -48,12 +48,19 @@
 		      <c:if test="${sessionScope.sessionUtilisateur.isEntreprise()}">
 		      	<a class="dropdown-item" href="<c:url value="/entreprise"/>">Entreprise</a>
 		      </c:if>
+		      
 		      <c:if test="${sessionScope.sessionUtilisateur.isSalarie()}">
 		      	<a class="dropdown-item" href="<c:url value="/salarie"/>">Salarie</a>
+		      	<a class="dropdown-item" href="<c:url value="/questionnaire"/>">Liste de Questionnaires</a>      	
 		      </c:if>
+		      
 		      <c:if test="${sessionScope.sessionUtilisateur.isUtilisateur()}">
 		      	<a class="dropdown-item" href="<c:url value="/utilisateur"/>">Utilisateur</a>
+		      	<a class="dropdown-item" href="<c:url value="/utilisateur/generateur_questionnaire"/>">Générateur de Questionnaires</a>
+		      
+		      	<a class="dropdown-item" href="<c:url value="/questionnaire"/>">Liste de Questionnaires</a>
 		      </c:if>
+		      
 		      <a class="dropdown-item" href="<c:url value="/deconnexion"/>">Déconnexion</a>
     		</div>
 	      </div>

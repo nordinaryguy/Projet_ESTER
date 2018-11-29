@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="UA.png">
+    <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
     <title>ESTER</title>
 
@@ -24,20 +24,17 @@
 
 <body>  
 		<c:import url="/jsp/Menu.jsp"/>
-	
-			    
-			    
-			    <div class="row">
+		    <div class="row">
   			  			
   				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
 			  	
 			    <ul style="color:white;">
 			  		
 			  			<li>
-				       		 <a class="dropdown-toggle" href="#" id="gestionComptesMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
+				       		 <a class="dropdown-toggle" href="#" id="creationComptes" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:white;">
 					          Création de compte
 						      </a>		 
-							  <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
+							  <div class="dropdown-menu" aria-labelledby="creationComptes">
 							          <a class="dropdown-item" href="<%= request.getContextPath()%>/Administrateur?page=createUser">Administrateur/Médecin/Infirmiers/Préventeurs/Assistants</a>
 							 </div>			       		
 				        </li>
@@ -47,18 +44,18 @@
 					          Gestion des comptes
 					        </a>		 
 								 <div class="dropdown-menu" aria-labelledby="gestionComptesMenu">
-						          <a class="dropdown-item" href="#">Administrateur</a>
-						          <a class="dropdown-item" href="#">Médecins</a>
-						          <a class="dropdown-item" href="#">Préventeurs</a>
-						          <a class="dropdown-item" href="#">Infirmiers</a>
-						          <a class="dropdown-item" href="#">Assistants</a>
-						          <a class="dropdown-item" href="#">Entreprises</a>
-						          <a class="dropdown-item" href="#">Salariés</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Administrateur</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Médecins</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Préventeurs</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Infirmiers</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Assistants</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Entreprises</a>
+						          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Salariés</a>
 								</div>
 						</li>				        
 						
 						<li>
-				        	<a href="#" style="color:white;">Modifier les valeurs de référence</a>
+				        	<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Modifier les valeurs de référence</a>
 				        </li>		
 				        
 						<li class="dropdown">
@@ -66,17 +63,17 @@
 						 
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
-					          <a class="dropdown-item" href="#">Modifier un questionnaire</a>
-					          <a class="dropdown-item" href="#">Modifier la gestion des questionnaires</a>	
+					          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
+					          <a class="dropdown-item" href="<%= request.getContextPath()%>/questionnaire">Modifier la gestion des questionnaires</a>	
 					        </div>
 					   	</li>	        
 				              
 				        <li>
-				       		<a href="#" style="color:white;">Gestion Base de Données</a>
+				       		<a href="<c:url value="/jsp/EnDev.jsp"/>" style="color:white;">Gestion Base de Données</a>
 				        </li>
 				        
 				       	<li>
-				        	<a style="color:white;" data-toggle="modal" data-target="#ModifierInterface" href="#">Gestion Interface</a>
+				        	<a style="color:white;" href='<c:url value="/jsp/EnDev.jsp"/>'>Gestion Interface</a>
 				        </li>
 				        
 				        <li>
@@ -84,7 +81,7 @@
 				        </li>
 				        
 				        <li>
-				        	<a style="color:white;" href="#">Exporter les données</a>
+				        	<a style="color:white;" href="<c:url value="/jsp/EnDev.jsp"/>">Exporter les données</a>
 				        </li>
 				        
 				        <li>
@@ -173,4 +170,4 @@
 	    
   <c:import url="/jsp/Footer.jsp"/>
 </body>
-</html>-
+</html>
