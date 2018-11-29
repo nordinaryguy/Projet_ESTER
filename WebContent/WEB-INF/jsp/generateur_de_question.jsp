@@ -55,8 +55,9 @@
           <div class="clearfix">
            <div class="shadowbottom">
             <h2  style="border-radius: 10px; text-align:center">Questionnaire </h2>
+            	              <form id="target" class="form-horizontal" style="word-wrap: break-word;overflow: auto; background:white; min-height:400px;">
+            
 	          <div id="build">
-	              <form id="target" class="form-horizontal" style="word-wrap: break-word;overflow: auto; background:white; min-height:400px;">
 	                <fieldset>
 	                  <div id="legend" class="component" rel="popover" title="Form Title" trigger="manual"
 	                    data-content="<form class='form'>
@@ -68,8 +69,8 @@
 	                    <legend class="valtype" data-valtype="text">veuillez saisir le nom de votre questionnaire </legend>
 	                  </div>
 	                </fieldset>
-	              </form>
 	            </div>
+	              </form>
            </div>
           </div>
         </div>
@@ -109,7 +110,6 @@
 
                     <div class="form-group component" rel="popover"  trigger="manual"
                       data-content="
-                      <form class='form'>
                         <div class='form-group col-md-12'>
                           <label class='control-label'>Texte</label> <input class='form-control' type='text' name='label' id='label'>
                           <label class='control-label'>Options: </label>
@@ -117,7 +117,7 @@
                           <hr/>
                           <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
                         </div>
-                      </form>" data-html="true"
+                      " data-html="true"
                       >
                       <!-- Select Multiple -->
                       <label class="col-md-4 control-label valtype" data-valtype="label">Question choix unique (liste déroulante) :</label>

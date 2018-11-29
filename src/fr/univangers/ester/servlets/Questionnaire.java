@@ -2,6 +2,7 @@ package fr.univangers.ester.servlets;
 
 import java.io.IOException;
 import java.text.DateFormat;
+import java.util.Enumeration;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -54,6 +55,14 @@ public class Questionnaire extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else {
+	       Enumeration<String> names = request.getParameterNames();
+	        while (names.hasMoreElements()) {
+	            String name = names.nextElement();
+	            String value = request.getParameter(name).toString();
+	            System.out.println(name+":"+value);
+	        }
+			System.out.println("A");
 		}
 		doGet(request, response);
 	}

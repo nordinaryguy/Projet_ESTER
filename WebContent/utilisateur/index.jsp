@@ -83,6 +83,8 @@
 						      </a>		 
 							  <div class="dropdown-menu" aria-labelledby="creationComptes">
 							          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=createUser">Administrateur/Médecin/Infirmiers/Préventeurs/Assistants</a>
+							          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Entreprises</a>
+						          	  <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=createSalarie">Salariés</a>
 							 </div>			       		
 				        </li>
 			  		
@@ -237,7 +239,7 @@
 							 	</div>
 						</c:if>
 						
-		<!-- Création d'un compte Entreprise -->
+		<!-- Création d'un compte Salarié -->
 						
 						<c:if test="${param.page == 'createSalarie'}">
 								<div class="row pt-2">
@@ -245,8 +247,10 @@
 										<input class="btn btn-info" type="submit" value="Génerer code patient ">        
 									 </form>  	
 									 <p class="col"> 
+									 	<strong>
 								     		${ empty message ? '' : message }
-								     </p>	  	        
+								     	</strong> 		     		
+								     </p>
 						 		</div>
 						</c:if>
 		
