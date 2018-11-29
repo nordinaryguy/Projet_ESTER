@@ -37,7 +37,7 @@
 						          Gestion des salariés
 						        </a>	 
 								<div class="dropdown-menu" aria-labelledby="gestionSalariesMenu">
-									 	<a class="dropdown-item" href="<%= request.getContextPath()%>/preventeur?page=createSalarie">Créer un compte salarié</a>
+									 	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=createSalarie">Créer un compte salarié</a>
 							          	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Liste des salariés</a>
 							          	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Profil du salarié</a>		
 							    </div>

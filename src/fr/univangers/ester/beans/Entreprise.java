@@ -66,4 +66,9 @@ public class Entreprise implements User {
 		return false;
 	}
 
+	@Override
+	public boolean isInfirmier() {
+		return false;
+	}
+
 }

@@ -9,7 +9,7 @@ public class Utilisateur implements User {
 		  ADMINISTRATEUR ("Administrateur"),
 		  INFIRMIER ("Infirmier"),
 		  PREVENTEUR ("Preventeur"),
-		  ASSISTANCE ("Assistant");
+		  ASSISTANT ("Assistant");
 		
 		  private String name = "";
 		  
@@ -18,15 +18,17 @@ public class Utilisateur implements User {
 		  }
 		  
 		  public static Status toStatus(String name) {
-			  Status status = Status.ASSISTANCE;
-			  if(name == Status.ADMINISTRATEUR.name)
+			  Status status = Status.ASSISTANT;
+			  if(name.equals(Status.ADMINISTRATEUR.name))
 				  status = Status.ADMINISTRATEUR;
-			  else if(name == Status.ASSISTANCE.name)
-				  status = Status.ASSISTANCE;
-			  else if(name == Status.INFIRMIER.name)
+			  else if(name.equals(Status.ASSISTANT.name))
+				  status = Status.ASSISTANT;
+			  else if(name.equals(Status.INFIRMIER.name))
 				  status = Status.INFIRMIER;
-			  else if(name == Status.PREVENTEUR.name)
+			  else if(name.equals(Status.PREVENTEUR.name))
 				  status = Status.PREVENTEUR;
+			  else if(name.equals(Status.MEDECIN.name))
+				  status = Status.MEDECIN;
 			  return status;
 		  }
 		  
@@ -104,7 +106,13 @@ public class Utilisateur implements User {
 
 	@Override
 	public boolean isAssistant() {
-		return status == Status.ASSISTANCE;
+		return status == Status.ASSISTANT;
+	}
+
+	@Override
+	public boolean isInfirmier() {
+		return status == Status.INFIRMIER;
+
 	}
 
 }

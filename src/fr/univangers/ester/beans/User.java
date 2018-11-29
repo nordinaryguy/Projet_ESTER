@@ -12,4 +12,6 @@ public interface User {
 	public boolean isMedecin();
 	public boolean isPreventeur();
 	public boolean isAssistant();
+	public boolean isInfirmier();
+
 }
