@@ -22,12 +22,8 @@ public class Questionnaires extends Database {
 	private static final String DATE_SUBMISSION = "Date de soumission";
 	private static final String ERROR_NO_EXIST = "Le questionnaire n'existe pas.";
 	
-	public Questionnaires() {
-		super();
-	}
-	
 	public void addQuestionnaire(String name, String identifiant, String html, String identifiantEster) {
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 		Document questionnaire = new Document(NAME, name)
 				.append(IDENTIFIANT, identifiant)
 				.append(HTML, html)
@@ -37,7 +33,7 @@ public class Questionnaires extends Database {
 	}
 	
 	public boolean existQuestionnaire(String identifiant) {
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 	    FindIterable<Document> iterable = questionnaires.find(Filters.eq(IDENTIFIANT, identifiant));
 		return iterable.first() != null;
 	}
@@ -46,7 +42,7 @@ public class Questionnaires extends Database {
 		if(!existQuestionnaire(identifiant)) {
 			throw new IllegalArgumentException(ERROR_NO_EXIST);	
 		}
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 		Document questionnaire = questionnaires.find(Filters.eq(IDENTIFIANT, identifiant)).first();
 		return questionnaire.getString(HTML);
 	}
@@ -55,7 +51,7 @@ public class Questionnaires extends Database {
 		if(!existQuestionnaire(identifiant)) {
 			throw new IllegalArgumentException(ERROR_NO_EXIST);	
 		}
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 		Document questionnaire = questionnaires.find(Filters.eq(IDENTIFIANT, identifiant)).first();
 		return questionnaire.getString(NAME);
 	}
@@ -64,7 +60,7 @@ public class Questionnaires extends Database {
 		if(!existQuestionnaire(identifiant)) {
 			throw new IllegalArgumentException(ERROR_NO_EXIST);	
 		}
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 		Document questionnaire = questionnaires.find(Filters.eq(IDENTIFIANT, identifiant)).first();
 		return questionnaire.getDate(DATE_SUBMISSION);
 	}
@@ -73,7 +69,7 @@ public class Questionnaires extends Database {
 		if(!existQuestionnaire(identifiant)) {
 			throw new IllegalArgumentException(ERROR_NO_EXIST);		
 		}
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 		Document questionnaire = questionnaires.find(Filters.eq(IDENTIFIANT, identifiant)).first();
 		return questionnaire.getString(IDENTIFIANT_ESTER);
 	}
@@ -82,7 +78,7 @@ public class Questionnaires extends Database {
 		if(!existQuestionnaire(identifiant)) {
 			throw new IllegalArgumentException(ERROR_NO_EXIST);		
 		}
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 		questionnaires.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
@@ -90,14 +86,14 @@ public class Questionnaires extends Database {
 		if(!existQuestionnaire(identifiant)) {
 			throw new IllegalArgumentException(ERROR_NO_EXIST);	
 		}
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 		questionnaires.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
 				new Document("$set", new Document(HTML, html)));
 	}
 	
 	public List<String> getIdentifiantQuestionnaires() {
 		List<String> identifiants = new ArrayList<>();
-		MongoCollection<Document> questionnaires = db.getCollection(C_QUESTIONNAIRE);
+		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);
 		MongoCursor<Document> cursor = questionnaires.find().iterator();
 	    while(cursor.hasNext()) {
 	    	Object identifiant = cursor.next().get(IDENTIFIANT);

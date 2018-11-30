@@ -54,7 +54,7 @@ public class Users extends Database {
 	
 	public void addSalarie(String identifiant, int anonymityNumber, String password, String sex, int birthYear, 
 			String department, String activityArea, String postName, String entreprise, String userEster) {
-		MongoCollection<Document> salaries = db.getCollection(C_SALARIE);
+		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		Document salarie = new Document(IDENTIFIANT, identifiant)
 				.append(ANONYMITYNUMBER, anonymityNumber)
 				.append(FIRSTCONNECTION, true)
@@ -75,30 +75,30 @@ public class Users extends Database {
 	}
 	
 	public void deleteSalarie(String identifiant) {
-		MongoCollection<Document> salaries = db.getCollection(C_SALARIE);
+		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		salaries.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
 	public void changePasswordSalarie(String identifant, String password) {
-		MongoCollection<Document> salaries = db.getCollection(C_SALARIE);
+		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
 				new Document("$set", new Document(PASSWORD, password)));
 	}
 	
 	public void changeFirstConnectionSalarie(String identifant, boolean firstConnection) {
-		MongoCollection<Document> salaries = db.getCollection(C_SALARIE);
+		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
 				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
 	}
 	
 	public boolean existSalarie(String identifiant) {
-		MongoCollection<Document> salaries = db.getCollection(C_SALARIE);
+		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 	    FindIterable<Document> iterable = salaries.find(Filters.eq(IDENTIFIANT, identifiant));
 		return iterable.first() != null;
 	}
 	
 	public boolean connectSalarie(String identifiant, String password) {
-		MongoCollection<Document> salaries = db.getCollection(C_USER_ESTER);
+		MongoCollection<Document> salaries = db().getCollection(C_USER_ESTER);
 	    FindIterable<Document> iterable = salaries.find(Filters.and(Filters.eq(IDENTIFIANT, identifiant),
 	    		Filters.eq(PASSWORD, password)));
 		return iterable.first() != null;
@@ -108,7 +108,7 @@ public class Users extends Database {
 		if(existUserEster(identifiant)) {
 			throw new IllegalArgumentException("Identifiant déja ajouter");
 		}
-		MongoCollection<Document> users = db.getCollection(C_USER_ESTER);
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 		Document user = new Document(IDENTIFIANT, identifiant)
 				.append(NAME, name)
 				.append(FIRSTNAME, firstName)
@@ -123,36 +123,36 @@ public class Users extends Database {
 		if(!existUserEster(identifiant)) {
 			throw new IllegalArgumentException("Utilisateur n'existe pas.");	
 		}
-		MongoCollection<Document> users = db.getCollection(C_USER_ESTER);
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 		Document user = users.find(Filters.eq(IDENTIFIANT, identifiant)).first();
 		return Status.toStatus(user.getString(STATUS));
 	}
 	
 	public void deleteUserEster(String identifiant) {
-		MongoCollection<Document> users = db.getCollection(C_USER_ESTER);
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 		users.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
 	public void changePasswordUserEster(String identifant, String password) {
-		MongoCollection<Document> users = db.getCollection(C_USER_ESTER);
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 		users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
 				new Document("$set", new Document(PASSWORD, password)));
 	}
 	
 	public void changeFirstConnectionUserEster(String identifant, boolean firstConnection) {
-		MongoCollection<Document> users = db.getCollection(C_USER_ESTER);
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 		users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
 				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
 	}
 	
 	public boolean existUserEster(String identifiant) {
-		MongoCollection<Document> users = db.getCollection(C_USER_ESTER);
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 	    FindIterable<Document> iterable = users.find(Filters.eq(IDENTIFIANT, identifiant));
 		return iterable.first() != null;
 	}
 	
 	public boolean connectUserEster(String identifiant, String password) {
-		MongoCollection<Document> users = db.getCollection(C_USER_ESTER);
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 	    FindIterable<Document> iterable = users.find(Filters.and(Filters.eq(IDENTIFIANT, identifiant),
 	    		Filters.eq(PASSWORD, password)));
 		return iterable.first() != null;
@@ -162,7 +162,7 @@ public class Users extends Database {
 		if(existEntreprise(identifiant)) {
 			throw new IllegalArgumentException("Identifiant déja ajouter");
 		}
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		Document entreprise = new Document(IDENTIFIANT, identifiant)
 				.append(NAME, name)
 				.append(FIRSTCONNECTION, true)
@@ -172,37 +172,37 @@ public class Users extends Database {
 	}
 	
 	public void deleteEntreprise(String identifiant) {
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
 	public void changePasswordEntreprise(String identifant, String password) {
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
 				new Document("$set", new Document(PASSWORD, password)));
 	}
 	
 	public void changeFirstConnectionEntreprise(String identifant, boolean firstConnection) {
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
 				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
 	}
 	
 	public boolean existEntreprise(String identifiant) {
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 	    FindIterable<Document> iterable = entreprises.find(Filters.eq(IDENTIFIANT, identifiant));
 		return iterable.first() != null;
 	}
 	
 	public boolean connectEntreprise(String identifiant, String password) {
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 	    FindIterable<Document> iterable = entreprises.find(Filters.and(Filters.eq(IDENTIFIANT, identifiant),
 	    		Filters.eq(PASSWORD, password)));
 		return iterable.first() != null;
 	}
 	
 	public void pushSalarieIntoEntreprise(String identifiantEntreprise, String identifiantSalarie) {
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiantEntreprise),
 				new Document("$push", new Document(SALARIES, identifiantSalarie)));
 	}
@@ -212,7 +212,7 @@ public class Users extends Database {
 		if(!existEntreprise(identifiant)) {
 			throw new IllegalArgumentException("L'entreprise n'existe pas.");	
 		}
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 	    Document entreprise = entreprises.find(Filters.eq(IDENTIFIANT, identifiant)).first();
 	    if(entreprise.get(SALARIES) instanceof List<?>) {
 		    List<?> objects = (List<?>)entreprise.get(SALARIES);
@@ -226,14 +226,14 @@ public class Users extends Database {
 	}
 	
 	public void pullSalarieIntoEntreprise(String identifiantEntreprise, String identifiantSalarie) {
-		MongoCollection<Document> entreprises = db.getCollection(C_ENTREPRISE);
+		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiantEntreprise),
 				new Document("$pull", new Document(SALARIES, identifiantSalarie)));
 	}
 	
 
 	public void addUrlToken(String identifiant,String token,Date expireDate) {
-		MongoCollection<Document> urlTokens = db.getCollection(C_URL_TOKEN);
+		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
 		if(existUrlToken(identifiant))
 			deleteUrlToken(identifiant);
 		Document urlToken = new Document(IDENTIFIANT, identifiant)
@@ -244,29 +244,29 @@ public class Users extends Database {
 	
 	
 	public void deleteUrlToken(String identifiant) {
-		MongoCollection<Document> urlTokens = db.getCollection(C_URL_TOKEN);
+		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
 		urlTokens.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
 	public boolean hasUrlToken(String email) {
-		MongoCollection<Document> urlTokens = db.getCollection(C_URL_TOKEN);
+		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
 	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(IDENTIFIANT,email));
 		return iterable.first() != null && valideUrlToken((String) iterable.first().get(URLTOKEN));
 	}
 	public boolean existUrlToken(String token) {
-		MongoCollection<Document> urlTokens = db.getCollection(C_URL_TOKEN);
+		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
 	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(URLTOKEN, token));
 		return iterable.first() != null;
 	}
 	
 	public String getIdentforToken(String token) {
-		MongoCollection<Document> urlTokens = db.getCollection(C_URL_TOKEN);
+		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
 	    Document urlToken = urlTokens.find(Filters.eq(URLTOKEN, token)).first();
 	    return (String) urlToken.get(IDENTIFIANT);
 	}
 	
 	public boolean valideUrlToken(String token) {
-		MongoCollection<Document> urlTokens = db.getCollection(C_URL_TOKEN);
+		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
 	    Document urlToken = urlTokens.find(Filters.eq(URLTOKEN, token)).first();
 	    Date expireDate=(Date) urlToken.get(EXPIREDATE);
 	    Date currentDate=new Date();
@@ -276,31 +276,31 @@ public class Users extends Database {
 	
 
 	public void addCodeGenrated(String code) {
-		MongoCollection<Document> generatedCodes= db.getCollection(C_CODE_GENERE);
+		MongoCollection<Document> generatedCodes= db().getCollection(C_CODE_GENERE);
 		Document codeGenere = new Document(CODE,code);
 		generatedCodes.insertOne(codeGenere);
 	}
 	
 	
 	public void deleteGeneratedCode(String code) {
-		MongoCollection<Document> generatedCodes = db.getCollection(C_CODE_GENERE);
+		MongoCollection<Document> generatedCodes = db().getCollection(C_CODE_GENERE);
 		generatedCodes.deleteOne(Filters.eq(CODE, code));
 	}
 	
 	public boolean existCode(String code) {
-		MongoCollection<Document> generatedCodes = db.getCollection(C_CODE_GENERE);
+		MongoCollection<Document> generatedCodes = db().getCollection(C_CODE_GENERE);
 	    FindIterable<Document> iterable = generatedCodes.find(Filters.eq(CODE, code));
 		return iterable.first() != null;
 	}
 	
 	public boolean serverMailEmpty() {
-		MongoCollection<Document> mailInfo = db.getCollection(C_SERVER_MAIL);
+		MongoCollection<Document> mailInfo = db().getCollection(C_SERVER_MAIL);
 		return mailInfo.find().first() == null;
 	}
 	
 	public void addDefautServer() {
 		if(serverMailEmpty()) {
-			MongoCollection<Document> mailInfo= db.getCollection(C_SERVER_MAIL);
+			MongoCollection<Document> mailInfo= db().getCollection(C_SERVER_MAIL);
 			Document mailServer = new Document(MAIL,"projet.ester@gmail.com")
 					.append(PASSWORD,"masterInformatique")
 					.append(HOST,"smtp.gmail.com")
@@ -311,7 +311,7 @@ public class Users extends Database {
 	
 	public void addServerMail(String mail,String password,String host,String port) {
 		deleteServerMail();
-		MongoCollection<Document> mailInfo= db.getCollection(C_SERVER_MAIL);
+		MongoCollection<Document> mailInfo= db().getCollection(C_SERVER_MAIL);
 		Document mailServer = new Document(MAIL,mail)
 				.append(PASSWORD,password)
 				.append(HOST,host)
@@ -321,13 +321,13 @@ public class Users extends Database {
 	
 	public void deleteServerMail() {
 		if(!serverMailEmpty()) {
-			MongoCollection<Document> mailInfo = db.getCollection(C_SERVER_MAIL);
+			MongoCollection<Document> mailInfo = db().getCollection(C_SERVER_MAIL);
 			mailInfo.drop();
 		}
 	}
 	
 	public Document getMailServerDocument() {
-		MongoCollection<Document> mailServer = db.getCollection(C_SERVER_MAIL);
+		MongoCollection<Document> mailServer = db().getCollection(C_SERVER_MAIL);
 	    return mailServer.find().first();
 	}
 	

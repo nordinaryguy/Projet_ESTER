@@ -10,12 +10,15 @@ public abstract class Database {
 	private static final int PORT = 27017;
 	private static final String DBNAME = "BDD_ESTER_DEV";
 	
-	protected MongoClient client;
-	protected MongoDatabase db;
+	private static MongoClient client;
+	private static MongoDatabase mgdb;
 	
-	public Database() {
-		client =  MongoClients.create("mongodb://" + HOSTNAME + ":" + PORT);
-		db = client.getDatabase(DBNAME);
+	public MongoDatabase db() {
+		if(mgdb == null) {
+			client =  MongoClients.create("mongodb://" + HOSTNAME + ":" + PORT);
+			mgdb = client.getDatabase(DBNAME);
+		}
+		return mgdb;
 	}
 
 }

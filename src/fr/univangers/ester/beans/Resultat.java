@@ -5,6 +5,12 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.directwebremoting.WebContext;
+import org.directwebremoting.WebContextFactory;
+
 public class Resultat {
 	
 	private static final String RED = "#ff3d00";
@@ -136,28 +142,36 @@ public class Resultat {
 		addHisto(13, 0.5, BLUE);
 		addHisto(14, 0.5, BLUE);
 		addHisto(15, 0.5, BLUE);
-			
+		
+		WebContext ctx = WebContextFactory.get();
+		HttpServletRequest req = ctx.getHttpServletRequest();
+		User sessionUser = (User) req.getSession().getAttribute("sessionUtilisateur");
+		if(sessionUser != null)
+			System.out.println(sessionUser.getIdentifiant());
+		else {
+			addAnswer(0,"Souvent");
+			addAnswer(0,"Rarement");
+			addAnswer(0,"Rarement");
+			addAnswer(0,"Jamais");
+			addAnswer(1,"Pas du tout d'accord");
+			addAnswer(1,"D'accord");
+		}
+		
 		setTitleDataCSV(0,"Categorie","Toujours",SALTSA,"Souvent",SALTSA,"Rarement",SALTSA,"Jamais");
 		addDataCSV(0,3,"Votre travail nécessite-t-il de répêter les mêmes actions plus de 2 à 4 fois environ par minute ?"
 				,"25","25","25","25");
-		addAnswer(0,"Souvent");
 		addDataCSV(0,2,"Travailler avec un ou deux bras en l'air (au-dessus des épaules) régulièrement ou de manière prolongée"
 				,"25","25","25","25");
-		addAnswer(0,"Rarement");
 		addDataCSV(0,2,"Fléchir le(s) coude(s) régulièrement ou de manière prolongée"
 				,"15","35","25","25");
-		addAnswer(0,"Rarement");
 		addDataCSV(0,3,"Presser ou prendre ferment des objets ou des pièces entre le pouce et l'index"
 				,"25","25","35","15");
-		addAnswer(0,"Jamais");
 		
 		setTitleDataCSV(1,"Categorie","Pas du tout d'accord",VS,"Pas d'accord",VS,"D'accord",VS,"Tout à fait d'accord");
 		addDataCSV(1,2,"J'ai la possibilité d'influencer le déroulement de mon travail"
 				,"15","25","45","15");
-		addAnswer(1,"Pas du tout d'accord");
 		addDataCSV(1,2,"Les collègues avec qui je travaille m'aident à mener les tàches à bien"
 				,"15","55","15","15");
-		addAnswer(1,"D'accord");
 		
 		addRPE("Pas d\'effort du tout 6", 8.1, GREEN);
     	addRPE("Extrêmement léger 7", 5.1, GREEN);
