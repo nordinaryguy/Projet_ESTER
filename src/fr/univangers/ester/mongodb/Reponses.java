@@ -17,53 +17,48 @@ public class Reponses extends Database {
 
 	public static final String IDENTIFIANT_SALARIE = "Identifiant salarie";
 	public static final String IDENTIFIANT_QUESTIONNAIRE = "Identifiant questionnaire";
-	public static final String REPONSES_QUESTIONS = "Reponses questions";
-	public static final String IDENTIFIANT_QUESTION = "Identifiant question";
-	public static final String QUESTION = "Question";
-	public static final String REPONSE = "Reponse";
+	public static final String REPONSES = "Reponses";
 	
-	public void addReponse(String identifiantSalarie, String identifiantQuestionnaire, List<Map<String, String>> reponsesQuestions) {
-		MongoCollection<Document> reponses = db().getCollection(C_REPONSE);
+	public void addReponse(String identifiantSalarie, String identifiantQuestionnaire, Map<String, String> reponses) {
+		MongoCollection<Document> cReponses = db().getCollection(C_REPONSE);
 		Document reponse = new Document(IDENTIFIANT_SALARIE, identifiantSalarie)
 				.append(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire)
-				.append(REPONSES_QUESTIONS, reponsesQuestions);
-		reponses.insertOne(reponse);
+				.append(REPONSES, reponses);
+		cReponses.insertOne(reponse);
 	}
 	
-	public boolean existReponsesQuestions(String identifiantSalarie, String identifiantQuestionnaire) {
-		MongoCollection<Document> reponses = db().getCollection(C_REPONSE);
-	    FindIterable<Document> iterable = reponses.find(Filters.and(Filters.eq(IDENTIFIANT_SALARIE, identifiantSalarie), 
+	public boolean existReponse(String identifiantSalarie, String identifiantQuestionnaire) {
+		MongoCollection<Document> cReponses = db().getCollection(C_REPONSE);
+	    FindIterable<Document> iterable = cReponses.find(Filters.and(Filters.eq(IDENTIFIANT_SALARIE, identifiantSalarie), 
 				Filters.eq(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire)));
 		return iterable.first() != null;
 	}
 	
-	public List<Map<String, String>> getReponsesQuestions(String identifiantSalarie, String identifiantQuestionnaire) {
-		if(!existReponsesQuestions(identifiantSalarie, identifiantQuestionnaire)) {
+	public Map<String, String> getReponses(String identifiantSalarie, String identifiantQuestionnaire) {
+		if(!existReponse(identifiantSalarie, identifiantQuestionnaire)) {
 			throw new IllegalArgumentException("N'existe pas.");	
 		}
-		MongoCollection<Document> reponses = db().getCollection(C_REPONSE);
-		Document reponse = reponses.find(Filters.and(Filters.eq(IDENTIFIANT_SALARIE, identifiantSalarie), 
+		MongoCollection<Document> cReponses = db().getCollection(C_REPONSE);
+		Document reponse = cReponses.find(Filters.and(Filters.eq(IDENTIFIANT_SALARIE, identifiantSalarie), 
 				Filters.eq(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire))).first();
-		return (List<Map<String, String>>) reponse.get(REPONSES_QUESTIONS);
+		return (Map<String, String>) reponse.get(REPONSES);
 	}
 	
 	public int getPourcentageReponses(String identifiantQuestionnaire, String identifiantQuestion, String reponse) {
-		int nombreTotal = 0;
-		int nombreReponse = 0;
-		MongoCollection<Document> reponses = db().getCollection(C_REPONSE);
-		MongoCursor<Document> cursor = reponses.find(Filters.eq(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire)).iterator();
+		double nombreTotal = 0;
+		double nombreReponse = 0;
+		MongoCollection<Document> cReponses = db().getCollection(C_REPONSE);
+		MongoCursor<Document> cursor = cReponses.find(Filters.eq(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire)).iterator();
 		while(cursor.hasNext()) {
-			List<Map<String, String>> listReponse = (List<Map<String, String>>) cursor.next().get(REPONSES_QUESTIONS);
-			for(Map<String, String> mapReponse : listReponse) {
-				if(mapReponse.get(IDENTIFIANT_QUESTION).toString().equals(identifiantQuestion)) {
-					if(mapReponse.get(REPONSE).toString().equals(reponse))
-						nombreReponse++;
-					nombreTotal++;
-					break;
+			Map<String, String> reponses = (Map<String, String>) cursor.next().get(REPONSES);
+			if(reponses.containsKey(identifiantQuestion)) {
+				if(reponses.get(identifiantQuestion).equals(reponse)) {
+					nombreReponse++;
 				}
+				nombreTotal++;
 			}
 		}
-		return nombreTotal == 0 ? 0 : nombreReponse / nombreTotal;
+		return nombreTotal == 0 ? 0 : (int)(nombreReponse / nombreTotal * 100);
 	}
 	
 }

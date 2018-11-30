@@ -40,7 +40,7 @@ public class Questionnaire extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
 		Questionnaires questionnaires = new Questionnaires();
 		session.setAttribute("ListeQuestionnaires", questionnaires.getIdentifiantQuestionnaires());
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
@@ -51,7 +51,7 @@ public class Questionnaire extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
-        Reponses reponses = new Reponses();
+        Reponses reponsesDB = new Reponses();
     	
     	String identifiant = request.getParameter("Identifiant");
 		if(identifiant != null) {
@@ -68,20 +68,15 @@ public class Questionnaire extends HttpServlet {
 			doGet(request, response);
 		} else {
 			Enumeration<String> names = request.getParameterNames();
-	        List<Map<String, String>> reponsesQuestions = new ArrayList<>();
+	        Map<String, String> reponses = new HashMap<>();
 			while (names.hasMoreElements()) {
-				Map<String, String> reponseQuestion = new HashMap<>();
-	            String identifiant_question = names.nextElement();
-	            String values = "Question;" + request.getParameter(identifiant_question).toString();
-	            String[] valuesSplit = values.split(";");
-	            reponseQuestion.put(Reponses.IDENTIFIANT_QUESTION, identifiant_question);
-	            reponseQuestion.put(Reponses.QUESTION, valuesSplit[0]);
-	            reponseQuestion.put(Reponses.REPONSE, valuesSplit[1]);
-	            reponsesQuestions.add(reponseQuestion);
+	            String identifiantQuestion = names.nextElement();
+	            String reponse = request.getParameter(identifiantQuestion);
+	            reponses.put(identifiantQuestion, reponse);
 	    	}    	
 			User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
-            reponses.addReponse(sessionUser.getIdentifiant(), session.getAttribute("Identifiant Questionnaire").toString(), reponsesQuestions); 
-            request.getRequestDispatcher(RESULTAT).forward(request, response);
+			reponsesDB.addReponse(sessionUser.getIdentifiant(), session.getAttribute("Identifiant Questionnaire").toString(), reponses); 
+			response.sendRedirect(request.getContextPath() + RESULTAT);
 		}
 	}
 

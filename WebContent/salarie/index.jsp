@@ -26,7 +26,7 @@
 <body>  
 
 	<!-- Menu en header de la page -->						
-	    <c:import url="/jsp/MenuPage.jsp"/>
+	    <c:import url="/jsp/Menu.jsp"/>
   			<div class="row">
   			
   			<!-- Menu pour salarié -->    

@@ -13,14 +13,11 @@ public class Test {
 
 	public static void main(String[] args) {
 		Users users = new Users();
+		/*
 		users.addUserEster("id1", "Eric", "LeBlanc", "ericLbc@ester.come", "1234", Status.MEDECIN);
-		
+		users.addSalarie("456X", 40, "", "Homme", 2015, "", "", "", "", "");
+		*/
 		addEvalRiskTMS();
-		Reponses reponses = new Reponses();
-		List<Map<String, String>> reponsesQ = reponses.getReponsesQuestions("id1", "Eval-Risk-TMS");
-		for(Map<String, String> reponseQ : reponsesQ) {
-			System.out.println(reponseQ.get(Reponses.REPONSE));
-		}
 		/*
 		users.addUserEster("id1", "LeBlanc", "Eric", "eric.lablanc@ester.fr", "1234", Status.MEDECIN);
 		//users.addUserEster("id1", "LeBlanc", "Eric", "eric.lablanc@ester.fr", "1234", Status.MEDECIN);
