@@ -58,18 +58,25 @@ public class Utilisateur extends HttpServlet {
         	Users user=new Users();
     		user.addDefautServer();       
     		
-    		if(request.getParameter("page").equals("ModifierMotDePasse")) {
-    			/* si OldPassword == password actuel
-    			 * 		si inputNewPassword == inputNewPassword2
-    			 * 			user.changePasswordUserEster(sessionUser.getIdentifiant(), inputNewPassword);
-    			 *			request.setAttribute("Success", "Mot de passe modifié");
-    			 * 		sinon
-    			 * 			request.setAttribute("Fail", "Mot de passe de confirmation différent");
-    			 * sinon
-    			 *			request.setAttribute("Fail", "Ancien Mot de passe incorrecte");
-    			 */
-    			
-    		}
+    		if(request.getParameter("page") != null && request.getParameter("page").toString().equals("ModifierMotDePasse")) {
+        			String oldPassword=request.getParameter("oldPassword");
+        			String newPassword=request.getParameter("newPassword");
+        			String confirm=request.getParameter("confirm");
+        			if (oldPassword.equals(((fr.univangers.ester.beans.Utilisateur)sessionUser).getPassword())) {
+        				if (newPassword.equals(confirm)) {
+        					user.changePasswordUserEster(sessionUser.getIdentifiant(), newPassword);
+        					((fr.univangers.ester.beans.Utilisateur)sessionUser).setPassword(newPassword);
+        	    			request.setAttribute("Success", "Mot de passe modifié");
+        				}
+        				else {
+        					request.setAttribute("Warning", "Mot de passe de confirmation différent");
+        				}
+        			}
+        			else {
+        				request.setAttribute("Warning", "Ancien Mot de passe incorrecte");
+        			}
+        			
+        	}
 
         	if (sessionUser.isAdministrateur()) {
 

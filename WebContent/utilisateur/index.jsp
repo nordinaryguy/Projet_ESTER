@@ -334,19 +334,36 @@
 							<c:if test='${param.page == "ModifierMotDePasse"}'>
 							
 											<!-- Changement de Mot de Passe -->
-								<div class="row pt-2">
+								<div class="row pt-2"> 
 								
 									<form  id="saisi" method="post">
+									 <c:if test="${not empty Warning}">
+								      <div class="alert alert-danger alert-dismissible" role="alert">
+							          <strong>Erreur</strong> <c:out value = "${Warning}"/> <c:remove var="Warning" scope="session" />
+								        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								    </c:if>
+								    <c:if test="${not empty Success}">
+		    	
+								      <div class="alert alert-success alert-dismissible" role="alert">
+							          <strong>Succès</strong> <c:out value = "${Success}"/> <c:remove var="Success" scope="session" />
+								        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+								          <span aria-hidden="true">&times;</span>
+								        </button>
+								      </div>
+								    </c:if>
 									     <div class="pt-2">
-												<input type="password" id="inputOldPassword" class="form-control" placeholder="Ancien Mot de Passe" required>
+												<input type="password" id="inputOldPassword" name="oldPassword" class="form-control" placeholder="Ancien Mot de Passe" required>
 								   		 </div> 
 								   		 
 								   		 <div class="pt-2">
-												<input type="password" id="inputNewPassword" class="form-control" placeholder="Nouveau Mot de Passe" required>
+												<input type="password" id="inputNewPassword" name="newPassword" class="form-control" placeholder="Nouveau Mot de Passe" required>
 								   		 </div> 
 								   		 
 								   		 <div class="pt-2">
-								   		 		<input type="password" id="inputNew2Password" class="form-control" placeholder="Confirmez" required>
+								   		 		<input type="password" id="inputNew2Password" name="confirm" class="form-control" placeholder="Confirmez" required>
 								   		 </div> 
 								   		 
 								   		 <div class="row pt-2">
