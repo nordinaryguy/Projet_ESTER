@@ -58,7 +58,7 @@
 		      	<a class="dropdown-item" href="<c:url value="/utilisateur/generateur_questionnaire"/>">Générateur de Questionnaires</a>
 		      
 		      	<a class="dropdown-item" href="<c:url value="/questionnaire"/>">Liste de Questionnaires</a>
-		      	<a class="dropdown-item" href="<c:url value="/utilisateur?=ModifierMotDePasse"/>">Modifier Mot de Passe</a>
+		      	<a class="dropdown-item" href="<c:url value="/utilisateur?page=ModifierMotDePasse"/>">Modifier Mot de Passe</a>
 		      </c:if>
 		      
 		      <a class="dropdown-item" href="<c:url value="/deconnexion"/>">Déconnexion</a>
