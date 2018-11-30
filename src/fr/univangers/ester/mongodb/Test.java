@@ -7,10 +7,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import fr.univangers.ester.beans.Utilisateur.Status;
+
 public class Test {
 
 	public static void main(String[] args) {
 		Users users = new Users();
+		users.addUserEster("id1", "Eric", "LeBlanc", "ericLbc@ester.come", "1234", Status.MEDECIN);
 		
 		addEvalRiskTMS();
 		Reponses reponses = new Reponses();

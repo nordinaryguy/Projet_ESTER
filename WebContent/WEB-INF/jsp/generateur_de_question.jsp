@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
     
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
@@ -59,7 +59,7 @@
             
 	          <div id="build">
 	                <fieldset>
-	                  <div id="legend" class="component" rel="popover" title="Form Title" trigger="manual"
+	                  <div id="legend" class="component" rel="popover" title="Form Title" 
 	                    data-content="<form class='form'>
 	                      <div class='form-group col-md-12'>
 	                        <label class='control-label'>titre</label> <input class='form-control' type='text' name='title' id='text'>
@@ -295,7 +295,7 @@
                   
                   <!-- Code modifier -->
                   <div class="tab-pane" id="5">
-                    <textarea name="source" id="source" class="col-md-12" rows="25" required></textarea>
+                    <textarea name="source" id="source" class="col-md-12" rows="25" required disabled></textarea>
                   </div>
                 <div class="tab-pane" id="2">
 	                <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom du questionnaire" required>
