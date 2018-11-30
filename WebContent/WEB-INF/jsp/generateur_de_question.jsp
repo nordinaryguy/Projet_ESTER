@@ -244,7 +244,53 @@
 	                    <input type="range" name="weight" id="range_weight"  value="5" min="1" max="100" oninput="range_weight_disp.value = range_weight.value">
 	  					<output id="range_weight_disp"></output>
                      </div>
-                    
+                     <!-- echelle de borg-->
+                    <div class="form-group component" rel="popover" title="Multiple Radios" trigger="manual"
+                      data-content="
+                      <form class='form'>
+                        <div class='form-group col-md-12'>
+                          <label class='control-label'>Texte</label> <input class='form-control' type='text' name='label' id='label'>
+                          <label class='control-label'>Attributs</label> <input class='form-control' type='text' name='name' id='name'>
+                          <label class='control-label'>Options: </label>
+                          <textarea class='form-control' style='min-height: 200px' id='radios'></textarea>
+                          <hr/>
+                          <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
+                        </div>
+                      </form>" data-html="true"
+                      >
+                       <!-- echelle  -->
+                      <label class="col-md-4 control-label valtype" data-valtype="label">echelle de borg:  </label>
+                      	<div id="center" class="col-md-4 valtype" data-valtype="radios">
+                      	 <label class="radio">
+                          <input type="radio" value="Très très facile" name="Très très facile" checked="checked">
+							Très très facile
+                          </label> 
+                          <label class="radio">
+                          <input type="radio" value="Très très facile" name="Très facile">
+							Très facile
+                          </label> 
+                          <label class="radio">
+                          <input type="radio" value="Très très facile" name="Assez facile">
+							Assez facile
+                          </label>
+                          <label class="radio">
+                          <input type="radio" value="Un peu dur" name="Un peu dur">
+							Un peu dur
+                          </label>
+                          <label class="radio">
+                          <input type="radio" value="Dur" name="Dur">
+							Dur
+                          </label>
+                           <label class="radio">
+                          <input type="radio" value="Très dur" name="Très dur">
+							Très dur
+                          </label>
+                           <label class="radio">
+                          <input type="radio" value="Très très dur" name="Très très dur">
+							Très très dur
+                          </label>	
+                      </div>
+                    </div>
                   </div>
                   
                   <!-- Code modifier -->
