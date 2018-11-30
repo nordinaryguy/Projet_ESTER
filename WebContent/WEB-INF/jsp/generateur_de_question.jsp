@@ -295,23 +295,22 @@
                   
                   <!-- Code modifier -->
                   <div class="tab-pane" id="5">
-                    <textarea name="source" id="source" class="col-md-12" rows="25" required disabled></textarea>
+                    <textarea name="source" id="source" class="col-md-12" rows="25" required readonly></textarea>
                   </div>
                 <div class="tab-pane" id="2">
 	                <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom du questionnaire" required>
 					<input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant du questionnaire" required>
 	                <input type="submit" class="btn btn-primary" style="margin: 6px" value="Enregistrer" >
 	            </div>  
+             	 </form>
 	            </div>  
                 </fieldset>
-              </form>
              </div> 
             </div>
           </div> <!-- row -->
       <div class="row clearfix">
         <div class="col-md-12"></div>
       </div>
-    </div>
     </div><!-- /container -->
     
      <div class="row" style="padding-bottom:20px">

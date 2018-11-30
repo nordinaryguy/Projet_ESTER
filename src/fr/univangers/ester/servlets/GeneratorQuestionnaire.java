@@ -20,7 +20,7 @@ import fr.univangers.ester.mongodb.Questionnaires;
 @WebServlet("/utilisateur/generateur_questionnaire")
 public class GeneratorQuestionnaire extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    public static final String Code_source  = "source";
+    public static final String ATT_SOURCE  = "source";
     public static final String ATT_IDENTIFIANT = "Identifiant";
     public static final String ATT_SESSION_USER = "sessionUtilisateur";
     public static final String ATT_NOM = "Nom";
@@ -46,9 +46,8 @@ public class GeneratorQuestionnaire extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String source = request.getParameter( Code_source );
+		String source = request.getParameter(ATT_SOURCE);
    		HttpSession session = request.getSession();
-       
    		if(source != null) {
    			String identifiant = request.getParameter(ATT_IDENTIFIANT);
    			String nom = request.getParameter(ATT_NOM);
@@ -60,9 +59,8 @@ public class GeneratorQuestionnaire extends HttpServlet {
 			   session.setAttribute(ATT_MSG_SUCCESS, "Questionnaire sauvegarder");
 			   questionnaires.addQuestionnaire(nom, identifiant, source, identifiantEster);
    			}
+   	       createFile(source);	
        }
-       
-       createFile(source);	
        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/generateur_de_question.jsp").forward(request, response); 
 	}
 	protected String createFormHeader() {
