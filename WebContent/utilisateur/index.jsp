@@ -375,6 +375,18 @@
 									</form>
 								</div>	
     						</c:if>	
+    						
+    						<c:if test="${param.page == 'donnerQuestionnaire'}">
+				<!-- Attribuer questionnaire à un Salarié -->
+				
+								<div class="row pt-2">
+							     	 <c:import url="/jsp/Alert.jsp"/>
+							 	</div>
+				
+								<div class="row pt-2">
+							     	 <c:import url="/jsp/giveQuestionnaire.jsp"/>
+								</div>
+						</c:if>
 										
 					</div>
 				</div>
