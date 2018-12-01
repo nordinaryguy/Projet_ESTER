@@ -16,8 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.univangers.ester.beans.User;
-import fr.univangers.ester.mongodb.Questionnaires;
-import fr.univangers.ester.mongodb.Reponses;
+import fr.univangers.ester.mongodb.QuestionnairesDB;
+import fr.univangers.ester.mongodb.ReponsesDB;
 
 /**
  * Servlet implementation class Questionnaire
@@ -41,7 +41,7 @@ public class Questionnaire extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		Questionnaires questionnaires = new Questionnaires();
+		QuestionnairesDB questionnaires = new QuestionnairesDB();
 		session.setAttribute("ListeQuestionnaires", questionnaires.getIdentifiantQuestionnaires());
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
@@ -51,12 +51,12 @@ public class Questionnaire extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
-        Reponses reponsesDB = new Reponses();
+        ReponsesDB reponsesDB = new ReponsesDB();
     	
     	String identifiant = request.getParameter("Identifiant");
 		if(identifiant != null) {
 			try {
-				Questionnaires questionnaires = new Questionnaires();
+				QuestionnairesDB questionnaires = new QuestionnairesDB();
 				session.setAttribute("Identifiant Questionnaire", identifiant);
 				session.setAttribute("Nom", questionnaires.getName(identifiant));
 				session.setAttribute("Date", DateFormat.getDateInstance().format(questionnaires.getDateSubmission(identifiant)));
