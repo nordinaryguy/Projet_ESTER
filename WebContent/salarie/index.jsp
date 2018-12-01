@@ -54,10 +54,7 @@
 						<h1>Salarié</h1>
 						<p>Bienvenue sur la partie Salarié du Projet ESTER</p>
 						<c:import url="/jsp/Alert.jsp"/>
-							<c:if test="${FirstConnexion}">
-								<c:import url="/jsp/FormPatient.jsp"/>
-							</c:if>	
-							<c:if test='${param.page=="modifierProfil"}'>
+							<c:if test="${FirstConnexion||param.page == 'modifierProfil'}">
 								<c:import url="/jsp/FormPatient.jsp"/>
 							</c:if>	
 						</div>

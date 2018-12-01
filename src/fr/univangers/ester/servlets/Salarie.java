@@ -56,7 +56,12 @@ public class Salarie extends HttpServlet {
 		HttpSession session = request.getSession();
     	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
     	if(sessionUser.isFirstConnection() || (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
-    		String sexe=request.getParameter("sexe");
+    		//if (sessionUser.isFirstConnection()) {
+    			String sexe=request.getParameter("sexe");
+    		/*}
+    		else {
+    			String sexe = sessionUser.getSex();
+    		}*/
         	String[] birthYear=request.getParameter("years").split("-",2);
         	String pcs=request.getParameter("pcs");
         	String naf=request.getParameter("naf");
