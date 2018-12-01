@@ -8,15 +8,18 @@
 			                <h3>Veuillez saisir vos informations avant de débuter les questionnaires : </h3>
 			            </div>
 			
-			            <div class="form-row">
-			                <label>  
-			                		<span>Sexe : </span> 		
-			                </label> 
-			                <div class="form-radio-buttons">
-			                	<input type="radio" name="sexe" value="homme"> Homme<br>
-								 <input type="radio" name="sexe" value="femme"> Femme<br>                
-			                </div>  
-			            </div>
+						<c:if test="${FirstConnexion}">
+				            <div class="form-row">
+				                <label>  
+				                		<span>Sexe : </span> 		
+				                </label> 
+				                <div class="form-radio-buttons">
+				                	<input type="radio" name="sexe" value="homme"> Homme<br>
+									 <input type="radio" name="sexe" value="femme"> Femme<br>                
+				                </div>  
+				            </div>
+			            
+			            </c:if>
 			
 			            <div class="form-row">
 			                <label>
