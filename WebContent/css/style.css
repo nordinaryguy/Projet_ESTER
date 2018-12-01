@@ -55,13 +55,12 @@
   
 /**** echelle de borg style *****/
 
-#center {
+.center {
   margin: 0 auto;
   width: 50%;
-  background-color:black;
 }
 
-#center input[type="radio"] {
+ .center input[type="radio"] {
   position: relative;
   display: inline-block;
   min-height: 70px;
@@ -73,7 +72,7 @@
   appearance: none;
 }
 
-#center input[type="radio"]:after { 
+.center input[type="radio"]:after { 
   content: ''; 
   font-size: 10px;
   text-align: center;
@@ -97,7 +96,7 @@
   transition: all 0.3s ease-out;
  }
 
-#center input[type="radio"]:before { 
+.center input[type="radio"]:before { 
   position: absolute;
   margin: auto auto;
   left: 0; right: 0; bottom: 0; top: 0;
@@ -113,13 +112,12 @@
   -o-transition: all 0.1s ease-in;
   transition: all 0.1s ease-in;
 }
-
-#center input[type="radio"]:hover:before {
+.center input[type="radio"]:hover:before {
   height: 60px;
   width: 60px;
 }
 
-#center input[type="radio"]:checked:before {
+.center input[type="radio"]:checked:before {
   height: 100%;
   width: 100%;
   background: #dd3455;
@@ -127,8 +125,16 @@
   border-radius: 0;
 }
 
-#center input[type="radio"]:focus {
+ .center input[type="radio"]:focus {
   outline: none;
 }
 
-#center input[type="radio"]:checked:after { content: '✓'; } 
+ .center input[type="radio"].a:after { content: 'Très très facile'; } 
+.center input[type="radio"].b:after { content: 'Très  facile'; }
+.center input[type="radio"].c:after { content: 'Assez facile'; }
+.center input[type="radio"].d:after { content: 'Un peu dur'; }
+.center input[type="radio"].e:after { content: 'Dur'; }
+.center input[type="radio"].f:after { content: 'Très dur'; }
+.center input[type="radio"].g:after { content: 'Très très dur'; }
+
+.center input[type="radio"]:checked:after { content: '✓'; } 
