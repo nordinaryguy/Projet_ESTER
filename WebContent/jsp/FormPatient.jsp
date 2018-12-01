@@ -1,22 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<div class="container-fluid" id="container"  style="height:75rem;padding-top:4.5rem;">
+<div class="container-fluid" id="container_formpatient"  style="height:75rem;padding-top:4.5rem;">
 			<div class="row">
 					<form class="form-patient" method="post">
 			            <div class="form-title-row">
 			                <h3>Veuillez saisir vos informations avant de débuter les questionnaires : </h3>
 			            </div>
 			
-			            <div class="form-row">
-			                <label>  
-			                		<span>Sexe : </span> 		
-			                </label> 
-			                <div class="form-radio-buttons">
-			                	<input type="radio" name="sexe" value="homme"> Homme<br>
-								 <input type="radio" name="sexe" value="femme"> Femme<br>                
-			                </div>  
-			            </div>
+						<c:if test="${FirstConnexion}">
+				            <div class="form-row">
+				                <label>  
+				                		<span>Sexe : </span> 		
+				                </label> 
+				                <div class="form-radio-buttons">
+				                	<input type="radio" name="sexe" value="homme"> Homme<br>
+									 <input type="radio" name="sexe" value="femme"> Femme<br>                
+				                </div>  
+				            </div>
+			            
+			            </c:if>
 			
 			            <div class="form-row">
 			                <label>

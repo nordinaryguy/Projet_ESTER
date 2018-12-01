@@ -3,9 +3,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 
-<div class="row pt-2">
-    <h4>Créer un nouveau compte</h4>
-    <label for="typeCompte">Choisissez un type de compte :</label>		     
+<form  id="saisi" method="post">
+
+    
+    <label for="typeCompte">Choisissez un type de compte :</label>
+        
 	<select name="typeCompte" id="typeCompte" size="1">
 		<c:if test="${sessionScope.sessionUtilisateur.isAdministrateur()}">	     
 			<option value="Assistant">Administrateur</option>
@@ -16,7 +18,6 @@
 	    <option value="Preventeur">Préventeur</option>
     </select>
 	
-	<form  id="saisi" method="post">
 	     <div class="pt-2">
 	  		 <input type="email" id="adress_Email" name="email" class="form-control" placeholder="Adresse Email" required>
    		 </div> 
@@ -27,6 +28,4 @@
 	  		  
    		 </div> 
    		
-	</form>  						     
-						
-</div>
+	</form> 
