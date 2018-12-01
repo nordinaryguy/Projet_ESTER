@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
     
-	<title>Questionnaire</title>
+	<title>ESTER - Questionnaires</title>
 
 	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">

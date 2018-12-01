@@ -10,13 +10,13 @@ import fr.univangers.ester.beans.Utilisateur.Status;
 public class Test {
 
 	public static void main(String[] args) {
-		Users users = new Users();
+		/*Users users = new Users();
 		SalarieDB salarieDB = new SalarieDB();
 		users.addUserEster("id1", "Eric", "LeBlanc", "ericLbc@ester.come", "1234", Status.MEDECIN);
 		salarieDB.addSalarie("1", "A", "id1");
 		salarieDB.addSalarie("2", "A", "id1");
 		salarieDB.pushQuestionnaireUnanswered("1", "Eval-Risk-TMS");
-		salarieDB.pushQuestionnaireUnanswered("2", "Eval-Risk-TMS");
+		salarieDB.pushQuestionnaireUnanswered("2", "Eval-Risk-TMS");*/
 		addEvalRiskTMS();
 		/*
 		users.addUserEster("id1", "LeBlanc", "Eric", "eric.lablanc@ester.fr", "1234", Status.MEDECIN);
