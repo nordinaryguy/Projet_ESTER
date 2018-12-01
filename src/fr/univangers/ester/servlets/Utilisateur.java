@@ -104,6 +104,8 @@ public class Utilisateur extends HttpServlet {
 					request.setAttribute("Warning", "Questionnaire a déja été ajouté");	
         		} else {
         			salarieDB.pushQuestionnaireUnanswered(identifiantSalarie, identifiantQuestionnaire);
+    	     		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
+    	     		session.setAttribute("ListeSalaries", salarieDB.getIdentifiantSalaries());
         			request.setAttribute("Success", "Questionnaire ajouter");
         		}
 	 		}

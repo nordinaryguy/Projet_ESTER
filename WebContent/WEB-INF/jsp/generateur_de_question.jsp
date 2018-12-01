@@ -27,15 +27,6 @@
 		 <div class="col-md-5" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
 	</div>   
 </nav> 
-
-  	<c:if test="${not empty Warning}">
-  	 <div class="alert alert-warning alert-dismissible" role="alert">
-        <strong>Attention</strong> <c:out value = "${Warning}"/> <c:remove var="Warning" scope="session" />
-  	     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  	       <span aria-hidden="true">&times;</span>
-  	     </button>
-  	 </div>
-  	</c:if>
  
    <!-- questionnaire -->
     <div class="container">
@@ -68,6 +59,9 @@
           <div class="shadowbottom">
             <h2 style="border-radius: 10px; text-align:center"> Champs pour le questionnaire</h2>
           </div>
+          <div class="row pt-2">
+	     	 <c:import url="/jsp/Alert.jsp"/>
+	 	  </div>
           <div class="tabbable">
             <ul class="nav nav-tabs" id="navtab" >
               <li class="active" ><a href="#1" data-toggle="tab" style="background:#6bb8c8; color:white;">Questions</a></li>
@@ -279,12 +273,6 @@
                       </div>
                     </div>
                   </div>
-                  <!-- remplissage de données pour la BDD -->
-                  <div class="tab-pane" id="2">
-	                 <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom du questionnaire" required>
-					         <input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant du questionnaire" required>
-	                 <input type="submit" class="btn btn-primary" style="margin: 6px" value="Enregistrer" >
-	                </div> 
                   <!-- Code Source -->
                   <div class="tab-pane" id="5">
                     <textarea name="source" id="source" class="col-md-12" rows="25" required readonly></textarea>
