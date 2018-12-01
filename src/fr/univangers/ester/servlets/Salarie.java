@@ -30,7 +30,7 @@ public class Salarie extends HttpServlet {
     	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isSalarie()) {
         	
-        	if(sessionUser.isFirstConnection()){
+        	if(sessionUser.isFirstConnection() ||  (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
         		request.setAttribute(ATT_FIRST_CNX, true);
         	}else {
         		request.setAttribute(ATT_FIRST_CNX, false);
@@ -55,7 +55,7 @@ public class Salarie extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
     	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
-    	if(sessionUser.isFirstConnection()){
+    	if(sessionUser.isFirstConnection() || (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
     		String sexe=request.getParameter("sexe");
         	String[] birthYear=request.getParameter("years").split("-",2);
         	String pcs=request.getParameter("pcs");
