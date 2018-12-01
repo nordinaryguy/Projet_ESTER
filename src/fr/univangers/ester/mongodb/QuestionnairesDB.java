@@ -11,7 +11,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
 
-public class Questionnaires extends Database {
+public class QuestionnairesDB extends Database {
 
 	private static final String C_QUESTIONNAIRE = "C_QUESTIONNAIRE";
 

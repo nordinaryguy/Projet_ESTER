@@ -1,7 +1,5 @@
 package fr.univangers.ester.mongodb;
 
-import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 
 import org.bson.Document;
@@ -11,7 +9,7 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
 
-public class Reponses extends Database {
+public class ReponsesDB extends Database {
 
 	private static final String C_REPONSE = "C_REPONSE";
 
