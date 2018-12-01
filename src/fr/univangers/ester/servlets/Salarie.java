@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import fr.univangers.ester.beans.User;
+import fr.univangers.ester.mongodb.SalarieDB;
 import fr.univangers.ester.mongodb.Users;
 
 @WebServlet("/salarie")
@@ -61,15 +62,16 @@ public class Salarie extends HttpServlet {
         	String pcs=request.getParameter("pcs");
         	String naf=request.getParameter("naf");
         	String departement=request.getParameter("departement");
-        	int birthInf=0,birthSup=100;
+        	int birthInf=0;
+            int birthSup=100;
         	try {
         		birthInf=Integer.parseInt(birthYear[0]);
         		birthSup=Integer.parseInt(birthYear[1]);
         	}catch(Exception e){
         		request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
         	}
-        	Users users = new Users();
-        	if(users.updateSalrie(sessionUser.getIdentifiant(), sexe, birthInf, birthSup, departement, naf,pcs)){
+        	SalarieDB salarieDB = new SalarieDB();
+        	if(salarieDB.updateSalarie(sessionUser.getIdentifiant(), sexe, birthInf, birthSup, departement, naf,pcs)){
         		request.setAttribute(ATT_MSG_SUCCESS,"Profil mis à jour ");
         	}
         	else {

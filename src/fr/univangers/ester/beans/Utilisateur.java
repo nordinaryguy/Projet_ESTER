@@ -71,7 +71,7 @@ public class Utilisateur implements User {
 	@Override
 	public boolean validate() {
 		Users users = new Users();
-		return users.connectSalarie(identifiant, password);
+		return users.connectUserEster(identifiant, password);
 	}
 
 	@Override

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.univangers.ester.mail.Mail;
+import fr.univangers.ester.mongodb.ServerMailDB;
 import fr.univangers.ester.mongodb.Users;
 
 @WebServlet("/ForgotPassword")
@@ -51,7 +52,8 @@ public class ForgotPassword extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email=request.getParameter("Email");
 		Users users=new Users();
-		users.addDefautServer();
+		ServerMailDB serverMailDB = new ServerMailDB();
+		serverMailDB.addDefautServer();
 		Mail mailSender=new Mail();
 		String path = request.getRequestURL().toString();
 		path=path.substring(0, path.length()-"ForgotPassword".length());

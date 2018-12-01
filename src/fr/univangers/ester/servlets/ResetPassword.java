@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.univangers.ester.mongodb.ServerMailDB;
 import fr.univangers.ester.mongodb.Users;
 
 
@@ -28,7 +29,8 @@ public class ResetPassword extends HttpServlet {
 		String token=request.getParameter("token");
 		//check if valid
 		Users users=new Users();
-		users.addDefautServer();
+		ServerMailDB serverMailDB = new ServerMailDB();
+		serverMailDB.addDefautServer();
 		boolean valid=users.existUrlToken(token) && users.valideUrlToken(token);
 		//get email and set attribute if valid token
 		email=users.getIdentforToken(token);

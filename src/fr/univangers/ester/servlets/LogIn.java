@@ -13,6 +13,7 @@ import fr.univangers.ester.beans.Entreprise;
 import fr.univangers.ester.beans.Salarie;
 import fr.univangers.ester.beans.User;
 import fr.univangers.ester.beans.Utilisateur;
+import fr.univangers.ester.mongodb.SalarieDB;
 import fr.univangers.ester.mongodb.Users;
 
 @WebServlet("/connexion")
@@ -45,7 +46,8 @@ public class LogIn extends HttpServlet {
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant est incorrect.");
     		}
-        	userDB.incCnxSalarie(request.getParameter("Identifiant"));
+    		SalarieDB salarieDB = new SalarieDB();
+    		salarieDB.incCnxSalarie(request.getParameter("Identifiant"));
     	}
     	else if(type.equals("Entreprise")) {
     		user = new Entreprise();

@@ -14,6 +14,8 @@ import fr.univangers.ester.beans.User;
 import fr.univangers.ester.beans.Utilisateur.Status;
 import fr.univangers.ester.mail.Mail;
 import fr.univangers.ester.mdp.PwdGenerator;
+import fr.univangers.ester.mongodb.SalarieDB;
+import fr.univangers.ester.mongodb.ServerMailDB;
 import fr.univangers.ester.mongodb.Users;
 
 
@@ -38,12 +40,12 @@ public class Utilisateur extends HttpServlet {
         if (sessionUser != null && sessionUser.isUtilisateur()) {
         	 if (sessionUser.isAdministrateur()) {
 					if(request.getParameter("page") != null && request.getParameter("page").equals("configurationServeurMail")) {
-						Users user=new Users();
-						user.addDefautServer();
-						request.setAttribute("email",user.getServerMail() );
-						request.setAttribute("pass",user.getServerMailPass());
-						request.setAttribute("host", user.getServerHost());
-						request.setAttribute("port", user.getServerPort());
+						ServerMailDB serverMailDB = new ServerMailDB();
+						serverMailDB.addDefautServer();
+						request.setAttribute("email", serverMailDB.getServerMail() );
+						request.setAttribute("pass", serverMailDB.getServerMailPass());
+						request.setAttribute("host", serverMailDB.getServerHost());
+						request.setAttribute("port", serverMailDB.getServerPort());
 					}
         	 }			
          } 
@@ -55,8 +57,9 @@ public class Utilisateur extends HttpServlet {
 		HttpSession session = request.getSession();
    	 	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isUtilisateur()) {
-        	Users user=new Users();
-    		user.addDefautServer();       
+        	Users user = new Users();
+        	ServerMailDB serverMailDB = new ServerMailDB();
+        	serverMailDB.addDefautServer();       
     		
     		if(request.getParameter("page") != null && request.getParameter("page").toString().equals("ModifierMotDePasse")) {
         			String oldPassword=request.getParameter("oldPassword");
@@ -82,7 +85,7 @@ public class Utilisateur extends HttpServlet {
 
 				if(request.getParameter("page").equals("configurationServeurMail")) {
 					request.setAttribute("Success", "Serveur mail modifié");
-					user.addServerMail(request.getParameter("emailSender"), request.getParameter("password"),request.getParameter("host"),request.getParameter("port"));
+					serverMailDB.addServerMail(request.getParameter("emailSender"), request.getParameter("password"),request.getParameter("host"),request.getParameter("port"));
 				}
 			}
         	
@@ -91,7 +94,8 @@ public class Utilisateur extends HttpServlet {
         			String  code=PwdGenerator.generateCode();
         			request.setAttribute("message",code );
         			//ajout à la base
-        			user.addSalarie(code, null, 0,0,null, null, null, null,sessionUser.getIdentifiant());
+        			SalarieDB salarieDB = new SalarieDB();
+        			salarieDB.addSalarie(code, null, sessionUser.getIdentifiant());
         		}
         	}
         	
