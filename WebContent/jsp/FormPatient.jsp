@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<div class="container-fluid" id="container"  style="height:75rem;padding-top:4.5rem;">
+<div class="container-fluid" id="container_formpatient"  style="height:75rem;padding-top:4.5rem;">
 			<div class="row">
 					<form class="form-patient" method="post">
 			            <div class="form-title-row">

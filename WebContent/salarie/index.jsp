@@ -38,11 +38,11 @@
 				        </li>
 				        
 				        <li>
-				        	<a style="color:white;" href="<c:url value="/jsp/EnDev.jsp"/>">Voir les questionnaires</a>
+				        	<a style="color:white;" href="<c:url value="/questionnaire"/>">Voir les questionnaires</a>
 				        </li>
 				        
 				        <li>
-				        	<a style="color:white;" href="<c:url value="/jsp/EnDev.jsp"/>">Voir les statistiques</a>
+				        	<a style="color:white;" href="<c:url value="/resultat"/>">Voir les statistiques</a>
 				        </li>	        				  
 				    </ul> 
 			    </div>
@@ -54,15 +54,12 @@
 						<h1>Salarié</h1>
 						<p>Bienvenue sur la partie Salarié du Projet ESTER</p>
 						<c:import url="/jsp/Alert.jsp"/>
-						<div class="conainer-fluid">
 							<c:if test="${FirstConnexion}">
 								<c:import url="/jsp/FormPatient.jsp"/>
 							</c:if>	
 						</div>
 					</div>
-				</div>
-			</div>
-			
+				</div>			
 			
 	<!-- Footer de la page -->						
 		<c:import url="/jsp/Footer.jsp"/>
