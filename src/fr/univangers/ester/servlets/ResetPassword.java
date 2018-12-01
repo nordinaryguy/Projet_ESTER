@@ -15,7 +15,7 @@ public class ResetPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	public static final String ATT_MSG_WARNING = "Warning";
     public static final String ATT_MSG_SUCCESS = "Success";
-    public String email;
+    private  String email;
        
    
     public ResetPassword() {

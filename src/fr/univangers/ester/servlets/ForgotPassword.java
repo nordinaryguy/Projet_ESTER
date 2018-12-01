@@ -31,7 +31,20 @@ public class ForgotPassword extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String message="";
 		request.setAttribute("message", message);
-		this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ForgotPassword.jsp").forward(request, response);
+		try {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ForgotPassword.jsp").forward(request, response);
+		}catch(ServletException e) {
+			try {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+			catch (IOException ioe) {
+				// IOException
+			}
+		}
+		catch (IOException e) {
+				// IOException
+		}
+		
 	}
 
     @Override
@@ -53,7 +66,6 @@ public class ForgotPassword extends HttpServlet {
 				//add urlToken to database
 				users.addUrlToken(email, token, expireDate);
 				//create url to be sent in email (protocol://host:port/path?query#ref)
-				//TODO must be automaticaly changed
 				URL urlToken=new URL(path+"ResetPassword?"+"token="+token);
 				//send email
 				boolean mailSend=mailSender.sendMail(email,"Demande de réinitialisation de mot de passe", mailSender.mdpOublieBodyText(urlToken.toString()), true);
@@ -68,7 +80,19 @@ public class ForgotPassword extends HttpServlet {
 		}else {
 			request.setAttribute(ATT_MSG_WARNING,"Email n'existe pas");
 		}
-        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ForgotPassword.jsp").forward(request, response);
+		try {
+			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ForgotPassword.jsp").forward(request, response);
+		}catch(ServletException e) {
+			try {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+			catch (IOException ioe) {
+				// IOException
+			}
+		}
+		catch (IOException e) {
+				// IOException
+		}
 	}
 	
 	public class TimeLimit{

@@ -51,10 +51,19 @@
 			                </label>
 			            </div>
 			            
+			            <div class="form-row">
+			                <label>
+			                    <span>Region</span>
+			                    <select name="region" id="region" onchange="populateDep('region','departement')">
+			                    </select>
+			                </label>
+			            </div>
+			            
+			            
 						<div class="form-row">
 			                <label>
-			                    <span>N° Département</span>
-			                    <select name="departement" id="departement">
+			                    <span>Département</span>
+			                    <select name="departement" id="departement" onchange="populateReg('departement','region')">
 			                    </select>
 			                </label>
 			            </div>
@@ -69,5 +78,6 @@
 <script>
 	populateSelect("<c:url value="/src/pcs.json"/>","pcs");
 	populateSelect("<c:url value="/src/naf.json"/>","naf");
+	populateSelect("<c:url value="/src/regions.json"/>","region");
 	populateSelect("<c:url value="/src/departments.json"/>","departement");
 </script>

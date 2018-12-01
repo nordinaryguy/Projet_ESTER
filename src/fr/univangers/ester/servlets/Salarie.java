@@ -24,7 +24,7 @@ public class Salarie extends HttpServlet {
         super();
     }
 
-	
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
     	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
@@ -36,10 +36,22 @@ public class Salarie extends HttpServlet {
         		request.setAttribute(ATT_FIRST_CNX, false);
         	}
         }
-		this.getServletContext().getRequestDispatcher("/salarie/index.jsp").forward(request, response);
+        try {
+        	this.getServletContext().getRequestDispatcher("/salarie/index.jsp").forward(request, response);
+        }catch(ServletException e) {
+			try {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+			catch (IOException ioe) {
+				// IOException
+			}
+		}
+		catch (IOException e) {
+				// IOException
+		}
 	}
 
-	
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
     	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
@@ -49,18 +61,35 @@ public class Salarie extends HttpServlet {
         	String pcs=request.getParameter("pcs");
         	String naf=request.getParameter("naf");
         	String departement=request.getParameter("departement");
+        	int birthInf=0,birthSup=100;
+        	try {
+        		birthInf=Integer.parseInt(birthYear[0]);
+        		birthSup=Integer.parseInt(birthYear[1]);
+        	}catch(Exception e){
+        		request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
+        	}
         	Users users = new Users();
-        	if(users.updateSalrie(sessionUser.getIdentifiant(), sexe, Integer.parseInt(birthYear[0]), Integer.parseInt(birthYear[1]), departement, naf,pcs)){
+        	if(users.updateSalrie(sessionUser.getIdentifiant(), sexe, birthInf, birthSup, departement, naf,pcs)){
         		request.setAttribute(ATT_MSG_SUCCESS,"Profil mis à jour ");
-        		System.out.println("ajout user");
         	}
         	else {
         		request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
         	}
         	
     	}
-		
-		this.getServletContext().getRequestDispatcher("/salarie/index.jsp").forward(request, response);
+    	try {
+        	this.getServletContext().getRequestDispatcher("/salarie/index.jsp").forward(request, response);
+        }catch(ServletException e) {
+			try {
+				response.sendError(HttpServletResponse.SC_BAD_REQUEST, e.getMessage());
+			}
+			catch (IOException ioe) {
+				// IOException
+			}
+		}
+		catch (IOException e) {
+				// IOException
+		}
 	}
 
 }
