@@ -38,7 +38,7 @@
 				        </li>
 				        
 				        <li>
-				        	<a style="color:white;" href="<c:url value="/questionnaire"/>">Voir les questionnaires</a>
+				        	<a style="color:white;" href="<c:url value="/salarie/questionnaire"/>">Voir les questionnaires</a>
 				        </li>
 				        
 				        <li>

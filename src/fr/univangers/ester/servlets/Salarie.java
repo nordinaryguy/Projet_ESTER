@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import fr.univangers.ester.beans.User;
 import fr.univangers.ester.mongodb.SalarieDB;
-import fr.univangers.ester.mongodb.Users;
 
 @WebServlet("/salarie")
 public class Salarie extends HttpServlet {

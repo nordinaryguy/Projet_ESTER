@@ -49,9 +49,16 @@
 			    <div class="card-body">
 		    		<c:out value="${Questionnaire}" escapeXml="" ></c:out>
 		    		<c:remove var="Questionnaire" scope="session" />
-				    <button class="btn btn-primary m-3" type="submit">VALIDER</button>
-				    <button class="btn btn-danger m-3" type="reset">ANNULER</button>
-				    
+		    		
+      				<c:if test="${!empty sessionScope.sessionUtilisateur}">
+		      			<c:if test="${sessionScope.sessionUtilisateur.isSalarie()}">
+				    		<button class="btn btn-primary m-3" type="submit">VALIDER</button>
+				    		<button class="btn btn-danger m-3" type="reset">ANNULER</button>
+				    	</c:if>
+		      			<c:if test="${sessionScope.sessionUtilisateur.isUtilisateur()}">
+				    		<button class="btn btn-primary m-3" onClick="window.location.reload()">RETOUR</button>
+				    	</c:if>
+				    </c:if>
 			    </div>
 	    	</c:if>
 		</form>	

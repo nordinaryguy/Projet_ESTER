@@ -13,6 +13,7 @@ import org.directwebremoting.WebContext;
 import org.directwebremoting.WebContextFactory;
 
 import fr.univangers.ester.mongodb.ReponsesDB;
+import fr.univangers.ester.mongodb.SalarieDB;
 
 public class Resultat {
 	
@@ -161,8 +162,11 @@ public class Resultat {
 		WebContext ctx = WebContextFactory.get();
 		HttpServletRequest req = ctx.getHttpServletRequest();
 		ReponsesDB reponsesDB = new ReponsesDB();
+		SalarieDB salarieDB = new SalarieDB();
 		User sessionUser = (User) req.getSession().getAttribute("sessionUtilisateur");
-		if(sessionUser != null && reponsesDB.existReponse(sessionUser.getIdentifiant(), IDEVALRISKTMS)) {
+		if(sessionUser != null && sessionUser.isSalarie() && 
+				salarieDB.getQuestionnaireUnanswered(sessionUser.getIdentifiant()).contains(IDEVALRISKTMS) && 
+				reponsesDB.existReponse(sessionUser.getIdentifiant(), IDEVALRISKTMS)) {
 			Map<String, String> reponses = reponsesDB.getReponses(sessionUser.getIdentifiant(), IDEVALRISKTMS);
 			setTitleDataCSV(0,"Categorie",TJ,SALTSA,SO,SALTSA,RA,SALTSA,JA);
 			addDataCSV(0,3,"Votre travail nécessite-t-il de répêter les mêmes actions plus de 2 à 4 fois environ par minute ?"

@@ -46,11 +46,11 @@
 						    </li>
 	
 					        <li>
-			          			 	<a style="color:white;" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
+			          			 <a style="color:white;" href="<c:url value="/utilisateur/questionnaire"/>" >Administrer les questionnaires</a>	
 					        </li>
 					        
 					        <li>
-					      		<a style="color:white;" href="<c:url value="/resultat"/>">Afficher les statistiques</a>
+					      		<a style="color:white;" href="<c:url value="/resultat"/>" >Afficher les statistiques</a>
 					        </li>	
 			  		</c:if>
 			  					  					  		
