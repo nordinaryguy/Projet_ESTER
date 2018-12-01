@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
-    <title>Connexion</title>
+    <title>ESTER - Connexion</title>
 
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/Accueil.css"/>">

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
-    <title>ESTER</title>
+    <title>ESTER - Mot de passe oublié</title>
 
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/Accueil.css"/>">

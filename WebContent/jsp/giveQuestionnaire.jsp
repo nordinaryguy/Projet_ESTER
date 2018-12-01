@@ -6,7 +6,7 @@
 <form  id="saisi" method="post">
 
     
-    <label for="typeCompte">Choisissez un type de questionnaire :</label>
+    <label for="typeCompte">Choisissez un questionnaire :</label>
         
 	<select name="typeCompte" id="typeCompte" size="1">
 	<!-- à remplir avec les questionnaires -->
