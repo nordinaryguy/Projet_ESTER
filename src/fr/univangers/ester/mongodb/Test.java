@@ -11,6 +11,7 @@ public class Test {
 
 	public static void main(String[] args) {
 		Users users = new Users();
+		users.addSalarie("aaa", 1, "", "masculin", 10, "Yveline", "Medical", "Jean", "CHU", "LeBlanc");
 		
 		addEvalRiskTMS();
 		Reponses reponses = new Reponses();

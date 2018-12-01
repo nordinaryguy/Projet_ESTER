@@ -60,6 +60,7 @@
   		}
   		else
   		{
+
   			document.location.href="<%= request.getContextPath()%>/salarie";
   			
   		}

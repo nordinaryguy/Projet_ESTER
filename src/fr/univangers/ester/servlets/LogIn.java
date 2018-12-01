@@ -36,8 +36,9 @@ public class LogIn extends HttpServlet {
     	HttpSession session = request.getSession();
     	User user = null;
 		Users userDB = new Users();
-    	
+		
     	boolean result = false;
+    	boolean firstConnectionSalarie = false;
     	String code=request.getParameter("Identifiant");
     	if(type.equals("Salarie")) {
     		user = new Salarie();
@@ -46,7 +47,7 @@ public class LogIn extends HttpServlet {
         	if(userDB.existCode(code)) {
     			//page saisi formulaire
     			request.setAttribute("codePatient",code);
-    			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/FormPatient.jsp").forward(request, response);
+    			firstConnectionSalarie = true;
     		}
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant est incorrect.");
@@ -80,8 +81,17 @@ public class LogIn extends HttpServlet {
     	else {
     		session.setAttribute( ATT_SESSION_USER, null);
     	}
-    	doGet(request, response);
+
+    	if(firstConnectionSalarie) {
+    		this.getServletContext().getRequestDispatcher("/FormPatient").forward(request, response);
+    		//response.sendRedirect("/FormPatient");
+    	}
+		else {
+			doGet(request, response);
+		}
+
 	}
 
+	
 }
 
