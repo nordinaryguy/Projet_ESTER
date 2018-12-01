@@ -57,6 +57,9 @@
 							<c:if test="${FirstConnexion}">
 								<c:import url="/jsp/FormPatient.jsp"/>
 							</c:if>	
+							<c:if test='${param.page=="modifierProfil"}'>
+								<c:import url="/jsp/FormPatient.jsp"/>
+							</c:if>	
 						</div>
 					</div>
 				</div>			
