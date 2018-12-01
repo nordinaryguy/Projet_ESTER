@@ -4,23 +4,18 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 import fr.univangers.ester.beans.Utilisateur.Status;
 
 public class Test {
 
 	public static void main(String[] args) {
+		/*
 		Users users = new Users();
 		users.addUserEster("id1", "Eric", "LeBlanc", "ericLbc@ester.come", "1234", Status.MEDECIN);
-		
+		users.addSalarie("456X", 40, "", "Homme", 2015, "", "", "", "", "");
+		*/
 		addEvalRiskTMS();
-		Reponses reponses = new Reponses();
-		List<Map<String, String>> reponsesQ = reponses.getReponsesQuestions("id1", "Eval-Risk-TMS");
-		for(Map<String, String> reponseQ : reponsesQ) {
-			System.out.println(reponseQ.get(Reponses.REPONSE));
-		}
 		/*
 		users.addUserEster("id1", "LeBlanc", "Eric", "eric.lablanc@ester.fr", "1234", Status.MEDECIN);
 		//users.addUserEster("id1", "LeBlanc", "Eric", "eric.lablanc@ester.fr", "1234", Status.MEDECIN);
@@ -46,7 +41,7 @@ public class Test {
 	}
 
 	public static void addEvalRiskTMS() {
-		Questionnaires questionnaires = new Questionnaires();
+		QuestionnairesDB questionnaires = new QuestionnairesDB();
         String fileName = "WebContent/src/evalrisktms.html";
         String identifiant = "Eval-Risk-TMS";
         String html = "";

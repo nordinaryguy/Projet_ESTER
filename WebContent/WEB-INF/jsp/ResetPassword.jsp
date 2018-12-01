@@ -28,12 +28,6 @@
   	<c:import url="/jsp/Menu.jsp"/>
   	
   	<div class="container-fluid" id="container">
-  	
-	  	<div class="row justify-content-center pb-2">
-		       <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="205" height="90"></div>
-		       <div class="col-md-2" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="190" height="62"></div>				        
-		</div> 
-  	
 	  	<div class="row justify-content-center">
 			<div class="text-center mb-4">
 			     
@@ -43,15 +37,11 @@
 					            <div class="form-title-row">
 					                <h3>Veuillez entrer un nouveau mot de passe  </h3>
 					            </div>
-								<div class="form-row">	
-					               <div class="col-xs-12 center-block text-center"> 
-					               		<strong>${message} </strong>
-					               </div>
-					            </div>
+								<c:import url="/jsp/Alert.jsp"/>
 					            <div class="form-row">
 									<span>Email : </span> 		
 					               <div class="col-xs-12 center-block text-center"> 
-					               		<strong>${email} </strong>
+					               		<input type='email' name='email' id='email' value="${email}"  disabled="disabled" >
 					               </div>
 					            </div>
 					            
@@ -69,7 +59,7 @@
 					          		<label>
 										Confirmer le mot de passe : 	
 									</label>	
-					                <input type="password" name="passwordConfirm" id="pass_2" onBlur="checkPass()" required>
+					                <input type="password" name="passwordConfirm" id="pass_2" onkeyup="checkPass()" required>
 					           </div>
 					           <div id="divcomp">
 						          	<div class="row" >

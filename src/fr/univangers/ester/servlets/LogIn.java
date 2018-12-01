@@ -38,19 +38,14 @@ public class LogIn extends HttpServlet {
 		Users userDB = new Users();
     	
     	boolean result = false;
-    	String code=request.getParameter("Identifiant");
     	if(type.equals("Salarie")) {
     		user = new Salarie();
     		user.setIdentifiant(request.getParameter("Identifiant"));
         	result = user.validate();
-        	if(userDB.existCode(code)) {
-    			//page saisi formulaire
-    			request.setAttribute("codePatient",code);
-    			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/FormPatient.jsp").forward(request, response);
-    		}
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant est incorrect.");
     		}
+        	userDB.incCnxSalarie(request.getParameter("Identifiant"));
     	}
     	else if(type.equals("Entreprise")) {
     		user = new Entreprise();

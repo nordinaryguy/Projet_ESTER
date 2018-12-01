@@ -71,4 +71,10 @@ public class Entreprise implements User {
 		return false;
 	}
 
+	@Override
+	public boolean isFirstConnection() {
+		Users user=new Users();
+		return user.isFirstCnxEntreprise(identifiant);
+	}
+
 }

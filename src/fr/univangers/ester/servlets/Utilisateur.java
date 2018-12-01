@@ -91,7 +91,7 @@ public class Utilisateur extends HttpServlet {
         			String  code=PwdGenerator.generateCode();
         			request.setAttribute("message",code );
         			//ajout à la base
-        			user.addCodeGenrated(code);
+        			user.addSalarie(code, null, 0,0,null, null, null, null,sessionUser.getIdentifiant());
         		}
         	}
         	
@@ -119,7 +119,7 @@ public class Utilisateur extends HttpServlet {
         			}
         			else {
         				request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
-        				}
+        			}
         		}
         	}
         }

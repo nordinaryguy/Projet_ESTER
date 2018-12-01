@@ -50,6 +50,8 @@
 		    		<c:out value="${Questionnaire}" escapeXml="" ></c:out>
 		    		<c:remove var="Questionnaire" scope="session" />
 				    <button class="btn btn-primary m-3" type="submit">VALIDER</button>
+				    <button class="btn btn-danger m-3" type="reset">ANNULER</button>
+				    
 			    </div>
 	    	</c:if>
 		</form>	

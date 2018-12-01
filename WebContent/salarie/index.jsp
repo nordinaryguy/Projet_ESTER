@@ -26,7 +26,7 @@
 <body>  
 
 	<!-- Menu en header de la page -->						
-	    <c:import url="/jsp/MenuPage.jsp"/>
+	    <c:import url="/jsp/Menu.jsp"/>
   			<div class="row">
   			
   			<!-- Menu pour salarié -->    
@@ -34,15 +34,15 @@
   				<div class="col-md-2" style="background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);">
 			  		<ul style="color:white;">
 				  		<li>
-				        	<a style="color:white;" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier mon profil</a>
+				        	<a style="color:white;" href="<%= request.getContextPath()%>/salarie?page=modifierProfil">Modifier mon profil</a>
 				        </li>
 				        
 				        <li>
-				        	<a style="color:white;" href="<c:url value="/jsp/EnDev.jsp"/>">Voir les questionnaires</a>
+				        	<a style="color:white;" href="<c:url value="/questionnaire"/>">Voir les questionnaires</a>
 				        </li>
 				        
 				        <li>
-				        	<a style="color:white;" href="<c:url value="/jsp/EnDev.jsp"/>">Voir les statistiques</a>
+				        	<a style="color:white;" href="<c:url value="/resultat"/>">Voir les statistiques</a>
 				        </li>	        				  
 				    </ul> 
 			    </div>
@@ -53,9 +53,16 @@
 					<div class="container-fluid" id="container" style="background:white">	
 						<h1>Salarié</h1>
 						<p>Bienvenue sur la partie Salarié du Projet ESTER</p>
+						<c:import url="/jsp/Alert.jsp"/>
+							<c:if test="${FirstConnexion}">
+								<c:import url="/jsp/FormPatient.jsp"/>
+							</c:if>	
+							<c:if test='${param.page=="modifierProfil"}'>
+								<c:import url="/jsp/FormPatient.jsp"/>
+							</c:if>	
+						</div>
 					</div>
-				</div>
-			</div>
+				</div>			
 			
 	<!-- Footer de la page -->						
 		<c:import url="/jsp/Footer.jsp"/>

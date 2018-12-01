@@ -18,22 +18,15 @@
 
   <body>
   <!-- entete de page (logo) -->
-    <nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
-    	 <div class="row">
-    	 	 <div class="col-md-1" style="text-align:center;"><a style="color:white; font-size:140%" href="<c:url value="/utilisateur"/>">Retour</a></div>
-    	 	 <div class="col-md-5" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
-    		 <div class="col-md-5" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
-    	</div>   
-    </nav> 
 
-    <c:if test="${not empty Success}">
-  	 <div class="alert alert-success alert-dismissible" role="alert">
-        <strong>Succès</strong> <c:out value = "${Success}"/> <c:remove var="Success" scope="session" />
-  	    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  	      <span aria-hidden="true">&times;</span>
-  	    </button>
-  	 </div>
-  	</c:if>
+ 
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark shadowbottom">
+	 <div class="row">
+		 <div class="col-md-1" style="text-align:center;"><a href="<c:url value="/utilisateur"/>"><img src="<c:url value="/img/retour.png"/>" alt="retour"  width="65"></a></div>
+	 	 <div class="col-md-5" style="text-align:center;"><img src="<c:url value="/img/irset.png"/>" alt="Logo-ister" width="155"></div>
+		 <div class="col-md-5" style="text-align:center;"><img src="<c:url value="/img/ua_h.png"/>" alt="Logo-Université-Angers" width="170"></div>
+	</div>   
+</nav> 
 
   	<c:if test="${not empty Warning}">
   	 <div class="alert alert-warning alert-dismissible" role="alert">
@@ -294,30 +287,34 @@
 	                </div> 
                   <!-- Code Source -->
                   <div class="tab-pane" id="5">
-                    <textarea name="source" id="source" class="col-md-12" rows="25" required disabled></textarea>
+                    <textarea name="source" id="source" class="col-md-12" rows="25" required readonly></textarea>
                   </div>
+                <div class="tab-pane" id="2">
+	                <input type="text" name="Nom" class="form-control" style="margin: 6px" placeholder="Nom du questionnaire" required>
+					<input type="text" name="Identifiant" class="form-control" style="margin: 6px" placeholder="Identifiant du questionnaire" required>
+	                <input type="submit" class="btn btn-primary" style="margin: 6px" value="Enregistrer" >
 	            </div>  
-            </fieldset>
-          </form>
-        </div> 
+             	 </form>
+	            </div>  
+                </fieldset>
+             </div> 
+            </div>
+          </div> <!-- row -->
+      <div class="row clearfix">
+        <div class="col-md-12"></div>
       </div>
-    </div> <!-- row -->
-    <div class="row clearfix">
-      <div class="col-md-12"></div>
-    </div>
-  </div>
-</div><!-- / fin container -->
-<!--Footer-->
-  <div class="row" style="padding-bottom:20px">
-    <div class="col-md-12"> </div>
-  </div>
-  <div class="row" style="text-align:center">
-  	<div class="col-md-3"> </div>
-  	<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Mentions Légales</a></div>
-  	<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Projet</a></div>
-  	<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Contacts</a></div>
-  </div>      
+    </div><!-- /container -->
     
+     <div class="row" style="padding-bottom:20px">
+        <div class="col-md-12"> </div>
+        
+    </div>
+	<div class="row" style="text-align:center">
+		<div class="col-md-3"></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Mentions Légales</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Projet</a></div>
+		<div class="col-md-2" style="text-align:center;"><a href="<c:url value="/jsp/EnDev.jsp"/>">Contacts</a></div>
+	</div>          
 </body>
 </html>
 

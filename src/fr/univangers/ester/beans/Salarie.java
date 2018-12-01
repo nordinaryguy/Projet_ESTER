@@ -62,4 +62,10 @@ public class Salarie implements User {
 		return false;
 	}
 
+	@Override
+	public boolean isFirstConnection() {
+		Users user=new Users();
+		return user.isFirstCnxSalarie(identifiant);
+	}
+
 }
