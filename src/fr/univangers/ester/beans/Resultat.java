@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.directwebremoting.WebContext;
 import org.directwebremoting.WebContextFactory;
 
-import fr.univangers.ester.mongodb.Reponses;
+import fr.univangers.ester.mongodb.ReponsesDB;
 
 public class Resultat {
 	
@@ -160,7 +160,7 @@ public class Resultat {
 		
 		WebContext ctx = WebContextFactory.get();
 		HttpServletRequest req = ctx.getHttpServletRequest();
-		Reponses reponsesDB = new Reponses();
+		ReponsesDB reponsesDB = new ReponsesDB();
 		User sessionUser = (User) req.getSession().getAttribute("sessionUtilisateur");
 		if(sessionUser != null && reponsesDB.existReponse(sessionUser.getIdentifiant(), IDEVALRISKTMS)) {
 			Map<String, String> reponses = reponsesDB.getReponses(sessionUser.getIdentifiant(), IDEVALRISKTMS);
