@@ -46,7 +46,7 @@
 						    </li>
 	
 					        <li>
-			          			 <a style="color:white;" href="<c:url value="/utilisateur/questionnaire"/>" >Administrer les questionnaires</a>	
+			          			 <a style="color:white;" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire"/>" >Administrer les questionnaires</a>	
 					        </li>
 					        
 					        <li>
@@ -69,7 +69,7 @@
 						    </li>
 				
 					        <li>
-			          			 	<a style="color:white;" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
+			          			 	<a style="color:white;" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire">Administrer les questionnaires</a>	
 					        </li>
 					        
 					        <li>
@@ -118,7 +118,7 @@
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
 					          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
-					          <a class="dropdown-item" href="<%= request.getContextPath()%>/questionnaire">Modifier la gestion des questionnaires</a>	
+					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire">Modifier la gestion des questionnaires</a>	
 					        </div>
 					   	</li>	        
 				              
