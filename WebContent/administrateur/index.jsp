@@ -105,7 +105,7 @@
 					 	</div>
 					</c:if>
 					  
-						<c:if test="${param.page == 'configurationServeurMail'}">
+					<c:if test="${param.page == 'configurationServeurMail'}">
 					<div class="container-fluid row">
 				    	<form class="form-signin" method="post">
 				            <div class="form-label-group">

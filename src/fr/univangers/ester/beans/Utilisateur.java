@@ -115,4 +115,10 @@ public class Utilisateur implements User {
 
 	}
 
+	@Override
+	public boolean isFirstConnection() {
+		Users user=new Users();
+		return user.isFirstCnxUserEster(identifiant);
+	}
+
 }

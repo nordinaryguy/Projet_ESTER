@@ -37,7 +37,12 @@ public class SalarieFilter implements Filter {
         User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isSalarie()) {
             /* Affichage de la page restreinte */
-            chain.doFilter( req, res );
+        	try {
+        		chain.doFilter( req, res );
+        	}catch(IllegalStateException e) {
+        	
+        	}
+        	
         } else {
             /* Redirection vers la page publique */
         	req.getRequestDispatcher(ACCES_CONNEXION).forward( req, res );

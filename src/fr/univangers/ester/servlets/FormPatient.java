@@ -45,7 +45,8 @@ public class FormPatient extends HttpServlet {
     	String departement=request.getParameter("nomDepartement");
     	String region=request.getParameter("region");
     	Users users = new Users();
-    	users.addSalarie("Null", 0,"Null", sexe, birthYear,departement, region, "Null","Null", "Null");
+    	System.out.println("ajout user");
+    	//TODO update salarie 
     	try {
         	this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/FormPatient.jsp").forward(request, response);
 		}catch(ServletException e) {

@@ -53,9 +53,16 @@
 					<div class="container-fluid" id="container" style="background:white">	
 						<h1>Salarié</h1>
 						<p>Bienvenue sur la partie Salarié du Projet ESTER</p>
+						<c:import url="/jsp/Alert.jsp"/>
+						<div class="conainer-fluid">
+							<c:if test="${FirstConnexion}">
+								<c:import url="/jsp/FormPatient.jsp"/>
+							</c:if>	
+						</div>
 					</div>
 				</div>
 			</div>
+			
 			
 	<!-- Footer de la page -->						
 		<c:import url="/jsp/Footer.jsp"/>

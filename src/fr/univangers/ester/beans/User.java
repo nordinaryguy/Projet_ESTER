@@ -5,6 +5,7 @@ public interface User {
 	public void setIdentifiant(String identifiant);
 	public String getIdentifiant();
 	public boolean validate();
+	public boolean isFirstConnection();
 	public boolean isEntreprise();
 	public boolean isSalarie();
 	public boolean isUtilisateur();
