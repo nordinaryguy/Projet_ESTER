@@ -55,7 +55,10 @@
 		      
 		      <c:if test="${sessionScope.sessionUtilisateur.isUtilisateur()}">
 		      	<a class="dropdown-item" href="<c:url value="/utilisateur"/>">Utilisateur</a>
+		        <c:if test="${sessionScope.sessionUtilisateur.isAdministrateur()||sessionScope.sessionUtilisateur.isMedecin()}">
+		      	
 		      	<a class="dropdown-item" href="<c:url value="/utilisateur/generateur_questionnaire"/>">Générateur de Questionnaires</a>
+		      	</c:if>
 		      
 		      	<a class="dropdown-item" href="<c:url value="/questionnaire"/>">Liste de Questionnaires</a>
 		      	<a class="dropdown-item" href="<c:url value="/utilisateur?page=ModifierMotDePasse"/>">Modifier Mot de Passe</a>
