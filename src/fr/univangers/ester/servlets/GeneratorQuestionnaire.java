@@ -46,6 +46,7 @@ public class GeneratorQuestionnaire extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		String source = request.getParameter(ATT_SOURCE);
    		HttpSession session = request.getSession();
    		if(source != null) {
