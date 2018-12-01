@@ -14,6 +14,7 @@ import fr.univangers.ester.beans.User;
 import fr.univangers.ester.beans.Utilisateur.Status;
 import fr.univangers.ester.mail.Mail;
 import fr.univangers.ester.mdp.PwdGenerator;
+import fr.univangers.ester.mongodb.QuestionnairesDB;
 import fr.univangers.ester.mongodb.SalarieDB;
 import fr.univangers.ester.mongodb.ServerMailDB;
 import fr.univangers.ester.mongodb.Users;
@@ -47,7 +48,14 @@ public class Utilisateur extends HttpServlet {
 						request.setAttribute("host", serverMailDB.getServerHost());
 						request.setAttribute("port", serverMailDB.getServerPort());
 					}
-        	 }			
+        	 }	
+
+	 		if(request.getParameter("page") != null && request.getParameter("page").equals("donnerQuestionnaire")) {
+	 			QuestionnairesDB questionnairesDB = new QuestionnairesDB();
+	     		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
+	 			SalarieDB salarieDB = new SalarieDB();
+	     		session.setAttribute("ListeSalaries", salarieDB.getIdentifiantSalaries());
+	 		}
          } 
 		this.getServletContext().getRequestDispatcher("/utilisateur/index.jsp").forward(request, response);
 	}
@@ -61,7 +69,7 @@ public class Utilisateur extends HttpServlet {
         	ServerMailDB serverMailDB = new ServerMailDB();
         	serverMailDB.addDefautServer();       
     		
-    		if(request.getParameter("page") != null && request.getParameter("page").toString().equals("ModifierMotDePasse")) {
+    		if(request.getParameter("page") != null && request.getParameter("page").equals("ModifierMotDePasse")) {
         			String oldPassword=request.getParameter("oldPassword");
         			String newPassword=request.getParameter("newPassword");
         			String confirm=request.getParameter("confirm");
@@ -81,6 +89,25 @@ public class Utilisateur extends HttpServlet {
         			
         	}
 
+	 		if(request.getParameter("page") != null && request.getParameter("page").equals("donnerQuestionnaire")) {
+        		String identifiantQuestionnaire = request.getParameter("IdentifiantQuestionnaire");
+        		String identifiantSalarie = request.getParameter("IdentifiantSalarie");
+        		SalarieDB salarieDB = new SalarieDB();
+	 			QuestionnairesDB questionnairesDB = new QuestionnairesDB();
+        		if(salarieDB.getQuestionnaireAnswered(identifiantSalarie).contains(identifiantQuestionnaire)) {
+    	     		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
+    	     		session.setAttribute("ListeSalaries", salarieDB.getIdentifiantSalaries());
+        			request.setAttribute("Warning", "Questionnaire a déja été répondus");
+        		} else if(salarieDB.getQuestionnaireUnanswered(identifiantSalarie).contains(identifiantQuestionnaire)) {
+    	     		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
+    	     		session.setAttribute("ListeSalaries", salarieDB.getIdentifiantSalaries());
+					request.setAttribute("Warning", "Questionnaire a déja été ajouté");	
+        		} else {
+        			salarieDB.pushQuestionnaireUnanswered(identifiantSalarie, identifiantQuestionnaire);
+        			request.setAttribute("Success", "Questionnaire ajouter");
+        		}
+	 		}
+	 		
         	if (sessionUser.isAdministrateur()) {
 
 				if(request.getParameter("page").equals("configurationServeurMail")) {

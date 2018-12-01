@@ -7,6 +7,7 @@ import org.bson.Document;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
 
 public class SalarieDB extends Database {
@@ -54,6 +55,15 @@ public class SalarieDB extends Database {
 					.append(DEPARTMENT, department)
 					.append(ACTIVITYAREA, activityArea)
 					.append(POSTNAME, postName)))) != null;
+	}
+	
+	public List<String> getIdentifiantSalaries() {
+		List<String> identifiantSalaries = new ArrayList<>();
+		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
+	    MongoCursor<Document> cursor = salaries.find().iterator();
+	    while(cursor.hasNext())
+	    	identifiantSalaries.add(cursor.next().getString(IDENTIFIANT));
+	    return identifiantSalaries;
 	}
 	
 	public void deleteSalarie(String identifiant) {

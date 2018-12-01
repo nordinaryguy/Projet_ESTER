@@ -42,13 +42,13 @@ public class Questionnaire extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		QuestionnairesDB questionnaires = new QuestionnairesDB();
+		QuestionnairesDB questionnairesDB = new QuestionnairesDB();
     	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
     	SalarieDB salarieDB = new SalarieDB();
     	if(sessionUser.isSalarie())
     		session.setAttribute("ListeQuestionnaires", salarieDB.getQuestionnaireUnanswered(sessionUser.getIdentifiant()));
     	else
-    		session.setAttribute("ListeQuestionnaires", questionnaires.getIdentifiantQuestionnaires());
+    		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 

@@ -6,17 +6,21 @@
 <form  id="saisi" method="post">
 
     
-    <label for="typeCompte">Choisissez un type de questionnaire :</label>
+    <label for="idQuestionnaires">Choisissez un questionnaire à soumettre :</label>
         
-	<select name="typeCompte" id="typeCompte" size="1">
-	<!-- à remplir avec les questionnaires -->
-			<option value=""></option>
-			
+	<select class="form-control" name="IdentifiantQuestionnaire" id="listeQuestionnaires">
+	    <c:forEach items="${ListeQuestionnaires}" var="identifiant" varStatus="status">
+		    <option> <c:out value="${identifiant}"></c:out> </option>
+		</c:forEach>
+		<c:remove var="ListeQuestionnaires" scope="session" />	
     </select>
-	
-	     <div class="pt-2">
-	  		 <input type="text" id="id_salarie" name="salarie" class="form-control" placeholder="Identifiant du Salarié" required>
-   		 </div> 
+    
+	<select class="form-control" name="IdentifiantSalarie" id="listeSalaries">
+	    <c:forEach items="${ListeSalaries}" var="identifiant" varStatus="status">
+		    <option> <c:out value="${identifiant}"></c:out> </option>
+		</c:forEach>
+		<c:remove var="ListeSalaries" scope="session" />	
+    </select>
    		 
    		 <div class="row pt-2">
 	  		  <div class="col"><input type="submit" class="btn btn-info" value="Valider" style="float:right;"></div>
