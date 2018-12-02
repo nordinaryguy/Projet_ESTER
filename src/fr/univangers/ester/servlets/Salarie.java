@@ -75,7 +75,7 @@ public class Salarie extends HttpServlet {
         		request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
         	}
         	SalarieDB salarieDB = new SalarieDB();
-        	if(salarieDB.updateSalarie(sessionUser.getIdentifiant(), sexe, birthInf, birthSup, departement, naf,pcs)){
+        	if(salarieDB.update(sessionUser.getIdentifiant(), sexe, birthInf, birthSup, departement, naf,pcs)){
         		request.setAttribute(ATT_MSG_SUCCESS,"Profil mis à jour ");
         	}
         	else {

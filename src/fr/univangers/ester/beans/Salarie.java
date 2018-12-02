@@ -19,7 +19,7 @@ public class Salarie implements UtilisateurBeans {
 	@Override
 	public boolean validate() {
 		SalarieDB salarieDB = new SalarieDB();
-		return salarieDB.existSalarie(identifiant);
+		return salarieDB.connect(identifiant);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class Salarie implements UtilisateurBeans {
 	@Override
 	public boolean isFirstConnection() {
 		SalarieDB salarieDB = new SalarieDB();
-		return salarieDB.isFirstCnxSalarie(identifiant);
+		return salarieDB.isFirstCnx(identifiant);
 	}
 
 }

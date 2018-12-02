@@ -71,7 +71,7 @@ public class UtilisateurEster implements UtilisateurBeans {
 	@Override
 	public boolean validate() {
 		UtilisateurEsterDB users = new UtilisateurEsterDB();
-		return users.connectUserEster(identifiant, password);
+		return users.connect(identifiant, password);
 	}
 
 	@Override
@@ -118,7 +118,7 @@ public class UtilisateurEster implements UtilisateurBeans {
 	@Override
 	public boolean isFirstConnection() {
 		UtilisateurEsterDB user=new UtilisateurEsterDB();
-		return user.isFirstCnxUserEster(identifiant);
+		return user.isFirstCnx(identifiant);
 	}
 
 }

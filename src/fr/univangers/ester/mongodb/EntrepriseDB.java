@@ -19,8 +19,8 @@ public class EntrepriseDB extends Database {
 	private static final String FIRSTCONNECTION = "Première connexion";
 	private static final String SALARIES = "Salariés";
 	
-	public void addEntreprise(String identifiant, String name, String password) {
-		if(existEntreprise(identifiant)) {
+	public void add(String identifiant, String name, String password) {
+		if(exist(identifiant)) {
 			throw new IllegalArgumentException("Identifiant déja ajouter");
 		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
@@ -32,26 +32,26 @@ public class EntrepriseDB extends Database {
 		entreprises.insertOne(entreprise);
 	}
 	
-	public void deleteEntreprise(String identifiant) {
+	public void delete(String identifiant) {
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
-	public void changePasswordEntreprise(String identifant, String password) {
+	public void changePassword(String identifant, String password) {
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
 				new Document("$set", new Document(PASSWORD, password)));
 	}
 	
-	public void changeFirstConnectionEntreprise(String identifant, boolean firstConnection) {
+	public void changeFirstConnection(String identifiant, boolean firstConnection) {
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
-		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
+		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
 				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
 	}
 	
-	public boolean isFirstCnxEntreprise(String identifiant) {
+	public boolean isFirstCnx(String identifiant) {
 		boolean res=true;
-		if(existEntreprise(identifiant)) {
+		if(exist(identifiant)) {
 			MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		    FindIterable<Document> iterable = entreprises.find(Filters.eq(IDENTIFIANT, identifiant));
 			res=iterable.first().getBoolean(FIRSTCONNECTION);
@@ -59,13 +59,13 @@ public class EntrepriseDB extends Database {
 		return res;
 	}
 	
-	public boolean existEntreprise(String identifiant) {
+	public boolean exist(String identifiant) {
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 	    FindIterable<Document> iterable = entreprises.find(Filters.eq(IDENTIFIANT, identifiant));
 		return iterable.first() != null;
 	}
 	
-	public boolean connectEntreprise(String identifiant, String password) {
+	public boolean connect(String identifiant, String password) {
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 	    FindIterable<Document> iterable = entreprises.find(Filters.and(Filters.eq(IDENTIFIANT, identifiant),
 	    		Filters.eq(PASSWORD, password)));
@@ -74,7 +74,7 @@ public class EntrepriseDB extends Database {
 	
 	public List<String> getSalariesEntreprise(String identifiant) {
 		List<String> salaries = new ArrayList<>();
-		if(!existEntreprise(identifiant)) {
+		if(!exist(identifiant)) {
 			throw new IllegalArgumentException("L'entreprise n'existe pas.");	
 		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);

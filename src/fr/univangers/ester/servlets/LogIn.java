@@ -47,7 +47,7 @@ public class LogIn extends HttpServlet {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant est incorrect.");
     		}
     		SalarieDB salarieDB = new SalarieDB();
-    		salarieDB.incCnxSalarie(request.getParameter("Identifiant"));
+    		salarieDB.incCnx(request.getParameter("Identifiant"));
     	}
     	else if(type.equals("Entreprise")) {
     		utilisateur = new Entreprise();
@@ -67,7 +67,7 @@ public class LogIn extends HttpServlet {
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant ou votre mot de passe est incorrect.");
         	} else {
-        		((UtilisateurEster)utilisateur).setStatus(userDB.getStatusUserEster(identifiant));
+        		((UtilisateurEster)utilisateur).setStatus(userDB.getStatus(identifiant));
         	}
     	}
     	if(type != null && result) {

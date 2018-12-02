@@ -74,7 +74,7 @@ public class Utilisateur extends HttpServlet {
         			String confirm=request.getParameter("confirm");
         			if (oldPassword.equals(((UtilisateurEster)sessionUser).getPassword())) {
         				if (newPassword.equals(confirm)) {
-        					user.changePasswordUserEster(sessionUser.getIdentifiant(), newPassword);
+        					user.changePassword(sessionUser.getIdentifiant(), newPassword);
         					((UtilisateurEster)sessionUser).setPassword(newPassword);
         	    			request.setAttribute("Success", "Mot de passe modifié");
         				}
@@ -123,7 +123,7 @@ public class Utilisateur extends HttpServlet {
         			request.setAttribute("message",code );
         			//ajout à la base
         			SalarieDB salarieDB = new SalarieDB();
-        			salarieDB.addSalarie(code, null, sessionUser.getIdentifiant());
+        			salarieDB.add(code, null, sessionUser.getIdentifiant());
         		}
         	}
         	
@@ -143,7 +143,7 @@ public class Utilisateur extends HttpServlet {
         			String pass=PwdGenerator.generatePassword();
         			String path = request.getRequestURL().toString();
         			path=path.substring(0, path.length()-forPath.length());
-        			user.addUserEster(email,"", "", email, pass,Status.toStatus(type));
+        			user.add(email,"", "", email, pass,Status.toStatus(type));
         			Mail mailSender=new Mail();
         			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,path+"connexion"), true);
         			if(mailSend) {

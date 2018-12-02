@@ -29,7 +29,7 @@ public class SalarieDB extends Database {
 	private static final String NBCONNECTION = "Nombre de connexion";
 	private static final String TIMECONNECTION = "Durée de la connexion";
 	
-	public void addSalarie(String identifiant, String entreprise, String userEster) {
+	public void add(String identifiant, String entreprise, String userEster) {
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		Document salarie = new Document(IDENTIFIANT, identifiant)
 				.append(FIRSTCONNECTION, true)
@@ -44,7 +44,7 @@ public class SalarieDB extends Database {
 		entrepriseDB.pushSalarieIntoEntreprise(entreprise, identifiant);
 	}
 	
-	public boolean updateSalarie(String identifiant, String sex, int birthYearInf, int birthYearSup,
+	public boolean update(String identifiant, String sex, int birthYearInf, int birthYearSup,
 			String department, String activityArea, String postName) {
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		return (salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
@@ -66,14 +66,14 @@ public class SalarieDB extends Database {
 	    return identifiantSalaries;
 	}
 	
-	public void deleteSalarie(String identifiant) {
+	public void delete(String identifiant) {
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		salaries.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
-	public boolean isFirstCnxSalarie(String identifiant) {
+	public boolean isFirstCnx(String identifiant) {
 		boolean res=true;
-		if(existSalarie(identifiant)) {
+		if(exist(identifiant)) {
 			MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		    FindIterable<Document> iterable = salaries.find(Filters.eq(IDENTIFIANT, identifiant));
 			res=iterable.first().getBoolean(FIRSTCONNECTION);
@@ -81,7 +81,7 @@ public class SalarieDB extends Database {
 		return res;
 	}
 	
-	public void incCnxSalarie(String identifant) {
+	public void incCnx(String identifant) {
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
 				new Document("$inc", new Document(NBCONNECTION, 1)));
@@ -89,7 +89,7 @@ public class SalarieDB extends Database {
 	
 	public List<String> getQuestionnaireAnswered(String identifiant) {
 		List<String> questionnaireAnswered = new ArrayList<>();
-		if(!existSalarie(identifiant)) {
+		if(!exist(identifiant)) {
 			throw new IllegalArgumentException("Le salarie n'existe pas.");	
 		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
@@ -106,7 +106,7 @@ public class SalarieDB extends Database {
 	}
 	
 	public String getSex(String identifiant) {
-		if(!existSalarie(identifiant)) {
+		if(!exist(identifiant)) {
 			throw new IllegalArgumentException("Le salarie n'existe pas.");	
 		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
@@ -127,7 +127,7 @@ public class SalarieDB extends Database {
 	
 	public List<String> getQuestionnaireUnanswered(String identifiant) {
 		List<String> questionnaireUnanswered = new ArrayList<>();
-		if(!existSalarie(identifiant)) {
+		if(!exist(identifiant)) {
 			throw new IllegalArgumentException("Le salarie n'existe pas.");	
 		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
@@ -161,13 +161,13 @@ public class SalarieDB extends Database {
 				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
 	}
 	
-	public boolean existSalarie(String identifiant) {
+	public boolean exist(String identifiant) {
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 	    FindIterable<Document> iterable = salaries.find(Filters.eq(IDENTIFIANT, identifiant));
 		return iterable.first() != null;
 	}
 	
-	public boolean connectSalarie(String identifiant) {
-		return existSalarie(identifiant);
+	public boolean connect(String identifiant) {
+		return exist(identifiant);
 	}
 }

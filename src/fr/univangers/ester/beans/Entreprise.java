@@ -28,7 +28,7 @@ public class Entreprise implements UtilisateurBeans {
 	@Override
 	public boolean validate() {
 		EntrepriseDB entrepriseDB = new EntrepriseDB();
-		return entrepriseDB.connectEntreprise(identifiant, password);
+		return entrepriseDB.connect(identifiant, password);
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class Entreprise implements UtilisateurBeans {
 	@Override
 	public boolean isFirstConnection() {
 		EntrepriseDB entrepriseDB = new EntrepriseDB();
-		return entrepriseDB.isFirstCnxEntreprise(identifiant);
+		return entrepriseDB.isFirstCnx(identifiant);
 	}
 
 }
