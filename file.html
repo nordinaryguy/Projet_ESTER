@@ -3,51 +3,30 @@
   <head>
     <meta charset="utf-8">
     <title>generateur de questionnaire</title>
-  </head>
-
+  <style type="text/css">
+      body {
+        padding-bottom: 10px;
+        background: repeating-linear-gradient(-45deg, white, white 4px, #e9e8e7 4px, white 6px);
+      }
+ fieldset{
+	  text-align: center;
+	  font-style: italic;
+	  }    </style>  </head>
   <body>
   
    <!-- questionnaire -->
     <div class="container" style="background-color: white; margin-top: 5%;"> 
 
 	                <fieldset>
-	                  <div id="legend" class="">
-	                    <legend class="">veuillez saisir le nom de votre questionnaire </legend>
+	                  <div id="legend">
+	                    <legend>veuillez saisir le nom de votre questionnaire </legend>
 	                  </div>
-	                <div class="form-group">
-           <!-- echelle  -->
-          <label class="col-md-4 control-label">echelle de borg:  </label>
-          	<div class="col-md-4">
-      <!-- Multiple Radios -->
-      <label class="radio">
-     <input type="radio" value="Très très facile" name="Très très facile" id="15" checked="checked">
-        Très très facile
-      </label>
-      <label class="radio">
-     <input type="radio" value="Très facile" name="Très très facile" id="16">
-        Très facile
-      </label>
-      <label class="radio">
-     <input type="radio" value="Assez facile" name="Très très facile" id="17">
-        Assez facile
-      </label>
-      <label class="radio">
-     <input type="radio" value="Un peu dur" name="Très très facile" id="18">
-        Un peu dur
-      </label>
-      <label class="radio">
-     <input type="radio" value="Dur" name="Très très facile" id="19">
-        Dur
-      </label>
-      <label class="radio">
-     <input type="radio" value="Très dur" name="Très très facile" id="20">
-        Très dur
-      </label>
-      <label class="radio">
-     <input type="radio" value="Très très dur" name="Très très facile" id="21">
-        Très très dur
-      </label>
-  </div>
+	                <div class="form-group active">
+          <!-- Text input-->
+          <label class="col-md-4 control-label" for="input01">Question de type texte (courte):</label>
+          <div class="col-md-4">
+            <input name="input01" class="form-control input-md" type="text" placeholder="Texte par defaut" value="">
+          </div>
         </div>
 
     </fieldset>
