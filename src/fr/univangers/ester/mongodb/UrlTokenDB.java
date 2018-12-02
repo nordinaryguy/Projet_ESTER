@@ -34,9 +34,16 @@ public class UrlTokenDB extends Database {
 	
 	public boolean hasUrlToken(String email) {
 		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
-	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(IDENTIFIANT,email));
-		return iterable.first() != null && valideUrlToken((String) iterable.first().get(URLTOKEN));
+	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(IDENTIFIANT, email));
+		return existEmail(email) && valideUrlToken((String) iterable.first().get(URLTOKEN));
 	}
+	
+	public boolean existEmail(String email) {
+		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
+	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(IDENTIFIANT, email));
+		return iterable.first() != null;
+	}
+	
 	public boolean existUrlToken(String token) {
 		MongoCollection<Document> urlTokens = db().getCollection(C_URL_TOKEN);
 	    FindIterable<Document> iterable = urlTokens.find(Filters.eq(URLTOKEN, token));

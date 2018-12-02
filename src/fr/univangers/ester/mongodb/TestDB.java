@@ -4,36 +4,37 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import fr.univangers.ester.beans.UtilisateurEster.Status;
 
 public class TestDB {
-	private static final String REUSSITE = " Réussite\n";
-	private static final String ECHEC = " Echec\n";
+	private static final String REUSSITE = "Réussite";
+	private static final String ECHEC = "Echec";
+	private static final String CREATION = "Creation : ";
+	private static final String CONNEXION = "Connexion : ";
+	private static final String SUPPRESION = "Suppresion : ";
+	private static final String CHANGEMENTMDP = "Changement mot de passe : ";
+	private static Logger logger = Logger.getLogger("Test");
 	
 	public static void main(String[] args) {
 		if(testEntrepriseDB()) {
-			System.out.print("\nTest Entreprise :");
-			System.out.println(REUSSITE);
+			logger.log(Level.INFO, "Test Entreprise : " + REUSSITE);
 		} else {
-			System.out.print("\nTest Entreprise :");
-			System.err.println(ECHEC);
+			logger.log(Level.WARNING, "Test Entreprise : " + ECHEC);
 		}
 		
 		if(testSalarieDB()) {
-			System.out.print("\nTest Salarie :");
-			System.out.println(REUSSITE);
+			logger.log(Level.INFO, "Test Salarie : " + REUSSITE);
 		} else {
-			System.out.print("\nTest Salarie :");
-			System.err.println(ECHEC);
+			logger.log(Level.WARNING, "Test Salarie : " + ECHEC);
 		}
 		
 		if(testUtilisateurEsterDB()) {
-			System.out.print("\nTest UtilisateurEster :");
-			System.out.println(REUSSITE);
+			logger.log(Level.INFO, "Test UtilisateurEster : " + REUSSITE);
 		} else {
-			System.out.print("\nTest UtilisateurEster :");
-			System.err.println(ECHEC);
+			logger.log(Level.WARNING, "Test UtilisateurEster : " + ECHEC);
 		}
 		
 		addEvalRiskTMS();
@@ -47,39 +48,35 @@ public class TestDB {
 		String newPassword = "password2";
 		
 		entrepriseDB.add(identifiant, name, password);
-		System.out.print("Creation : ");
 		if(!entrepriseDB.exist(identifiant)) {
-			System.err.print(ECHEC);
+			logger.log(Level.WARNING, CREATION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, CREATION + REUSSITE);
 		}
 		
-		System.out.print("Connexion : ");
 		if(!entrepriseDB.connect(identifiant, password)) {
-			System.err.print(ECHEC);
+			logger.log(Level.WARNING, CONNEXION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, CONNEXION + REUSSITE);
 		}
 		
 		entrepriseDB.changePassword(identifiant, newPassword);
-		System.out.print("Changement mot de passe : ");
 		if(!entrepriseDB.connect(identifiant, newPassword) || 
 				entrepriseDB.connect(identifiant, password)) {
-			System.err.print(ECHEC);
+			logger.log(Level.WARNING, CHANGEMENTMDP + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, CHANGEMENTMDP + REUSSITE);
 		}
 
 		entrepriseDB.delete(identifiant);
-		System.out.print("Suppresion : ");
 		if(entrepriseDB.exist(identifiant)) {
-			System.err.print(ECHEC);
+			logger.log(Level.WARNING, SUPPRESION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, SUPPRESION + REUSSITE);
 		}
 		
 		return true;
@@ -88,40 +85,37 @@ public class TestDB {
 	public static boolean testSalarieDB() {
 		SalarieDB salarieDB = new SalarieDB();
 		String identifiant = "SalarieTest";
-		String entreprise = "Mon Entreprise";
+		String entreprise = null;
 		String userEster = "Mon createur";
 		
-		salarieDB.add(identifiant, entreprise, userEster);;
-		System.out.print("Creation : ");
+		salarieDB.add(identifiant, entreprise, userEster);
 		if(!salarieDB.exist(identifiant)) {
-			System.err.print(ECHEC);
+			logger.log(Level.WARNING, CREATION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, CREATION + REUSSITE);
 		}
 		
-		System.out.print("Connexion : ");
 		if(!salarieDB.connect(identifiant)) {
-			System.err.print(ECHEC);
+			logger.log(Level.WARNING, CONNEXION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, CONNEXION + REUSSITE);
 		}
 
 		salarieDB.delete(identifiant);
-		System.out.print("Suppresion : ");
 		if(salarieDB.exist(identifiant)) {
-			System.err.print(ECHEC);
+			logger.log(Level.WARNING, SUPPRESION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, SUPPRESION + REUSSITE);
 		}
 		
 		return true;
 	}
 
 	public static boolean testUtilisateurEsterDB() {
-		UtilisateurEsterDB UtilisateurEsterDB = new UtilisateurEsterDB();
+		UtilisateurEsterDB utilisateurEsterDB = new UtilisateurEsterDB();
 		String identifiant = "UtilisateurEsterTest";
 		String name = "Name";
 		String firstName = "First";
@@ -130,40 +124,36 @@ public class TestDB {
 		String newPassword = "password2";
 		Status status = Status.MEDECIN;
 		
-		UtilisateurEsterDB.add(identifiant, name, firstName, mail, password, status);;
-		System.out.print("Creation : ");
-		if(!UtilisateurEsterDB.exist(identifiant)) {
-			System.err.print(ECHEC);
+		utilisateurEsterDB.add(identifiant, name, firstName, mail, password, status);
+		if(!utilisateurEsterDB.exist(identifiant)) {
+			logger.log(Level.WARNING, CREATION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, CREATION + REUSSITE);
 		}
 		
-		System.out.print("Connexion : ");
-		if(!UtilisateurEsterDB.connect(identifiant, password)) {
-			System.err.print(ECHEC);
+		if(!utilisateurEsterDB.connect(identifiant, password)) {
+			logger.log(Level.WARNING, CONNEXION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, CONNEXION + REUSSITE);
 		}
 		
-		UtilisateurEsterDB.changePassword(identifiant, newPassword);
-		System.out.print("Changement mot de passe : ");
-		if(!UtilisateurEsterDB.connect(identifiant, newPassword) || 
-				UtilisateurEsterDB.connect(identifiant, password)) {
-			System.err.print(ECHEC);
+		utilisateurEsterDB.changePassword(identifiant, newPassword);
+		if(!utilisateurEsterDB.connect(identifiant, newPassword) || 
+				utilisateurEsterDB.connect(identifiant, password)) {
+			logger.log(Level.WARNING, CHANGEMENTMDP + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, CHANGEMENTMDP + REUSSITE);
 		}
 
-		UtilisateurEsterDB.delete(identifiant);
-		System.out.print("Suppresion : ");
-		if(UtilisateurEsterDB.exist(identifiant)) {
-			System.err.print(ECHEC);
+		utilisateurEsterDB.delete(identifiant);
+		if(utilisateurEsterDB.exist(identifiant)) {
+			logger.log(Level.WARNING, SUPPRESION + ECHEC);
 			return false;
 		} else {
-			System.out.print(REUSSITE);
+			logger.log(Level.INFO, SUPPRESION + REUSSITE);
 		}
 		
 		return true;
@@ -191,12 +181,12 @@ public class TestDB {
             bufferedReader.close();         
         }
         catch(FileNotFoundException ex) {
-            System.out.println(
+            logger.log(Level.INFO, 
                 "Unable to open file '" + 
                 fileName + "'");                
         }
         catch(IOException ex) {
-            System.out.println(
+            logger.log(Level.INFO, 
                 "Error reading file '" 
                 + fileName + "'");
         }

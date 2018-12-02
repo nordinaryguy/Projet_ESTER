@@ -199,7 +199,7 @@ public class Resultat {
 					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", JA)));
 			addAnswer(0, reponses.get("question6"));
 			setTitleDataCSV(1,"Categorie",PT,VS,PA,VS,DA,VS,TA);
-			addDataCSV(1,2,"Les collègues avec qui je travaille m'aident à mener les tàches à bien"
+			addDataCSV(1,2,"J'ai la possibilité d'influencer le déroulement de mon travail"
 					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", PT))
 					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", PA))
 					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", DA))

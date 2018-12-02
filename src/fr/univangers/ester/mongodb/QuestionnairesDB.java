@@ -20,7 +20,7 @@ public class QuestionnairesDB extends Database {
 	private static final String IDENTIFIANT = "Identifiant";
 	private static final String IDENTIFIANT_ESTER = "Identifiant utilisateur ESTER";
 	private static final String DATE_SUBMISSION = "Date de soumission";
-	private static final String ERROR_NO_EXIST = "Le questionnaire n'existe pas.";
+	private static final String ERROR_NO_EXIST = "Questionnaire n'existe pas.";
 	
 	public void addQuestionnaire(String name, String identifiant, String html, String identifiantEster) {
 		MongoCollection<Document> questionnaires = db().getCollection(C_QUESTIONNAIRE);

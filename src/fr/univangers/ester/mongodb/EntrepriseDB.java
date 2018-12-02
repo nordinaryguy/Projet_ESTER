@@ -15,9 +15,10 @@ public class EntrepriseDB extends Database {
 	
 	private static final String IDENTIFIANT = "Identifiant";
 	private static final String NAME = "Nom";
-	private static final String PASSWORD = "Mot de passe";
+	private static final String PASS = "Mot de passe";
 	private static final String FIRSTCONNECTION = "Première connexion";
 	private static final String SALARIES = "Salariés";
+	private static final String ERROR_NO_EXIST = "Entreprise n'existe pas.";
 	
 	public void add(String identifiant, String name, String password) {
 		if(exist(identifiant)) {
@@ -27,23 +28,32 @@ public class EntrepriseDB extends Database {
 		Document entreprise = new Document(IDENTIFIANT, identifiant)
 				.append(NAME, name)
 				.append(FIRSTCONNECTION, true)
-				.append(PASSWORD, password)
+				.append(PASS, password)
 				.append(SALARIES, new ArrayList<Document>());	
 		entreprises.insertOne(entreprise);
 	}
 	
 	public void delete(String identifiant) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
-	public void changePassword(String identifant, String password) {
+	public void changePassword(String identifiant, String password) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
-		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
-				new Document("$set", new Document(PASSWORD, password)));
+		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
+				new Document("$set", new Document(PASS, password)));
 	}
 	
 	public void changeFirstConnection(String identifiant, boolean firstConnection) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
 				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
@@ -68,14 +78,14 @@ public class EntrepriseDB extends Database {
 	public boolean connect(String identifiant, String password) {
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 	    FindIterable<Document> iterable = entreprises.find(Filters.and(Filters.eq(IDENTIFIANT, identifiant),
-	    		Filters.eq(PASSWORD, password)));
+	    		Filters.eq(PASS, password)));
 		return iterable.first() != null;
 	}
 	
 	public List<String> getSalariesEntreprise(String identifiant) {
 		List<String> salaries = new ArrayList<>();
 		if(!exist(identifiant)) {
-			throw new IllegalArgumentException("L'entreprise n'existe pas.");	
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
 		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 	    Document entreprise = entreprises.find(Filters.eq(IDENTIFIANT, identifiant)).first();
@@ -91,12 +101,21 @@ public class EntrepriseDB extends Database {
 	}
 	
 	public void pushSalarieIntoEntreprise(String identifiantEntreprise, String identifiantSalarie) {
+		if(identifiantEntreprise == null) {
+			return;
+		}
+		if(!exist(identifiantEntreprise)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiantEntreprise),
 				new Document("$push", new Document(SALARIES, identifiantSalarie)));
 	}
 	
 	public void pullSalarieIntoEntreprise(String identifiantEntreprise, String identifiantSalarie) {
+		if(!exist(identifiantEntreprise)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiantEntreprise),
 				new Document("$pull", new Document(SALARIES, identifiantSalarie)));

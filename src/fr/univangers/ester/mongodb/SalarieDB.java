@@ -28,6 +28,7 @@ public class SalarieDB extends Database {
 	private static final String USERESTER = "Utilisateur ESTER ID";
 	private static final String NBCONNECTION = "Nombre de connexion";
 	private static final String TIMECONNECTION = "Durée de la connexion";
+	private static final String ERROR_NO_EXIST = "Salarie n'existe pas.";
 	
 	public void add(String identifiant, String entreprise, String userEster) {
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
@@ -46,6 +47,9 @@ public class SalarieDB extends Database {
 	
 	public boolean update(String identifiant, String sex, int birthYearInf, int birthYearSup,
 			String department, String activityArea, String postName) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		return (salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
 			 new Document("$set", new Document(FIRSTCONNECTION, false)
@@ -67,6 +71,9 @@ public class SalarieDB extends Database {
 	}
 	
 	public void delete(String identifiant) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		salaries.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
@@ -81,16 +88,19 @@ public class SalarieDB extends Database {
 		return res;
 	}
 	
-	public void incCnx(String identifant) {
+	public void incCnx(String identifiant) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
-		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
+		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
 				new Document("$inc", new Document(NBCONNECTION, 1)));
 	}
 	
 	public List<String> getQuestionnaireAnswered(String identifiant) {
 		List<String> questionnaireAnswered = new ArrayList<>();
 		if(!exist(identifiant)) {
-			throw new IllegalArgumentException("Le salarie n'existe pas.");	
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
 		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 	    Document salarie = salaries.find(Filters.eq(IDENTIFIANT, identifiant)).first();
@@ -107,19 +117,25 @@ public class SalarieDB extends Database {
 	
 	public String getSex(String identifiant) {
 		if(!exist(identifiant)) {
-			throw new IllegalArgumentException("Le salarie n'existe pas.");	
+			throw new IllegalArgumentException(ERROR_NO_EXIST);
 		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		return (String) salaries.find(Filters.eq(IDENTIFIANT, identifiant)).first().get(SEX);
 	}
 	
 	public void pushQuestionnaireAnswered(String identifiantSalarie, String identifiantQuestionnaire) {
+		if(!exist(identifiantSalarie)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);
+		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiantSalarie),
 				new Document("$push", new Document(QUESTIONNAIRESANSWERED, identifiantQuestionnaire)));
 	}
 	
 	public void pullQuestionnaireAnswered(String identifiantSalarie, String identifiantQuestionnaire) {
+		if(!exist(identifiantSalarie)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);
+		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 		salaries.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiantSalarie),
 				new Document("$pull", new Document(QUESTIONNAIRESANSWERED, identifiantQuestionnaire)));
@@ -128,7 +144,7 @@ public class SalarieDB extends Database {
 	public List<String> getQuestionnaireUnanswered(String identifiant) {
 		List<String> questionnaireUnanswered = new ArrayList<>();
 		if(!exist(identifiant)) {
-			throw new IllegalArgumentException("Le salarie n'existe pas.");	
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
 		}
 		MongoCollection<Document> salaries = db().getCollection(C_SALARIE);
 	    Document salarie = salaries.find(Filters.eq(IDENTIFIANT, identifiant)).first();

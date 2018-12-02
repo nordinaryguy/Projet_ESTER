@@ -16,9 +16,10 @@ public class UtilisateurEsterDB extends Database {
 	private static final String NAME = "Nom";
 	private static final String FIRSTNAME = "Prénom";
 	private static final String FIRSTCONNECTION = "Première connexion";
-	private static final String PASSWORD = "Mot de passe";
+	private static final String PASS = "Mot de passe";
 	private static final String MAIL = "Mail";
 	private static final String STATUS = "Statut";
+	private static final String ERROR_NO_EXIST = "Utilisateur n'existe pas.";
 	
 	public void add(String identifiant, String name, String firstName, String mail, String password, Status status) {
 		if(exist(identifiant)) {
@@ -30,14 +31,14 @@ public class UtilisateurEsterDB extends Database {
 				.append(FIRSTNAME, firstName)
 				.append(MAIL, mail)
 				.append(FIRSTCONNECTION, true)
-				.append(PASSWORD, password)
+				.append(PASS, password)
 				.append(STATUS, status.toString());	
 		users.insertOne(user);
 	}
 	
 	public Status getStatus(String identifiant) {
 		if(!exist(identifiant)) {
-			throw new IllegalArgumentException("Utilisateur n'existe pas.");	
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
 		}
 		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 		Document user = users.find(Filters.eq(IDENTIFIANT, identifiant)).first();
@@ -45,19 +46,28 @@ public class UtilisateurEsterDB extends Database {
 	}
 	
 	public void delete(String identifiant) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 		users.deleteOne(Filters.eq(IDENTIFIANT, identifiant));
 	}
 	
-	public boolean changePassword(String identifant, String password) {
+	public boolean changePassword(String identifiant, String password) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
-		return (users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
-				new Document("$set", new Document(PASSWORD, password)))) != null;
+		return (users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
+				new Document("$set", new Document(PASS, password)))) != null;
 	}
 	
-	public void changeFirstConnection(String identifant, boolean firstConnection) {
+	public void changeFirstConnection(String identifiant, boolean firstConnection) {
+		if(!exist(identifiant)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
 		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
-		users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifant),
+		users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
 				new Document("$set", new Document(FIRSTCONNECTION, firstConnection)));
 	}
 	
@@ -81,7 +91,7 @@ public class UtilisateurEsterDB extends Database {
 		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 	    FindIterable<Document> iterable = users.find(Filters.and(
 	    		Filters.or(Filters.eq(IDENTIFIANT, identifiant), Filters.eq(MAIL, identifiant)),
-	    		Filters.eq(PASSWORD, password)));
+	    		Filters.eq(PASS, password)));
 		return iterable.first() != null;
 	}
 	
