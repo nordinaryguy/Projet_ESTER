@@ -11,10 +11,10 @@ import javax.servlet.http.HttpSession;
 
 import fr.univangers.ester.beans.Entreprise;
 import fr.univangers.ester.beans.Salarie;
-import fr.univangers.ester.beans.User;
-import fr.univangers.ester.beans.Utilisateur;
+import fr.univangers.ester.beans.UtilisateurBeans;
+import fr.univangers.ester.beans.UtilisateurEster;
 import fr.univangers.ester.mongodb.SalarieDB;
-import fr.univangers.ester.mongodb.Users;
+import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
 @WebServlet("/connexion")
 public class LogIn extends HttpServlet {
@@ -35,14 +35,14 @@ public class LogIn extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	String type = request.getParameter("Type");
     	HttpSession session = request.getSession();
-    	User user = null;
-		Users userDB = new Users();
+    	UtilisateurBeans utilisateur = null;
+		UtilisateurEsterDB userDB = new UtilisateurEsterDB();
     	
     	boolean result = false;
     	if(type.equals("Salarie")) {
-    		user = new Salarie();
-    		user.setIdentifiant(request.getParameter("Identifiant"));
-        	result = user.validate();
+    		utilisateur = new Salarie();
+    		utilisateur.setIdentifiant(request.getParameter("Identifiant"));
+        	result = utilisateur.validate();
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant est incorrect.");
     		}
@@ -50,29 +50,29 @@ public class LogIn extends HttpServlet {
     		salarieDB.incCnxSalarie(request.getParameter("Identifiant"));
     	}
     	else if(type.equals("Entreprise")) {
-    		user = new Entreprise();
-    		user.setIdentifiant(request.getParameter("Identifiant"));
-    		((Entreprise)user).setPassword(request.getParameter("Password"));
-        	result = user.validate();
+    		utilisateur = new Entreprise();
+    		utilisateur.setIdentifiant(request.getParameter("Identifiant"));
+    		((Entreprise)utilisateur).setPassword(request.getParameter("Password"));
+        	result = utilisateur.validate();
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant ou votre mot de passe est incorrect.");
         	}
     	}
     	else if(type.equals("Utilisateur")) {
-    		user = new Utilisateur();
+    		utilisateur = new UtilisateurEster();
     		String identifiant = request.getParameter("Identifiant");
-    		user.setIdentifiant(identifiant);
-    		((Utilisateur)user).setPassword(request.getParameter("Password"));
-        	result = user.validate();
+    		utilisateur.setIdentifiant(identifiant);
+    		((UtilisateurEster)utilisateur).setPassword(request.getParameter("Password"));
+        	result = utilisateur.validate();
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant ou votre mot de passe est incorrect.");
         	} else {
-        		((Utilisateur)user).setStatus(userDB.getStatusUserEster(identifiant));
+        		((UtilisateurEster)utilisateur).setStatus(userDB.getStatusUserEster(identifiant));
         	}
     	}
     	if(type != null && result) {
     		request.setAttribute( ATT_MSG_SUCCESS, "Vous êtes connecté");
-    		session.setAttribute( ATT_SESSION_USER, user);
+    		session.setAttribute( ATT_SESSION_USER, utilisateur);
     	}
     	else {
     		session.setAttribute( ATT_SESSION_USER, null);

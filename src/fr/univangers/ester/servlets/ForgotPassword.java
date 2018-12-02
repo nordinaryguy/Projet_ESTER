@@ -14,7 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.univangers.ester.mail.Mail;
 import fr.univangers.ester.mongodb.ServerMailDB;
-import fr.univangers.ester.mongodb.Users;
+import fr.univangers.ester.mongodb.UrlTokenDB;
+import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
 @WebServlet("/ForgotPassword")
 public class ForgotPassword extends HttpServlet {
@@ -51,22 +52,23 @@ public class ForgotPassword extends HttpServlet {
     @Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String email=request.getParameter("Email");
-		Users users=new Users();
+		UtilisateurEsterDB users=new UtilisateurEsterDB();
 		ServerMailDB serverMailDB = new ServerMailDB();
 		serverMailDB.addDefautServer();
+		UrlTokenDB urlTokenDB = new UrlTokenDB();
 		Mail mailSender=new Mail();
 		String path = request.getRequestURL().toString();
 		path=path.substring(0, path.length()-"ForgotPassword".length());
 
 		if(users.existUserEster(email)) {
-			if(users.hasUrlToken(email))
+			if(urlTokenDB.hasUrlToken(email))
 				request.setAttribute(ATT_MSG_WARNING,"un mail valide vous a été déjà envoyé");
 			else {
 				//create urlToken and expireDate
 				String token = UUID.randomUUID().toString();
 				Date expireDate= delai.addTimeLimitToDate(new Date());
 				//add urlToken to database
-				users.addUrlToken(email, token, expireDate);
+				urlTokenDB.addUrlToken(email, token, expireDate);
 				//create url to be sent in email (protocol://host:port/path?query#ref)
 				URL urlToken=new URL(path+"ResetPassword?"+"token="+token);
 				//send email
@@ -76,7 +78,7 @@ public class ForgotPassword extends HttpServlet {
 				}else {
 					request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
 					//if message not sent delete token in database
-					users.deleteUrlToken(email);
+					urlTokenDB.deleteUrlToken(email);
 				}
 			}
 		}else {

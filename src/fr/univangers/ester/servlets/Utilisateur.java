@@ -8,16 +8,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.mongodb.client.model.Filters;
-
-import fr.univangers.ester.beans.User;
-import fr.univangers.ester.beans.Utilisateur.Status;
+import fr.univangers.ester.beans.UtilisateurBeans;
+import fr.univangers.ester.beans.UtilisateurEster;
+import fr.univangers.ester.beans.UtilisateurEster.Status;
 import fr.univangers.ester.mail.Mail;
 import fr.univangers.ester.mdp.PwdGenerator;
 import fr.univangers.ester.mongodb.QuestionnairesDB;
 import fr.univangers.ester.mongodb.SalarieDB;
 import fr.univangers.ester.mongodb.ServerMailDB;
-import fr.univangers.ester.mongodb.Users;
+import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
 
 @WebServlet("/utilisateur")
@@ -37,7 +36,7 @@ public class Utilisateur extends HttpServlet {
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
-    	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
+    	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isUtilisateur()) {
         	 if (sessionUser.isAdministrateur()) {
 					if(request.getParameter("page") != null && request.getParameter("page").equals("configurationServeurMail")) {
@@ -63,9 +62,9 @@ public class Utilisateur extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-   	 	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
+		UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isUtilisateur()) {
-        	Users user = new Users();
+        	UtilisateurEsterDB user = new UtilisateurEsterDB();
         	ServerMailDB serverMailDB = new ServerMailDB();
         	serverMailDB.addDefautServer();       
     		
@@ -73,10 +72,10 @@ public class Utilisateur extends HttpServlet {
         			String oldPassword=request.getParameter("oldPassword");
         			String newPassword=request.getParameter("newPassword");
         			String confirm=request.getParameter("confirm");
-        			if (oldPassword.equals(((fr.univangers.ester.beans.Utilisateur)sessionUser).getPassword())) {
+        			if (oldPassword.equals(((UtilisateurEster)sessionUser).getPassword())) {
         				if (newPassword.equals(confirm)) {
         					user.changePasswordUserEster(sessionUser.getIdentifiant(), newPassword);
-        					((fr.univangers.ester.beans.Utilisateur)sessionUser).setPassword(newPassword);
+        					((UtilisateurEster)sessionUser).setPassword(newPassword);
         	    			request.setAttribute("Success", "Mot de passe modifié");
         				}
         				else {

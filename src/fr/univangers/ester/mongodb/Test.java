@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-import fr.univangers.ester.beans.Utilisateur.Status;
+import fr.univangers.ester.beans.UtilisateurEster.Status;
 
 public class Test {
 

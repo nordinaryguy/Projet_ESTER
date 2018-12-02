@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.univangers.ester.beans.User;
+import fr.univangers.ester.beans.UtilisateurBeans;
 
 @WebFilter("/salarie/*")
 public class SalarieFilter implements Filter {
@@ -34,7 +34,7 @@ public class SalarieFilter implements Filter {
         /* Récupération de la session depuis la requête */
         HttpSession session = req.getSession();
 
-        User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
+        UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isSalarie()) {
             /* Affichage de la page restreinte */
         	try {

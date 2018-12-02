@@ -2,7 +2,7 @@ package fr.univangers.ester.beans;
 
 import fr.univangers.ester.mongodb.SalarieDB;
 
-public class Salarie implements User {
+public class Salarie implements UtilisateurBeans {
 
 	private String identifiant;
 

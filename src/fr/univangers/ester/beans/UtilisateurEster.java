@@ -1,8 +1,8 @@
 package fr.univangers.ester.beans;
 
-import fr.univangers.ester.mongodb.Users;
+import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
-public class Utilisateur implements User {
+public class UtilisateurEster implements UtilisateurBeans {
 	
 	public enum Status {
 		  MEDECIN ("Medecin"),
@@ -70,7 +70,7 @@ public class Utilisateur implements User {
 
 	@Override
 	public boolean validate() {
-		Users users = new Users();
+		UtilisateurEsterDB users = new UtilisateurEsterDB();
 		return users.connectUserEster(identifiant, password);
 	}
 
@@ -117,7 +117,7 @@ public class Utilisateur implements User {
 
 	@Override
 	public boolean isFirstConnection() {
-		Users user=new Users();
+		UtilisateurEsterDB user=new UtilisateurEsterDB();
 		return user.isFirstCnxUserEster(identifiant);
 	}
 

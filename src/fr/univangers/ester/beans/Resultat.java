@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.directwebremoting.WebContext;
 import org.directwebremoting.WebContextFactory;
@@ -163,7 +162,7 @@ public class Resultat {
 		HttpServletRequest req = ctx.getHttpServletRequest();
 		ReponsesDB reponsesDB = new ReponsesDB();
 		SalarieDB salarieDB = new SalarieDB();
-		User sessionUser = (User) req.getSession().getAttribute("sessionUtilisateur");
+		UtilisateurBeans sessionUser = (UtilisateurBeans) req.getSession().getAttribute("sessionUtilisateur");
 		if(sessionUser != null && sessionUser.isSalarie() && 
 				salarieDB.getQuestionnaireUnanswered(sessionUser.getIdentifiant()).contains(IDEVALRISKTMS) && 
 				reponsesDB.existReponse(sessionUser.getIdentifiant(), IDEVALRISKTMS)) {

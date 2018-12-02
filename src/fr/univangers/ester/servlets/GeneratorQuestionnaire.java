@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.univangers.ester.beans.User;
+import fr.univangers.ester.beans.UtilisateurBeans;
 import fr.univangers.ester.mongodb.QuestionnairesDB;
 
 /**
@@ -52,7 +52,7 @@ public class GeneratorQuestionnaire extends HttpServlet {
    		if(source != null) {
    			String identifiant = request.getParameter(ATT_IDENTIFIANT);
    			String nom = request.getParameter(ATT_NOM);
-   			String identifiantEster = ((User)session.getAttribute(ATT_SESSION_USER)).getIdentifiant();
+   			String identifiantEster = ((UtilisateurBeans)session.getAttribute(ATT_SESSION_USER)).getIdentifiant();
    			QuestionnairesDB questionnaires = new QuestionnairesDB();
    			if(questionnaires.existQuestionnaire(identifiant)) {
 			   session.setAttribute(ATT_MSG_WARNING, "Identifiant deja utilisé");

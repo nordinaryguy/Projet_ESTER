@@ -1,9 +1,8 @@
 package fr.univangers.ester.beans;
 
 import fr.univangers.ester.mongodb.EntrepriseDB;
-import fr.univangers.ester.mongodb.Users;
 
-public class Entreprise implements User {
+public class Entreprise implements UtilisateurBeans {
 
 	private String identifiant;
 	private String password;

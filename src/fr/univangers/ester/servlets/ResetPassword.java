@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.univangers.ester.mongodb.ServerMailDB;
-import fr.univangers.ester.mongodb.Users;
+import fr.univangers.ester.mongodb.UrlTokenDB;
+import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
 
 @WebServlet("/ResetPassword")
@@ -28,16 +29,16 @@ public class ResetPassword extends HttpServlet {
 		//get token 
 		String token=request.getParameter("token");
 		//check if valid
-		Users users=new Users();
 		ServerMailDB serverMailDB = new ServerMailDB();
 		serverMailDB.addDefautServer();
-		boolean valid=users.existUrlToken(token) && users.valideUrlToken(token);
+		UrlTokenDB urlTokenDB = new UrlTokenDB();
+		boolean valid = urlTokenDB.existUrlToken(token) && urlTokenDB.valideUrlToken(token);
 		//get email and set attribute if valid token
-		email=users.getIdentforToken(token);
+		email = urlTokenDB.getIdentforToken(token);
 		if(valid) {
 			request.setAttribute("email", email);
 		}
-		users.deleteUrlToken(email);
+		urlTokenDB.deleteUrlToken(email);
 		request.setAttribute("valid", valid);
 		try {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
@@ -58,7 +59,7 @@ public class ResetPassword extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//change mot de passe
-		Users users=new Users();
+		UtilisateurEsterDB users=new UtilisateurEsterDB();
 		String pwd=request.getParameter("password");		
 		if(	users.changePasswordUserEster(email, pwd)) {
 			request.setAttribute(ATT_MSG_SUCCESS,"Mot de passe modifié");

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.univangers.ester.beans.User;
+import fr.univangers.ester.beans.UtilisateurBeans;
 import fr.univangers.ester.mongodb.SalarieDB;
 
 @WebServlet("/salarie")
@@ -27,7 +27,7 @@ public class Salarie extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-    	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
+    	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isSalarie()) {
         	
         	if(sessionUser.isFirstConnection() ||  (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
@@ -54,7 +54,7 @@ public class Salarie extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-    	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
+    	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
     	if(sessionUser.isFirstConnection() || (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
     		//if (sessionUser.isFirstConnection()) {
     			String sexe=request.getParameter("sexe");
