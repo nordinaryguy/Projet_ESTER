@@ -5,6 +5,7 @@
       .menunav{
 		background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);
 	  }
+	 
       h2{
       background:#3d596a;
       color:white;
@@ -41,7 +42,7 @@
         margin-right: 10px
       }
       #source{
-        min-height: 500px;
+        min-height: 600px;
       }
       /*** shadow ***/
 	
@@ -53,88 +54,3 @@
   	background: repeating-linear-gradient(-45deg, #0097ae, #0097ae 4px, #00889b 4px, #0097ae 6px);  
   }
   
-/**** echelle de borg style *****/
-
-.center {
-  margin: 0 auto;
-  width: 50%;
-}
-
- .center input[type="radio"] {
-  position: relative;
-  display: inline-block;
-  min-height: 70px;
-  width: 10%;
-  background: #ebebeb;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -o-appearance: none;
-  appearance: none;
-}
-
-.center input[type="radio"]:after { 
-  content: ''; 
-  font-size: 10px;
-  text-align: center;
-  line-height: 70px;
-  color: bleu;
-  position: absolute;
-  margin: auto auto;
-  left: 0; right: 0; bottom: 0; top: 0;
-  display: block;
-  height: 70px;
-  width: 70px;
-  border-radius: 50%;
-  background-image: none;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: #ffffff;
-  -webkit-transition: all 0.3s ease-out;
-  -moz-transition: all 0.3s ease-out;
-  -ms-transition: all 0.3s ease-out;
-  -o-transition: all 0.3s ease-out;
-  transition: all 0.3s ease-out;
- }
-
-.center input[type="radio"]:before { 
-  position: absolute;
-  margin: auto auto;
-  left: 0; right: 0; bottom: 0; top: 0;
-  content: '';
-  display: block; 
-  height: 40px;
-  width: 40px;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  -webkit-transition: all 0.1s ease-in;
-  -moz-transition: all 0.1s ease-in;
-  -ms-transition: all 0.1s ease-in;
-  -o-transition: all 0.1s ease-in;
-  transition: all 0.1s ease-in;
-}
-.center input[type="radio"]:hover:before {
-  height: 60px;
-  width: 60px;
-}
-
-.center input[type="radio"]:checked:before {
-  height: 100%;
-  width: 100%;
-  background: #dd3455;
-  border: none;
-  border-radius: 0;
-}
-
- .center input[type="radio"]:focus {
-  outline: none;
-}
-
- .center input[type="radio"].a:after { content: 'Très très facile'; } 
-.center input[type="radio"].b:after { content: 'Très  facile'; }
-.center input[type="radio"].c:after { content: 'Assez facile'; }
-.center input[type="radio"].d:after { content: 'Un peu dur'; }
-.center input[type="radio"].e:after { content: 'Dur'; }
-.center input[type="radio"].f:after { content: 'Très dur'; }
-.center input[type="radio"].g:after { content: 'Très très dur'; }
-
-.center input[type="radio"]:checked:after { content: '✓'; } 
