@@ -1,6 +1,6 @@
 package fr.univangers.ester.beans;
 
-public interface User {
+public interface UtilisateurBeans {
 	
 	public void setIdentifiant(String identifiant);
 	public String getIdentifiant();

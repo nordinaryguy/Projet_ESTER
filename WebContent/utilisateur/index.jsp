@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
-    <title>ESTER</title>
+    <title>ESTER - Accueil </title>
 
 		<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	
@@ -46,11 +46,11 @@
 						    </li>
 	
 					        <li>
-			          			 	<a style="color:white;" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
+			          			 <a style="color:white;" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire"/>" >Administrer les questionnaires</a>	
 					        </li>
 					        
 					        <li>
-					      		<a style="color:white;" href="<c:url value="/resultat"/>">Afficher les statistiques</a>
+					      		<a style="color:white;" href="<c:url value="/resultat"/>" >Afficher les statistiques</a>
 					        </li>	
 			  		</c:if>
 			  					  					  		
@@ -69,7 +69,7 @@
 						    </li>
 				
 					        <li>
-			          			 	<a style="color:white;" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
+			          			 	<a style="color:white;" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire">Administrer les questionnaires</a>	
 					        </li>
 					        
 					        <li>
@@ -118,7 +118,7 @@
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
 					          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
-					          <a class="dropdown-item" href="<%= request.getContextPath()%>/questionnaire">Modifier la gestion des questionnaires</a>	
+					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire">Modifier la gestion des questionnaires</a>	
 					        </div>
 					   	</li>	        
 				              
@@ -175,7 +175,7 @@
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					         	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
 					         	<a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
-		          			 	<a class="dropdown-item" href="<%= request.getContextPath()%>/questionnaire">Administrer les questionnaires</a>	
+		          			 	<a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire">Administrer les questionnaires</a>	
 					         </div>
 					   	</li>	        
 				              
@@ -375,6 +375,18 @@
 									</form>
 								</div>	
     						</c:if>	
+    						
+    						<c:if test="${param.page == 'donnerQuestionnaire'}">
+				<!-- Attribuer questionnaire à un Salarié -->
+				
+								<div class="row pt-2">
+							     	 <c:import url="/jsp/Alert.jsp"/>
+							 	</div>
+				
+								<div class="row pt-2">
+							     	 <c:import url="/jsp/giveQuestionnaire.jsp"/>
+								</div>
+						</c:if>
 										
 					</div>
 				</div>

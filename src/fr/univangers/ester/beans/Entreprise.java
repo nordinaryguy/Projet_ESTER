@@ -1,8 +1,8 @@
 package fr.univangers.ester.beans;
 
-import fr.univangers.ester.mongodb.Users;
+import fr.univangers.ester.mongodb.EntrepriseDB;
 
-public class Entreprise implements User {
+public class Entreprise implements UtilisateurBeans {
 
 	private String identifiant;
 	private String password;
@@ -27,8 +27,8 @@ public class Entreprise implements User {
 
 	@Override
 	public boolean validate() {
-		Users users = new Users();
-		return users.connectEntreprise(identifiant, password);
+		EntrepriseDB entrepriseDB = new EntrepriseDB();
+		return entrepriseDB.connect(identifiant, password);
 	}
 
 	@Override
@@ -73,8 +73,8 @@ public class Entreprise implements User {
 
 	@Override
 	public boolean isFirstConnection() {
-		Users user=new Users();
-		return user.isFirstCnxEntreprise(identifiant);
+		EntrepriseDB entrepriseDB = new EntrepriseDB();
+		return entrepriseDB.isFirstCnx(identifiant);
 	}
 
 }

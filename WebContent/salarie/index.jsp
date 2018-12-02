@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
-    <title>ESTER</title>
+    <title>ESTER - Accueil</title>
 
 		<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	
@@ -38,7 +38,7 @@
 				        </li>
 				        
 				        <li>
-				        	<a style="color:white;" href="<c:url value="/questionnaire"/>">Voir les questionnaires</a>
+				        	<a style="color:white;" href="<c:url value="/salarie/questionnaire"/>">Voir les questionnaires</a>
 				        </li>
 				        
 				        <li>

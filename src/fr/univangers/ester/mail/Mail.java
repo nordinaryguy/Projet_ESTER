@@ -12,8 +12,7 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
-import fr.univangers.ester.mdp.PwdGenerator;
-import fr.univangers.ester.mongodb.Users;
+import fr.univangers.ester.mongodb.ServerMailDB;
 
 /*******USE******************************************
 To use it you must add to the database the email sender
@@ -35,11 +34,11 @@ public class Mail {
 	protected String aport;
 	
 	public Mail() {
-		Users user=new Users();
-		this.aemailSender=user.getServerMail();
-		this.aemailMdp=user.getServerMailPass();
-		this.ahost=user.getServerHost();
-		this.aport=user.getServerPort();
+		ServerMailDB serverMailDB = new ServerMailDB();
+		this.aemailSender = serverMailDB.getServerMail();
+		this.aemailMdp = serverMailDB.getServerMailPass();
+		this.ahost = serverMailDB.getServerHost();
+		this.aport = serverMailDB.getServerPort();
 	}
 	
 

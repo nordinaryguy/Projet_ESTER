@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.directwebremoting.WebContext;
 import org.directwebremoting.WebContextFactory;
 
 import fr.univangers.ester.mongodb.ReponsesDB;
+import fr.univangers.ester.mongodb.SalarieDB;
 
 public class Resultat {
 	
@@ -161,8 +161,11 @@ public class Resultat {
 		WebContext ctx = WebContextFactory.get();
 		HttpServletRequest req = ctx.getHttpServletRequest();
 		ReponsesDB reponsesDB = new ReponsesDB();
-		User sessionUser = (User) req.getSession().getAttribute("sessionUtilisateur");
-		if(sessionUser != null && reponsesDB.existReponse(sessionUser.getIdentifiant(), IDEVALRISKTMS)) {
+		SalarieDB salarieDB = new SalarieDB();
+		UtilisateurBeans sessionUser = (UtilisateurBeans) req.getSession().getAttribute("sessionUtilisateur");
+		if(sessionUser != null && sessionUser.isSalarie() && 
+				salarieDB.getQuestionnaireUnanswered(sessionUser.getIdentifiant()).contains(IDEVALRISKTMS) && 
+				reponsesDB.existReponse(sessionUser.getIdentifiant(), IDEVALRISKTMS)) {
 			Map<String, String> reponses = reponsesDB.getReponses(sessionUser.getIdentifiant(), IDEVALRISKTMS);
 			setTitleDataCSV(0,"Categorie",TJ,SALTSA,SO,SALTSA,RA,SALTSA,JA);
 			addDataCSV(0,3,"Votre travail nécessite-t-il de répêter les mêmes actions plus de 2 à 4 fois environ par minute ?"
@@ -196,7 +199,7 @@ public class Resultat {
 					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", JA)));
 			addAnswer(0, reponses.get("question6"));
 			setTitleDataCSV(1,"Categorie",PT,VS,PA,VS,DA,VS,TA);
-			addDataCSV(1,2,"Les collègues avec qui je travaille m'aident à mener les tàches à bien"
+			addDataCSV(1,2,"J'ai la possibilité d'influencer le déroulement de mon travail"
 					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", PT))
 					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", PA))
 					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", DA))

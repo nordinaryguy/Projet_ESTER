@@ -7,9 +7,7 @@
   <head>
     <meta charset="utf-8">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
-    
-    <title>Générateur de questionnaire</title>
-
+    <title>ESTER - Générateur de questionnaire</title>
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/menu.css"/>">
     
@@ -29,6 +27,7 @@
 	</div>   
 </nav> 
 
+
   	    <c:if test="${not empty Success}">
 	      <div class="alert alert-success alert-dismissible" role="alert">
           <strong>Succès</strong> <c:out value = "${Success}"/> <c:remove var="Success" scope="session" />
@@ -46,6 +45,7 @@
 	        </button>
 	      </div>
 	    </c:if>
+
  
    <!-- questionnaire -->
     <div class="container">
@@ -77,7 +77,11 @@
         <div class="col-md-4">
          <div class="shadowbottom">
             <h2 style="border-radius: 10px; text-align:center"> Champs pour le questionnaire</h2>
-         </div>
+          </div>
+          <div class="row pt-2">
+	     	   <c:import url="/jsp/Alert.jsp"/>
+	 	      </div>
+
           <div class="tabbable">
             <ul class="nav nav-tabs" id="navtab" >
               <li class="active" ><a href="#1" data-toggle="tab" style="background:#6bb8c8; color:white;">Questions</a></li>
@@ -291,8 +295,8 @@
                       </div>
                     </div>
                   </div>
-                  
-                  <!-- Code modifier -->
+                  <!-- Code Source -->
+
                   <div class="tab-pane" id="5">
                     <textarea name="source" id="source" class="col-md-12" rows="25" required readonly></textarea>
                   </div>

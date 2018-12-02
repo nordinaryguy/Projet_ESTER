@@ -2,10 +2,8 @@ package fr.univangers.ester.servlets;
 
 import java.io.IOException;
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -15,14 +13,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.univangers.ester.beans.User;
+import fr.univangers.ester.beans.UtilisateurBeans;
 import fr.univangers.ester.mongodb.QuestionnairesDB;
 import fr.univangers.ester.mongodb.ReponsesDB;
+import fr.univangers.ester.mongodb.SalarieDB;
 
 /**
  * Servlet implementation class Questionnaire
  */
-@WebServlet("/questionnaire")
+@WebServlet({ "/salarie/questionnaire", "/utilisateur/questionnaire" })
 public class Questionnaire extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VUE = "/WEB-INF/jsp/Questionnaire.jsp";
@@ -41,8 +40,13 @@ public class Questionnaire extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		QuestionnairesDB questionnaires = new QuestionnairesDB();
-		session.setAttribute("ListeQuestionnaires", questionnaires.getIdentifiantQuestionnaires());
+		QuestionnairesDB questionnairesDB = new QuestionnairesDB();
+    	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
+    	SalarieDB salarieDB = new SalarieDB();
+    	if(sessionUser.isSalarie())
+    		session.setAttribute("ListeQuestionnaires", salarieDB.getQuestionnaireUnanswered(sessionUser.getIdentifiant()));
+    	else
+    		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 
@@ -51,32 +55,34 @@ public class Questionnaire extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
-        ReponsesDB reponsesDB = new ReponsesDB();
+		QuestionnairesDB questionnaires = new QuestionnairesDB();
+    	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
     	
     	String identifiant = request.getParameter("Identifiant");
-		if(identifiant != null) {
-			try {
-				QuestionnairesDB questionnaires = new QuestionnairesDB();
-				session.setAttribute("Identifiant Questionnaire", identifiant);
-				session.setAttribute("Nom", questionnaires.getName(identifiant));
-				session.setAttribute("Date", DateFormat.getDateInstance().format(questionnaires.getDateSubmission(identifiant)));
-				session.setAttribute("IdentifiantEster", questionnaires.getIdentifiantEster(identifiant));
-				session.setAttribute("Questionnaire", questionnaires.getHTMLQuestionnaire(identifiant));
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+		if(identifiant != null && questionnaires.existQuestionnaire(identifiant)) {
+			session.setAttribute("Identifiant Questionnaire", identifiant);
+			session.setAttribute("Nom", questionnaires.getName(identifiant));
+			session.setAttribute("Date", DateFormat.getDateInstance().format(questionnaires.getDateSubmission(identifiant)));
+			session.setAttribute("IdentifiantEster", questionnaires.getIdentifiantEster(identifiant));
+			session.setAttribute("Questionnaire", questionnaires.getHTMLQuestionnaire(identifiant));
 			doGet(request, response);
-		} else {
+		} else if(sessionUser != null && sessionUser.isSalarie()) {
 			Enumeration<String> names = request.getParameterNames();
 	        Map<String, String> reponses = new HashMap<>();
 			while (names.hasMoreElements()) {
 	            String identifiantQuestion = names.nextElement();
 	            String reponse = request.getParameter(identifiantQuestion);
 	            reponses.put(identifiantQuestion, reponse);
-	    	}    	
-			User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
-			reponsesDB.addReponse(sessionUser.getIdentifiant(), session.getAttribute("Identifiant Questionnaire").toString(), reponses); 
+	    	} 
+	        ReponsesDB reponsesDB = new ReponsesDB();   	
+	        String identifiantQuestionnaire = session.getAttribute("Identifiant Questionnaire").toString();
+			reponsesDB.addReponse(sessionUser.getIdentifiant(), identifiantQuestionnaire, reponses); 
+			SalarieDB salarieDB = new SalarieDB();
+			salarieDB.pushQuestionnaireAnswered(sessionUser.getIdentifiant(), identifiantQuestionnaire);
+			// salarieDB.pullQuestionnaireUnanswered(sessionUser.getIdentifiant(), identifiantQuestionnaire);
 			response.sendRedirect(request.getContextPath() + RESULTAT);
+		} else {
+			doGet(request, response);
 		}
 	}
 
