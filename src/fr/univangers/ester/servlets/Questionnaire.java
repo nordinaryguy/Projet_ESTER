@@ -2,10 +2,8 @@ package fr.univangers.ester.servlets;
 
 import java.io.IOException;
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -15,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.univangers.ester.beans.User;
+import fr.univangers.ester.beans.UtilisateurBeans;
 import fr.univangers.ester.mongodb.QuestionnairesDB;
 import fr.univangers.ester.mongodb.ReponsesDB;
 import fr.univangers.ester.mongodb.SalarieDB;
@@ -42,13 +40,13 @@ public class Questionnaire extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
-		QuestionnairesDB questionnaires = new QuestionnairesDB();
-    	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
+		QuestionnairesDB questionnairesDB = new QuestionnairesDB();
+    	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
     	SalarieDB salarieDB = new SalarieDB();
     	if(sessionUser.isSalarie())
     		session.setAttribute("ListeQuestionnaires", salarieDB.getQuestionnaireUnanswered(sessionUser.getIdentifiant()));
     	else
-    		session.setAttribute("ListeQuestionnaires", questionnaires.getIdentifiantQuestionnaires());
+    		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 
@@ -58,7 +56,7 @@ public class Questionnaire extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
 		QuestionnairesDB questionnaires = new QuestionnairesDB();
-    	User sessionUser = (User) session.getAttribute(ATT_SESSION_USER);
+    	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
     	
     	String identifiant = request.getParameter("Identifiant");
 		if(identifiant != null && questionnaires.existQuestionnaire(identifiant)) {

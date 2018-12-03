@@ -1,5 +1,6 @@
 package fr.univangers.ester.mongodb;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.bson.Document;
@@ -39,7 +40,12 @@ public class ReponsesDB extends Database {
 		MongoCollection<Document> cReponses = db().getCollection(C_REPONSE);
 		Document reponse = cReponses.find(Filters.and(Filters.eq(IDENTIFIANT_SALARIE, identifiantSalarie), 
 				Filters.eq(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire))).first();
-		return (Map<String, String>) reponse.get(REPONSES);
+		Map<?, ?> tempReponses = (Map<?, ?>) reponse.get(REPONSES);
+		Map<String, String> reponses = new HashMap<>(tempReponses.size());
+		for(Map.Entry<?, ?> entry : tempReponses.entrySet()){
+			reponses.put((String)entry.getKey(), (String)entry.getValue()); 
+	    }
+		return  reponses;
 	}
 	
 	public int getPourcentageReponses(String identifiantQuestionnaire, String identifiantQuestion, String reponse) {
@@ -48,9 +54,9 @@ public class ReponsesDB extends Database {
 		MongoCollection<Document> cReponses = db().getCollection(C_REPONSE);
 		MongoCursor<Document> cursor = cReponses.find(Filters.eq(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire)).iterator();
 		while(cursor.hasNext()) {
-			Map<String, String> reponses = (Map<String, String>) cursor.next().get(REPONSES);
+			Map<?, ?> reponses = (Map<?, ?>) cursor.next().get(REPONSES);
 			if(reponses.containsKey(identifiantQuestion)) {
-				if(reponses.get(identifiantQuestion).equals(reponse)) {
+				if(reponses.get(identifiantQuestion).toString().equals(reponse)) {
 					nombreReponse++;
 				}
 				nombreTotal++;

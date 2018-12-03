@@ -2,7 +2,7 @@ package fr.univangers.ester.beans;
 
 import fr.univangers.ester.mongodb.SalarieDB;
 
-public class Salarie implements User {
+public class Salarie implements UtilisateurBeans {
 
 	private String identifiant;
 
@@ -19,7 +19,7 @@ public class Salarie implements User {
 	@Override
 	public boolean validate() {
 		SalarieDB salarieDB = new SalarieDB();
-		return salarieDB.existSalarie(identifiant);
+		return salarieDB.connect(identifiant);
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class Salarie implements User {
 	@Override
 	public boolean isFirstConnection() {
 		SalarieDB salarieDB = new SalarieDB();
-		return salarieDB.isFirstCnxSalarie(identifiant);
+		return salarieDB.isFirstCnx(identifiant);
 	}
 
 }

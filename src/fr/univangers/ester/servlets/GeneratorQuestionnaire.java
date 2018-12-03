@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fr.univangers.ester.beans.User;
+import fr.univangers.ester.beans.UtilisateurBeans;
 import fr.univangers.ester.mongodb.QuestionnairesDB;
 
 /**
@@ -52,7 +52,7 @@ public class GeneratorQuestionnaire extends HttpServlet {
    		if(source != null) {
    			String identifiant = request.getParameter(ATT_IDENTIFIANT);
    			String nom = request.getParameter(ATT_NOM);
-   			String identifiantEster = ((User)session.getAttribute(ATT_SESSION_USER)).getIdentifiant();
+   			String identifiantEster = ((UtilisateurBeans)session.getAttribute(ATT_SESSION_USER)).getIdentifiant();
    			QuestionnairesDB questionnaires = new QuestionnairesDB();
    			if(questionnaires.existQuestionnaire(identifiant)) {
 			   session.setAttribute(ATT_MSG_WARNING, "Identifiant deja utilisé");
@@ -64,14 +64,26 @@ public class GeneratorQuestionnaire extends HttpServlet {
        }
        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/generateur_de_question.jsp").forward(request, response); 
 	}
+	protected String StyleForm() {
+		return "  <style type=\"text/css\">\r\n" + 
+				"      body {\r\n" + 
+				"        padding-bottom: 10px;\r\n" + 
+				"        background: repeating-linear-gradient(-45deg, white, white 4px, #e9e8e7 4px, white 6px);\r\n" + 
+				"      }\r\n" +
+				" fieldset{\r\n" + 
+				"	  text-align: center;\r\n" + 
+				"	  font-style: italic;\r\n" + 
+				"	  }"+
+				"    </style>";
+	}
 	protected String createFormHeader() {
 		return "<!DOCTYPE html>\r\n" + 
 				"<html>\r\n" + 
 				"  <head>\r\n" + 
 				"    <meta charset=\"utf-8\">\r\n" + 
-				"    <title>generateur de questionnaire</title>\r\n" + 
+				"    <title>generateur de questionnaire</title>\r\n" +
+				StyleForm() + 
 				"  </head>\r\n" + 
-				"\r\n" + 
 				"  <body>\r\n" + 
 				"  \r\n" + 
 				"   <!-- questionnaire -->\r\n" + 
