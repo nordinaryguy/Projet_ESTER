@@ -33,6 +33,35 @@
 <body>
     
   	<c:import url="/jsp/Menu.jsp"/>
+  	
+  	
+	<c:if test="${sessionScope.sessionUtilisateur.isUtilisateur()}">	
+	  	<div class="row">
+	  		<div class="col-md-4 pl-4">  	
+			  	<form  id="saisi" method="post">
+			    
+				    <label for="listeSalaries">Choisissez un Salarié :</label>
+				  	
+				  	<div class="row pt-2 pb-4">  	
+					  	<div class="col-md-8">        
+							<select class="form-control" name="IdentifiantSalarie" id="listeSalaries">
+							    <c:forEach items="${ListeSalaries}" var="identifiant" varStatus="status">
+								    <option> <c:out value="${identifiant}"></c:out> </option>
+								</c:forEach>
+								<c:remove var="ListeSalaries" scope="session" />	
+						    </select>
+						</div>
+						
+						<div class="col-md-2">
+						   	 <input type="submit" class="btn btn-info" value="Valider" style="float:left;">
+						</div>
+				    </div>
+			    </form> 
+		    </div>
+		</div>
+	</c:if>
+
+    
     
     <div class="card-group">
     

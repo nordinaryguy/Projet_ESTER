@@ -130,7 +130,7 @@
         <form id="divEntreprise" style="display:none;" class="form-signin" method="post"> 
           <div class="form-label-group">
             <input type="text" id="inputEmailEntreprise" name="Identifiant" class="form-control" placeholder="Identifiant" required>
-            <label for="inputEmailEntreprise">Adresse email ou identifiant</label>
+            <label for="inputEmailEntreprise">Identifiant</label>
           </div>
           <div class="form-label-group">
             <input type="password" id="inputPasswordEntreprise" name="Password" class="form-control" placeholder="Password" required>
