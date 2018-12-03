@@ -31,7 +31,7 @@ public class UtilisateurEsterDB extends Database {
 				.append(FIRSTNAME, firstName)
 				.append(MAIL, mail)
 				.append(FIRSTCONNECTION, true)
-				.append(PASS, password)
+				.append(PASS, cryptPassword(password))
 				.append(STATUS, status.toString());	
 		users.insertOne(user);
 	}
@@ -59,7 +59,7 @@ public class UtilisateurEsterDB extends Database {
 		}
 		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
 		return (users.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
-				new Document("$set", new Document(PASS, password)))) != null;
+				new Document("$set", new Document(PASS, cryptPassword(password))))) != null;
 	}
 	
 	public void changeFirstConnection(String identifiant, boolean firstConnection) {
@@ -88,11 +88,13 @@ public class UtilisateurEsterDB extends Database {
 	}
 	
 	public boolean connect(String identifiant, String password) {
-		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
-	    FindIterable<Document> iterable = users.find(Filters.and(
-	    		Filters.or(Filters.eq(IDENTIFIANT, identifiant), Filters.eq(MAIL, identifiant)),
-	    		Filters.eq(PASS, password)));
-		return iterable.first() != null;
+		boolean res = false;
+		if(exist(identifiant)) {
+			MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
+		    Document utilisateur = users.find(Filters.or(Filters.eq(IDENTIFIANT, identifiant), Filters.eq(MAIL, identifiant))).first();
+			res = verifyPassword(password, utilisateur.getString(PASS));
+		}
+		return res;
 	}
 	
 }

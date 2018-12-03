@@ -1,0 +1,63 @@
+\section{Base de Données}
+
+\subsection{Choix}
+
+\subsubsection{Besoin}
+
+Pour le projet, nous avons eu besoin d'une base de données modulaire car un des besoins était que les questionnaires pouvait évoluer création, modification ou ajout de question. Et un autre des besoins était que l'utilisateur puisse faire des sauvegarde partiel pour reprendre le questionnaires en case de problème ou si l'utilisateur veut faire une pause. 
+
+En plus des besoins spécifique pour la sauvegarde des questionnaires et des réponses. Il y a des besoins plus génériques comme la gestion des comptes que nous verrons plus en détails dans un autre partie.
+
+\subsubsection{NoSQL: MongoDB}
+
+Nous somme partie sur du MongoDB qui fais partie de la mouvance NoSQL qui s'écarte du paradigme classique des bases relationnelles. Cela nous permet de nous affranchir d'une des contraintes des base de données SQL qui est de devoir définir un schéma prédéfini. Nous somme quand même partie d'un schéma de base pour avoir des données en partie structurée.
+
+En offrant un plus grande flexibilité en permettant de gérer des données hétérogènes. Dans cas cela est particulièrement utile pour les questionnaires et les réponses car si un questionnaires est modifier, il faut que les anciens réponses reste en parti utilisable.
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[height=2.0cm]{img/mongodb}
+    \end{center}
+    \caption{Logo de MongoDB}
+\end{figure}
+
+Ce choix du type de la base de données a été proposer par nos chefs de projet. La raison du choix de MongoDB est car il est le membre le plus populaire de la famille NoSQL.   
+
+\subsection{Implémentation}
+
+Pour l'implémentation nous avons utilisé le driver officiel proposer par MongoDB pour le Java. Nous avons crée un classe en Java qui nous héritons et que permet des interfaces pour simplifier l'utilisation dans le reste du code.
+
+Nous avons deviser en trois partie, une première "Utilisateur" qui contient les information sur les comptes (Entreprise, Salarie et Utilisateur Ester).
+
+Un autre "Questionnaires" (ID du questionnaire, ID de celui qui la soumis, Date de création, HTML du questionnaire). 
+
+Et enfin la partie "Réponses" (ID du question, ID de celui qui a répondus, réponses (ID question, réponse)). La modélisation de la parti "Utilisateur" correspond à celle fournis par les M2.
+
+\subsubsection{Bilan}
+
+La base de données est fonctionnel, mais la parti enregistrement questionnaires n'est pas optimal, faute de temps nous enregistrons le code HTML du questionnaire en dur sans le transformer en structure qui nous permettrais de récupéré la liste des questions et des réponses possible. Actuellement, il n'y a pas de calcule de score mais seulement celui du pourcentage de personne qui on répondus.
+
+Pour avoir un version 
+
+\begin{figure}[H]
+    \begin{center}
+        \begin{tabularx}{17cm}{|c|p{6cm}|X|}
+            \hline
+            Priorité & Nom & Raison\\
+            \hline
+            1 & Sauvegarde des données en cours
+            de saisie & Doit être vérifié en premier car sinon [...] \tabularnewline
+            2 & Tache 2 & On doit pouvoir [...] \tabularnewline
+            3 & Enregistrement auto de la date & Comme les principales fonctionnalités permettant de tester sont opérationnelles, nous pouvons passer à cette tâche. \tabularnewline
+            4 & Création et gestion de comptes
+            pour différents types d’utilisateurs & Parce que [...] \tabularnewline
+            5 & Sauvegarde des questionnaires & La tache 5 fait partie des principales [...]. \tabularnewline
+            6 & Sauvegarde de toutes les données
+            traitées & Dernière fonctionnalité essentielle à mettre en place. \tabularnewline
+            7 & Tache 7 & Non-essentiel, mais apporterait un plus au projet. \tabularnewline
+            8 & Tache 8 & Non-essentiel, mais apporterait un plus au projet. \tabularnewline
+            \hline
+        \end{tabularx}
+    \end{center}
+    \caption{Tableau récapitulatif des tâches}
+\end{figure}

@@ -1,0 +1,5 @@
+PWD d:/Documents/Rapport
+INPUT d:/Developpement/TeX Live/2018/texmf.cnf
+INPUT d:/Developpement/TeX Live/2018/texmf-dist/web2c/texmf.cnf
+INPUT d:/Developpement/TeX Live/2018/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT d:/Documents/Rapport/rapport.tex

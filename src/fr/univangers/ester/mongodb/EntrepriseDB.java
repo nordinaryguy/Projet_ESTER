@@ -28,7 +28,7 @@ public class EntrepriseDB extends Database {
 		Document entreprise = new Document(IDENTIFIANT, identifiant)
 				.append(NAME, name)
 				.append(FIRSTCONNECTION, true)
-				.append(PASS, password)
+				.append(PASS, cryptPassword(password))
 				.append(SALARIES, new ArrayList<Document>());	
 		entreprises.insertOne(entreprise);
 	}
@@ -47,7 +47,7 @@ public class EntrepriseDB extends Database {
 		}
 		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
 		entreprises.findOneAndUpdate(Filters.eq(IDENTIFIANT, identifiant),
-				new Document("$set", new Document(PASS, password)));
+				new Document("$set", new Document(PASS, cryptPassword(password))));
 	}
 	
 	public void changeFirstConnection(String identifiant, boolean firstConnection) {
@@ -76,10 +76,13 @@ public class EntrepriseDB extends Database {
 	}
 	
 	public boolean connect(String identifiant, String password) {
-		MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
-	    FindIterable<Document> iterable = entreprises.find(Filters.and(Filters.eq(IDENTIFIANT, identifiant),
-	    		Filters.eq(PASS, password)));
-		return iterable.first() != null;
+		boolean res = false;
+		if(exist(identifiant)) {
+			MongoCollection<Document> entreprises = db().getCollection(C_ENTREPRISE);
+			Document entreprise = entreprises.find(Filters.eq(IDENTIFIANT, identifiant)).first();
+			res = verifyPassword(password, entreprise.getString(PASS));
+		}
+		return res;
 	}
 	
 	public List<String> getSalariesEntreprise(String identifiant) {
