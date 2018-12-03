@@ -1,6 +1,8 @@
 package fr.univangers.ester.mongodb;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.bson.Document;
@@ -31,6 +33,15 @@ public class ReponsesDB extends Database {
 	    FindIterable<Document> iterable = cReponses.find(Filters.and(Filters.eq(IDENTIFIANT_SALARIE, identifiantSalarie), 
 				Filters.eq(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire)));
 		return iterable.first() != null;
+	}
+	
+	public List<String> getListSalaire(String identifiantQuestionnaire) {
+		List<String> identifiantSalaries = new ArrayList<>();
+		MongoCollection<Document> cReponses = db().getCollection(C_REPONSE);
+	    MongoCursor<Document> cursor = cReponses.find(Filters.eq(IDENTIFIANT_QUESTIONNAIRE, identifiantQuestionnaire)).iterator();
+	    while(cursor.hasNext())
+	    	identifiantSalaries.add(cursor.next().getString(IDENTIFIANT_SALARIE));
+	    return identifiantSalaries;
 	}
 	
 	public Map<String, String> getReponses(String identifiantSalarie, String identifiantQuestionnaire) {

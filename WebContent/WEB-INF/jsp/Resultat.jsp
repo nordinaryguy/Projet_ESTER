@@ -44,11 +44,11 @@
 				  	
 				  	<div class="row pt-2 pb-4">  	
 					  	<div class="col-md-8">        
-							<select class="form-control" name="IdentifiantSalarie" id="listeSalaries">
-							    <c:forEach items="${ListeSalaries}" var="identifiant" varStatus="status">
+							<select class="form-control" name="identifiantSalarie" id="listeSalaries">
+							    <c:forEach items="${listSalarie}" var="identifiant" varStatus="status">
 								    <option> <c:out value="${identifiant}"></c:out> </option>
 								</c:forEach>
-								<c:remove var="ListeSalaries" scope="session" />	
+								<c:remove var="listSalarie" scope="session" />	
 						    </select>
 						</div>
 						

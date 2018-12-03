@@ -118,7 +118,7 @@
 							 <div class="dropdown-menu" aria-labelledby="gestionQuestionnaireMenu">
 					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur/generateur_questionnaire">Créer un questionnaire</a>
 					          <a class="dropdown-item" href="<c:url value="/jsp/EnDev.jsp"/>">Modifier un questionnaire</a>
-					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire">Modifier la gestion des questionnaires</a>	
+					          <a class="dropdown-item" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire">Soumettre un questionnaire</a>	
 					        </div>
 					   	</li>	        
 				              
