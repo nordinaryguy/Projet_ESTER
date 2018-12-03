@@ -18,6 +18,10 @@ import fr.univangers.ester.mongodb.SalarieDB;
 import fr.univangers.ester.mongodb.ServerMailDB;
 import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
+/*
+ * Servlet utilisé pour la page des utilisateurs (Adminsitrateur/Médecin/
+ * Préventeur/Assistant/Infirmier)
+ */
 
 @WebServlet("/utilisateur")
 
@@ -38,8 +42,8 @@ public class Utilisateur extends HttpServlet {
     	HttpSession session = request.getSession();
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isUtilisateur()) {
-        	 if (sessionUser.isAdministrateur()) {
-					if(request.getParameter("page") != null && request.getParameter("page").equals("configurationServeurMail")) {
+        	 if (sessionUser.isAdministrateur()) { // Pour un utilisateur de type Administrateur
+					if(request.getParameter("page") != null && request.getParameter("page").equals("configurationServeurMail")) { // Configuration du serveur Mail
 						ServerMailDB serverMailDB = new ServerMailDB();
 						serverMailDB.addDefautServer();
 						request.setAttribute("email", serverMailDB.getServerMail() );
@@ -49,7 +53,7 @@ public class Utilisateur extends HttpServlet {
 					}
         	 }	
 
-	 		if(request.getParameter("page") != null && request.getParameter("page").equals("donnerQuestionnaire")) {
+	 		if(request.getParameter("page") != null && request.getParameter("page").equals("donnerQuestionnaire")) { //Attribution de questionnaires aux salariés
 	 			QuestionnairesDB questionnairesDB = new QuestionnairesDB();
 	     		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
 	 			SalarieDB salarieDB = new SalarieDB();
@@ -68,7 +72,11 @@ public class Utilisateur extends HttpServlet {
         	ServerMailDB serverMailDB = new ServerMailDB();
         	serverMailDB.addDefautServer();       
     		
-    		if(request.getParameter("page") != null && request.getParameter("page").equals("ModifierMotDePasse")) {
+        	/*
+        	 * Récupération des éléments dans la page ModifierMotDePasse 
+        	 * pour le changement de mot de passe
+        	 */
+    		if(request.getParameter("page") != null && request.getParameter("page").equals("ModifierMotDePasse")) { 
         			String oldPassword=request.getParameter("oldPassword");
         			String newPassword=request.getParameter("newPassword");
         			String confirm=request.getParameter("confirm");
@@ -87,6 +95,11 @@ public class Utilisateur extends HttpServlet {
         			}
         			
         	}
+    		
+    		/*
+    		 * Appel des éléments dans la page donnerQuestionnaire
+    		 * pour attribuer des questionnaires à des salariés
+    		 */
 
 	 		if(request.getParameter("page") != null && request.getParameter("page").equals("donnerQuestionnaire")) {
         		String identifiantQuestionnaire = request.getParameter("IdentifiantQuestionnaire");
@@ -109,14 +122,22 @@ public class Utilisateur extends HttpServlet {
         		}
 	 		}
 	 		
-        	if (sessionUser.isAdministrateur()) {
+        	if (sessionUser.isAdministrateur()) { // Concernant l'Administrateur
 
+        		/* 
+        		 * Partie permettant de récupérer les éléments de la page
+        		 * configurationServeurMail 
+        		 */
 				if(request.getParameter("page").equals("configurationServeurMail")) {
 					request.setAttribute("Success", "Serveur mail modifié");
 					serverMailDB.addServerMail(request.getParameter("emailSender"), request.getParameter("password"),request.getParameter("host"),request.getParameter("port"));
 				}
 			}
         	
+        	/*
+        	 * Partie permettant de créer un nouveau salarié en appelant une fonction de génération
+        	 * d'un Identifiant puis stockage dans la Base de données
+        	 */
         	if (sessionUser.isMedecin()||sessionUser.isAdministrateur()||sessionUser.isPreventeur()) {
         		if(request.getParameter("page").equals("createSalarie")) {
         			String  code=PwdGenerator.generateCode();
@@ -127,15 +148,19 @@ public class Utilisateur extends HttpServlet {
         		}
         	}
         	
+        	
             if (sessionUser.isMedecin()||sessionUser.isAdministrateur()) {
             	String forPath;
-            	if (sessionUser.isMedecin()) {
+            	if (sessionUser.isMedecin()) { // Distinction pour la partie qui suit entre le médecin et l'administrateur
             		forPath="Medecin";
             	}
             	else {
             		forPath="Administrateur";
             	}
-            	
+
+            	/* 
+            	 * Création d'autres utilisateurs (Préventeur/Assistant/Infirmier voire Médecin)
+            	 */
 
         		if(request.getParameter("page").equals("createUser")) {
         			String email=request.getParameter("email");

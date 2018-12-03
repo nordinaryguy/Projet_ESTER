@@ -46,7 +46,7 @@
 						    </li>
 	
 					        <li>
-			          			 <a style="color:white;" href="<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire"/>" >Administrer les questionnaires</a>	
+			          			 <a style="color:white;" href='<%= request.getContextPath()%>/utilisateur?page=donnerQuestionnaire"/>'>Administrer les questionnaires</a>	
 					        </li>
 					        
 					        <li>

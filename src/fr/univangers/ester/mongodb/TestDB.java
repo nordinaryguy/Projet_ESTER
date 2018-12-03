@@ -19,6 +19,11 @@ public class TestDB {
 	private static Logger logger = Logger.getLogger("Test");
 	
 	public static void main(String[] args) {
+		UtilisateurEsterDB admin = new UtilisateurEsterDB();
+		admin.add("id1", "Eric", "LeBoeuf", "eric@ester.com", "1234", Status.MEDECIN);
+		admin.add("aa", "admin", "Admin", "admin@ester.come", "1234", Status.ADMINISTRATEUR);
+
+		
 		if(testEntrepriseDB()) {
 			logger.log(Level.INFO, "Test Entreprise : " + REUSSITE);
 		} else {

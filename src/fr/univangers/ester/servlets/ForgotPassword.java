@@ -17,6 +17,10 @@ import fr.univangers.ester.mongodb.ServerMailDB;
 import fr.univangers.ester.mongodb.UrlTokenDB;
 import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
+/*
+ * Servlet utilisé pour la page où l'utilisateur a oublié son mot de passe
+ */
+
 @WebServlet("/ForgotPassword")
 public class ForgotPassword extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -24,11 +28,16 @@ public class ForgotPassword extends HttpServlet {
 	public static final String ATT_MSG_WARNING = "Warning";
     public static final String ATT_MSG_SUCCESS = "Success";
 	
+    
+    /*
+     * Constructeur instanciant un limite de temps
+     */
     public ForgotPassword() {
         super();
         delai=new TimeLimit(0,0,3,0);
     }
     
+   
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String message="";

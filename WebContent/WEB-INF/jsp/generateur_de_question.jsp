@@ -72,22 +72,15 @@
 					<div class="shadowbottom">
 						<h2 style="border-radius: 10px; text-align: center">Questionnaire
 						</h2>
+						
+						<h5> Faites glisser les éléments de votre questionnaire ci-dessous (pour valider, cliquez sur l'onglet Questionnaire) :</h5>
 						<form id="target" class="form-horizontal"
 							style="word-wrap: break-word; overflow: auto; background: white; min-height: 400px;">
 
 							<div id="build">
 								<fieldset>
-									<div id="legend" class="component" rel="popover"
-										title="Form Title"
-										data-content="<form class='form'>
-	                      <div class='form-group col-md-12'>
-	                        <label class='control-label'>titre</label> <input class='form-control' type='text' name='title' id='text'>
-	                        <button class='btn btn-info'>enregistrer</button><button class='btn btn-danger'>fermer</button>
-	                      </div>
-	                    </form>"
-										data-html="true">
-										<legend class="valtype" data-valtype="text">veuillez saisir le nom de votre questionnaire </legend>
-									</div>
+								
+									
 								</fieldset>
 							</div>
 						</form>
@@ -132,7 +125,7 @@
 	                      </form>"
 											data-html="true">
 											<!-- Text input-->
-											<label class="col-md-4 control-label valtype" for="input01"
+											<label class="col-md-4 control-label valtype"
 												data-valtype='label'>Question de type texte
 												(courte):</label>
 											<div class="col-md-4">
@@ -310,7 +303,7 @@
 											data-html="true">
 											<!-- echelle  -->
 											<label class="col-md-4 control-label valtype"
-												data-valtype="label">echelle de borg: </label>
+												data-valtype="label">Echelle de Borg: </label>
 											<div class="col-md-4 valtype" data-valtype="radios">
 												<label class="radio"> <input type="radio"
 													value="Très très facile" name="Très très facile"
@@ -353,8 +346,10 @@
 									
 
 								</div>
-							</form>
-						</fieldset>
+										
+							</fieldset>
+								
+						</form>
 					</div>
 				</div>
 			</div>
@@ -381,5 +376,6 @@
 				<a href="<c:url value="/jsp/EnDev.jsp"/>">Contacts</a>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
