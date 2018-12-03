@@ -30,7 +30,7 @@ public class Salarie extends HttpServlet {
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isSalarie()) {
         	
-        	if(sessionUser.isFirstConnection() ||  (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
+        	if(sessionUser.isFirstConnection() &&  (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
         		request.setAttribute(ATT_FIRST_CNX, true);
         	}else {
         		request.setAttribute(ATT_FIRST_CNX, false);
@@ -56,12 +56,10 @@ public class Salarie extends HttpServlet {
 		HttpSession session = request.getSession();
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
     	if(sessionUser.isFirstConnection() || (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
-    		//if (sessionUser.isFirstConnection()) {
-    			String sexe=request.getParameter("sexe");
-    		/*}
-    		else {
-    			String sexe = sessionUser.getSex();
-    		}*/
+    		
+    		request.setAttribute(ATT_FIRST_CNX, true);
+        	SalarieDB salarieDB = new SalarieDB();
+        	String sexe;
         	String[] birthYear=request.getParameter("years").split("-",2);
         	String pcs=request.getParameter("pcs");
         	String naf=request.getParameter("naf");
@@ -74,7 +72,13 @@ public class Salarie extends HttpServlet {
         	}catch(Exception e){
         		request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
         	}
-        	SalarieDB salarieDB = new SalarieDB();
+        	
+        	if (sessionUser.isFirstConnection()) {
+    			sexe=request.getParameter("sexe");
+    		}
+    		else {
+    			sexe = salarieDB.getSex(sessionUser.getIdentifiant());
+    		}
         	if(salarieDB.update(sessionUser.getIdentifiant(), sexe, birthInf, birthSup, departement, naf,pcs)){
         		request.setAttribute(ATT_MSG_SUCCESS,"Profil mis à jour ");
         	}
@@ -83,6 +87,11 @@ public class Salarie extends HttpServlet {
         	}
         	
     	}
+    	
+    	else {
+    		request.setAttribute(ATT_FIRST_CNX, false);
+    	} 
+    	
     	try {
         	this.getServletContext().getRequestDispatcher("/salarie/index.jsp").forward(request, response);
         }catch(ServletException e) {
