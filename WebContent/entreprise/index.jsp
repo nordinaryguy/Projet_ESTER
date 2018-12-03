@@ -8,7 +8,7 @@
 	<meta charset="UTF-8">
 	<link rel="icon" href="<c:url value="/img/ua.png"/>">
 	
-	<title>ESTER - Accueil</title>
+	<title>Accueil - ESTER</title>
 
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/default.css"/>">

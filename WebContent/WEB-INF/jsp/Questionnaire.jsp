@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
     
-	<title>ESTER - Questionnaires</title>
+	<title>Questionnaires - ESTER </title>
 
 	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
     <link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
@@ -56,7 +56,7 @@
 				    		<button class="btn btn-danger m-3" type="reset">ANNULER</button>
 				    	</c:if>
 		      			<c:if test="${sessionScope.sessionUtilisateur.isUtilisateur()}">
-				    		<button class="btn btn-primary m-3" onClick="window.location.reload()">RETOUR</button>
+				    		<button class="btn btn-primary m-3" onClick="window.location.href">RETOUR</button>
 				    	</c:if>
 				    </c:if>
 			    </div>

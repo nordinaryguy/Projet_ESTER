@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="icon" href="<c:url value="/img/ua.png"/>">
-<title>ESTER - Générateur de questionnaire</title>
+<title>Générateur de questionnaire - ESTER</title>
 <link rel="stylesheet"
 	href="<c:url value="/css/old/bootstrap.min.css"/>">
 <link rel="stylesheet" href="<c:url value="/css/menu.css"/>">

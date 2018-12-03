@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <link rel="icon" href="<c:url value="/img/ua.png"/>">
 
-    <title>ESTER - Accueil</title>
+    <title>Accueil - ESTER</title>
 
 		<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	

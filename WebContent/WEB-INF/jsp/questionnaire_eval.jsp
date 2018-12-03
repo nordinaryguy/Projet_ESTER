@@ -9,7 +9,7 @@
 	<meta charset="UTF-8">
 	<link rel="icon" href="<c:url value="/img/ua.png"/>">
 	
-	<title>ESTER - EvalRisk</title>
+	<title>EvalRisk - ESTER </title>
 
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap-responsive.min.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/old/bootstrap.min.css"/>">
