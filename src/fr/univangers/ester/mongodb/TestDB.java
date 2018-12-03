@@ -36,7 +36,6 @@ public class TestDB {
 		} else {
 			logger.log(Level.WARNING, "Test UtilisateurEster : " + ECHEC);
 		}
-		
 		addEvalRiskTMS();
 	}
 

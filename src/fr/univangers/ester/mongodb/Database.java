@@ -24,7 +24,7 @@ public abstract class Database {
 	} 
 	
 	public String cryptPassword(String password) {
-		return BCrypt.withDefaults().hashToString(BCrypt.MAX_COST, password.toCharArray());
+		return BCrypt.withDefaults().hashToString(BCrypt.MIN_COST, password.toCharArray());
 	}
 	
 	public boolean verifyPassword(String password, String passwordCrypt) {
