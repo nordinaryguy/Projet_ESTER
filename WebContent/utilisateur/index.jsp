@@ -239,6 +239,10 @@
 							<h1>Infirmier</h1>
 							<p>Bienvenue sur la partie Infirmier du Projet ESTER</p>
 						</c:if>
+				<!-- si première utilisation afficher changement mot de passe -->
+				<c:if test="${FirstConnexion||param.page == 'modifierProfil'}">
+								<c:import url="/jsp/resetPassword.jsp"/>
+				</c:if>	
 
 					
 						<c:if test="${param.page == 'createUser'}">

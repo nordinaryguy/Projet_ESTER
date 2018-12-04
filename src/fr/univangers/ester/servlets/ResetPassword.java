@@ -36,7 +36,7 @@ public class ResetPassword extends HttpServlet {
 		//get email and set attribute if valid token
 		email = urlTokenDB.getIdentforToken(token);
 		if(valid) {
-			request.setAttribute("email", email);
+			request.setAttribute("id", email);
 		}
 		urlTokenDB.deleteUrlToken(email);
 		request.setAttribute("valid", valid);
