@@ -13,6 +13,7 @@ import fr.univangers.ester.beans.Entreprise;
 import fr.univangers.ester.beans.Salarie;
 import fr.univangers.ester.beans.UtilisateurBeans;
 import fr.univangers.ester.beans.UtilisateurEster;
+import fr.univangers.ester.beans.UtilisateurEster.Status;
 import fr.univangers.ester.mongodb.SalarieDB;
 import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
