@@ -27,15 +27,18 @@ public class ResetPassword extends HttpServlet {
     @Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//get token 
+    	request.setAttribute("message", false);
 		String token=request.getParameter("token");
 		//check if valid
 		ServerMailDB serverMailDB = new ServerMailDB();
 		serverMailDB.addDefautServer();
 		UrlTokenDB urlTokenDB = new UrlTokenDB();
-		boolean valid = urlTokenDB.existUrlToken(token) && urlTokenDB.valideUrlToken(token);
+		boolean valid =false;
+		if(urlTokenDB.existUrlToken(token) && urlTokenDB.valideUrlToken(token)) 
+			valid=true;
 		//get email and set attribute if valid token
-		email = urlTokenDB.getIdentforToken(token);
 		if(valid) {
+			email = urlTokenDB.getIdentforToken(token);
 			request.setAttribute("id", email);
 		}
 		urlTokenDB.deleteUrlToken(email);
@@ -66,8 +69,7 @@ public class ResetPassword extends HttpServlet {
 		}else {
 			request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
 		}
-		request.setAttribute("valid", true);
-		request.setAttribute("email", email);
+		request.setAttribute("message", true);
 		try {
 			this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/ResetPassword.jsp").forward(request, response);
 		}catch(ServletException e) {
