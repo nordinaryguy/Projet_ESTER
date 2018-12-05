@@ -14,6 +14,7 @@ import fr.univangers.ester.beans.Salarie;
 import fr.univangers.ester.beans.UtilisateurBeans;
 import fr.univangers.ester.beans.UtilisateurEster;
 import fr.univangers.ester.mongodb.SalarieDB;
+import fr.univangers.ester.mongodb.ServerMailDB;
 import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
 @WebServlet("/connexion")
@@ -29,10 +30,11 @@ public class LogIn extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		ServerMailDB serverMailDB = new ServerMailDB();
+		if(serverMailDB.serverMailEmpty())
+			serverMailDB.addDefautServer();
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
-		
-		
+
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

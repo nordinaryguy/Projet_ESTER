@@ -25,6 +25,8 @@ public abstract class Database {
 		return BCrypt.withDefaults().hashToString(BCrypt.MIN_COST, password.toCharArray());
 	}
 	
+	
+	
 	public boolean verifyPassword(String password, String passwordCrypt) {
 		return BCrypt.verifyer().verify(password.toCharArray(), passwordCrypt).verified;
 	}
