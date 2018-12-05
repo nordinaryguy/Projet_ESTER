@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.18)  5 DEC 2018 13:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Debian) (preloaded format=pdflatex 2018.10.18)  5 DEC 2018 14:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -651,7 +651,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: End \AtBeginDocument code.
 (./title.tex
-<./img/ua_h_couleur.png, id=107, 189.3474pt x 57.0933pt>
+<./img/ua_h_couleur.png, id=123, 189.3474pt x 57.0933pt>
 File: ./img/ua_h_couleur.png Graphic file (type png)
 <use ./img/ua_h_couleur.png>
 Package pdftex.def Info: ./img/ua_h_couleur.png  used on input line 5.
@@ -684,30 +684,30 @@ l.1 \chapter
 
 ]
 Chapitre 2.
-) [2
+[2
 
 ]
-Chapitre 3.
-(./base_de_donnees.tex
-<img/mongodb.jpg, id=167, 2007.45412pt x 616.97931pt>
+<img/mongodb.jpg, id=187, 2007.45412pt x 616.97931pt>
 File: img/mongodb.jpg Graphic file (type jpg)
 <use img/mongodb.jpg>
-Package pdftex.def Info: img/mongodb.jpg  used on input line 19.
+Package pdftex.def Info: img/mongodb.jpg  used on input line 58.
 (pdftex.def)             Requested size: 185.13524pt x 56.9055pt.
- [3
-
- <./img/mongodb.jpg>]
-Underfull \hbox (badness 1960) in paragraph at lines 60--60
+) [3 <./img/mongodb.jpg>]
+Chapitre 3.
+(./base_de_donnees.tex
+Underfull \hbox (badness 1960) in paragraph at lines 48--48
 \T1/cmr/m/n/12 pour dif-fé-rents types d'uti-li-sa-
  []
 
-) (./connexion.tex) (./mail.tex) [4]
+) (./connexion.tex [4
+
+]) (./mail.tex) [5]
 Chapitre 4.
-(./structure.tex) (./questionnaire.tex) (./resultat.tex) (./conclusion.tex [5
+(./structure.tex) (./questionnaire.tex) (./resultat.tex) (./conclusion.tex [6
 
 ]
 Chapitre 5.
-) [6
+) [7
 
 ]
 No file rapport.bbl.
@@ -717,22 +717,22 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 123.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 123.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 123.
 Package rerunfilecheck Info: File `rapport.out' has not changed.
-(rerunfilecheck)             Checksum: 402B4647352583A4E081BB753516CE9D;1623.
+(rerunfilecheck)             Checksum: 7370658822F1A150AD63ACD5763CD897;1901.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 123.
  ) 
 Here is how much of TeX's memory you used:
- 20319 strings out of 492982
- 366212 string characters out of 6134895
- 454867 words of memory out of 5000000
- 23462 multiletter control sequences out of 15000+600000
+ 20328 strings out of 492982
+ 366394 string characters out of 6134895
+ 456867 words of memory out of 5000000
+ 23466 multiletter control sequences out of 15000+600000
  15936 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,10n,96p,518b,515s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti1440.pfb>
-Output written on rapport.pdf (10 pages, 516687 bytes).
+Output written on rapport.pdf (11 pages, 519255 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 202 compressed objects within 3 object streams
- 36 named destinations out of 1000 (max. 500000)
- 223 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 256 PDF objects out of 1000 (max. 8388607)
+ 228 compressed objects within 3 object streams
+ 41 named destinations out of 1000 (max. 500000)
+ 255 words of extra memory for PDF output out of 10000 (max. 10000000)
 

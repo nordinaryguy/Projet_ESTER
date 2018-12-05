@@ -263,11 +263,11 @@ INPUT ./gestion_projet.tex
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1728.tfm
 INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecbx1440.tfm
-INPUT ./base_de_donnees.tex
-INPUT ./base_de_donnees.tex
 INPUT img/mongodb.jpg
 INPUT ./img/mongodb.jpg
 INPUT ./img/mongodb.jpg
+INPUT ./base_de_donnees.tex
+INPUT ./base_de_donnees.tex
 INPUT ./connexion.tex
 INPUT ./connexion.tex
 INPUT ./mail.tex
