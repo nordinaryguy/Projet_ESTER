@@ -80,7 +80,7 @@ public class GeneratorQuestionnaire extends HttpServlet {
 		return "<!DOCTYPE html>\r\n" + 
 				"<html>\r\n" + 
 				"  <head>\r\n" + 
-				"    <meta charset=\"utf-8\">\r\n" + 
+				"    <meta charset=\"UTF-8\">\r\n" + 
 				"    <title>generateur de questionnaire</title>\r\n" +
 				styleForm() + 
 				"  </head>\r\n" + 
