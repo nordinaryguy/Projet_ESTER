@@ -3,11 +3,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <script src="<c:url value="/js/checkPass.js"/>"></script>
+
+
 <form class="form-reset" method="post">
 		 <div class="form-title-row">
 	           <h3>Veuillez entrer un nouveau mot de passe  </h3>
          </div>
-		<c:import url="/jsp/Alert.jsp"/>
+         
          <div class="form-row">
 				<span>Email : </span> 		
 	            <div class="col-xs-12 center-block text-center"> 
@@ -19,8 +21,8 @@
 				<label for=#password>
 						Nouveau mot de passe : 
 				</label>		
-                <input type='password' name='password' id='pass_1' onkeyup="return passwordChanged();"  onBlur="checkPass()" required>
-            	 <span id="strength" class="col col-xs-2"></span>
+                <input type='password' name='password' id='pass_1' onkeyup="return passwordChanged('pass_1');"  onBlur="checkPass('pass_1','pass_2')" required>
+            	<span id="strength" class="col col-xs-2"></span>
        </div> 
        <div class="row" >
     		
@@ -29,7 +31,7 @@
 		  		<label>
 						Confirmer le mot de passe : 	
 				</label>	
-	            <input type="password" name="passwordConfirm" id="pass_2" onkeyup="checkPass()" required>
+	            <input type="password" name="passwordConfirm" id="pass_2" onkeyup="checkPass('pass_1','pass_2')" required>
 	     </div>
 	    <div id="divcomp">
 			   	<div class="row" >

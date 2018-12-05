@@ -30,7 +30,7 @@
   	<div class="container-fluid" id="container">
 	  	<div class="row justify-content-center">
 			<div class="text-center mb-4">
-			     
+			     <c:import url="/jsp/Alert.jsp"/>
 			      <c:if test="${valid}">  
 				       <div class="row">
 							<c:import url="/jsp/resetPassword.jsp"/>
