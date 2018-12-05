@@ -22,6 +22,7 @@ public class TestDB {
 		UtilisateurEsterDB admin = new UtilisateurEsterDB();
 		admin.add("id1", "Eric", "LeBoeuf", "eric@ester.com", "1234", Status.MEDECIN);
 		admin.add("aa", "admin", "Admin", "admin@ester.come", "1234", Status.ADMINISTRATEUR);
+		
 
 		
 		if(testEntrepriseDB()) {
