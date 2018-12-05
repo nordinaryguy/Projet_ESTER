@@ -67,12 +67,17 @@ public class UtilisateurEster implements UtilisateurBeans {
 	public String getPassword() {
 		return password;
 	}
-
+	
+	public void setFirstCnx(boolean bool){
+		UtilisateurEsterDB users = new UtilisateurEsterDB();
+		users.changeFirstConnection(identifiant, bool);
+	}
 	@Override
 	public boolean validate() {
 		UtilisateurEsterDB users = new UtilisateurEsterDB();
 		return users.connect(identifiant, password);
 	}
+	
 
 	@Override
 	public boolean isEntreprise() {

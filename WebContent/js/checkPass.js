@@ -1,8 +1,8 @@
-function checkPass(){
-		    var champA = document.getElementById("pass_1").value;
-		    var champB = document.getElementById("pass_2").value;
-		    var div_comp = document.getElementById("divcomp");
-		    if(!passwordChanged()){
+function checkPass(pass1,pass2){
+		    var champA = document.getElementById(pass1).value;
+		    var champB = document.getElementById(pass2).value;
+		    var divcomp = document.getElementById("divcomp");
+		    if(!passwordChanged(pass1)){
 		    	strength.innerHTML = " Saisi un mot de passe plus fort";
 		        strength.style.color="red";
 		        document.getElementById('submit').disabled = true;
@@ -21,7 +21,7 @@ function checkPass(){
 		    }
 }
 
-function passwordChanged() {
+function passwordChanged(password) {
 	document.getElementById('submit').disabled = true;
 	divcomp.innerHTML = " ";
 	var strength = document.getElementById("strength");
@@ -31,7 +31,7 @@ function passwordChanged() {
 	var mediumRegex = new RegExp("^(?=.{9,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
 	/*minimum 8 any characters */
 	var enoughRegex = new RegExp("(?=.{8,}).*", "g");
-	var pwd = document.getElementById("pass_1");
+	var pwd = document.getElementById(password);
 	if (pwd.value.length==0) {
 	strength.innerHTML = " Tapez un mot de passe";
 	strength.style.color="black";

@@ -9,13 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.jni.User;
-
 import fr.univangers.ester.beans.Entreprise;
 import fr.univangers.ester.beans.Salarie;
 import fr.univangers.ester.beans.UtilisateurBeans;
 import fr.univangers.ester.beans.UtilisateurEster;
-import fr.univangers.ester.beans.UtilisateurEster.Status;
 import fr.univangers.ester.mongodb.SalarieDB;
 import fr.univangers.ester.mongodb.UtilisateurEsterDB;
 
