@@ -30,7 +30,7 @@ public class Salarie extends HttpServlet {
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isSalarie()) {
         	
-        	if(sessionUser.isFirstConnection() &&  (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
+        	if(sessionUser.isFirstConnection() ||  (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
         		request.setAttribute(ATT_FIRST_CNX, true);
         	}else {
         		request.setAttribute(ATT_FIRST_CNX, false);

@@ -95,7 +95,7 @@ public class Mail {
 	public String mdpProvisoireBodyText(String mdp,String urlLogin) {
 		String message="<p><b>Bienvenue ,</b></p><br/>";
 		message += "<p>Pour vote première connexion, </p>";
-		message += "<pstyle=\"text-align:Center;\"><b>le mot de passe provisoire :" + mdp+"</b> </p><br/>";
+		message += "<pstyle=\"text-align:Center;\"><b>le mot de passe provisoire " + mdp+"</b> </p><br/>";
 		message += "<p>Afin de vous connectez <a href=\""+urlLogin+"\">Cliquez ici</a> </p> <br/>";
 		message += "<p>Bien Cordialement,</p>"+
 				   "<p>L'équipe ester </p>";
@@ -104,7 +104,7 @@ public class Mail {
 	
 	public String mdpOublieBodyText(String url) {
 		String message="<p><b>Bonjour ,</b></p><br/>";
-		message += "<p>Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur ce lien pour recevoir un nouveau mot de passe :  </p>";
+		message += "<p>Vous avez demandé à réinitialiser votre mot de passe. Cliquez sur ce lien pour recevoir un nouveau mot de passe </p>";
 		message += "<p><a href=\""+url+"\">cliquez ici</a> </p> <br/>";
 		message += "<p>Bien Cordialement,</p>"+
 				   "<p>L'équipe de ester </p>";

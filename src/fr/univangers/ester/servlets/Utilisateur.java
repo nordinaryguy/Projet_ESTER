@@ -174,13 +174,7 @@ public class Utilisateur extends HttpServlet {
         	
         	
             if (sessionUser.isMedecin()||sessionUser.isAdministrateur()) {
-            	String forPath;
-            	if (sessionUser.isMedecin()) { // Distinction pour la partie qui suit entre le médecin et l'administrateur
-            		forPath="Medecin";
-            	}
-            	else {
-            		forPath="Administrateur";
-            	}
+            	String forPath = "utilisateur";
 
             	/* 
             	 * Création d'autres utilisateurs (Préventeur/Assistant/Infirmier voire Médecin)

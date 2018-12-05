@@ -20,9 +20,7 @@ public class TestDB {
 	
 	public static void main(String[] args) {
 		UtilisateurEsterDB admin = new UtilisateurEsterDB();
-		admin.add("id1", "Eric", "LeBoeuf", "eric@ester.com", "1234", Status.MEDECIN);
-		admin.add("aa", "admin", "Admin", "admin@ester.come", "1234", Status.ADMINISTRATEUR);
-
+		addAdmin();
 		
 		if(testEntrepriseDB()) {
 			logger.log(Level.INFO, "Test Entreprise : " + REUSSITE);
@@ -161,6 +159,11 @@ public class TestDB {
 		}
 		
 		return true;
+	}
+	
+	public static void addAdmin() {
+		UtilisateurEsterDB utilisateurEsterDB = new UtilisateurEsterDB();
+		utilisateurEsterDB.add("admin", "Administrateur", "", "admin@ester.fr", "admin", Status.ADMINISTRATEUR);
 	}
 	
 	public static void addEvalRiskTMS() {
