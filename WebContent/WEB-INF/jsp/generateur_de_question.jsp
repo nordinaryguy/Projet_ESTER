@@ -160,20 +160,21 @@
 												</select>
 											</div>
 										</div>
-
-										<div class="form-group component" rel="popover"
-											title="Multiple Checkboxes"
+			<div class="form-group component" rel="popover"
+											title="Multiple checkboxes"
 											data-content="
 	                      <form class='form'>
 	                        <div class='form-group col-md-12'>
-	                          <label class='control-label'>texte</label> <input class='form-control' type='text' name='label' id='label'>
+	                          <label class='control-label'>Texte</label> <input class='form-control' type='text' name='label' id='label'>
 	                          <label class='control-label'>Options: </label>
-	                          <textarea class='form-control' style='min-height: 200px' id='checkboxes'> </textarea>
+	                          <textarea class='form-control' style='min-height: 200px' id='checkboxes'></textarea>
 	                          <hr/>
 	                          <button class='btn btn-info'>Enregistrer</button><button class='btn btn-danger'>Fermer</button>
 	                        </div>
 	                      </form>"
 											data-html="true">
+											
+										
 											<!-- Multiple Checkboxes -->
 											<label class="col-md-4 control-label valtype"
 												data-valtype="label">Question à choix multiple</label>
@@ -214,7 +215,7 @@
 												</label>
 											</div>
 										</div>
-
+	
 										<div class="form-group component" rel="popover"
 											data-content="
 	                        <form class='form'>
