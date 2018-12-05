@@ -12,13 +12,11 @@ public abstract class Database {
 	private static final int PORT = 27017;
 	private static final String DBNAME = "BDD_ESTER_DEV";
 	
-	private static MongoClient client;
 	private static MongoDatabase mgdb;
 	
 	public MongoDatabase db() {
 		if(mgdb == null) {
-			client =  MongoClients.create("mongodb://" + HOSTNAME + ":" + PORT);
-			mgdb = client.getDatabase(DBNAME);
+			mgdb = MongoClients.create("mongodb://" + HOSTNAME + ":" + PORT).getDatabase(DBNAME);
 		}
 		return mgdb;
 	} 
