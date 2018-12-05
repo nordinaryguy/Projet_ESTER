@@ -69,7 +69,7 @@ public class ForgotPassword extends HttpServlet {
 		String path = request.getRequestURL().toString();
 		path=path.substring(0, path.length()-"ForgotPassword".length());
 
-		if(users.exist(email)) {
+		if(users.existMail(email)) {
 			if(urlTokenDB.hasUrlToken(email))
 				request.setAttribute(ATT_MSG_WARNING,"un mail valide vous a été déjà envoyé");
 			else {

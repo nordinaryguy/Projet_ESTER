@@ -87,6 +87,21 @@ public class UtilisateurEsterDB extends Database {
 		return iterable.first() != null;
 	}
 	
+	public boolean existMail(String mail) {
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
+	    FindIterable<Document> iterable = users.find(Filters.eq(MAIL,mail));
+		return iterable.first() != null;
+	}
+	
+	public String getIdentifiant(String mail) {
+		if(!existMail(mail)) {
+			throw new IllegalArgumentException(ERROR_NO_EXIST);	
+		}
+		MongoCollection<Document> users = db().getCollection(C_USER_ESTER);
+	    FindIterable<Document> iterable = users.find(Filters.eq(MAIL,mail));
+		return iterable.first().getString(IDENTIFIANT);
+	}
+	
 	public boolean connect(String identifiant, String password) {
 		boolean res = false;
 		if(exist(identifiant)) {

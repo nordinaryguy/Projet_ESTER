@@ -61,7 +61,7 @@ public class ResetPassword extends HttpServlet {
 		//change mot de passe
 		UtilisateurEsterDB users=new UtilisateurEsterDB();
 		String pwd=request.getParameter("password");		
-		if(	users.changePassword(email, pwd)) {
+		if(	users.changePassword(users.getIdentifiant(email),pwd)) {
 			request.setAttribute(ATT_MSG_SUCCESS,"Mot de passe modifié");
 		}else {
 			request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");

@@ -64,7 +64,7 @@ public class GeneratorQuestionnaire extends HttpServlet {
        }
        this.getServletContext().getRequestDispatcher("/WEB-INF/jsp/generateur_de_question.jsp").forward(request, response); 
 	}
-	protected String StyleForm() {
+	protected String styleForm() {
 		return "  <style type=\"text/css\">\r\n" + 
 				"      body {\r\n" + 
 				"        padding-bottom: 10px;\r\n" + 
@@ -82,7 +82,7 @@ public class GeneratorQuestionnaire extends HttpServlet {
 				"  <head>\r\n" + 
 				"    <meta charset=\"utf-8\">\r\n" + 
 				"    <title>generateur de questionnaire</title>\r\n" +
-				StyleForm() +
+				styleForm() + 
 				"  </head>\r\n" + 
 				"  <body>\r\n" + 
 				"  \r\n" + 
@@ -102,7 +102,7 @@ public class GeneratorQuestionnaire extends HttpServlet {
 	protected void createFile(String text) {
 		try
 		{
-			File file = new File("C:/Users/IMANE/eclipse-workspace/Projet_Ester/file.html");
+			File file = new File("./Projet_Ester/file.html");
 			file.getParentFile().mkdirs();
 			PrintWriter printWriter = new PrintWriter(file);
 			printWriter.println(createFormHeader());
