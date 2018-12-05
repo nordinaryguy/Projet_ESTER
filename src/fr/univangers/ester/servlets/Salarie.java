@@ -55,9 +55,9 @@ public class Salarie extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
+    	request.setAttribute(ATT_FIRST_CNX, false);
     	if(sessionUser.isFirstConnection() || (request.getParameter("page")!= null && request.getParameter("page").equals("modifierProfil"))){
     		
-    		request.setAttribute(ATT_FIRST_CNX, true);
         	SalarieDB salarieDB = new SalarieDB();
         	String sexe;
         	String[] birthYear=request.getParameter("years").split("-",2);
@@ -87,11 +87,7 @@ public class Salarie extends HttpServlet {
         	}
         	
     	}
-    	
-    	else {
-    		request.setAttribute(ATT_FIRST_CNX, false);
-    	} 
-    	
+    
     	try {
         	this.getServletContext().getRequestDispatcher("/salarie/index.jsp").forward(request, response);
         }catch(ServletException e) {
