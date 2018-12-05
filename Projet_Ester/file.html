@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>generateur de questionnaire</title>
+  <style type="text/css">
+      body {
+        padding-bottom: 10px;
+        background: repeating-linear-gradient(-45deg, white, white 4px, #e9e8e7 4px, white 6px);
+      }
+ fieldset{
+	  text-align: center;
+	  font-style: italic;
+	  }    </style>  </head>
+  <body>
+  
+   <!-- questionnaire -->
+    <div class="container" style="background-color: white; margin-top: 5%;"> 
+
+								<fieldset>
+								
+									
+								<div class="form-group">
+											<!-- Multiple Checkboxes -->
+											<label class="col-md-4 control-label">Taille</label>
+											<div class="col-md-4">
+      <!-- Multiple Checkboxes -->
+      <label class="checkbox">
+        <input type="checkbox" value="A" name="A">
+        A
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" value="B" name="B">
+        B
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" value="C" name="C">
+        C
+      </label>
+      <label class="checkbox">
+        <input type="checkbox" value="D" name="D">
+        D
+      </label>
+  </div>
+										</div>
+
+    <div class="form-group">
+											<!-- Multiple Radios -->
+											<label class="col-md-4 control-label">Grand</label>
+											<div class="col-md-4">
+      <!-- Multiple Radios -->
+      <label class="radio">
+     <input type="radio" value="Oui" name="group" id="1" checked="checked">
+        Oui
+      </label>
+      <label class="radio">
+     <input type="radio" value="Non" name="group" id="2">
+        Non
+      </label>
+  </div>
+										</div><div class="popover fade right" style="top: 1.90001px; left: 774px; display: block;"><div class="arrow"></div><h3 class="popover-title">Multiple Radios</h3><div class="popover-content">
+	                      <form class="form">
+	                        <div class="form-group col-md-12">
+	                          <label class="control-label">Texte</label> <input class="form-control" type="text" name="label" id="label">
+	                          <label class="control-label">Attributs</label> <input class="form-control" type="text" name="name" id="name">
+	                          <label class="control-label">Options: </label>
+	                          <textarea class="form-control" style="min-height: 200px" id="radios">premiere option
+deuxieme option</textarea>
+	                          <hr>
+	                          <button class="btn btn-info">Enregistrer</button><button class="btn btn-danger">Fermer</button>
+	                        </div>
+	                      </form></div></div>
+
+    </fieldset>
+							
+ <!--submit btn-->
+      <div class="row" style="text-align: center;">
+        <input type="submit"  value="enregistrer" > 
+      </div>
+   </div>
+  </body>
+</html>
+

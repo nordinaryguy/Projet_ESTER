@@ -10,8 +10,8 @@
         
 	<select name="typeCompte" id="typeCompte" size="1">
 		<c:if test="${sessionScope.sessionUtilisateur.isAdministrateur()}">	     
-			<option value="Assistant">Administrateur</option>
-			<option value="Assistant">Médecin</option>
+			<option value="Administrateur">Administrateur</option>
+			<option value="Medecin">Médecin</option>
 		 </c:if>
 		<option value="Assistant">Assistant</option>
 	    <option value="Infirmier">Infirmier</option>

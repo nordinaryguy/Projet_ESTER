@@ -150,13 +150,7 @@ public class Utilisateur extends HttpServlet {
         	
         	
             if (sessionUser.isMedecin()||sessionUser.isAdministrateur()) {
-            	String forPath;
-            	if (sessionUser.isMedecin()) { // Distinction pour la partie qui suit entre le médecin et l'administrateur
-            		forPath="Medecin";
-            	}
-            	else {
-            		forPath="Administrateur";
-            	}
+            	String forPath = "utilisateur";
 
             	/* 
             	 * Création d'autres utilisateurs (Préventeur/Assistant/Infirmier voire Médecin)
@@ -170,7 +164,7 @@ public class Utilisateur extends HttpServlet {
         			path=path.substring(0, path.length()-forPath.length());
         			user.add(email,"", "", email, pass,Status.toStatus(type));
         			Mail mailSender=new Mail();
-        			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,path+"connexion"), true);
+        			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,path+"/connexion"), true);
         			if(mailSend) {
         				request.setAttribute(ATT_MSG_SUCCESS,"mail envoyé");
         			}

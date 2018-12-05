@@ -1,5 +1,6 @@
 \section{Base de Données}
 
+La basse de données est divisé en collections 
 
 Pour l'implémentation nous avons utilisé le driver officiel proposer par MongoDB pour le Java. Nous avons crée un classe en Java qui nous héritons et que permet des interfaces pour simplifier l'utilisation dans le reste du code.
 
@@ -8,6 +9,47 @@ Nous avons deviser en trois partie, une première "Utilisateur" qui contient les
 Un autre "Questionnaires" (ID du questionnaire, ID de celui qui la soumis, Date de création, HTML du questionnaire). 
 
 Et enfin la partie "Réponses" (ID du question, ID de celui qui a répondus, réponses (ID question, réponse)). La modélisation de la parti "Utilisateur" correspond à celle fournis par les M2.
+
+\subsection{Utilisateur ESTER}
+
+\begin{figure}[H]
+    \begin{center}
+        \begin{tabularx}{17cm}{|c|X|}
+            \hline
+            Clée & Valeur  \tabularnewline 
+            \hline
+            Identifiant & 
+            Chaine de caratères peut être utilisé à la place du mail lors de la connexion \tabularnewline 
+            Nom & 
+            Chaine de caratères \tabularnewline
+            Prénom & 
+            Chaine de caratères \tabularnewline
+            Première connexion & 
+            Boolean \tabularnewline
+            Mot de passe & 
+            Chaine de caratères chiffré \tabularnewline
+            Mail & 
+            Chaine de caratères \tabularnewline
+            Statut & 
+            Chaine de caratères représente le status du salarié (Medecin, Administrateur,
+            Preventeur, Assistant) \tabularnewline
+            \hline
+        \end{tabularx}
+    \end{center}
+    \caption{Tableau récapitulatif des tâches}
+\end{figure}
+
+\subsection{Entreprise}
+
+\subsection{Salarie}
+
+\subsection{Questionnaire}
+
+\subsection{Réponse}
+
+\subsection{Questionnaire}
+
+\subsection{Sécurité}
 
 \subsection{Bilan}
 

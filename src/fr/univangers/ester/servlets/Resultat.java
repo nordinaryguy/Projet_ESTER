@@ -28,7 +28,6 @@ public class Resultat extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/Resultat.jsp" ).forward( request, response );
 		HttpSession session = request.getSession();
 		ReponsesDB reponseDB = new ReponsesDB();
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
@@ -37,6 +36,7 @@ public class Resultat extends HttpServlet {
 			session.setAttribute(ATT_IDENTIFIANTSALARIE, listIdentifiants.get(0));
 			session.setAttribute(ATT_LISTSALARIES, listIdentifiants);
 		}
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/jsp/Resultat.jsp" ).forward( request, response );
 	}
 
 	@Override
