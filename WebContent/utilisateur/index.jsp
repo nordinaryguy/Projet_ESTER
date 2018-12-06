@@ -12,7 +12,7 @@
 
     <title>Accueil - ESTER </title>
 
-		<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
+	<link rel="stylesheet" href="<c:url value="/css/default.css"/>">
 	
 	<link rel="stylesheet" href="<c:url value="/css/form-patient.css"/>">
 	<link rel="stylesheet" href="<c:url value="/css/bootstrap.min.css"/>">
@@ -20,6 +20,7 @@
     <script src="<c:url value="/js/popper.min.js"/>"></script>
 	<script src="<c:url value="/js/bootstrap.min.js"/>"></script>
 	<script src="<c:url value="/js/populateSelect.js"/>"></script>
+	<script src="<c:url value="/js/checkPass.js"/>"></script>
 		
 </head>
 
@@ -239,17 +240,21 @@
 							<h1>Infirmier</h1>
 							<p>Bienvenue sur la partie Infirmier du Projet ESTER</p>
 						</c:if>
+				<!-- si première utilisation afficher changement mot de passe -->
+				<c:if test="${FirstConnexion||param.page == 'modifierProfil'}">
+								<c:import url="/jsp/resetPassword.jsp"/>
+				</c:if>	
 
 					
 						<c:if test="${param.page == 'createUser'}">
 				<!-- Création d'un compte Utilisateur -->
-				
-								<div class="row pt-2">
-							     	 <c:import url="/jsp/createAccount.jsp"/>
-								</div>
 								<div class="row pt-2">
 							     	 <c:import url="/jsp/Alert.jsp"/>
 							 	</div>
+								<div class="row pt-2">
+							     	 <c:import url="/jsp/createAccount.jsp"/>
+								</div>
+								
 						</c:if>
 						
 						
@@ -358,16 +363,22 @@
 												<input type="password" id="inputOldPassword" name="oldPassword" class="form-control" placeholder="Ancien Mot de Passe" required>
 								   		 </div> 
 								   		 
-								   		 <div class="pt-2">
-												<input type="password" id="inputNewPassword" name="newPassword" class="form-control" placeholder="Nouveau Mot de Passe" required>
+								   		 <div class="pt-2">								   		 	
+												<input type="password" id="inputNewPassword" name="newPassword" class="form-control" placeholder="Nouveau Mot de Passe" onkeyup="return passwordChanged('inputNewPassword');"  onBlur="checkPass('inputNewPassword','inputNew2Password')" required>
+								   				<span id="strength" class="col col-xs-2"></span>
 								   		 </div> 
 								   		 
 								   		 <div class="pt-2">
-								   		 		<input type="password" id="inputNew2Password" name="confirm" class="form-control" placeholder="Confirmez" required>
+								   		 		<input type="password" id="inputNew2Password" name="confirm" class="form-control" placeholder="Confirmez" onkeyup="checkPass('inputNewPassword','inputNew2Password')"  required>
 								   		 </div> 
 								   		 
+									   	<div id="divcomp">
+											   	<div class="row" >
+														          		
+										      	</div>
+										 </div>
 								   		 <div class="row pt-2">
-									  		  <div class="col"><input type="submit" class="btn btn-info" value="Valider" style="float:right;"></div>
+									  		  <div class="col"><input type="submit" class="btn btn-info" value="Valider" id="submit" style="float:right;"></div>
 									  		  <div class="col"><input type="reset" class="btn btn-danger" value="Annuler"></div>  		  
 									  		  
 								   		 </div> 

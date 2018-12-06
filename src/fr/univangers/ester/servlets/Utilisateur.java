@@ -30,7 +30,9 @@ public class Utilisateur extends HttpServlet {
 	
 	public static final String ATT_MSG_WARNING = "Warning";
     public static final String ATT_MSG_SUCCESS = "Success";
+    public static final String ATT_MSG_ERROR= "Error";
     public static final String ATT_SESSION_USER = "sessionUtilisateur";
+    public static final String ATT_FIRST_CNX = "FirstConnexion";
 
     
     public Utilisateur() {
@@ -42,10 +44,16 @@ public class Utilisateur extends HttpServlet {
     	HttpSession session = request.getSession();
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
         if (sessionUser != null && sessionUser.isUtilisateur()) {
+        	//gestion première connexion utilisateur ester 
+        	if(sessionUser.isFirstConnection()) {
+        		request.setAttribute("id", sessionUser.getIdentifiant());
+        		request.setAttribute(ATT_FIRST_CNX, true);
+        	}else {
+        		request.setAttribute(ATT_FIRST_CNX, false);
+        	}
         	 if (sessionUser.isAdministrateur()) { // Pour un utilisateur de type Administrateur
 					if(request.getParameter("page") != null && request.getParameter("page").equals("configurationServeurMail")) { // Configuration du serveur Mail
 						ServerMailDB serverMailDB = new ServerMailDB();
-						serverMailDB.addDefautServer();
 						request.setAttribute("email", serverMailDB.getServerMail() );
 						request.setAttribute("pass", serverMailDB.getServerMailPass());
 						request.setAttribute("host", serverMailDB.getServerHost());
@@ -59,7 +67,7 @@ public class Utilisateur extends HttpServlet {
 	 			SalarieDB salarieDB = new SalarieDB();
 	     		session.setAttribute("ListeSalaries", salarieDB.getIdentifiantSalaries());
 	 		}
-         } 
+        } 
 		this.getServletContext().getRequestDispatcher("/utilisateur/index.jsp").forward(request, response);
 	}
 
@@ -70,7 +78,23 @@ public class Utilisateur extends HttpServlet {
         if (sessionUser != null && sessionUser.isUtilisateur()) {
         	UtilisateurEsterDB user = new UtilisateurEsterDB();
         	ServerMailDB serverMailDB = new ServerMailDB();
-        	serverMailDB.addDefautServer();       
+        	serverMailDB.addDefautServer();     
+        	
+        	/*
+        	 * Gestion première connexion
+        	 */
+        	if(sessionUser.isFirstConnection()) {
+        		String newPassword=request.getParameter("password");
+        		request.setAttribute(ATT_FIRST_CNX, false);
+        		//le mot de passe est vérifié par la fonction javascript checkPass don il n'est pas nécessaire de vérifier ici s'il sont identique
+        		if(user.changePassword(sessionUser.getIdentifiant(), newPassword)) {
+					((UtilisateurEster)sessionUser).setPassword(newPassword);
+					((UtilisateurEster)sessionUser).setFirstCnx(false);
+	    			request.setAttribute(ATT_MSG_SUCCESS, "Mot de passe établi");
+        		}else {
+        			request.setAttribute(ATT_MSG_WARNING, "un problème a survenu.Veuillez réessayer plus tard.");
+        		}
+        	}
     		
         	/*
         	 * Récupération des éléments dans la page ModifierMotDePasse 
@@ -128,7 +152,7 @@ public class Utilisateur extends HttpServlet {
         		 * Partie permettant de récupérer les éléments de la page
         		 * configurationServeurMail 
         		 */
-				if(request.getParameter("page").equals("configurationServeurMail")) {
+				if(request.getParameter("page") != null && request.getParameter("page").equals("configurationServeurMail")) {
 					request.setAttribute("Success", "Serveur mail modifié");
 					serverMailDB.addServerMail(request.getParameter("emailSender"), request.getParameter("password"),request.getParameter("host"),request.getParameter("port"));
 				}
@@ -139,7 +163,7 @@ public class Utilisateur extends HttpServlet {
         	 * d'un Identifiant puis stockage dans la Base de données
         	 */
         	if (sessionUser.isMedecin()||sessionUser.isAdministrateur()||sessionUser.isPreventeur()) {
-        		if(request.getParameter("page").equals("createSalarie")) {
+        		if(request.getParameter("page") != null && request.getParameter("page").equals("createSalarie")) {
         			String  code=PwdGenerator.generateCode();
         			request.setAttribute("message",code );
         			//ajout à la base
@@ -156,21 +180,28 @@ public class Utilisateur extends HttpServlet {
             	 * Création d'autres utilisateurs (Préventeur/Assistant/Infirmier voire Médecin)
             	 */
 
-        		if(request.getParameter("page").equals("createUser")) {
+        		if(request.getParameter("page") != null && request.getParameter("page").equals("createUser")) {
+        			UtilisateurEsterDB users=new UtilisateurEsterDB();
         			String email=request.getParameter("email");
-        			String type=request.getParameter("typeCompte");
-        			String pass=PwdGenerator.generatePassword();
-        			String path = request.getRequestURL().toString();
-        			path=path.substring(0, path.length()-forPath.length());
-        			user.add(email,"", "", email, pass,Status.toStatus(type));
-        			Mail mailSender=new Mail();
-        			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,path+"/connexion"), true);
-        			if(mailSend) {
-        				request.setAttribute(ATT_MSG_SUCCESS,"mail envoyé");
+        			if(!users.existMail(email)) {
+        				String type=request.getParameter("typeCompte");
+            			String pass=PwdGenerator.generatePassword();
+            			String path = request.getRequestURL().toString();
+            			path=path.substring(0, path.length()-forPath.length());
+            			user.add(email,"", "", email, pass,Status.toStatus(type));
+            			Mail mailSender=new Mail();
+            			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,path+"/connexion"), true);
+            			if(mailSend) {
+            				request.setAttribute(ATT_MSG_SUCCESS,"Compte crée et mail envoyé");
+            			}
+            			else {
+            				request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
+            			}
+        			}else {
+        				request.setAttribute(ATT_MSG_ERROR, "email déjà existant");
         			}
-        			else {
-        				request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
-        			}
+        			
+        			
         		}
         	}
         }
