@@ -80,21 +80,6 @@ public class Utilisateur extends HttpServlet {
         	ServerMailDB serverMailDB = new ServerMailDB();
         	serverMailDB.addDefautServer();     
         	
-        	/*
-        	 * Gestion première connexion
-        	 */
-        	if(sessionUser.isFirstConnection()) {
-        		String newPassword=request.getParameter("password");
-        		request.setAttribute(ATT_FIRST_CNX, false);
-        		//le mot de passe est vérifié par la fonction javascript checkPass don il n'est pas nécessaire de vérifier ici s'il sont identique
-        		if(user.changePassword(sessionUser.getIdentifiant(), newPassword)) {
-					((UtilisateurEster)sessionUser).setPassword(newPassword);
-					((UtilisateurEster)sessionUser).setFirstCnx(false);
-	    			request.setAttribute(ATT_MSG_SUCCESS, "Mot de passe établi");
-        		}else {
-        			request.setAttribute(ATT_MSG_WARNING, "un problème a survenu.Veuillez réessayer plus tard.");
-        		}
-        	}
     		
         	/*
         	 * Récupération des éléments dans la page ModifierMotDePasse 
@@ -133,7 +118,7 @@ public class Utilisateur extends HttpServlet {
         		if(salarieDB.getQuestionnaireAnswered(identifiantSalarie).contains(identifiantQuestionnaire)) {
     	     		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
     	     		session.setAttribute("ListeSalaries", salarieDB.getIdentifiantSalaries());
-        			request.setAttribute("Warning", "Questionnaire a déja été répondus");
+        			request.setAttribute("Warning", "Questionnaire a déja été répondu");
         		} else if(salarieDB.getQuestionnaireUnanswered(identifiantSalarie).contains(identifiantQuestionnaire)) {
     	     		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
     	     		session.setAttribute("ListeSalaries", salarieDB.getIdentifiantSalaries());
@@ -142,7 +127,7 @@ public class Utilisateur extends HttpServlet {
         			salarieDB.pushQuestionnaireUnanswered(identifiantSalarie, identifiantQuestionnaire);
     	     		session.setAttribute("ListeQuestionnaires", questionnairesDB.getIdentifiantQuestionnaires());
     	     		session.setAttribute("ListeSalaries", salarieDB.getIdentifiantSalaries());
-        			request.setAttribute("Success", "Questionnaire ajouter");
+        			request.setAttribute("Success", "Questionnaire ajouté");
         		}
 	 		}
 	 		
@@ -182,6 +167,7 @@ public class Utilisateur extends HttpServlet {
 
         		if(request.getParameter("page") != null && request.getParameter("page").equals("createUser")) {
         			UtilisateurEsterDB users=new UtilisateurEsterDB();
+        			
         			String email=request.getParameter("email");
         			if(!users.existMail(email)) {
         				String type=request.getParameter("typeCompte");
@@ -189,16 +175,18 @@ public class Utilisateur extends HttpServlet {
             			String path = request.getRequestURL().toString();
             			path=path.substring(0, path.length()-forPath.length());
             			user.add(email,"", "", email, pass,Status.toStatus(type));
+            			System.out.println(pass);
             			Mail mailSender=new Mail();
             			boolean mailSend=mailSender.sendMail(email,"Mot de passe provisoire", mailSender.mdpProvisoireBodyText(pass,path+"/connexion"), true);
+            			
             			if(mailSend) {
             				request.setAttribute(ATT_MSG_SUCCESS,"Compte crée et mail envoyé");
             			}
             			else {
-            				request.setAttribute(ATT_MSG_WARNING,"un problème a survenu.Veuillez réessayer plus tard.");
+            				request.setAttribute(ATT_MSG_WARNING,"un problème est survenu. Veuillez réessayer plus tard.");
             			}
         			}else {
-        				request.setAttribute(ATT_MSG_ERROR, "email déjà existant");
+        				request.setAttribute(ATT_MSG_ERROR, "Email déjà existant");
         			}
         			
         			

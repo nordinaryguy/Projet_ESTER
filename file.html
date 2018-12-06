@@ -21,10 +21,22 @@
 								
 									
 								<div class="form-group">
+											<!-- Select Multiple -->
+											<label class="col-md-4 control-label">Question choix unique :</label>
+											<div class="col-md-4">
+												<select class="form-control input-md" multiple="multiple" name="option1" id="option1">
+      <option>Veuillez</option>
+      <option>Entrer</option>
+      <option>Vos</option>
+      <option>Options !</option></select>
+											</div>
+										</div>
+
+    <div class="form-group">
 											
 										
 											<!-- Multiple Checkboxes -->
-											<label class="col-md-4 control-label">Question à choix multiple</label>
+											<label class="col-md-4 control-label">Question avec des choix multiple</label>
 											<div class="col-md-4">
       <!-- Multiple Checkboxes -->
       <label class="checkbox">
@@ -40,39 +52,27 @@
 
     <div class="form-group">
 											<!-- Multiple Radios -->
-											<label class="col-md-4 control-label">Question à choix unique: </label>
+											<label class="col-md-4 control-label">Question avec  choix unique: </label>
 											<div class="col-md-4">
       <!-- Multiple Radios -->
       <label class="radio">
-     <input type="radio" value="premiere option" name="group" id="19" checked="checked">
+     <input type="radio" value="premiere option" name="group" id="6" checked="checked">
         premiere option
       </label>
       <label class="radio">
-     <input type="radio" value="deuxieme option" name="group" id="20">
+     <input type="radio" value="deuxieme option" name="group" id="7">
         deuxieme option
       </label>
   </div>
 										</div>
 
-    
-
-    <div class="form-group active">
-											<!-- Text input-->
-											<label class="col-md-4 control-label">Question de type texte												(courte):</label>
-											<div class="col-md-4">
-												<input type="text" placeholder="Texte par defaut" name="input6" class="form-control input-md" id="input6">
-											</div>
-										</div>
-
     <div class="form-group">
-											<div class="row">
 
-												<label class="col control-label" style="text-align: center; margin-left: 50px;">Image													à télécharger </label>
-											</div>
-											<!-- File Upload -->
-											<div class="row">
-												<div class="col-md-4 " style="margin-left: 50px; margin-top: 7px" data-valtype="file">
-													<input class="" id="fileInput" name="file1" type="file">
+											<!-- Textarea -->
+											<label class="col-md-4 control-label">Question de type texte(long) :</label>
+											<div class="col-md-4">
+												<div class="textarea" data-valtype="textarea">
+													<textarea class="form-control input-md"> </textarea>
 												</div>
 											</div>
 										</div>
@@ -81,66 +81,6 @@
 											<!-- slide  -->
 											<label class="col-md-4 control-label"> Question : </label> <input type="range" name="weight" id="range_weight" value="5" min="1" max="100" oninput="range_weight_disp.value = range_weight.value">
 											<output id="range_weight_disp"></output>
-										</div>
-
-    <div class="form-group">
-											<!-- echelle  -->
-											<label class="col-md-4 control-label">Echelle de Borg: </label>
-											<div class="col-md-4">
-      <!-- Multiple Radios -->
-      <label class="radio">
-     <input type="radio" value="Très très facile" name="Très très facile" id="7" checked="checked">
-        Très très facile
-      </label>
-      <label class="radio">
-     <input type="radio" value="Très" name="Très très facile" id="8">
-        Très
-      </label>
-      <label class="radio">
-     <input type="radio" value="													facile" name="Très très facile" id="9">
-        													facile
-      </label>
-      <label class="radio">
-     <input type="radio" value="Assez" name="Très très facile" id="10">
-        Assez
-      </label>
-      <label class="radio">
-     <input type="radio" value="													facile" name="Très très facile" id="11">
-        													facile
-      </label>
-      <label class="radio">
-     <input type="radio" value="Un peu dur" name="Très très facile" id="12">
-        Un peu dur
-      </label>
-      <label class="radio">
-     <input type="radio" value="Dur" name="Très très facile" id="13">
-        Dur
-      </label>
-      <label class="radio">
-     <input type="radio" value="Très dur" name="Très très facile" id="14">
-        Très dur
-      </label>
-      <label class="radio">
-     <input type="radio" value="Très" name="Très très facile" id="15">
-        Très
-      </label>
-      <label class="radio">
-     <input type="radio" value="													très dur" name="Très très facile" id="16">
-        													très dur
-      </label>
-  </div>
-										</div>
-
-    <div class="form-group">
-											<!-- Select Multiple -->
-											<label class="col-md-4 control-label">Question choix unique (liste												déroulante) :</label>
-											<div class="col-md-4">
-												<select class="form-control input-md" multiple="multiple" name="option3" id="option3">
-      <option>Veuillez</option>
-      <option>Entrer</option>
-      <option>Vos</option>
-      <option>Options !</option></select>
-											</div>
 										</div>
 
     </fieldset>

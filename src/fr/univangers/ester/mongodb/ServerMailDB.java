@@ -33,7 +33,7 @@ public class ServerMailDB extends Database {
 		deleteServerMail();
 		MongoCollection<Document> mailInfo= db().getCollection(C_SERVER_MAIL);
 		Document mailServer = new Document(MAIL,mail)
-				.append(PASSWORD,cryptPassword(password))
+				.append(PASSWORD,password)
 				.append(HOST,host)
 				.append(PORTSERVERMAIL,port);
 		mailInfo.insertOne(mailServer);
