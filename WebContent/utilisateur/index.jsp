@@ -240,12 +240,7 @@
 							<h1>Infirmier</h1>
 							<p>Bienvenue sur la partie Infirmier du Projet ESTER</p>
 						</c:if>
-				<!-- si première utilisation afficher changement mot de passe -->
-				<c:if test="${FirstConnexion||param.page == 'modifierProfil'}">
-								<c:import url="/jsp/resetPassword.jsp"/>
-				</c:if>	
-
-					
+									
 						<c:if test="${param.page == 'createUser'}">
 				<!-- Création d'un compte Utilisateur -->
 								<div class="row pt-2">
@@ -361,6 +356,7 @@
 								    </c:if>
 									     <div class="pt-2">
 												<input type="password" id="inputOldPassword" name="oldPassword" class="form-control" placeholder="Ancien Mot de Passe" required>
+												<div class="col pb-4"></div>
 								   		 </div> 
 								   		 
 								   		 <div class="pt-2">								   		 	
