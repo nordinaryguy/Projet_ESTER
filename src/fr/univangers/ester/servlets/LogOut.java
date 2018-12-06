@@ -17,8 +17,10 @@ public class LogOut extends HttpServlet {
         super();
     }
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        // Supprime la session, ce qui déconnecte l'ulisateur
         session.invalidate();
         session = request.getSession();
         session.setAttribute("Success", "Vous êtes déconnecté");

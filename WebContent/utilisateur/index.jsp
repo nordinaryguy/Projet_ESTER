@@ -248,13 +248,13 @@
 					
 						<c:if test="${param.page == 'createUser'}">
 				<!-- Création d'un compte Utilisateur -->
-				
-								<div class="row pt-2">
-							     	 <c:import url="/jsp/createAccount.jsp"/>
-								</div>
 								<div class="row pt-2">
 							     	 <c:import url="/jsp/Alert.jsp"/>
 							 	</div>
+								<div class="row pt-2">
+							     	 <c:import url="/jsp/createAccount.jsp"/>
+								</div>
+								
 						</c:if>
 						
 						
