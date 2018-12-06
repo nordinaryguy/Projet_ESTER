@@ -4,24 +4,6 @@
 
 \subsubsection{Besoin}
 
-Pour le projet, nous avons eu besoin d'une base de données modulaire car un des besoins était que les questionnaires pouvait évoluer création, modification ou ajout de question. Et un autre des besoins était que l'utilisateur puisse faire des sauvegarde partiel pour reprendre le questionnaires en case de problème ou si l'utilisateur veut faire une pause. 
-
-En plus des besoins spécifique pour la sauvegarde des questionnaires et des réponses. Il y a des besoins plus génériques comme la gestion des comptes que nous verrons plus en détails dans un autre partie.
-
-\subsubsection{NoSQL: MongoDB}
-
-Nous somme partie sur du MongoDB qui fais partie de la mouvance NoSQL qui s'écarte du paradigme classique des bases relationnelles. Cela nous permet de nous affranchir d'une des contraintes des base de données SQL qui est de devoir définir un schéma prédéfini. Nous somme quand même partie d'un schéma de base pour avoir des données en partie structurée.
-
-En offrant un plus grande flexibilité en permettant de gérer des données hétérogènes. Dans cas cela est particulièrement utile pour les questionnaires et les réponses car si un questionnaires est modifier, il faut que les anciens réponses reste en parti utilisable.
-
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[height=2.0cm]{img/mongodb}
-    \end{center}
-    \caption{Logo de MongoDB}
-\end{figure}
-
-Ce choix du type de la base de données a été proposer par nos chefs de projet. La raison du choix de MongoDB est car il est le membre le plus populaire de la famille NoSQL.   
 
 \subsection{Implémentation}
 
