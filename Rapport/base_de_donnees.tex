@@ -1,10 +1,8 @@
 \section{Base de Données}
 
-La basse de données est divisé en collections 
+La base de données est divisée en plusieurs collections.
 
-Pour l'implémentation nous avons utilisé le driver officiel proposer par MongoDB pour le Java. Nous avons crée un classe en Java qui nous héritons et que permet des interfaces pour simplifier l'utilisation dans le reste du code.
-
-Nous avons divisé notre base de données en plusieurs collections. 
+Pour l'implémentation, nous avons utilisé le driver officiel proposer par MongoDB pour le Java. Nous avons crée une classe mère en Java utilisée par héritage et qui permet de définir des interfaces simplifiant l'utilisation du reste du code.
 
 \subsection{Utilisateur ESTER}
 
@@ -12,10 +10,10 @@ Nous avons divisé notre base de données en plusieurs collections.
     \begin{center}
         \begin{tabularx}{17cm}{|c|X|}
             \hline
-            Clée & Valeur  \tabularnewline 
+            Clé & Valeur  \tabularnewline 
             \hline
             Identifiant & 
-            Chaine de caratères peut être utilisé à la place du mail lors de la connexion \tabularnewline 
+            Chaine de caratères, peut être utilisé à la place du mail lors de la connexion \tabularnewline 
             Nom & 
             Chaine de caratères \tabularnewline
             Prénom & 
@@ -23,22 +21,23 @@ Nous avons divisé notre base de données en plusieurs collections.
             Première connexion & 
             Boolean \tabularnewline
             Mot de passe & 
-            Chaine de caratères chiffré \tabularnewline
+            Chaine de caratères chiffrée \tabularnewline
             Mail & 
             Chaine de caratères \tabularnewline
             Statut & 
-            Chaine de caratères représente le status du salarié (Medecin, Administrateur,
-            Preventeur, Assistant) \tabularnewline
+            Chaine de caratères, représente le statut de l'Utilisateur (Médecin, Administrateur,
+            Préventeur, Assistant) \tabularnewline
             \hline
         \end{tabularx}
     \end{center}
-    \caption{Tableau de la collection Utilisateur ESTER}
+    \caption{Tableau de la collection Utilisateur}
 \end{figure}
 
 La collection correpond à celle prévue par nos chefs de projet comme
 les collections Entreprise et Salarie qui sont des collections proches (L'entreprise ne possède 
-pas d'email et le salarie n'a pas de mots de passe mais a la liste des questionnaires réponds ou a répondre
-) de Utilisateur ESTER donc nous nous répéterons pas. 
+pas d'email et le salarie n'a pas de mots de passe mais a la liste des questionnaires répondus ou à répondre
+) de Utilisateur ESTER donc nous ne nous répéterons pas. 
+
 
 \subsection{Questionnaire}
 
@@ -46,12 +45,12 @@ pas d'email et le salarie n'a pas de mots de passe mais a la liste des questionn
     \begin{center}
         \begin{tabularx}{17cm}{|c|X|}
             \hline
-            Clée & Valeur  \tabularnewline 
+            Clé & Valeur  \tabularnewline 
             \hline
             Nom & 
-            Mom du questionnaire \tabularnewline 
+            Nom du questionnaire \tabularnewline 
             Identifiant & 
-            Version simplifier du nom \tabularnewline
+            Version simplifiée du nom \tabularnewline
             Identifiant ESTER & 
             Identifiant de la personne qui a soumis le questionnaire \tabularnewline
             Date de soumission & 
@@ -63,7 +62,7 @@ pas d'email et le salarie n'a pas de mots de passe mais a la liste des questionn
             \hline
         \end{tabularx}
     \end{center}
-    \caption{Tableau de la collection questionnaire}
+    \caption{Tableau de la collection Questionnaire}
 \end{figure}
 
 \subsection{Réponse}
@@ -72,27 +71,24 @@ pas d'email et le salarie n'a pas de mots de passe mais a la liste des questionn
     \begin{center}
         \begin{tabularx}{17cm}{|c|X|}
             \hline
-            Clée & Valeur  \tabularnewline 
+            Clé & Valeur  \tabularnewline 
             \hline
             Identifiant salarie & 
             Identifiant du salarie qui a répondu \tabularnewline
             Identifiant questionnaire & 
             Identifiant du questionnaire répondu \tabularnewline
             Reponses & 
-            Tableau associatif qui lie les identifiants des reponses 
-            avec leurs reponses \tabularnewline
+            Tableau associatif qui lie les identifiants des réponses 
+            avec leurs réponses \tabularnewline
             \hline
         \end{tabularx}
     \end{center}
-    \caption{Tableau de la colection réponse}
+    \caption{Tableau de la colection Réponse}
 \end{figure}
-
 \subsection{Sécurité}
 
-Car nous stockons des mots de passe dans la base de données, nous avons eu besoin de sécuriser les mots de passe pour ne pas les stocker en clair.
+Nous stockons des mots de passe dans la base de données, nous avons eu besoin de sécuriser les mots de passe pour ne pas les stocker en clair.
+Nous avons comparé plusieurs technologies MD5, SHA256, SHA512, PBKDF2, BCrypt et SCrypt. Ce sont tous des fonctions de hachage mais certaines proposent des bases de salage (PBKDF2, BCrypt, SCrypt) qui permettent de se protéger contre les attaques utilisant des rainbows tables ou par dictionnaire. 
+Certaines fonctions de hachage sont difficilement optimisables ce qui permet de rendre plus difficile les attaques par la force brute. De ce fait, cela donne le temps à l'utilisateur de changer sont mot de passe.     
 
-Nous avons comparé plusieurs technologies MD5, SHA256, SHA512, PBKDF2, BCrypt et SCrypt. Ce sont tous des fonctions de hachage mais certaine propose de base le salage (PBKDF2, BCrypt, SCrypt) qui permet de ce protéger contre les attaques utilisant des rainbow tables ou par dictionnaire. 
-
-Certaine fonction de hachage sont difficilement optimisable ce qui permet de rendre plus difficile les attaques par brute force ce qui permettra de donné le temps a l'utilisateur de changer sont mots de passe.     
-
-Nous avons choisi d'utilisé BCrypt car il propose un implémentation en java et il fais parti des plus sécuriser de algorithme.
+Nous avons choisi d'utilisé BCrypt car il propose une implémentation en java et il fait partie des algorithme les plus sécurisés.
