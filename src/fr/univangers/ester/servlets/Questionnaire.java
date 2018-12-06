@@ -5,6 +5,9 @@ import java.text.DateFormat;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,31 +21,25 @@ import fr.univangers.ester.mongodb.QuestionnairesDB;
 import fr.univangers.ester.mongodb.ReponsesDB;
 import fr.univangers.ester.mongodb.SalarieDB;
 
-/**
- * Servlet implementation class Questionnaire
- */
 @WebServlet({ "/salarie/questionnaire", "/utilisateur/questionnaire" })
 public class Questionnaire extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static final String VUE = "/WEB-INF/jsp/Questionnaire.jsp";
 	private static final String RESULTAT = "/resultat";
-    public static final String ATT_SESSION_USER = "sessionUtilisateur";
+    private static final String ATT_SESSION_USER = "sessionUtilisateur";
+    private static final int TIMEOUT = 1;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public Questionnaire() {
         super();
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		QuestionnairesDB questionnairesDB = new QuestionnairesDB();
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
     	SalarieDB salarieDB = new SalarieDB();
+    	// Si l'utilisateur est un salarie alors retourne les questionnaire a repondre sinon (utiliateur ou medecin) les retourne tous
     	if(sessionUser.isSalarie())
     		session.setAttribute("ListeQuestionnaires", salarieDB.getQuestionnaireUnanswered(sessionUser.getIdentifiant()));
     	else
@@ -50,25 +47,27 @@ public class Questionnaire extends HttpServlet {
 		this.getServletContext().getRequestDispatcher(VUE).forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	HttpSession session = request.getSession();
 		QuestionnairesDB questionnaires = new QuestionnairesDB();
     	UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute(ATT_SESSION_USER);
     	
     	String identifiant = request.getParameter("Identifiant");
+    	// Si l'identifiant du questionnaire passé en parametre existe
 		if(identifiant != null && questionnaires.existQuestionnaire(identifiant)) {
+			// Alors retourne les informations du questionnaire
 			session.setAttribute("Identifiant Questionnaire", identifiant);
 			session.setAttribute("Nom", questionnaires.getName(identifiant));
 			session.setAttribute("Date", DateFormat.getDateInstance().format(questionnaires.getDateSubmission(identifiant)));
 			session.setAttribute("IdentifiantEster", questionnaires.getIdentifiantEster(identifiant));
 			session.setAttribute("Questionnaire", questionnaires.getHTMLQuestionnaire(identifiant));
 			doGet(request, response);
+		// Si l'utilisateur est un salarie
 		} else if(sessionUser != null && sessionUser.isSalarie()) {
 			Enumeration<String> names = request.getParameterNames();
 	        Map<String, String> reponses = new HashMap<>();
+	        // Récupere tous les reponses envoyer
 			while (names.hasMoreElements()) {
 	            String identifiantQuestion = names.nextElement();
 	            String reponse = request.getParameter(identifiantQuestion);
@@ -76,10 +75,17 @@ public class Questionnaire extends HttpServlet {
 	    	} 
 	        ReponsesDB reponsesDB = new ReponsesDB();   	
 	        String identifiantQuestionnaire = session.getAttribute("Identifiant Questionnaire").toString();
+	        // Ajoute la réponse dans la base de données
 			reponsesDB.addReponse(sessionUser.getIdentifiant(), identifiantQuestionnaire, reponses); 
 			SalarieDB salarieDB = new SalarieDB();
+			// Passe le questionnaire en répondus 
 			salarieDB.pushQuestionnaireAnswered(sessionUser.getIdentifiant(), identifiantQuestionnaire);
-			// salarieDB.pullQuestionnaireUnanswered(sessionUser.getIdentifiant(), identifiantQuestionnaire);
+			Executors.newScheduledThreadPool(1).schedule(new Runnable() { 
+				@Override
+				public void run() {
+					salarieDB.pullQuestionnaireUnanswered(sessionUser.getIdentifiant(), identifiantQuestionnaire);
+				}}, TIMEOUT, TimeUnit.MINUTES
+			);
 			response.sendRedirect(request.getContextPath() + RESULTAT);
 		} else {
 			doGet(request, response);
