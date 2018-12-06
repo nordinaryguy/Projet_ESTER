@@ -1,1 +1,42 @@
 \section{Administration e-mail}
+
+\subsection{Envoie Email}
+
+\begin{itemize}
+
+\item Problématique :
+Pour la gestion des utilisateurs ester, nous avons eu besoin d’envoyer des emails pour communiquer un mot de passe provisoire pour la première connexion ainsi qu’un lien permettant de réinitialiser le mot de passe.
+
+\item JavaMail API et protocole :
+    
+\begin{enumerate}
+
+
+\item JavaMail API :
+L'API JavaMail fournit une plateforme indépendante et un Framework de protocoles indépendant pour créer des mails et des applications de messagerie. L'API JavaMail fournit un ensemble de classes abstraites définissant des objets qui constituent un système de messagerie. Il s’agit d’un package optionnel (extension standard) pour la lecture, la composition et l’envoi de messages électroniques. JavaMail fournit des éléments utilisés pour construire une interface avec un système de messagerie, y compris des composants système et des interfaces. Bien que cette spécification ne définisse aucune implémentation spécifique, JavaMail inclut plusieurs classes qui implémentent les normes de messagerie Internet RFC822 et MIME. Ces classes sont livrées dans le cadre du package de classe JavaMail.
+\item Protocole SMTP :
+SMTP est l'acronyme de Simple Mail Transport Protocol. Ce protocole défini par la recommandation RFC 821 permet l'envoi de mails vers un serveur de mails qui supporte ce protocole.
+
+\end{enumerate}
+
+
+\item Implémentation :
+
+\begin{enumerate}
+
+\item Envoie email :
+L’envoi d’email en utilisant JavaMail API nécessite :
+\item Une authentification nécessitant un email, son mot de passe, un hôte et un port.  Pour notre projet en s’est servi du serveur Gmail correspondant à ‘smtp.gmail.com ‘ et le port 587 ;
+\item Une instance MimeMessage servant à indiquer destinataire, sujet et corps du message pouvant être en html ou chaîne de caractère.
+\item Pour Java9+, il est nécessaire d’ajouter le module activation.jar parce qu’il n’est plus activé par défaut.
+\item Configuration serveur mail :
+Un compte administrateur peut accéder à l’interface lui permettant de configurer l’envoi d’email en indiquant un email, son mot de passe, un hôte et un port.  
+\end{enumerate}
+
+
+\end{itemize}
+    
+
+\subsection{Réinitialisation mot de passe oublié}
+	Dans le cadre de la gestion des utilisateurs ester, il s’est avéré important de définir la fonctionnalité réinitialisation de mot de passe. Pour cette fin, nous avons défini deux interfaces, la première sert à indiquer l’email du compte et la deuxième sert définir un nouveau mot de passe.
+	Ainsi que l’email de réinitialisation expire dans un délai prédéfini. Pour l’implémenter, nous avons optons pour l’utilisation d’un token unique dans l’URL envoyé en email. Il est généré en utilisant la méthode Java UUID.randomUUID(), qui sert à créer un UUID aléatoire afin d’éviter les collisions. Ainsi ce token est enregistré en base de données en le liant à l’email du compte et la date d’expiration qui à son tour est vérifié lors de l’accès au lien afin de définir sa validité.
