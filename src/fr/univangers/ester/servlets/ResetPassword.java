@@ -18,8 +18,7 @@ public class ResetPassword extends HttpServlet {
 	public static final String ATT_MSG_WARNING = "Warning";
     public static final String ATT_MSG_SUCCESS = "Success";
     private  String email;
-       
-   
+    
     public ResetPassword() {
         super();
     }
