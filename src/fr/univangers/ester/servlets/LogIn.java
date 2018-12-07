@@ -50,11 +50,11 @@ public class LogIn extends HttpServlet {
         	result = utilisateur.validate();
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant est incorrect.");
+    		} else {
+        		SalarieDB salarieDB = new SalarieDB();
+        		salarieDB.incCnx(request.getParameter("Identifiant"));
     		}
-    		SalarieDB salarieDB = new SalarieDB();
-    		salarieDB.incCnx(request.getParameter("Identifiant"));
-    	}
-    	else if(type.equals("Entreprise")) {
+    	} else if(type.equals("Entreprise")) {
     		utilisateur = new Entreprise();
     		utilisateur.setIdentifiant(request.getParameter("Identifiant"));
     		((Entreprise)utilisateur).setPassword(request.getParameter("Password"));
@@ -62,8 +62,7 @@ public class LogIn extends HttpServlet {
         	if(!result) {
     			request.setAttribute( ATT_MSG_WARNING, "Votre identifiant ou votre mot de passe est incorrect.");
         	}
-    	}
-    	else if(type.equals("Utilisateur")) {
+    	} else if(type.equals("Utilisateur")) {
     		utilisateur = new UtilisateurEster();
     		String identifiant = request.getParameter("Identifiant");
     		utilisateur.setIdentifiant(identifiant);
@@ -78,8 +77,7 @@ public class LogIn extends HttpServlet {
     	if(type != null && result) {
     		request.setAttribute( ATT_MSG_SUCCESS, "Vous êtes connecté");
     		session.setAttribute( ATT_SESSION_USER, utilisateur);
-    	}
-    	else {
+    	} else {
     		session.setAttribute( ATT_SESSION_USER, null);
     	}
     	doGet(request, response);

@@ -19,7 +19,6 @@ public class TestDB {
 	private static Logger logger = Logger.getLogger("Test");
 	
 	public static void main(String[] args) {
-		UtilisateurEsterDB admin = new UtilisateurEsterDB();
 		addAdmin();
 		
 		if(testEntrepriseDB()) {

@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.directwebremoting.WebContext;
 import org.directwebremoting.WebContextFactory;
@@ -159,91 +160,104 @@ public class Resultat {
 		
 		WebContext ctx = WebContextFactory.get();
 		HttpServletRequest req = ctx.getHttpServletRequest();
+		HttpSession session = req.getSession();
 		ReponsesDB reponsesDB = new ReponsesDB();
 		SalarieDB salarieDB = new SalarieDB();
-		UtilisateurBeans sessionUser = (UtilisateurBeans) req.getSession().getAttribute("sessionUtilisateur");
+		UtilisateurBeans sessionUser = (UtilisateurBeans) session.getAttribute("sessionUtilisateur");
+		
+		// Récuperation de l'identifiant du salarie qui a répondu au questionnaire
+		String identifiantSalarieQuestionnaire = "";
+		
 		if(sessionUser != null) {
-			String identifiant = sessionUser.isSalarie() ? sessionUser.getIdentifiant() : "";
-			identifiant = req.getSession().getAttribute("identifiantSalarie") != null ? 
-					req.getSession().getAttribute("identifiantSalarie").toString() : identifiant;
-			if(!identifiant.isEmpty() && salarieDB.getQuestionnaireUnanswered(identifiant).contains(IDEVALRISKTMS) && 
-					reponsesDB.existReponse(identifiant, IDEVALRISKTMS)) {
-				Map<String, String> reponses = reponsesDB.getReponses(identifiant, IDEVALRISKTMS);
-				setTitleDataCSV(0,"Categorie",TJ,SALTSA,SO,SALTSA,RA,SALTSA,JA);
-				addDataCSV(0,3,"Votre travail nécessite-t-il de répêter les mêmes actions plus de 2 à 4 fois environ par minute ?"
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question2", TJ))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question2", SO))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question2", RA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question2", JA)));
-				addAnswer(0, reponses.get("question2"));
-				addDataCSV(0,2,"Travailler avec un ou deux bras en l'air (au-dessus des épaules) régulièrement ou de manière prolongée"
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question3", TJ))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question3", SO))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question3", RA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question3", JA)));
-				addAnswer(0, reponses.get("question3"));
-				addDataCSV(0,2,"Devez-vous vous pencher en avant / sur le côté régulièrement ou de manière prolongée?"
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question4", TJ))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question4", SO))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question4", RA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question4", JA)));
-				addAnswer(0, reponses.get("question4"));
-				addDataCSV(0,2,"Fléchir le(s) coude(s) régulièrement ou de manière prolongée"
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question5", TJ))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question5", SO))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question5", RA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question5", JA)));
-				addAnswer(0, reponses.get("question5"));
-				addDataCSV(0,3,"Presser ou prendre ferment des objets ou des pièces entre le pouce et l'index"
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", TJ))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", SO))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", RA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", JA)));
-				addAnswer(0, reponses.get("question6"));
-				setTitleDataCSV(1,"Categorie",PT,VS,PA,VS,DA,VS,TA);
-				addDataCSV(1,2,"J'ai la possibilité d'influencer le déroulement de mon travail"
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", PT))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", PA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", DA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", TA)));
-				addAnswer(1, reponses.get("question7"));
-				addDataCSV(1,2,"Les collègues avec qui je travaille m'aident à mener les tàches à bien"
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question8", PT))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question8", PA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question8", DA))
-						,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question8", TA)));
-				addAnswer(1, reponses.get("question8"));
-				addRPE("6 Pas d\'effort du tout", 
-						reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "6 Pas d\'effort du tout"), GREEN);
-		    	addRPE("7 Extrêmement léger", 
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "7 Extrêmement léger"), GREEN);
-		    	addRPE("8", 
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "8"), GREEN);
-		    	addRPE("9 Très léger", 
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "9 Très léger"), GREEN);
-		    	addRPE("10", 
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "10"), YELLOW);
-		    	addRPE("11 Léger", 
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "11 Léger"), YELLOW);
-		    	addRPE("12", 
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "12"), ORANGE);
-		    	addRPE("13 Un peu dur",
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "13 Un peu dur"), ORANGE);
-		    	addRPE("14",
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "14"), ORANGE);
-		    	addRPE("15 Dur",
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "15 Dur"), ORANGE);
-		    	addRPE("16",
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "16"), RED);
-		    	addRPE("17 Très dur",
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "17 Très dur"), RED);
-		    	addRPE("18",
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "18"), RED);
-		    	addRPE("19 Extrêment dur",
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "19 Extrêment dur"), RED);
-		    	addRPE("20 Epuisant",
-		    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "20 Epuisant "), RED);
-			}
+			String identifiant = sessionUser.getIdentifiant();
+			String identifiantSalarie = session.getAttribute("identifiantSalarie") != null ?
+					session.getAttribute("identifiantSalarie").toString() :
+					"";
+			if(sessionUser.isSalarie() && 
+					salarieDB.getQuestionnaireUnanswered(identifiant).contains(IDEVALRISKTMS) &&
+					reponsesDB.existReponse(identifiant, IDEVALRISKTMS))
+				identifiantSalarieQuestionnaire = identifiant;
+			else if(sessionUser.isUtilisateur() && !identifiantSalarie.isEmpty() &&
+					reponsesDB.existReponse(identifiantSalarie, IDEVALRISKTMS))
+				identifiantSalarieQuestionnaire = identifiantSalarie;
+		}
+		
+		if(!identifiantSalarieQuestionnaire.isEmpty()) {
+			Map<String, String> reponses = reponsesDB.getReponses(identifiantSalarieQuestionnaire, IDEVALRISKTMS);
+			setTitleDataCSV(0,"Categorie",TJ,SALTSA,SO,SALTSA,RA,SALTSA,JA);
+			addDataCSV(0,3,"Votre travail nécessite-t-il de répêter les mêmes actions plus de 2 à 4 fois environ par minute ?"
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question2", TJ))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question2", SO))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question2", RA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question2", JA)));
+			addAnswer(0, reponses.get("question2"));
+			addDataCSV(0,2,"Travailler avec un ou deux bras en l'air (au-dessus des épaules) régulièrement ou de manière prolongée"
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question3", TJ))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question3", SO))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question3", RA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question3", JA)));
+			addAnswer(0, reponses.get("question3"));
+			addDataCSV(0,2,"Devez-vous vous pencher en avant / sur le côté régulièrement ou de manière prolongée?"
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question4", TJ))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question4", SO))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question4", RA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question4", JA)));
+			addAnswer(0, reponses.get("question4"));
+			addDataCSV(0,2,"Fléchir le(s) coude(s) régulièrement ou de manière prolongée"
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question5", TJ))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question5", SO))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question5", RA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question5", JA)));
+			addAnswer(0, reponses.get("question5"));
+			addDataCSV(0,3,"Presser ou prendre ferment des objets ou des pièces entre le pouce et l'index"
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", TJ))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", SO))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", RA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question6", JA)));
+			addAnswer(0, reponses.get("question6"));
+			setTitleDataCSV(1,"Categorie",PT,VS,PA,VS,DA,VS,TA);
+			addDataCSV(1,2,"J'ai la possibilité d'influencer le déroulement de mon travail"
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", PT))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", PA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", DA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question7", TA)));
+			addAnswer(1, reponses.get("question7"));
+			addDataCSV(1,2,"Les collègues avec qui je travaille m'aident à mener les tàches à bien"
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question8", PT))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question8", PA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question8", DA))
+					,String.valueOf(reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question8", TA)));
+			addAnswer(1, reponses.get("question8"));
+			addRPE("6 Pas d\'effort du tout", 
+					reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "6 Pas d\'effort du tout"), GREEN);
+	    	addRPE("7 Extrêmement léger", 
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "7 Extrêmement léger"), GREEN);
+	    	addRPE("8", 
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "8"), GREEN);
+	    	addRPE("9 Très léger", 
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "9 Très léger"), GREEN);
+	    	addRPE("10", 
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "10"), YELLOW);
+	    	addRPE("11 Léger", 
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "11 Léger"), YELLOW);
+	    	addRPE("12", 
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "12"), ORANGE);
+	    	addRPE("13 Un peu dur",
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "13 Un peu dur"), ORANGE);
+	    	addRPE("14",
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "14"), ORANGE);
+	    	addRPE("15 Dur",
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "15 Dur"), ORANGE);
+	    	addRPE("16",
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "16"), RED);
+	    	addRPE("17 Très dur",
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "17 Très dur"), RED);
+	    	addRPE("18",
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "18"), RED);
+	    	addRPE("19 Extrêment dur",
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "19 Extrêment dur"), RED);
+	    	addRPE("20 Epuisant",
+	    			reponsesDB.getPourcentageReponses(IDEVALRISKTMS, "question1", "20 Epuisant "), RED);
 		} else {
 			setTitleDataCSV(0,"Categorie","Toujours",SALTSA,"Souvent",SALTSA,"Rarement",SALTSA,JA);
 			addDataCSV(0,3,"Votre travail nécessite-t-il de répêter les mêmes actions plus de 2 à 4 fois environ par minute ?"
@@ -281,8 +295,6 @@ public class Resultat {
 	    	addRPE("Extrêment dur 19", 0.5, RED);
 	    	addRPE("Epuisant 20", 1.5, RED);
 		}
-
-		
 		
 	}
 	

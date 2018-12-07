@@ -19,7 +19,7 @@
 				<label for=#password>
 						Nouveau mot de passe : 
 				</label>		
-                <input type='password' name='password' id='pass_1' onkeyup="return passwordChanged();"  onBlur="checkPass()" required>
+                <input type='password' name='password' id='pass_1' onkeyup="return passwordChanged('pass_1');"  onBlur="checkPass('pass_1','pass_1')" required>
             	 <span id="strength" class="col col-xs-2"></span>
        </div> 
        <div class="row" >
@@ -29,7 +29,7 @@
 		  		<label>
 						Confirmer le mot de passe : 	
 				</label>	
-	            <input type="password" name="passwordConfirm" id="pass_2" onkeyup="checkPass()" required>
+	            <input type="password" name="passwordConfirm" id="pass_2" onkeyup="checkPass('pass_1','pass_2')" required>
 	     </div>
 	    <div id="divcomp">
 			   	<div class="row" >
