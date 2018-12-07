@@ -2,7 +2,7 @@
 
 La base de données est divisée en plusieurs collections.
 
-Pour l'implémentation, nous avons utilisé le driver officiel proposer par MongoDB pour le Java. Nous avons crée une classe mère en Java utilisée par héritage et qui permet de définir des interfaces simplifiant l'utilisation du reste du code.
+Pour l'implémentation, nous avons utilisé le driver officiel proposé par MongoDB pour le Java. Nous avons créé une classe mère en Java utilisée par héritage et qui permet de définir des interfaces simplifiant l'utilisation du reste du code.
 
 \subsection{Utilisateur ESTER}
 
@@ -35,8 +35,7 @@ Pour l'implémentation, nous avons utilisé le driver officiel proposer par Mong
 
 La collection correpond à celle prévue par nos chefs de projet comme
 les collections Entreprise et Salarie qui sont des collections proches (L'entreprise ne possède 
-pas d'email et le salarie n'a pas de mots de passe mais a la liste des questionnaires répondus ou à répondre
-) de Utilisateur ESTER donc nous ne nous répéterons pas. 
+pas d'email et le salarie n'a pas de mot de passe mais a la liste des questionnaires répondus ou à répondre) de Utilisateur ESTER donc nous ne nous répéterons pas. 
 
 
 \subsection{Questionnaire}
@@ -88,7 +87,7 @@ pas d'email et le salarie n'a pas de mots de passe mais a la liste des questionn
 \subsection{Sécurité}
 
 Nous stockons des mots de passe dans la base de données, nous avons eu besoin de sécuriser les mots de passe pour ne pas les stocker en clair.
-Nous avons comparé plusieurs technologies MD5, SHA256, SHA512, PBKDF2, BCrypt et SCrypt. Ce sont tous des fonctions de hachage mais certaines proposent des bases de salage (PBKDF2, BCrypt, SCrypt) qui permettent de se protéger contre les attaques utilisant des rainbows tables ou par dictionnaire. 
-Certaines fonctions de hachage sont difficilement optimisables ce qui permet de rendre plus difficile les attaques par la force brute. De ce fait, cela donne le temps à l'utilisateur de changer sont mot de passe.     
+Nous avons comparé plusieurs technologies MD5, SHA256, SHA512, PBKDF2, BCrypt et SCrypt. Ce sont toutes des fonctions de hachage mais certaines proposent des bases de salage (PBKDF2, BCrypt, SCrypt) qui permettent de se protéger contre les attaques utilisant des rainbows tables ou par dictionnaire. 
+Certaines fonctions de hachage sont difficilement optimisables ce qui permet de rendre plus difficile les attaques par la force brute. De ce fait, cela donne le temps à l'utilisateur de changer son mot de passe.     
 
-Nous avons choisi d'utilisé BCrypt car il propose une implémentation en java et il fait partie des algorithme les plus sécurisés.
+Nous avons choisi d'utilisé BCrypt car il propose une implémentation en java et il fait partie des algorithmes les plus sécurisés.
