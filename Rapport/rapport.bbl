@@ -1,3 +1,42 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{bcrypt}
+Bcrypt.
+\newblock Bcrypt java library and cli tool.
+\newblock \url{https://github.com/patrickfav/bcrypt}.
+\newblock [En ligne; accédé le 7 décembre 2018].
+
+\bibitem{bootstrap}
+Bootstrap.
+\newblock Documentation.
+\newblock
+  \url{https://getbootstrap.com/docs/4.1/getting-started/introduction/}.
+\newblock [En ligne; accédé le 7 décembre 2018].
+
+\bibitem{grapesJS}
+grapesJS.
+\newblock Free and open source web builder framework.
+\newblock \url{https://grapesjs.com/}.
+\newblock [En ligne; accédé le 7 décembre 2018].
+
+\bibitem{highcharts}
+Highcharts.
+\newblock Documentation.
+\newblock \url{https://www.highcharts.com/docs}.
+\newblock [En ligne; accédé le 7 décembre 2018].
+
+\bibitem{openClassroomJEE}
+OpenClassroom.
+\newblock Créez votre application web avec java ee.
+\newblock
+  \url{https://openclassrooms.com/fr/courses/626954-creez-votre-application-web-avec-java-ee}.
+\newblock [En ligne; accédé le 7 décembre 2018].
+
+\bibitem{openClassroomBootstrap}
+OpenClassroom.
+\newblock Prenez en main bootstrap.
+\newblock
+  \url{https://openclassrooms.com/fr/courses/1885491-prenez-en-main-bootstrap}.
+\newblock [En ligne; accédé le 7 décembre 2018].
 
 \end{thebibliography}

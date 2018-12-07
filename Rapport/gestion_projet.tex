@@ -8,27 +8,47 @@ En lien avec l'équipe ESTER, nous avons reçu pour objectif de réaliser un sit
 
 \subsection{Technologie côté serveur}
 
-Nous avons proposé d'utiliser NodeJS côté serveur, qui avait pour avantage d'être bien intégré avec MongoDB
-et de nous permettre d'utiliser une seule technologie qui est le JavaScript. Cela nous aurait économisé du 
-temps de développement.
-
 \subsubsection{JEE}
 
-Nos chefs de projet ont décidé d'utiliser le JEE car c'est une technologie qu'ils connaissaient et car le 
-JEE nous sera utile lors du prochain semestre. Ils estimaient, par ailleurs, qu'il s'agissait d'une solution facile à apprendre, en comparaison de NodeJS. 
-JEE est la version spécialiste de Java pour la création 
+\begin{description}
+
+\item[NodeJS] : NodeJS permet de créer des service web en utilisant du JavaScript. 
+
+NodeJS est une technologie moderne avec beaucoup de documentation récente. Elle permet de n'utilise quasiment que du javascript. NodeJS est plus complexe car il utilise un mécanisme de callback et de promesse, ils sont du au fonctionnement asynchrone de NodeJS. Ce fonctionnement asynchrone rend NodeJS très performant.
+
+\item[JEE] : JEE est la version spécialiste de Java pour la création 
 d'application pour les entreprises et permet de développer des services web.
+
+JEE présente l'avantage d'être simple, car il utilise des mécaniques proche de celle du Java que nous connaissons. 
+
+\end{description}
+
+Nous avons proposé d'utiliser NodeJS côté serveur, mais nos chefs de projet ont décidé d'utiliser le JEE car c'est une technologie qu'ils connaissaient et car JEE nous sera utile lors du prochain semestre. Ils estimaient, par ailleurs, qu'il s'agissait d'une solution facile à apprendre, en comparaison de NodeJS. 
 
 \subsection{Technologie côté client}
 
-JavaScript : Est un langage de programmation développé par Netscape en 1995 sous le nom de LiveScript. Il s'agit d'un langage de script léger, orienté objet, principalement connu comme le langage de script des pages web. \
+\begin{description}
 
-CSS : « Cascading Style Sheets » ce qui signifie « feuille de style en cascade ». 
+\item[JavaScript] : Est un langage de programmation développé par Netscape en 1995 sous le nom de LiveScript. Il s'agit d'un langage de script léger, orienté objet, principalement connu comme le langage de script des pages web. \
+
+JS nous permet d'effectuer des opérations coté client, modifier l'affichage ou lié des fonctions avec des boutons.
+
+\item[CSS] : « Cascading Style Sheets » ce qui signifie « feuille de style en cascade ». 
 Il s'agit d'un langage informatique utilisé pour mettre en forme les fichiers HTML ou XML. \
 
-Bootstrap : Correspond à une collection d'outils, développée depuis 2010, utiles pour la création de sites web. Cette collection contient des codes HTML et CSS ainsi que des extensions JavaScript. \  
+CSS permet de modifier l'affichage pour mieux correspond a nos besoin en plus de Bootstrap qui a définis déjà un CSS.
 
-Highcharts : Est une librairie JavaScript qui permet de générer des graphiques interactifs. Le projet nous demandait une certaine mise en forme des résultats. Les paramétrages s'effectuent en JSON et offrent la possibilité d'exporter dans les différents formats CSV, PDF, PNG et autres ainsi qu'être compatible avec les PCs/Tablettes/Smartphones.
+\item[Bootstrap] : Correspond à une collection d'outils, développée depuis 2010, utiles pour la création de sites web. Cette collection contient des codes HTML et CSS ainsi que des extensions JavaScript. \
+
+Il nous permet d'avoir un aspect unifié et de facilité le mise en place de page
+adaptatif entre mobile et PC. Nous avons déjà été amenez a utilisé Bootstrap lors de nos diverse projet. 
+
+\item[Highcharts] : Est une librairie JavaScript qui permet de générer des graphiques interactifs. Le projet nous demandait une certaine mise en forme des résultats. Les paramétrages s'effectuent en JSON et offrent la possibilité d'exporter dans les différents formats CSV, PDF, PNG et autres ainsi qu'être compatible avec les PCs/Tablettes/Smartphones.
+
+Nous l'avons choisi pour ça facilité à exporter les données et car il proposait
+des exemples pour facilité son intégration.
+
+\end{description}
 
 \subsection{Base de données}
 
@@ -36,11 +56,12 @@ Pour le projet, nous avons eu besoin d'une base de données modulaire car un des
 
 En plus des besoins spécifiques pour la sauvegarde des questionnaires et des réponses, il y a des besoins plus génériques comme la gestion des comptes que nous verrons plus en détails dans une autre partie.
 
-\subsubsection{MongoDB}
+\begin{description}
 
+\item[MongoDB] : 
 Nous sommes partis sur du MongoDB qui fait partie de la mouvance NoSQL s'écartant du paradigme classique des bases relationnelles. Cela nous permet de nous affranchir d'une des contraintes des bases de données SQL qui est de prévoir un schéma prédéfini. Nous sommes quand même partis d'un schéma de base pour avoir des données en partie structurée.
 
-En offrant une plus grande flexibilité, en permettant de gérer des données structurées, MongoDB est particulièrement utile pour les questionnaires et les réponses car si un questionnaire est modifié, il était nécessaire que les anciennes réponses restent en partie utilisables.
+En offrant une plus grande flexibilité, en permettant de gérer des données non structurées, MongoDB est particulièrement utile pour les questionnaires et les réponses car si un questionnaire est modifié, il était nécessaire que les anciennes réponses restent en partie utilisables.
 
 \begin{figure}[H]
     \begin{center}
@@ -51,25 +72,27 @@ En offrant une plus grande flexibilité, en permettant de gérer des données st
 
 Ce choix du type de la base de données a été proposé par nos chefs de projet. La raison du choix de MongoDB s'explique par le fait qu'il est le membre le plus sécurisé de la famille NoSQL et facilement maintenable.   
 
+\end{description}
+
 \section{Planification et répartition des tâches}
 
 \subsection{Outils utilisés}
 
-\begin{itemize}
-\item Github : 
+\begin{description}
+
+\item[Github] : 
 Git est un outil très utilisé de nos jours dans les entreprises et projets nécessitant un partage de fichiers. Grâce à un espace de stockage à distance et à des fichiers en local, chacun peut travailler sur sa partie et la partager aux autres de manière efficace. Sitôt une partie réalisée, les utilisateurs de Git peuvent envoyer en ligne leurs tâches ce qui permet à leurs collègues de récupérer le code et de l'ajouter au leur par fusion.
 
-\item Trello :
+\item[Trello] :
 Trello est un site internet que nous avons utilisé régulièrement afin de nous attribuer des tâches. Il nous permettait de connaître les parties de chacun et ainsi de mieux nous diriger lorsqu'il était nécessaire de demander des fonctionnalités, les uns les autres.
 
-\item Slack :
+\item[Slack] :
 Nous disposions tout au long du cycle de développement d'un Slack afin d'échanger respectivement nos remarques et interrogations. Toutefois, ne disposant pas d'une version premium, nous ne l'avons pas utilisé pour partager des informations importantes car elles auraient été perdues.
 
-\item E-mail :
+\item[E-mail] :
 Comme explicité précédemment, nous n'avons pas pu nous servir de Slack pour échanger de documents importants ou pour garder des conversations importantes. C'est pourquoi nous avons privilégié les adresses e-mails.
 
-\end{itemize}
-
+\end{description}
 
 \subsection{Diagramme de Gantt}
 
@@ -83,11 +106,12 @@ Comme explicité précédemment, nous n'avons pas pu nous servir de Slack pour �
 \subsection{Répartitions des rôles}
 
 Nos chefs de projet nous ont demandé dès le début du semestre de leur indiquer nos préférences concernant nos tâches dans le cycle de développement. Imane et Charles se sont occupés principalement du Front-End, Théo et Nidal se sont chargés du Back-End.
+
 Par ailleurs, nos Master 2 souhaitaient que nous nous attribuions un rôle de groupe : 
 
-\begin{itemize}
-\item Nidal : Chargée de décisions
-\item Imane : Chargée d'organisation
-\item Théo : Référent technique
-\item Charles : Chargé de communication
-\end{itemize}
+\begin{description}
+\item[Nidal] : Chargée de décisions
+\item[Imane] : Chargée d'organisation
+\item[Théo] : Référent technique
+\item[Charles] : Chargé de communication
+\end{description}
