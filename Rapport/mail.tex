@@ -1,6 +1,6 @@
 \section{Administration e-mail}
 
-\subsection{Envoi Email}
+\subsection{Envoi de l'e-mail}
 
 \begin{itemize}
 
@@ -36,5 +36,5 @@ Un compte administrateur peut accéder à l’interface lui permettant de config
 \end{itemize}
     
 
-\subsection{Réinitialisation mot de passe}
+\subsection{Réinitialisation du mot de passe}
 	Dans le cadre de la gestion des utilisateurs ESTER, il s’est avéré important de définir la fonctionnalité réinitialisation de mots de passe. Pour cette fin, nous avons défini deux interfaces, la première sert à indiquer l’e-mail du compte et la deuxième sert à définir un nouveau mot de passe, ainsi que l’email de réinitialisation expirant dans un délai prédéfini. Pour l’implémenter, nous avons opté pour l’utilisation d’un token unique dans l’URL envoyé en e-mail. Il est généré en utilisant la méthode Java UUID.randomUUID(), qui crée un UUID aléatoire afin d’éviter les collisions. Ainsi, ce token est enregistré en base de données en le liant à l’e-mail du compte et la date d’expiration qui, à son tour, est vérifié lors de l’accès au lien afin de définir sa validité.
