@@ -1,8 +1,8 @@
-\chapter{Gestion du projet}
+\chapter{Organisation du projet}
 
 \section{Présentation du projet}
 
-En lien avec l'équipe ESTER, nous avons reçu, pour tâche, de réaliser un site web permettant de créer des questionnaires médicaux auxquels pourraient répondre des salariés de diverses entreprises. Selon le cahier des charges et tout en respectant le secret professionnel, nous devions faire en sorte que les patients puissent répondre aux questions que les médecins auraient préparé dans des questionnaires, enregistrés dans une base de données. Une fois créé et enregistré, le corps médical devait pouvoir les attribuer en fonction des cas. Par la suite, des résultats devaient être calculés et affichés aux personnels soignants afin qu'ils puissent se rendre compte des chiffres. 
+En lien avec l'équipe ESTER, nous avons reçu pour objectif de réaliser un site web permettant de créer des questionnaires médicaux auxquels pourraient répondre les salariés de diverses entreprises. Selon le cahier des charges et tout en respectant le secret professionnel, nous devions faire en sorte que les patients (salariés) puissent répondre aux questions que les médecins auraient préparé dans des questionnaires, enregistrés dans une base de données. Une fois créé et enregistré, le corps médical devait pouvoir les attribuer en fonction des cas. Par la suite, des résultats devaient être calculés et affichés aux personnels soignant afin qu'ils puissent se rendre compte des chiffres. 
 
 \section{Choix technologiques}
 
@@ -40,7 +40,7 @@ En plus des besoins spécifiques pour la sauvegarde des questionnaires et des r�
 
 Nous sommes partis sur du MongoDB qui fait partie de la mouvance NoSQL s'écartant du paradigme classique des bases relationnelles. Cela nous permet de nous affranchir d'une des contraintes des bases de données SQL qui est de prévoir un schéma prédéfini. Nous sommes quand même partis d'un schéma de base pour avoir des données en partie structurée.
 
-En offrant une plus grande flexibilité, en permettant de gérer des données hétérogènes, MongoDB est particulièrement utile pour les questionnaires et les réponses car si un questionnaire est modifié, il était nécessaire que les anciennes réponses restent en parti utilisables.
+En offrant une plus grande flexibilité, en permettant de gérer des données structurées, MongoDB est particulièrement utile pour les questionnaires et les réponses car si un questionnaire est modifié, il était nécessaire que les anciennes réponses restent en partie utilisables.
 
 \begin{figure}[H]
     \begin{center}
@@ -49,26 +49,24 @@ En offrant une plus grande flexibilité, en permettant de gérer des données h�
     \caption{Logo de MongoDB}
 \end{figure}
 
-Ce choix du type de la base de données a été proposé par nos chefs de projet. La raison du choix de MongoDB s'explique par le fait qu'il est le membre le plus populaire de la famille NoSQL.   
+Ce choix du type de la base de données a été proposé par nos chefs de projet. La raison du choix de MongoDB s'explique par le fait qu'il est le membre le plus sécurisé de la famille NoSQL et facilement maintenable.   
 
 \section{Planification et répartition des tâches}
 
 \subsection{Outils utilisés}
 
 \begin{itemize}
-\item Git hub : 
+\item Github : 
 Git est un outil très utilisé de nos jours dans les entreprises et projets nécessitant un partage de fichiers. Grâce à un espace de stockage à distance et à des fichiers en local, chacun peut travailler sur sa partie et la partager aux autres de manière efficace. Sitôt une partie réalisée, les utilisateurs de Git peuvent envoyer en ligne leurs tâches ce qui permet à leurs collègues de récupérer le code et de l'ajouter au leur par fusion.
 
 \item Trello :
 Trello est un site internet que nous avons utilisé régulièrement afin de nous attribuer des tâches. Il nous permettait de connaître les parties de chacun et ainsi de mieux nous diriger lorsqu'il était nécessaire de demander des fonctionnalités, les uns les autres.
 
 \item Slack :
-
 Nous disposions tout au long du cycle de développement d'un Slack afin d'échanger respectivement nos remarques et interrogations. Toutefois, ne disposant pas d'une version premium, nous ne l'avons pas utilisé pour partager des informations importantes car elles auraient été perdues.
 
-\item e-mail :
-
-Comme dit précédemment, nous n'avons pas pu nous servir de Slack pour échanger de documents importants ou pour garder des conversations importantes. C'est pourquoi nous avons privilégié les adresses e-mails.
+\item E-mail :
+Comme explicité précédemment, nous n'avons pas pu nous servir de Slack pour échanger de documents importants ou pour garder des conversations importantes. C'est pourquoi nous avons privilégié les adresses e-mails.
 
 \end{itemize}
 
