@@ -1,3 +1,31 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{1}
+
+\bibitem{bootstrap}
+Bootstrap.
+\newblock Documentation.
+\newblock
+  \url{https://getbootstrap.com/docs/4.1/getting-started/introduction/}.
+
+\bibitem{grapesJS}
+grapesJS.
+\newblock Free and open source web builder framework.
+\newblock \url{https://grapesjs.com/}.
+
+\bibitem{highcharts}
+Highcharts.
+\newblock Documentation.
+\newblock \url{https://www.highcharts.com/docs}.
+
+\bibitem{openClassroomJEE}
+OpenClassroom.
+\newblock Créez votre application web avec java ee.
+\newblock
+  \url{https://openclassrooms.com/fr/courses/626954-creez-votre-application-web-avec-java-ee}.
+
+\bibitem{openClassroomBootstrap}
+OpenClassroom.
+\newblock Prenez en main bootstrap.
+\newblock
+  \url{https://openclassrooms.com/fr/courses/1885491-prenez-en-main-bootstrap}.
 
 \end{thebibliography}
