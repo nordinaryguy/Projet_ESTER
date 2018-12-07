@@ -2,9 +2,9 @@
 
 \section{Présentation du projet}
 
-En lien avec l'équipe ESTER, nous avons reçu, pour tâche, de réaliser un site web permettant de créer des questionnaires médicaux auxquels pourraient répondre des salariés de diverses entreprises. Selon le cahier des charges et tout en respectant le secret professionnel, nous devions faire en sorte que les patients puissent répondre aux questions que les médecins auraient préparé dans des questionnaires, enregistrés dans une base de données. Une fois créé et enregistré, le corps médical devait pouvoir les attribuer en fonction des cas. Par la suite, des résultats devaient être calculé et affiché aux personnels soignants afin qu'ils puissent se rendre compte des chiffres. 
+En lien avec l'équipe ESTER, nous avons reçu, pour tâche, de réaliser un site web permettant de créer des questionnaires médicaux auxquels pourraient répondre des salariés de diverses entreprises. Selon le cahier des charges et tout en respectant le secret professionnel, nous devions faire en sorte que les patients puissent répondre aux questions que les médecins auraient préparé dans des questionnaires, enregistrés dans une base de données. Une fois créé et enregistré, le corps médical devait pouvoir les attribuer en fonction des cas. Par la suite, des résultats devaient être calculés et affichés aux personnels soignants afin qu'ils puissent se rendre compte des chiffres. 
 
-\section{Choix technologies}
+\section{Choix technologiques}
 
 \subsection{Technologie côté serveur}
 
@@ -15,7 +15,8 @@ temps de développement.
 \subsubsection{JEE}
 
 Nos chefs de projet ont décidé d'utiliser le JEE car c'est une technologie qu'ils connaissaient et car le 
-JEE nous sera utile lors du prochain semestre. JEE est la version spécialiste de Java pour la création 
+JEE nous sera utile lors du prochain semestre. Ils estimaient, par ailleurs, qu'il s'agissait d'une solution facile à apprendre, en comparaison de NodeJS. 
+JEE est la version spécialiste de Java pour la création 
 d'application pour les entreprises et permet de développer des services web.
 
 \subsection{Technologie côté client}
@@ -34,13 +35,13 @@ Highcharts est une librairie JavaScript qui permet de générer des graphiques i
 
 \subsection{Base de données}
 
-Pour le projet, nous avons eu besoin d'une base de données modulaire car un des besoins était que les questionnaires pouvaient évoluer : création, modification ou suppressions de questions. Un autre des besoins était que l'utilisateur puisse faire des sauvegardes partielles pour reprendre le questionnaire en cas de problème ou si l'utilisateur souhaitait faire une pause. 
+Pour le projet, nous avons eu besoin d'une base de données modulaire car un des besoins était que les questionnaires pouvaient évoluer : création, modification ou suppression de questions. Un autre des besoins était que l'utilisateur puisse faire des sauvegardes partielles pour reprendre le questionnaire en cas de problème ou si l'utilisateur souhaitait faire une pause. 
 
-En plus des besoins spécifique pour la sauvegarde des questionnaires et des réponses, il y a des besoins plus génériques comme la gestion des comptes que nous verrons plus en détails dans une autre partie.
+En plus des besoins spécifiques pour la sauvegarde des questionnaires et des réponses, il y a des besoins plus génériques comme la gestion des comptes que nous verrons plus en détails dans une autre partie.
 
 \subsubsection{MongoDB}
 
-Nous sommes partie sur du MongoDB qui fait partie de la mouvance NoSQL s'écartant du paradigme classique des bases relationnelles. Cela nous permet de nous affranchir d'une des contraintes des bases de données SQL qui est de prévoir un schéma prédéfini. Nous sommes quand même partie d'un schéma de base pour avoir des données en partie structurée.
+Nous sommes partis sur du MongoDB qui fait partie de la mouvance NoSQL s'écartant du paradigme classique des bases relationnelles. Cela nous permet de nous affranchir d'une des contraintes des bases de données SQL qui est de prévoir un schéma prédéfini. Nous sommes quand même partis d'un schéma de base pour avoir des données en partie structurée.
 
 En offrant une plus grande flexibilité, en permettant de gérer des données hétérogènes, MongoDB est particulièrement utile pour les questionnaires et les réponses car si un questionnaire est modifié, il était nécessaire que les anciennes réponses restent en parti utilisables.
 
